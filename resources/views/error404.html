@@ -4,11 +4,11 @@
 <title>Matrix Admin</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="css/matrix-style.css" />
-<link rel="stylesheet" href="css/matrix-media.css" />
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../public/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../../public/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="../../public/css/matrix-style.css" />
+<link rel="stylesheet" href="../../public/css/matrix-media.css" />
+<link href="../../public/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -56,14 +56,14 @@
 
 <!--sidebar-menu-->
 
-<div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-list"></i>Forms</a>
+<div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-info-sign"></i> Error</a>
   <ul>
     <li><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     <li><a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
     <li><a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
     <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
     <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>
-    <li class="submenu active"> <a href="#"><i class="icon icon-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
+    <li class="submenu"> <a href="#"><i class="icon icon-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
       <ul>
         <li><a href="form-common.html">Basic Form</a></li>
         <li><a href="form-validation.html">Form with Validation</a></li>
@@ -81,7 +81,7 @@
         <li><a href="chat.html">Chat option</a></li>
       </ul>
     </li>
-    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
+    <li class="submenu active"> <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
       <ul>
         <li><a href="error403.html">Error 403</a></li>
         <li><a href="error404.html">Error 404</a></li>
@@ -107,59 +107,22 @@
 </div>
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Form elements</a> <a href="#" class="current">Form wizard</a> </div>
-    <h1>Form wizard</h1>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Sample pages</a> <a href="#" class="current">Error</a> </div>
+    <h1>Error 404</h1>
   </div>
-  <div class="container-fluid"><hr>
+  <div class="container-fluid">
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-            <h5>Form wizard &amp; validation</h5>
+          <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
+            <h5>Error 404</h5>
           </div>
-          <div class="widget-content nopadding">
-            <form id="form-wizard" class="form-horizontal" method="post">
-              <div id="form-wizard-1" class="step">
-                <div class="control-group">
-                  <label class="control-label">Username</label>
-                  <div class="controls">
-                    <input id="username" type="text" name="username" />
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label">Password</label>
-                  <div class="controls">
-                    <input id="password" type="password" name="password" />
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label">Confirm Password</label>
-                  <div class="controls">
-                    <input id="password2" type="password" name="password2" />
-                  </div>
-                </div>
-              </div>
-              <div id="form-wizard-2" class="step">
-                <div class="control-group">
-                  <label class="control-label">Email</label>
-                  <div class="controls">
-                    <input id="email" type="text" name="email" />
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label">EULA</label>
-                  <div class="controls">
-                    <input id="eula" type="checkbox" name="eula" />
-                  </div>
-                </div>
-              </div>
-              <div class="form-actions">
-                <input id="back" class="btn btn-primary" type="reset" value="Back" />
-                <input id="next" class="btn btn-primary" type="submit" value="Next" />
-                <div id="status"></div>
-              </div>
-              <div id="submitted"></div>
-            </form>
+          <div class="widget-content">
+            <div class="error_ex">
+              <h1>404</h1>
+              <h3>Opps, You're lost.</h3>
+              <p>We can not find the page you're looking for.</p>
+              <a class="btn btn-warning btn-big"  href="index.html">Back to Home</a> </div>
           </div>
         </div>
       </div>
@@ -171,12 +134,9 @@
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
 </div>
 <!--end-Footer-part-->
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.validate.js"></script> 
-<script src="js/jquery.wizard.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/matrix.wizard.js"></script>
+<script src="../../public/js/jquery.min.js"></script>
+<script src="../../public/js/jquery.ui.custom.js"></script>
+<script src="../../public/js/bootstrap.min.js"></script>
+<script src="js/maruti.js"></script>
 </body>
 </html>

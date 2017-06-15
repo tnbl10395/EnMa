@@ -4,14 +4,16 @@
 <title>Matrix Admin</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="css/fullcalendar.css" />
-<link rel="stylesheet" href="css/matrix-style.css" />
-<link rel="stylesheet" href="css/matrix-media.css" />
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/jquery.gritter.css" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}" />
+<link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}" />
+<link rel="stylesheet" href="{{asset('css/matrix-style.css')}}" />
+<link rel="stylesheet" href="{{asset('css/matrix-media.css')}}" />
+  <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="{{asset('css/jquery.gritter.css')}}" />
+
 </head>
 <body>
 
@@ -46,7 +48,7 @@
       </ul>
     </li>
     <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-    <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+    <li class=""><a title="" href="login"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>
 <!--close-top-Header-menu-->
@@ -59,37 +61,27 @@
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
-    <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
-    <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
-    <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
-    <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
-    <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
+    <li class="active"><a href=""><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Manage Team</span> <span class="label label-important">2</span></a>
       <ul>
-        <li><a href="form-common.html">Basic Form</a></li>
-        <li><a href="form-validation.html">Form with Validation</a></li>
-        <li><a href="form-wizard.html">Form with Wizard</a></li>
+        <li><a href="form-common.html">Add Team</a></li>
+        <li><a href="form-validation.html">Edit Team</a></li>
       </ul>
     </li>
-    <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-    <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span class="label label-important">5</span></a>
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Manage Project</span> <span class="label label-important">2</span></a>
       <ul>
-        <li><a href="index2.html">Dashboard2</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="invoice.html">Invoice</a></li>
-        <li><a href="chat.html">Chat option</a></li>
+        <li><a href="form-common.html">Add Project</a></li>
+        <li><a href="form-validation.html">Edit Project</a></li>
       </ul>
     </li>
-    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
+    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Manage Engineer</span> <span class="label label-important">2</span></a>
       <ul>
-        <li><a href="error403.html">Error 403</a></li>
-        <li><a href="error404.html">Error 404</a></li>
-        <li><a href="error405.html">Error 405</a></li>
-        <li><a href="error500.html">Error 500</a></li>
+        <li><a href="form-common.html">Add Engineer</a></li>
+        <li><a href="form-validation.html">Edit Engineer</a></li>
       </ul>
     </li>
+    <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>
+
     <li class="content"> <span>Monthly Bandwidth Transfer</span>
       <div class="progress progress-mini progress-danger active progress-striped">
         <div style="width: 77%;" class="bar"></div>
@@ -171,19 +163,19 @@
           <div class="widget-content nopadding collapse in" id="collapseG2">
             <ul class="recent-posts">
               <li>
-                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av1.jpg"> </div>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="{{asset('img/demo/av1.jpg')}}"> </div>
                 <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
                   <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
                 </div>
               </li>
               <li>
-                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av2.jpg"> </div>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="{{asset('img/demo/av2.jpg')}}"> </div>
                 <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
                   <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
                 </div>
               </li>
               <li>
-                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av4.jpg"> </div>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="{{asset('img/demo/av4.jpg')}}"> </div>
                 <div class="article-post"> <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
                   <p><a href="#">This is a much longer one that will go on for a few lines.Itaffle to pad out the comment.</a> </p>
                 </div>
@@ -282,11 +274,11 @@
               </div>
               <div class="panel-content nopadding">
                 <ul class="contact-list">
-                  <li id="user-Alex" class="online"><a href=""><img alt="" src="img/demo/av1.jpg" /> <span>Alex</span></a></li>
-                  <li id="user-Linda"><a href=""><img alt="" src="img/demo/av2.jpg" /> <span>Linda</span></a></li>
-                  <li id="user-John" class="online new"><a href=""><img alt="" src="img/demo/av3.jpg" /> <span>John</span></a><span class="msg-count badge badge-info">3</span></li>
-                  <li id="user-Mark" class="online"><a href=""><img alt="" src="img/demo/av4.jpg" /> <span>Mark</span></a></li>
-                  <li id="user-Maxi" class="online"><a href=""><img alt="" src="img/demo/av5.jpg" /> <span>Maxi</span></a></li>
+                  <li id="user-Alex" class="online"><a href=""><img alt="" src="{{asset('img/demo/av1.jpg')}}" /> <span>Alex</span></a></li>
+                  <li id="user-Linda"><a href=""><img alt="" src="{{asset('img/demo/av2.jpg')}}" /> <span>Linda</span></a></li>
+                  <li id="user-John" class="online new"><a href=""><img alt="" src="{{asset('img/demo/av3.jpg')}}" /> <span>John</span></a><span class="msg-count badge badge-info">3</span></li>
+                  <li id="user-Mark" class="online"><a href=""><img alt="" src="{{asset('img/demo/av4.jpg')}}" /> <span>Mark</span></a></li>
+                  <li id="user-Maxi" class="online"><a href=""><img alt="" src="{{asset('img/demo/av5.jpg')}}" /> <span>Maxi</span></a></li>
                 </ul>
               </div>
             </div>
@@ -309,19 +301,19 @@
           <div class="widget-content nopadding fix_hgt">
             <ul class="recent-posts">
               <li>
-                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av1.jpg"> </div>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="{{asset('img/demo/av1.jpg')}}"> </div>
                 <div class="article-post"> <span class="user-info">John Deo</span>
                   <p>Web Desginer &amp; creative Front end developer</p>
                 </div>
               </li>
               <li>
-                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av2.jpg"> </div>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="{{asset('img/demo/av2.jpg')}}"> </div>
                 <div class="article-post"> <span class="user-info">John Deo</span>
                   <p>Web Desginer &amp; creative Front end developer</p>
                 </div>
               </li>
               <li>
-                <div class="user-thumb"> <img width="40" height="40" alt="User" src="img/demo/av4.jpg"> </div>
+                <div class="user-thumb"> <img width="40" height="40" alt="User" src="{{asset('img/demo/av4.jpg')}}"> </div>
                 <div class="article-post"> <span class="user-info">John Deo</span>
                   <p>Web Desginer &amp; creative Front end developer</p>
                 </div>
@@ -391,13 +383,13 @@
           <div class="widget-content tab-content">
             <div id="tab1" class="tab-pane active">
               <p>And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment.</p>
-              <img src="img/demo/demo-image1.jpg" alt="demo-image"/></div>
-            <div id="tab2" class="tab-pane"> <img src="img/demo/demo-image2.jpg" alt="demo-image"/>
+              <img src="{{asset('img/demo/demo-image1.jpg')}}" alt="demo-image"/></div>
+            <div id="tab2" class="tab-pane"> <img src="{{asset('img/demo/demo-image2.jpg')}}" alt="demo-image"/>
               <p>And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment.</p>
             </div>
             <div id="tab3" class="tab-pane">
               <p>And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment. </p>
-              <img src="img/demo/demo-image3.jpg" alt="demo-image"/></div>
+              <img src="{{asset('img/demo/demo-image3.jpg')}}" alt="demo-image"/></div>
           </div>
         </div>
       </div>
@@ -415,27 +407,27 @@
 
 <!--end-Footer-part-->
 
-<script src="js/excanvas.min.js"></script> 
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.flot.min.js"></script> 
-<script src="js/jquery.flot.resize.min.js"></script> 
-<script src="js/jquery.peity.min.js"></script> 
-<script src="js/fullcalendar.min.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/matrix.dashboard.js"></script> 
-<script src="js/jquery.gritter.min.js"></script> 
-<script src="js/matrix.interface.js"></script> 
-<script src="js/matrix.chat.js"></script> 
-<script src="js/jquery.validate.js"></script> 
-<script src="js/matrix.form_validation.js"></script> 
-<script src="js/jquery.wizard.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
-<script src="js/matrix.popover.js"></script> 
-<script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.tables.js"></script> 
+<script src="{{asset('js/excanvas.min.js')}}"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/jquery.ui.custom.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/jquery.flot.min.js')}}"></script>
+<script src="{{asset('js/jquery.flot.resize.min.js')}}"></script>
+<script src="{{asset('js/jquery.peity.min.js')}}"></script>
+<script src="{{asset('js/fullcalendar.min.js')}}"></script>
+<script src="{{asset('js/matrix.js')}}"></script>
+<script src="{{asset('js/matrix.dashboard.js')}}"></script>
+<script src="{{asset('js/jquery.gritter.min.js')}}"></script>
+<script src="{{asset('js/matrix.interface.js')}}"></script>
+<script src="{{asset('js/matrix.chat.js')}}"></script>
+<script src="{{asset('js/jquery.validate.js')}}"></script>
+<script src="{{asset('js/matrix.form_validation.js')}}"></script>
+<script src="{{asset('js/jquery.wizard.js')}}"></script>
+<script src="{{asset('js/jquery.uniform.js')}}"></script>
+<script src="{{asset('js/select2.min.js')}}"></script>
+<script src="{{asset('js/matrix.popover.js')}}"></script>
+<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('js/matrix.tables.js')}}"></script>
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
