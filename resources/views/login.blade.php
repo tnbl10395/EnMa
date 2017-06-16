@@ -45,13 +45,13 @@
                
                 <div class="form-actions">
                     <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-                    <span class="pull-right"><a class="btn btn-info"/>Recover</a></span>
+                    <span class="pull-right"><a class="btn btn-info">Recover</a></span>
                 </div>
             </form>
         </div>
 
-        <script src="../../public/js/jquery.min.js"></script>
-        <script src="../../public/js/matrix.login.js"></script>
+        <script src="{{asset('js/jquery.min.js')}}"></script>
+        <script src="{{asset('js/matrix.login.js')}}"></script>
     </body>
 
 </html>
