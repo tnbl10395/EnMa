@@ -20,15 +20,9 @@ Route::get('test', function (){
 Route::get('login', function(){
     return view('login');
 });
-Route::get('EM', function(){
-    return view('IndexEngiManage');
-});
-Route::get('AddEn', function(){
-    return view('FormInsertEngi');
-});
-Route::get('EditEn', function(){
-    return view('FormEditEngi');
-});
+Route::get('/EngineerManagement','MiniUserController@IndexEm');
+Route::get('/AddEngineer','MiniUserController@AddEm');
+Route::get('/EditEngineer','MiniUserController@EditEm');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

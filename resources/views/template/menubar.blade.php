@@ -73,8 +73,8 @@
     </li>
     <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Manage Engineer</span> <span class="label label-important">2</span></a>
       <ul>
-        <li><a href="form-common.html">Add Engineer</a></li>
-        <li><a href="form-validation.html">Edit Engineer</a></li>
+        <li><a href="../AddEngineer">Add Engineer</a></li>
+        <li><a href="../EngineerManagement">Manage Engineer</a></li>
       </ul>
     </li>
     <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>
