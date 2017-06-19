@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class miniUser extends Model
+class Engineer extends Model
 {
-    return view('');
+    protected $table = 'Engineer';
 }
