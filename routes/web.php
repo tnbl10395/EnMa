@@ -41,6 +41,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+=======
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -54,4 +59,5 @@ Route::get('/checkDB', function ()
 {
     dd(DB::connection()->getDatabaseName());
 });
+>>>>>>> master
 >>>>>>> master

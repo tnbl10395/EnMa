@@ -1,7 +1,11 @@
 <?php $__env->startSection('content'); ?>
 <div id="content">
   <div id="content-header">
+<<<<<<< HEAD
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Engineers Management</a> </div>
+=======
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="current">Engineers Management</a> </div>
+>>>>>>> master
     <h1>Engineers Management</h1>
   </div>
   <div class="container-fluid">
@@ -30,7 +34,11 @@
         </div>  
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+<<<<<<< HEAD
+            <button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>
+=======
             <button onclick="transferAddEngineer()" class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>
+>>>>>>> master
             
           </div>
           <div class="widget-content nopadding">
