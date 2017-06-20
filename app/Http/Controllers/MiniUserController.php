@@ -15,7 +15,7 @@ class MiniUserController extends Controller
     public function EditEm(){
     	return view('FormEditEngi');
     }
-<<<<<<< HEAD
+
 
     public function IndexPro(){
     	return view('IndexProjectManagement');
@@ -26,7 +26,7 @@ class MiniUserController extends Controller
     public function EditPro(){
     	return view('FormEditPro');
     }
-=======
+
     public function IndexTm(){
         return view('team.IndexTeamManager');
     }
@@ -37,5 +37,5 @@ class MiniUserController extends Controller
         return view('team.FormEditTeam');
     }
 
->>>>>>> master
+
 }

@@ -3,15 +3,9 @@
 @section('content')
 <div id="content">
   <div id="content-header">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div id="breadcrumb"> <a href="index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Engineers Management</a> </div>
-=======
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Engineers Management</a> </div>
->>>>>>> master
-=======
+
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="current">Engineers Management</a> </div>
->>>>>>> master
+
     <h1>Engineers Management</h1>
   </div>
   <div class="container-fluid">
@@ -67,9 +61,6 @@
                   <td>01654351834</td>
                   <td>PHP, Java</td>
                   <td>10 years</td>
-<<<<<<< HEAD
-                  <td> <a href="../EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-=======
                   <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
                   <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
                 </tr>
@@ -82,7 +73,6 @@
                   <td>PHP, Java</td>
                   <td>10 years</td>
                   <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
->>>>>>> master
                   <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
                 </tr>
               </tbody>
@@ -93,4 +83,6 @@
     </div>
   </div>
 </div>
+
+
 @stop

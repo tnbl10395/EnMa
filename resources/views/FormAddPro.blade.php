@@ -86,6 +86,6 @@
         </div>
       </div>
 </div></div>
-<script src=".s/js/matrix.form_common.js"></script>
+<script src="js/matrix.form_common.js"></script>
 
 @stop

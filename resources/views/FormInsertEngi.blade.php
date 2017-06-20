@@ -59,27 +59,6 @@
               </div>
             </div>
             
-<!--             <div class="control-group">
-              <label class="control-label">Radio inputs</label>
-              <div class="controls">
-                <label>
-                  <input type="radio" name="radios" />
-                  First One</label>
-                <label>
-                  <input type="radio" name="radios" />
-                  Second One</label>
-                <label>
-                  <input type="radio" name="radios" />
-                  Third One</label>
-              </div>
-        <div class="control-group">
-              <label class="control-label">Date Picker (mm-dd)</label>
-              <div class="controls">
-                <div  data-date="12-02-2012" class="input-append date datepicker">
-                  <input type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
-                  <span class="add-on"><i class="icon-th"></i></span> </div>
-              </div> -->
-
              <div class="control-group">
               <label class="control-label">Technical Skill :</label>
               <div class="controls">
@@ -107,7 +86,6 @@
           </form>
         </div>
       </div>
-
-
 </div></div>
+<script src="/js/matrix.form_common.js"></script>
 @stop

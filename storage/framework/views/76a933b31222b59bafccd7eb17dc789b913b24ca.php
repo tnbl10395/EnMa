@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Engineers Management</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="css/uniform.css" />
-<link rel="stylesheet" href="css/select2.css" />
-<link rel="stylesheet" href="css/matrix-style.css" />
-<link rel="stylesheet" href="css/matrix-media.css" />
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+    <title>Engineers Management</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <!--  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="css/uniform.css"/>
+    <link rel="stylesheet" href="css/select2.css"/>
+    <link rel="stylesheet" href="css/matrix-style.css"/>
+    <link rel="stylesheet" href="css/matrix-media.css"/>
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/dash.css"/> -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/colorpicker.css" />
+    <link rel="stylesheet" href="css/uniform.css"/>
+    <link rel="stylesheet" href="css/select2.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="css/fullcalendar.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/datepicker.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
 </head>
 <body>
 
 <!--Header-part-->
 <div id="header">
-<<<<<<< HEAD
-  <h1><a href="index">Management</a></h1>
-=======
   <h1><a href="dashboard.html">Management</a></h1>
->>>>>>> master
 </div>
 <!--close-Header-part--> 
 
@@ -34,29 +44,10 @@
         <li class="divider"></li>
         <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
         <li class="divider"></li>
-<<<<<<< HEAD
-        <li><a href="login"><i class="icon-key"></i> Log Out</a></li>
-      </ul>
-    </li>
-    <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
-        <li class="divider"></li>
-        <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i> inbox</a></li>
-        <li class="divider"></li>
-        <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> outbox</a></li>
-        <li class="divider"></li>
-        <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> trash</a></li>
-      </ul>
-    </li>
-    <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-    <li class=""><a title="" href="login"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
-=======
         <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
       </ul>
     </li>
     <li class=""><a title="" href="/login"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
->>>>>>> master
   </ul>
 </div>
 <!--close-top-Header-menu-->
@@ -69,40 +60,31 @@
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
-<<<<<<< HEAD
-    <li class="active"><a href=""><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
-=======
     <li class="active"><a href="/"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
->>>>>>> master
-    <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Manage Team</span> <span class="label label-important">2</span></a>
+    
+    <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Teams</span> <span class="label label-important">2</span></a>
       <ul>
         <li><a href="/TeamManagement">Manage Team</a></li>
         <li><a href="/AddTeam">Add Team</a></li>
       </ul>
     </li>
-    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Manage Project</span> <span class="label label-important">2</span></a>
+    
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Projects</span> <span class="label label-important">2</span></a>
       <ul>
-<<<<<<< HEAD
-        <li><a href="form-common.html">Add Project</a></li>
-        <li><a href="form-validation.html">Edit Project</a></li>
-=======
-       <li><a href="../ProjectManagement">Project Management</a></li>
-        <li><a href="../AddProject">Add Project</a></li>
+         <li><a href="/ProjectManagement">Project Management</a></li>
+         <li><a href="/AddProject">Add Project</a></li>
        
->>>>>>> master
       </ul>
     </li>
-    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Manage Engineer</span> <span class="label label-important">2</span></a>
+    
+    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Engineers</span> <span class="label label-important">2</span></a>
       <ul>
-        <li><a href="../AddEngineer">Add Engineer</a></li>
-        <li><a href="../EngineerManagement">Manage Engineer</a></li>
+        <li><a href="/EngineerManagement">Manage Engineer</a></li>
+        <li><a href="/AddEngineer">Add Engineer</a></li>
       </ul>
     </li>
-<<<<<<< HEAD
-    <li><a href="login"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>
-=======
+    
     <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>
->>>>>>> master
 
     <li class="content"> <span>Monthly Bandwidth Transfer</span>
       <div class="progress progress-mini progress-danger active progress-striped">
@@ -123,79 +105,35 @@
 <!--sidebar-menu-->
   <?php echo $__env->yieldContent('content'); ?>
 
-<<<<<<< HEAD
-<!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2017 Enclave's Project. Team B </div>
-=======
 <div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
->>>>>>> master
 </div>
 <!--end-Footer-part-->
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.ui.custom.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.uniform.js"></script>
 <script src="js/select2.min.js"></script>
-<script src="js/jquery.dataTables.min.js"></script>
 <script src="js/matrix.js"></script>
 <script src="js/matrix.tables.js"></script>
-<!--<script src="/js/jquery.min.js"></script>
-=======
->>>>>>> master
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.js"></script> 
-<<<<<<< HEAD
-<script src="js/matrix.tables.js"></script>
-=======
-<<<<<<< HEAD
-<script src="js/matrix.tables.js"></script> -->
-
-
-
-<script src="/js/jquery.min.js"></script>
-=======
-<script src="js/matrix.tables.js"></script>
-<!-- <script src="/js/jquery.min.js"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
-=======
->>>>>>> master
->>>>>>> master
-<script src="/js/jquery.ui.custom.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="js/matrix.form_common.js"></script>
 <script src="/js/bootstrap-colorpicker.js"></script>
 <script src="/js/bootstrap-datepicker.js"></script>
 <script src="/js/jquery.toggle.buttons.js"></script> 
-<script src="/js/masked.js"></script>
-<script src="/js/jquery.uniform.js"></script>
-<script src="/js/select2.min.js"></script>
-<script src="/js/matrix.js"></script>
-<script src="/js/matrix.form_common.js"></script>
-<script src="/js/wysihtml5-0.3.0.js"></script>
-<script src="/js/jquery.peity.min.js"></script>
-<<<<<<< HEAD
+<!-- <script src="/js/masked.js"></script> -->
+<!-- <script src="/js/wysihtml5-0.3.0.js"></script> -->
+<!-- <script src="/js/jquery.peity.min.js"></script> -->
+
 <script src="
-`/js/bootstrap-wysihtml5.js"></script>
-=======
-<<<<<<< HEAD
+/js/bootstrap-wysihtml5.js"></script>
+
 <script src="/js/bootstrap-wysihtml5.js"></script>-->
-=======
+
 <script src="
-`/js/bootstrap-wysihtml5.js"></script>
->>>>>>> master
->>>>>>> master
+/js/bootstrap-wysihtml5.js"></script>
+
 <script>
   $('.textarea_editor').wysihtml5();
 </script> -->
@@ -204,6 +142,5 @@
       window.location.href="/AddEngineer"    
   }
 </script>
->>>>>>> master
 </body>
 </html>

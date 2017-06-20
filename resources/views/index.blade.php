@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-@extends("template.menubar")
-=======
 @extends('template.menubar')
 
->>>>>>> master
+
 @section('content')
 <!--main-container-part-->
 <div id="content">

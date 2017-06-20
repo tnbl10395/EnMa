@@ -1,11 +1,9 @@
 <?php $__env->startSection('content'); ?>
 <div id="content">
   <div id="content-header">
-<<<<<<< HEAD
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Engineers Management</a> </div>
-=======
+
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="current">Engineers Management</a> </div>
->>>>>>> master
+
     <h1>Engineers Management</h1>
   </div>
   <div class="container-fluid">
@@ -34,11 +32,7 @@
         </div>  
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-<<<<<<< HEAD
-            <button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>
-=======
             <button onclick="transferAddEngineer()" class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>
->>>>>>> master
             
           </div>
           <div class="widget-content nopadding">
@@ -65,7 +59,18 @@
                   <td>01654351834</td>
                   <td>PHP, Java</td>
                   <td>10 years</td>
-                  <td> <a href="../EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                  <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                  <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+                </tr>
+                 <tr class="gradeX">
+                  <td>EN002</td>
+                  <td>Nhan (Leesin) N.B. TRAN</td>
+                  <td>Danang City</td>
+                  <td>intern.m0011@enclave.vn</td>
+                  <td>01654351834</td>
+                  <td>PHP, Java</td>
+                  <td>10 years</td>
+                  <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
                   <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
                 </tr>
               </tbody>
@@ -76,6 +81,8 @@
     </div>
   </div>
 </div>
+
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('template.menubar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
