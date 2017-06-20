@@ -55,8 +55,9 @@
     </li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Manage Project</span> <span class="label label-important">2</span></a>
       <ul>
-        <li><a href="form-common.html">Add Project</a></li>
-        <li><a href="form-validation.html">Edit Project</a></li>
+       <li><a href="../ProjectManagement">Project Management</a></li>
+        <li><a href="../AddProject">Add Project</a></li>
+       
       </ul>
     </li>
     <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Manage Engineer</span> <span class="label label-important">2</span></a>
@@ -97,8 +98,16 @@
 <script src="js/select2.min.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script> 
 <script src="js/matrix.js"></script> 
+<<<<<<< HEAD
+<script src="js/matrix.tables.js"></script> -->
+
+
+
+<script src="/js/jquery.min.js"></script>
+=======
 <script src="js/matrix.tables.js"></script>
 <!-- <script src="/js/jquery.min.js"></script>
+>>>>>>> master
 <script src="/js/jquery.ui.custom.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-colorpicker.js"></script>

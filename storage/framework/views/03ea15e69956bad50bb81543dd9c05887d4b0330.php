@@ -1,6 +1,4 @@
-@extends('template.menubar')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Project Management</a> <a href="#" class="current">Insert Project</a> </div>
@@ -88,4 +86,6 @@
 </div></div>
 <script src=".s/js/matrix.form_common.js"></script>
 
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('template.menubar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

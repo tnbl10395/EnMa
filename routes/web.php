@@ -23,7 +23,16 @@ Route::get('login', function(){
 Route::get('/EngineerManagement','MiniUserController@IndexEm');
 Route::get('/AddEngineer','MiniUserController@AddEm');
 Route::get('/EditEngineer','MiniUserController@EditEm');
+<<<<<<< HEAD
+Route::get('/AddEngineerController','AddEngineerController@AddEngineer');
+
+Route::get('/ProjectManagement','MiniUserController@IndexPro');
+Route::get('/AddProject','MiniUserController@AddPro');
+Route::get('/EditProject','MiniUserController@EditPro');
+
+=======
 Route::post('/AddEngineerController','AddEngineerController@AddEngineer');
+>>>>>>> master
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

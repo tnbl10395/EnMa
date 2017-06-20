@@ -1,6 +1,4 @@
-@extends('template.menubar')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div id="content">
   <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Project Management</a> </div>
@@ -69,4 +67,7 @@
   </div>
 </div>
 
-@stop
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('template.menubar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
