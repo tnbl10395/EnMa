@@ -1,8 +1,10 @@
-<?php $__env->startSection('content'); ?>
+@extends('template.menubar')
+
+@section('content')
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Engineers Management</a> </div>
-    <h1>Engineers Management</h1>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Project Management</a> </div>
+    <h1>Project Management</h1>
   </div>
   <div class="container-fluid">
     <hr>
@@ -30,34 +32,32 @@
         </div>  
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>
+            <button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Project</button>
             
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Email</th>
-                  <th>Phone</th>
+                  <th>idProject</th>
+                  <th>projectName</th>
+                  <th>status</th>
                   <th>Technical Skill</th>
-                  <th>Experience</th>
+                  <th>dateOfBegin</th>
+                  <th>dateOfEnd</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="gradeX">
-                  <td>EN001</td>
-                  <td>Long (Leesin) N.B. TRAN</td>
-                  <td>Danang City</td>
-                  <td>intern.m0011@enclave.vn</td>
-                  <td>01654351834</td>
-                  <td>PHP, Java</td>
-                  <td>10 years</td>
-                  <td> <a href="../EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                  <td>PR001</td>
+                  <td>pr111</td>
+                  <td>new</td>
+                  <td>Php</td>
+                  <td>01/01/2017</td>
+                  <td>01/05/2017</td>
+                  <td> <a href="../EditProject" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
                   <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
                 </tr>
               </tbody>
@@ -68,6 +68,4 @@
     </div>
   </div>
 </div>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('template.menubar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@stop
