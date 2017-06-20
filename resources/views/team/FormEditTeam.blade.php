@@ -1,0 +1,130 @@
+@extends('template.menubar')
+
+@section('content')
+    <div id="content">
+        <div id="content-header">
+            <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Team Management</a> <a href="#" class="current">Update Team</a> </div>
+            <h1>INSERT TEAM</h1>
+        </div>
+        <div class="container-fluid">
+            <hr>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                            <h5>Information</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <form action="#" method="get" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">ID :</label>
+                                    <div class="controls">
+                                        <input type="text" class="span11" placeholder="ID" disabled/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Team Name :</label>
+                                    <div class="controls">
+                                        <input type="text" class="span11" placeholder="Team Name" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Total member :</label>
+
+                                    <div class="controls">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="project_choice">Name of Project :</label>
+                                    <div class="controls">
+                                        <select id="project_choice">
+                                            <option></option>
+                                            <option>Project A</option>
+                                            <option>Project B</option>
+                                            <option>Project C</option>
+                                            <option>Project D</option>
+                                            <option>Project E</option>
+                                            <option>Project F</option>
+                                            <option>Project G</option>
+                                            <option>Project H</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Technical Skill :</label>
+                                    <div class="controls">
+                                        <ul style="list-style-type: none; float: left; margin-left: -5px;">
+                                            <li><input type="checkbox" name="PHP" value=""> PHP</li>
+                                            <li><input type="checkbox" name="PHP" value=""> Java</li>
+                                            <li><input type="checkbox" name="PHP" value=""> .Net</li>
+                                        </ul>
+                                        <ul style="list-style-type: none; float: left;">
+                                            <li><input type="checkbox" name="PHP" value=""> Ruby</li>
+                                            <li><input type="checkbox" name="PHP" value=""> Android</li>
+                                            <li><input type="checkbox" name="PHP" value=""> IOS</li>
+                                        </ul>
+                                        <ul style="list-style-type: none; float: left;">
+                                            <li><input type="checkbox" name="PHP" value=""> C#</li>
+                                            <li><input type="checkbox" name="PHP" value=""> C++</li>
+                                            <li><input type="checkbox" name="PHP" value=""> Assembly</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                    <button class="btn btn-danger">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="width: 150px;float: left;margin-bottom: 5px;" class="div-add-member">
+                <label for="listEngineer">List to add Engineer</label>
+                <select id="listEngineer">
+                    <option value="1">Zeen</option>
+                    <option value="2">Nathan</option>
+                    <option value="3">Lanston</option>
+                    <option value="3">Leesin</option>
+                    <option value="3">Tristina</option>
+                </select>
+            </div>
+            
+            
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                            <button class="btn btn-info add-member" style="margin: 3px 0px 0px 3px;">Add Member</button>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <table class="table table-bordered table-striped data-table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Member name</th>
+                                    <th>Role</th>
+                                    <th>View detail</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeX">
+                                    <td>M001</td>
+                                    <td>John Cornor</td>
+                                    <td>Project Manager</td>
+                                    <td> <a href="/EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                                    <td> <a href="javascript:void(0)" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop

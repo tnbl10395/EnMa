@@ -15,4 +15,14 @@ class MiniUserController extends Controller
     public function EditEm(){
     	return view('FormEditEngi');
     }
+    public function IndexTm(){
+        return view('team.IndexTeamManager');
+    }
+    public function AddTm(){
+        return view('team.FormInsertTeam');
+    }
+    public function EditTm(){
+        return view('team.FormEditTeam');
+    }
+
 }
