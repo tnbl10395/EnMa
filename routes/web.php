@@ -49,15 +49,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/checkDB', function ()
+{
+    dd(DB::connection()->getDatabaseName());
+});
 <<<<<<< HEAD
 
 Route::get('TeamManagement','MiniUserController@IndexTm');
 Route::get('AddTeam','MiniUserController@AddTm');
 Route::get('EditTeam','MiniUserController@EditTm');
+
 =======
-Route::get('/checkDB', function ()
-{
-    dd(DB::connection()->getDatabaseName());
-});
+>>>>>>> master
 >>>>>>> master
 >>>>>>> master

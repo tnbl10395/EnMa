@@ -76,8 +76,8 @@
 >>>>>>> master
     <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Manage Team</span> <span class="label label-important">2</span></a>
       <ul>
-        <li><a href="form-common.html">Add Team</a></li>
-        <li><a href="form-validation.html">Edit Team</a></li>
+        <li><a href="/TeamManagement">Manage Team</a></li>
+        <li><a href="/AddTeam">Add Team</a></li>
       </ul>
     </li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Manage Project</span> <span class="label label-important">2</span></a>
@@ -133,6 +133,20 @@
 >>>>>>> master
 </div>
 <!--end-Footer-part-->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.uniform.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/matrix.js"></script>
+<script src="js/matrix.tables.js"></script>
+<!--<script src="/js/jquery.min.js"></script>
+=======
+>>>>>>> master
 <script src="js/jquery.min.js"></script> 
 <script src="js/jquery.ui.custom.js"></script> 
 <script src="js/bootstrap.min.js"></script> 
@@ -152,6 +166,12 @@
 =======
 <script src="js/matrix.tables.js"></script>
 <!-- <script src="/js/jquery.min.js"></script>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
+=======
+>>>>>>> master
 >>>>>>> master
 <script src="/js/jquery.ui.custom.js"></script>
 <script src="/js/bootstrap.min.js"></script>
@@ -165,8 +185,17 @@
 <script src="/js/matrix.form_common.js"></script>
 <script src="/js/wysihtml5-0.3.0.js"></script>
 <script src="/js/jquery.peity.min.js"></script>
+<<<<<<< HEAD
 <script src="
 `/js/bootstrap-wysihtml5.js"></script>
+=======
+<<<<<<< HEAD
+<script src="/js/bootstrap-wysihtml5.js"></script>-->
+=======
+<script src="
+`/js/bootstrap-wysihtml5.js"></script>
+>>>>>>> master
+>>>>>>> master
 <script>
   $('.textarea_editor').wysihtml5();
 </script> -->

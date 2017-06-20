@@ -210,6 +210,8 @@
 </div>
 <!--end-Footer-part-->
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.ui.custom.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -220,6 +222,7 @@
 <script src="js/matrix.tables.js"></script>
 <!--<script src="/js/jquery.min.js"></script>
 =======
+>>>>>>> master
 <script src="js/jquery.min.js"></script> 
 <script src="js/jquery.ui.custom.js"></script> 
 <script src="js/bootstrap.min.js"></script> 
@@ -240,6 +243,9 @@
 >>>>>>> master
 <script src="js/matrix.tables.js"></script>
 <!-- <script src="/js/jquery.min.js"></script>
+<<<<<<< HEAD
+=======
+>>>>>>> master
 >>>>>>> master
 <script src="/js/jquery.ui.custom.js"></script>
 <script src="/js/bootstrap.min.js"></script>
@@ -254,10 +260,15 @@
 <script src="/js/wysihtml5-0.3.0.js"></script>
 <script src="/js/jquery.peity.min.js"></script>
 <<<<<<< HEAD
+<script src="
+`/js/bootstrap-wysihtml5.js"></script>
+=======
+<<<<<<< HEAD
 <script src="/js/bootstrap-wysihtml5.js"></script>-->
 =======
 <script src="
 `/js/bootstrap-wysihtml5.js"></script>
+>>>>>>> master
 >>>>>>> master
 <script>
   $('.textarea_editor').wysihtml5();
