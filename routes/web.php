@@ -23,7 +23,7 @@ Route::get('login', function(){
 Route::get('/EngineerManagement','MiniUserController@IndexEm');
 Route::get('/AddEngineer','MiniUserController@AddEm');
 Route::get('/EditEngineer','MiniUserController@EditEm');
-Route::get('/AddEngineerController','AddEngineerController@AddEngineer');
+Route::post('/AddEngineerController','AddEngineerController@AddEngineer');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -31,3 +31,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/checkDB', function ()
+{
+    dd(DB::connection()->getDatabaseName());
+});

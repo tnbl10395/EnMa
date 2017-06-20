@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Engineer Management</a> <a href="#" class="current">Insert Engineer</a> </div>
+  <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="tip-bottom">Engineer Management</a> <a href="#" class="current">Insert Engineer</a> </div>
   <h1>INSERT ENGINEER</h1>
 </div>
 <div class="container-fluid">
@@ -98,6 +98,7 @@
                 </ul>        
               </div>
             </div>
+            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
             <div class="form-actions">
               <button type="submit" name="submit" class="btn btn-success">Submit</button>
             </div>
