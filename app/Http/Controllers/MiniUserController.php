@@ -6,6 +6,20 @@ use Illuminate\Http\Request;
 
 class MiniUserController extends Controller
 {
+    
+    public function DashBoard(){
+        return view('dashboard');
+    }
+    public function TotalEngineer(){
+        return view('/table/totalEngineers');
+    }
+    public function TotalTeam(){
+        return view('/table/totalTeams');
+    }
+    public function TotalProject(){
+        return view('/table/totalProjects');
+    }
+
     public function IndexEM(){
     	return view('IndexEngiManage');
     }

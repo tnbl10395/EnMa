@@ -34,9 +34,9 @@
         </div>  
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <button onclick="transferAddEngineer()" class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>
-            
+            <button onclick="transferAddEngineer()" class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>  
           </div>
+         
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
@@ -61,23 +61,13 @@
                   <td>01654351834</td>
                   <td>PHP, Java</td>
                   <td>10 years</td>
-                  <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-                  <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
-                </tr>
-                 <tr class="gradeX">
-                  <td>EN002</td>
-                  <td>Nhan (Leesin) N.B. TRAN</td>
-                  <td>Danang City</td>
-                  <td>intern.m0011@enclave.vn</td>
-                  <td>01654351834</td>
-                  <td>PHP, Java</td>
-                  <td>10 years</td>
-                  <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                  <td> <a href="/EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
                   <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
                 </tr>
               </tbody>
             </table>
           </div>
+        
         </div>
       </div>
     </div>

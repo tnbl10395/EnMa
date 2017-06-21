@@ -463,7 +463,7 @@ hr{ border-top-color:#dadada;}
 
 .site-stats {
 	margin: 0;
-	padding: 0; text-align:center;
+	padding: 0; text-align:right;
 	list-style: none;
 }
 .site-stats li {

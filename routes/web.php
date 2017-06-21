@@ -20,40 +20,35 @@ Route::get('test', function (){
 Route::get('login', function(){
     return view('login');
 });
+Route::get('index', function () {
+    return view('index3');
+});
 Route::get('/EngineerManagement','MiniUserController@IndexEm');
 Route::get('/AddEngineer','MiniUserController@AddEm');
 Route::get('/EditEngineer','MiniUserController@EditEm');
-
 Route::get('/AddEngineerController','AddEngineerController@AddEngineer');
 
 Route::get('/ProjectManagement','MiniUserController@IndexPro');
 Route::get('/AddProject','MiniUserController@AddPro');
 Route::get('/EditProject','MiniUserController@EditPro');
 
+Route::get('/dashboard', 'MiniUserController@Dashboard');
+Route::get('/dashboard/totalEngineer', 'MiniUserController@TotalEngineer');
+Route::get('/dashboard/totalTeam', 'MiniUserController@TotalTeam');
+Route::get('/dashboard/totalProject', 'MiniUserController@TotalProject');
 
-Route::post('/AddEngineerController','AddEngineerController@AddEngineer');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('TeamManagement','MiniUserController@IndexTm');
+Route::get('AddTeam','MiniUserController@AddTm');
+Route::get('EditTeam','MiniUserController@EditTm');
 
 Route::get('/checkDB', function ()
 {
     dd(DB::connection()->getDatabaseName());
 });
 
-Route::get('TeamManagement','MiniUserController@IndexTm');
-Route::get('AddTeam','MiniUserController@AddTm');
-Route::get('EditTeam','MiniUserController@EditTm');
+
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+
 
