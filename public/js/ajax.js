@@ -25,3 +25,12 @@ function load_TotalProject(){
 		}
 	});
 }
+function load_TableTopEngineer(){
+	$.ajax({
+		url : "/dashboard/tableTopEngineer",
+		type: "GET",
+		success: function(html){
+			$('#changeTopEngineer').html(html);
+		}
+	});
+}

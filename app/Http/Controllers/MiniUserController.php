@@ -14,31 +14,34 @@ class MiniUserController extends Controller
         return view('/table/totalEngineers');
     }
     public function TotalTeam(){
-        return view('/table/totalTeams');
+        return view('table.totalTeams');
     }
     public function TotalProject(){
-        return view('/table/totalProjects');
+        return view('table.totalProjects');
+    }
+    public function TableTopEngineer(){
+        return view('table.tableTopEngineer');
     }
 
     public function IndexEM(){
-    	return view('IndexEngiManage');
+    	return view('engineer.IndexEngiManage');
     }
     public function AddEm(){
-    	return view('FormInsertEngi');
+    	return view('engineer.FormInsertEngi');
     }
     public function EditEm(){
-    	return view('FormEditEngi');
+    	return view('engineer.FormEditEngi');
     }
 
 
     public function IndexPro(){
-    	return view('IndexProjectManagement');
+    	return view('project.IndexProjectManagement');
     }
     public function AddPro(){
-    	return view('FormAddPro');
+    	return view('project.FormAddPro');
     }
     public function EditPro(){
-    	return view('FormEditPro');
+    	return view('project.FormEditPro');
     }
 
     public function IndexTm(){

@@ -1,4 +1,5 @@
 <div class="span12">
+    <div class="widget-box">   
         <table class="table table-bordered table-striped data-table">
             <thead>
             <tr>
@@ -15,4 +16,5 @@
             </tr>
             </tbody>
         </table>
+    </div>
 </div>

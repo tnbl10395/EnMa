@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="css/matrix-media.css" />
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
 
-    
+<script src="js/ajax.js"></script>   
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.ui.custom.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -37,21 +37,13 @@
 <script src="js/matrix.tables.js"></script>
 <script src="js/jquery.dataTables.min.js"></script> 
 <script src="js/matrix.form_common.js"></script>
-<script src="js/ajax.js"></script>
-<script src="/js/bootstrap-colorpicker.js"></script>
-<script src="/js/bootstrap-datepicker.js"></script>
-<script src="/js/jquery.toggle.buttons.js"></script> 
-<!-- <script src="/js/masked.js"></script> -->
-<!-- <script src="/js/wysihtml5-0.3.0.js"></script> -->
-<!-- <script src="/js/jquery.peity.min.js"></script> -->
 
-<script src="
-/js/bootstrap-wysihtml5.js"></script>
-
-<script src="/js/bootstrap-wysihtml5.js"></script>
-
-<script src="
-/js/bootstrap-wysihtml5.js"></script>
+<script src="js/bootstrap-colorpicker.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.toggle.buttons.js"></script> 
+<script src="/js/masked.js"></script>
+<script src="js/wysihtml5-0.3.0.js"></script>
+<script src="/js/jquery.peity.min.js"></script>
 
 <script>
   $('.textarea_editor').wysihtml5();
@@ -121,7 +113,7 @@
     
     <li><a href="login"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>
 
-    <li class="content"> <span>Monthly Bandwidth Transfer</span>
+   <!--  <li class="content"> <span>Monthly Bandwidth Transfer</span>
       <div class="progress progress-mini progress-danger active progress-striped">
         <div style="width: 77%;" class="bar"></div>
       </div>
@@ -134,7 +126,7 @@
       </div>
       <span class="percent">87%</span>
       <div class="stat">604.44 / 4000 MB</div>
-    </li>
+    </li> -->
   </ul>
 </div>
 <!--sidebar-menu-->

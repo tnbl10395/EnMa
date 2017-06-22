@@ -36,6 +36,7 @@ Route::get('/dashboard', 'MiniUserController@Dashboard');
 Route::get('/dashboard/totalEngineer', 'MiniUserController@TotalEngineer');
 Route::get('/dashboard/totalTeam', 'MiniUserController@TotalTeam');
 Route::get('/dashboard/totalProject', 'MiniUserController@TotalProject');
+Route::get('/dashboard/tableTopEngineer', 'MiniUserController@TableTopEngineer');
 
 Route::get('TeamManagement','MiniUserController@IndexTm');
 Route::get('AddTeam','MiniUserController@AddTm');
