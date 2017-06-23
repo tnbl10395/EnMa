@@ -50,7 +50,7 @@
                   <td>01/01/2017</td>
                   <td>01/05/2017</td>
                   <td style="text-align: center;"> <a href="../EditProject" ><i class="icon-edit"></i></a></td>
-                  <td style="text-align: center;"> <a href="#" ><i class="icon-remove"></i></a></td>
+                  <td style="text-align: center;"> <a onclick="showDialog()" href="#" ><i class="icon-remove"></i></a></td>
                 </tr>
               </tbody>
             </table>
@@ -61,4 +61,22 @@
   </div>
 </div>
 
+
+<!-- dialog box -->
+
+<div id="white-background">
+
+</div>
+<div id="dlgbox">
+  <div id="dlg-header">
+    Delete Project
+  </div>
+  <div id="dlg-body">
+    Are you sure that you want to delete this project?
+  </div>
+  <div id="dlg-footer">
+    <button onclick="dlgDelPro()" >Yes</button>
+    <button onclick="dlgCancelPro()">No</button>
+  </div>
+</div>
 @stop

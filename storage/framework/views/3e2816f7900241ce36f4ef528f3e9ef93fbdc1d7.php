@@ -2,7 +2,7 @@
 <div id="content">
   <div id="content-header">
 
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="current">Engineers Management</a> </div>
+    <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="current">Engineers Management</a> </div>
 
     <h1>Engineers Management</h1>
   </div>
@@ -29,12 +29,14 @@
             <option value="">Ruby</option>
             <option value="">Android</option>              
           </select>         
-        </div>  
+        </div>
+      <div class="row-fluid">
+          <div class="span12">
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <button onclick="transferAddEngineer()" class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>  
+            <button onclick="transferAddEngineer()" class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>
+            
           </div>
-         
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
@@ -59,20 +61,32 @@
                   <td>01654351834</td>
                   <td>PHP, Java</td>
                   <td>10 years</td>
-                  <td> <a href="/EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-                  <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+                  <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                  <td> <a onclick="showDialog()" href="#" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
                 </tr>
               </tbody>
             </table>
           </div>
-        
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
+<div id="white-background">
+</div>
+<div id="dlgbox">
+  <div id="dlg-header">
+    Delete Project
+  </div>
+  <div id="dlg-body">
+    Are you sure that you want to delete this project?
+  </div>
+  <div id="dlg-footer">
+    <button onclick="dlgDelPro()" >Yes</button>
+    <button onclick="dlgCancelPro()">No</button>
+  </div>
+</div>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('template.menubar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

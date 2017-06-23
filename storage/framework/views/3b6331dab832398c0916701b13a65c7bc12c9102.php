@@ -1,13 +1,13 @@
 <?php $__env->startSection('content'); ?>
     <div id="content">
         <div id="content-header">
-            <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Team Management</a> <a href="#" class="current">Update Team</a> </div>
-            <h1>INSERT TEAM</h1>
+            <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/TeamManagement" class="tip-bottom">Team Management</a> <a href="#" class="current">Update Team</a> </div>
+            <h1>UPDATE TEAM</h1>
         </div>
         <div class="container-fluid">
             <hr>
             <div class="row-fluid">
-                <div class="span6">
+                <div class="span7">
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                             <h5>Information</h5>
@@ -114,8 +114,8 @@
                                     <td>M001</td>
                                     <td>John Cornor</td>
                                     <td>Project Manager</td>
-                                    <td> <a href="/EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-                                    <td> <a href="javascript:void(0)" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+                                    <td style="text-align: center"> <a href="/EditEngineer" ><i class="icon-edit"></i></a></td>
+                                    <td style="text-align: center"> <a href="javascript:void(0)" ><i class="icon-remove"></i></a></td>
                                 </tr>
                                 </tbody>
                             </table>

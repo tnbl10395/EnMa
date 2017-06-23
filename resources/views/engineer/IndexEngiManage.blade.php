@@ -64,18 +64,7 @@
                   <td>PHP, Java</td>
                   <td>10 years</td>
                   <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-                  <td> <a href="#" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
-                </tr>
-                 <tr class="gradeX">
-                  <td>EN002</td>
-                  <td>Nhan (Leesin) N.B. TRAN</td>
-                  <td>Danang City</td>
-                  <td>intern.m0011@enclave.vn</td>
-                  <td>01654351834</td>
-                  <td>PHP, Java</td>
-                  <td>10 years</td>
-                  <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-                  <td> <a href="#" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+                  <td> <a onclick="showDialog()" href="#" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
                 </tr>
               </tbody>
             </table>
@@ -86,5 +75,18 @@
   </div>
 </div>
 
-
+<div id="white-background">
+</div>
+<div id="dlgbox">
+  <div id="dlg-header">
+    Delete Project
+  </div>
+  <div id="dlg-body">
+    Are you sure that you want to delete this project?
+  </div>
+  <div id="dlg-footer">
+    <button onclick="dlgDelPro()" >Yes</button>
+    <button onclick="dlgCancelPro()">No</button>
+  </div>
+</div>
 @stop

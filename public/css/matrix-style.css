@@ -52,7 +52,11 @@ hr{ border-top-color:#dadada;}
 	width: 100%;
 	z-index: -9;
 }
-#header h1 {
+#header img{
+	width: 220px;
+	height: 168px;
+}
+/* #header h1 {
 	background: url("../img/logo.png") no-repeat scroll 0 0 transparent;
 	height: 31px;
 	left: 20px;
@@ -61,7 +65,7 @@ hr{ border-top-color:#dadada;}
 	position: relative;
 	top: 26px;
 	width: 191px;
-}
+} */
 #header h1 a {
 	display: block;
 }
@@ -142,6 +146,7 @@ hr{ border-top-color:#dadada;}
 	display: block;
 	float: left;
 	position: relative;
+	margin-top: 90px;
 	width: 220px;
 	z-index: 16;
 }
@@ -523,7 +528,7 @@ hr{ border-top-color:#dadada;}
 	border-left: 1px solid #CDCDCD;
 	border-top: 1px solid #CDCDCD;
 	border-right: 1px solid #CDCDCD;
-	clear: both;
+	clear: right;
 	margin-top: 16px;
 	margin-bottom: 16px;
 	position: relative;

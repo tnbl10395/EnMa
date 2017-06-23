@@ -10,13 +10,13 @@
 		        </div>
 		        <div class="widget-content" >
 		          <div class="row-fluid">
-		            <div class="span10" >
+		            <div class="span10" id="changetable"  >
 		     			<!-- content_table -->
 
 		     			 <div class="span12">
 							<div class="widget-box">
 							 <div class="widget-content nopadding">
-								<table id="changetable" class="table table-bordered data-table">
+								<table class="table table-bordered data-table">
 								  <thead>
 								    <tr>
 								      <th>ID</th>
@@ -74,7 +74,7 @@
 		
 		<div class="span7" style="margin: -20px 0px 0px 20px;">
 	        <div class="widget-box widget-chat">
-	          <div class="widget-title bg_lb"> <span class="icon"> <i class="icon-comment"></i> </span>
+	          <div class="widget-title bg_lb"> <span class="icon"> <i class="icon-star"></i> </span>
 	            <h5>Top Engineers</h5>
 	          </div>
 	          <div class="widget-content nopadding collapse in" id="collapseG4">
@@ -110,48 +110,48 @@
 	                <div id="changeTopEngineer">
 	                	<!-- content-topengineer -->
 	                	<div class="span2" style="width: 200px;height: 230px; background: #000000;margin-left: -25px;">
-								<img src="" alt="" style="">
+								<img src="../img/4.jpg" alt="" style="width: 200px;height: 230px;">
 						</div>
 						<div class="span3" style="margin-left: 0px;margin-top: -15px;">
 							<div class="widget-box">
 									 <div class="widget-content nopadding">
-									<table class="table table-bordered">
-										<tbody>
-											<tr>
-												<td><h4>Long (Leesin) N.B. TRAN</h4></td>
-											</tr>
-											<tr>
-												<td><h6>10-MAR-1995</h6></td>
-											</tr>
-											<tr>
-												<td><h6>PHP, JAVA</h6></td>
-											</tr>
-											<tr>
-												<td><h6>More 10 years</h6></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>		
-						</div>	
-	                </div>
-	              </div>
-	            </div>
-	          </div>
+											<table class="table table-bordered">
+												<tbody>
+													<tr>
+														<td><h4>Long (Leesin) N.B. TRAN</h4></td>
+													</tr>
+													<tr>
+														<td><h6>10-MAR-1995</h6></td>
+													</tr>
+													<tr>
+														<td><h6>PHP, JAVA</h6></td>
+													</tr>
+													<tr>
+														<td><h6>More 10 years</h6></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>		
+								</div>	
+	              		  	</div>
+	             		 </div>
+	            	</div>
+	          	</div>
 	        </div>
 	        </div>
 	        <!-- end- top engineer -->
 	        <!-- new project -->
 	        <div class="span3" style="margin: -20px 0px 0px 10px;">
 	        <div class="widget-box">
-	          <div class="widget-title"> <span class="icon"><i class="icon-ok"></i></span>
+	          <div class="widget-title"> <span class="icon"><i class="icon-tasks"></i></span>
 	            <h5>New Projects</h5>
 	          </div>
 	          <div class="widget-content">
 	            <div class="todo">
 	              <ul>
 	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> Software Engineers Management </a><span class="date badge badge-important">New</span> </div>
+	                  <div class="txt"><a href="" title=""> Software Hotel Management </a><span class="date badge badge-important">New</span> </div>
 	                </li>
 	                <li class="clearfix">
 	                  <div class="txt"><a href="" title=""> Software Bank Security </a><span class="date badge badge-important">New</span> </div>             

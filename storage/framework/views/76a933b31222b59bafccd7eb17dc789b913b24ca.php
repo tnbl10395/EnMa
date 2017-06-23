@@ -5,17 +5,7 @@
     <title>Engineers Management</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   <!--  <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="css/uniform.css"/>
-    <link rel="stylesheet" href="css/select2.css"/>
-    <link rel="stylesheet" href="css/matrix-style.css"/>
-    <link rel="stylesheet" href="css/matrix-media.css"/>
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/dash.css"/> -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+   
     <link rel="stylesheet" href="css/colorpicker.css" />
     <link rel="stylesheet" href="css/uniform.css"/>
     <link rel="stylesheet" href="css/select2.css"/>
@@ -27,42 +17,42 @@
     <link rel="stylesheet" href="css/matrix-media.css" />
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/mycss.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
 
+    <script src="js/jquery.min.js"></script>  
+    <script src="js/jquery.ui.custom.js"></script>
+    <script src="js/matrix.tables.js" sycn></script>
+    <script src="js/jquery.dataTables.min.js" sycn></script> 
+    <script src="js/mainJS.js"></script>
+    <script src="js/ajax.js" charset="UTF-8" sycn></script> 
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.uniform.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/matrix.js"></script>
+    <!-- <script src="js/matrix.form_common.js"></script> -->
 
-<script src="js/jquery.min.js"></script>  
-<script src="js/jquery.ui.custom.js"></script>
-<script src="js/matrix.tables.js"></script>
-<script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/mainJS.js"></script>
-<script src="js/ajax.js" charset="UTF-8" sycn></script> 
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.uniform.js"></script>
-<script src="js/select2.min.js"></script>
-<script src="js/matrix.js"></script>
-<!-- <script src="js/matrix.form_common.js"></script> -->
+    <script src="js/bootstrap-colorpicker.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.toggle.buttons.js"></script> 
+    <script src="js/masked.js"></script>
+    <script src="js/wysihtml5-0.3.0.js"></script>
+    <!-- <script src="js/jquery.peity.min.js"></script> -->
 
-<script src="js/bootstrap-colorpicker.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/jquery.toggle.buttons.js"></script> 
-<script src="js/masked.js"></script>
-<script src="js/wysihtml5-0.3.0.js"></script>
-<!-- <script src="js/jquery.peity.min.js"></script> -->
-
-<script>
-  $('.textarea_editor').wysihtml5();
-</script>
-<script>
-  function transferAddEngineer(){
-      window.location.href="/AddEngineer";    
-  }
-</script>
+    <script>
+      $('.textarea_editor').wysihtml5();
+    </script>
+    <script>
+      function transferAddEngineer(){
+          window.location.href="/AddEngineer";    
+      }
+    </script>
 </head>
 <body>
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="dashboard.html">Management</a></h1>
+    <img src="../img/Image_from_Skype.png" alt=""> 
 </div>
 <!--close-Header-part--> 
 
