@@ -1,0 +1,40 @@
+.btGroup{
+	list-style-type: none;
+	margin: 0px;
+}
+.btGroup button{
+	background-color: #28db00;
+}
+.btGroup i{
+	font-size: 24px;
+}
+.btGroup #btTotal{
+	width: 95%;
+	height: 70px;
+	margin-bottom: 5px;
+}
+.btGroup Strong{
+	display: none;
+}
+/* hover */
+.btGroup #btTotal:hover Strong{
+	display: inline;
+	font-size: 24px;
+}
+.btGroup #btTotal:hover i{
+	display: none;
+}
+.btGroup #btTotal:hover{
+	background: #000000;
+}
+/* click */
+.btGroup #btTotal:focus{
+	background: #000000;
+}
+.btGroup #btTotal:focus i{
+	display: none;
+}
+.btGroup #btTotal:focus Strong{
+	display: inline;
+	font-size: 24px;
+}

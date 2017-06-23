@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('dashboard');
 });
 Route::get('test', function (){
     return view('test');
@@ -49,7 +49,7 @@ Route::get('/checkDB', function ()
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
+// Auth::routes();
 
 
 

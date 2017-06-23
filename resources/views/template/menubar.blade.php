@@ -26,24 +26,28 @@
     <link rel="stylesheet" href="css/datepicker.css" />
     <link rel="stylesheet" href="css/matrix-media.css" />
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/mycss.css" />
 
-<script src="js/ajax.js"></script>   
-<script src="js/jquery.min.js"></script>
+
+
+<script src="js/jquery.min.js"></script>  
 <script src="js/jquery.ui.custom.js"></script>
+<script src="js/matrix.tables.js"></script>
+<script src="js/jquery.dataTables.min.js"></script> 
+<script src="js/mainJS.js"></script>
+<script src="js/ajax.js" charset="UTF-8" sycn></script> 
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.uniform.js"></script>
 <script src="js/select2.min.js"></script>
 <script src="js/matrix.js"></script>
-<script src="js/matrix.tables.js"></script>
-<script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.form_common.js"></script>
+<!-- <script src="js/matrix.form_common.js"></script> -->
 
 <script src="js/bootstrap-colorpicker.js"></script>
 <script src="js/bootstrap-datepicker.js"></script>
 <script src="js/jquery.toggle.buttons.js"></script> 
-<script src="/js/masked.js"></script>
+<script src="js/masked.js"></script>
 <script src="js/wysihtml5-0.3.0.js"></script>
-<script src="/js/jquery.peity.min.js"></script>
+<!-- <script src="js/jquery.peity.min.js"></script> -->
 
 <script>
   $('.textarea_editor').wysihtml5();
@@ -85,30 +89,30 @@
 </div>
 <!--close-top-serch-->
 <!--sidebar-menu-->
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+<div id="sidebar"><a href="dashboard" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
-    <li class="active"><a href="/"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li class=""><a href="dashboard"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     
-    <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Teams</span> <span class="label label-important">2</span></a>
-      <ul>
+    <li class=""> <a href="/TeamManagement"><i class="icon icon-th-list"></i> <span>Teams</span> <span class="label label-important">2</span></a>
+<!--       <ul>
         <li><a href="/TeamManagement">Manage Team</a></li>
         <li><a href="/AddTeam">Add Team</a></li>
-      </ul>
+      </ul> -->
     </li>
     
-    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Projects</span> <span class="label label-important">2</span></a>
-      <ul>
+    <li class=""> <a href="/ProjectManagement"><i class="icon icon-file"></i> <span>Projects</span> <span class="label label-important">2</span></a>
+     <!--  <ul>
          <li><a href="/ProjectManagement">Project Management</a></li>
          <li><a href="/AddProject">Add Project</a></li>
        
-      </ul>
+      </ul> -->
     </li>
     
-    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Engineers</span> <span class="label label-important">2</span></a>
-      <ul>
+    <li class=""> <a href="/EngineerManagement"><i class="icon icon-info-sign"></i> <span>Engineers</span> <span class="label label-important">2</span></a>
+   <!--    <ul>
         <li><a href="/EngineerManagement">Manage Engineer</a></li>
         <li><a href="/AddEngineer">Add Engineer</a></li>
-      </ul>
+      </ul> -->
     </li>
     
     <li><a href="login"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>
@@ -133,7 +137,7 @@
   @yield('content')
 
 <div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
+  <div id="footer" class="span12"> 2017 &copy; Enclave - TeamB</div>
 </div>
 <!--end-Footer-part-->
 

@@ -471,9 +471,13 @@ hr{ border-top-color:#dadada;}
 	list-style: none;
 }
 .site-stats li {
-	cursor: pointer; display:inline-block;
-	margin: 0 5px 10px; text-align:center; width:42%;
-	padding:10px 0; color:#fff;
+	cursor: pointer; 
+	display:inline-block;
+	margin: 0 5px 10px; 
+	text-align:center; 
+	width:80%;
+	padding:10px 0;
+	color:#fff;
 	position: relative;
 }
 .site-stats li i{ font-size:24px; clear:both}

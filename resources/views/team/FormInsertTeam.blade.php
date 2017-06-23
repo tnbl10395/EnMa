@@ -3,13 +3,13 @@
 @section('content')
     <div id="content">
         <div id="content-header">
-            <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Team Management</a> <a href="#" class="current">Insert Team</a> </div>
+            <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="TeamManagement" class="tip-bottom">Team Management</a> <a href="AddTeam" class="current">Insert Team</a> </div>
             <h1>INSERT TEAM</h1>
         </div>
         <div class="container-fluid">
             <hr>
             <div class="row-fluid">
-                <div class="span6">
+                <div class="span7">
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                             <h5>Information</h5>
@@ -19,13 +19,13 @@
                                 <div class="control-group">
                                     <label class="control-label">ID :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" placeholder="ID" />
+                                        <input type="text" class="span11" placeholder="ID" required="" />
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label">Team Name :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" placeholder="Team Name" />
+                                        <input type="text" class="span11" placeholder="Team Name" required="" />
                                     </div>
                                 </div>
                                 <div class="control-group">

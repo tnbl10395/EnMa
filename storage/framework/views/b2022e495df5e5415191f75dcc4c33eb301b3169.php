@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="tip-bottom">Engineer Management</a> <a href="#" class="current">Insert Engineer</a> </div>
+  <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="tip-bottom">Engineer Management</a> <a href="#" class="current">Insert Engineer</a> </div>
   <h1>INSERT ENGINEER</h1>
 </div>
 <div class="container-fluid">
@@ -17,13 +17,13 @@
             <div class="control-group">
               <label class="control-label">ID :</label>
               <div class="controls">
-                <input type="text" name="id" class="span11" placeholder="ID" />
+                <input type="text" name="id" class="span11" placeholder="ID" required="" />
               </div>
             </div>
             <div class="control-group">
               <label class="control-label">Full Name :</label>
               <div class="controls">
-                <input type="text" name="fullname" class="span11" placeholder="Full Name" />
+                <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" />
               </div>
             </div>
             <div class="control-group">

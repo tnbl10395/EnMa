@@ -3,7 +3,6 @@
 @section('content')
 	<div id="content">
 		<div id="content-header">		
-			</div>
 		      <div id="breadcrumb"> <a href="#" title="Go to Home" class="current"><i class="icon-home"></i> Home</a></div>
 			<!-- information -->
 
@@ -13,13 +12,13 @@
 		        </div>
 		        <div class="widget-content" >
 		          <div class="row-fluid">
-		            <div class="span9" id="changetable">
-		     			<!-- content_table -->  
-		     			
+		            <div class="span10" >
+		     			<!-- content_table -->
+
 		     			 <div class="span12">
 							<div class="widget-box">
 							 <div class="widget-content nopadding">
-								<table class="table table-bordered data-table">
+								<table id="changetable" class="table table-bordered data-table">
 								  <thead>
 								    <tr>
 								      <th>ID</th>
@@ -47,8 +46,8 @@
 	 
 	  			
 		            </div>
-		            <div class="span3">
-		              <ul class="site-stats">
+		            <div class="span2">
+		          <!--     <ul class="site-stats">
 		                <li class="bg_lg">
 		                	<a  onclick="load_TotalEngineer()" href="#" style="color:#FFFFFF">
 		                		<i class="icon-user"></i> <strong>100</strong> <small>Total Engineers</	small>
@@ -61,12 +60,17 @@
 		                	</a>
 		                </li>
 	   	                <li class="bg_lg"><a onclick="load_TotalProject()" href="#" style="color:#FFFFFF"><i class="icon-book"></i> <strong>2540</strong> <small>Total Projects</small></a></li>
-		              </ul>
+		              </ul> -->
+		             	<ul class="btGroup">
+		             	 	<li><button onclick="load_TotalEngineer()" id="btTotal" class="btn-success"><i class="icon-user"></i><strong>100</strong><br>Total Engineers</button></li>
+	             	 	 	<li><button onclick="load_TotalTeam()" id="btTotal" class="btn-success"><i class="icon-group"></i><strong>100</strong><br>Total Teams</button></li>
+             	 	 	 	<li><button onclick="load_TotalProject()" id="btTotal" class="btn-success"	><i class="icon-book"></i><strong>100</strong><br>Total Projects</button></li>
+		             	</ul> 
 		            </div>
 		          </div>
 		        </div>
 		      </div>
-
+		
 			<!-- end-information -->
 			<!-- top engineer -->
 		

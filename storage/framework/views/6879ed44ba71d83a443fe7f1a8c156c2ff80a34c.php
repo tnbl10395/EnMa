@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <div id="content">
         <div id="content-header">
-            <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Teams Management</a> </div>
+            <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/TeamManagement" class="current">Teams Management</a> </div>
             <h1>Teams Management</h1>
         </div>
         <div class="container-fluid">
@@ -32,7 +32,7 @@
                 <div class="span12">
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                            <button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Team</button>
+                            <a href="/AddTeam"><button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Team</button></a>
                         </div>
                         <div class="widget-content nopadding">
                             <table class="table table-bordered table-striped data-table">
@@ -50,8 +50,8 @@
                                     <td>TE001</td>
                                     <td>Big hero</td>
                                     <td>PHP, Java</td>
-                                    <td> <a href="/EditTeam" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-                                    <td> <a href="" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+                                    <td style="text-align: center;"> <a href="/EditTeam" ><i class="icon-edit"></i></a></td>
+                                    <td style="text-align: center;"> <a href="#" ><i class="icon-remove"></i></a></td>
                                 </tr>
                                 </tbody>
                             </table>
