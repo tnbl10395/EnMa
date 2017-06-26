@@ -39,6 +39,34 @@
 	display: inline;
 	font-size: 24px;
 }
+.txt span {
+    background-color: red;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-iteration-count: infinite;
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+	0%   {background-color: green;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: red;}
+}
+
+/* Standard syntax */
+@keyframes example {
+	0%   {background-color: green;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: red;}
+}
+#user:focus{
+	background-color: #000000;
+}
 /* end-dashboard */
 /* indexProject */
 #white-background{
@@ -88,3 +116,14 @@
 
 }
 /* end-indexProject */
+/* engineer */
+.img {
+  margin: 10px 0px 10px 20px;
+  width: 150px;
+  height: 180px;  
+}
+.img img{
+  width: 150px;
+  height: 180px;
+  background-color: #000000;
+}

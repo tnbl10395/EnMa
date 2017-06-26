@@ -24,6 +24,44 @@ $(document).ready(function(){
     }
 
 });
+// change color li tag
+$(document).ready(function(){
+  $("#user1").click(function(event) {
+      $("#user1").css("background-color","#d9d9d9");
+      $("#user2").css("background-color","#FFFFFF");
+      $("#user3").css("background-color","#FFFFFF");
+      $("#user4").css("background-color","#FFFFFF");
+      $("#user5").css("background-color","#FFFFFF");
+  });
+  $("#user2").click(function(event) {
+      $("#user2").css("background-color","#d9d9d9");
+      $("#user1").css("background-color","#FFFFFF");
+      $("#user3").css("background-color","#FFFFFF");
+      $("#user4").css("background-color","#FFFFFF");
+      $("#user5").css("background-color","#FFFFFF");
+  });
+  $("#user3").click(function(event) {
+      $("#user3").css("background-color","#d9d9d9");
+      $("#user2").css("background-color","#FFFFFF");
+      $("#user1").css("background-color","#FFFFFF");
+      $("#user4").css("background-color","#FFFFFF");
+      $("#user5").css("background-color","#FFFFFF");
+  });
+  $("#user4").click(function(event) {
+      $("#user4").css("background-color","#d9d9d9");
+      $("#user2").css("background-color","#FFFFFF");
+      $("#user3").css("background-color","#FFFFFF");
+      $("#user1").css("background-color","#FFFFFF");
+      $("#user5").css("background-color","#FFFFFF");
+  });
+  $("#user5").click(function(event) {
+      $("#user5").css("background-color","#d9d9d9");
+      $("#user2").css("background-color","#FFFFFF");
+      $("#user3").css("background-color","#FFFFFF");
+      $("#user4").css("background-color","#FFFFFF");
+      $("#user1").css("background-color","#FFFFFF");
+  });
+});
 function dlgDelPro(){
   var whitebg = document.getElementById("white-background");
   var dlg = document.getElementById("dlgbox");
