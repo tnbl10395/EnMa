@@ -1,4 +1,4 @@
-<!-- <script  src="js/matrix.tables.js" sycn></script> -->
+<script  src="js/matrix.tables.js" sycn></script>
 <div class="span12">
 	<div class="widget-box">
 	 	<div class="widget-content nopadding">
@@ -11,11 +11,13 @@
 				    </tr>
 				</thead>
 				<tbody>
+					<?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $list): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 				    <tr class="gradeX">
-				        <td>TE001</td>
-				        <td>Big hero</td>
-				        <td>PHP, Java</td>
+				        <td><?php echo e($list->idTeam); ?></td>
+				        <td><?php echo e($list->teamName); ?></td>
+				        <td><?php echo e($list->techSkill); ?></td>
 				    </tr>
+				    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 				</tbody>
 			</table>	
 		</div>

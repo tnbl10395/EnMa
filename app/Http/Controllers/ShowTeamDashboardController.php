@@ -9,7 +9,7 @@ class ShowTeamDashboardController extends Controller
 {
 	public function ShowTeam(){
 		$_team = new Team();
-		$_list = $_team::All();
+		$_list = $_team::all();
 		return View('table.totalTeams')->with('list',$_list);
 	}
 }

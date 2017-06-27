@@ -11,11 +11,13 @@
 				    </tr>
 				</thead>
 				<tbody>
+					@foreach ($list as $list)
 				    <tr class="gradeX">
-				        <td>TE001</td>
-				        <td>Big hero</td>
-				        <td>PHP, Java</td>
+				        <td>{{ $list->idTeam }}</td>
+				        <td>{{ $list->teamName }}</td>
+				        <td>{{ $list->techSkill }}</td>
 				    </tr>
+				    @endforeach
 				</tbody>
 			</table>	
 		</div>

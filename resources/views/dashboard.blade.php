@@ -47,20 +47,6 @@
 	  			
 		            </div>
 		            <div class="span2">
-		          <!--     <ul class="site-stats">
-		                <li class="bg_lg">
-		                	<a  onclick="load_TotalEngineer()" href="#" style="color:#FFFFFF">
-		                		<i class="icon-user"></i> <strong>100</strong> <small>Total Engineers</	small>
-	                		</a>
-	            		</li>
-		                <li class="bg_lg">
-		                	<a onclick="load_TotalTeam()" href="#" style="color:#FFFFFF">
-		                		<i class="icon-group"></i><strong>2540</strong> <small>Total Teams</small>
-
-		                	</a>
-		                </li>
-	   	                <li class="bg_lg"><a onclick="load_TotalProject()" href="#" style="color:#FFFFFF"><i class="icon-book"></i> <strong>2540</strong> <small>Total Projects</small></a></li>
-		              </ul> -->
 		             	<ul class="btGroup">
 		             	 	<li><button onclick="load_TotalEngineer()" id="btTotal" class="btn-success"><i class="icon-user"></i><strong>{{ $totalEngineer }}</strong><br>Total Engineers</button></li>
 	             	 	 	<li><button onclick="load_TotalTeam()" id="btTotal" class="btn-success"><i class="icon-group"></i><strong>{{ $totalTeam }}</strong><br>Total Teams</button></li>

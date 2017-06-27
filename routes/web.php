@@ -36,7 +36,7 @@ Route::get('/AddProject','MiniUserController@AddPro');
 Route::get('/EditProject','MiniUserController@EditPro');
 
 
-Route::get('/dashboard', 'MiniUserController@Dashboard');
+Route::get('/dashboard', 'ShowTotalController@total');
 Route::get('/dashboard/totalEngineer', 'ShowEngiDashboardController@ShowEngineer');
 Route::get('/dashboard/totalTeam', 'ShowTeamDashboardController@ShowTeam');
 Route::get('/dashboard/totalProject', 'MiniUserController@TotalProject');

@@ -14,14 +14,16 @@
 		    </tr>
 		  </thead>
 		  <tbody>
+  		    <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $list): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 		    <tr class="gradeX">
-		      <td>EN001</td>
-		      <td>Long (Leesin) N.B. TRAN</td>
-		      <td>intern.m0011@enclave.vn</td>
-		      <td>01654351834</td>
-		      <td>PHP, Java</td>
-		      <td>10 years</td>
+		      <td><a href=""><?php echo e($list->idEngineer); ?></a></td>
+		      <td><?php echo e($list->engineerName); ?></td>
+		      <td><?php echo e($list->Email); ?></td>
+		      <td><?php echo e($list->Phone); ?></td>
+		      <td><?php echo e($list->TechSkill); ?></td>
+		      <td><?php echo e($list->Experience); ?></td>
 		    </tr>
+		    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		  </tbody>
 		</table>
 	</div>   
