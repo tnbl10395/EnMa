@@ -5,8 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Software_Engineer_Management;
 
-class Engineer extends Model
+class Team extends Model
 {
-    protected $table = 'Engineer';
+    protected $table = 'Team';
     public $timestamps = false;
 }

@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+Route::get('/', 'ShowTotalController@total');
+// View::composer('dashboard','ShowTotalController@totalEngineer');
+
 Route::get('test', function (){
     return view('test');
 });
@@ -32,11 +35,14 @@ Route::get('/ProjectManagement','MiniUserController@IndexPro');
 Route::get('/AddProject','MiniUserController@AddPro');
 Route::get('/EditProject','MiniUserController@EditPro');
 
+
 Route::get('/dashboard', 'MiniUserController@Dashboard');
-Route::get('/dashboard/totalEngineer', 'MiniUserController@TotalEngineer');
-Route::get('/dashboard/totalTeam', 'MiniUserController@TotalTeam');
+Route::get('/dashboard/totalEngineer', 'ShowEngiDashboardController@ShowEngineer');
+Route::get('/dashboard/totalTeam', 'ShowTeamDashboardController@ShowTeam');
 Route::get('/dashboard/totalProject', 'MiniUserController@TotalProject');
 Route::get('/dashboard/tableTopEngineer', 'MiniUserController@TableTopEngineer');
+
+
 
 Route::get('TeamManagement','MiniUserController@IndexTm');
 Route::get('AddTeam','MiniUserController@AddTm');

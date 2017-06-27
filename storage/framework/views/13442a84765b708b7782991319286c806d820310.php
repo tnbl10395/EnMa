@@ -60,9 +60,9 @@
 	   	                <li class="bg_lg"><a onclick="load_TotalProject()" href="#" style="color:#FFFFFF"><i class="icon-book"></i> <strong>2540</strong> <small>Total Projects</small></a></li>
 		              </ul> -->
 		             	<ul class="btGroup">
-		             	 	<li><button onclick="load_TotalEngineer()" id="btTotal" class="btn-success"><i class="icon-user"></i><strong>100</strong><br>Total Engineers</button></li>
-	             	 	 	<li><button onclick="load_TotalTeam()" id="btTotal" class="btn-success"><i class="icon-group"></i><strong>100</strong><br>Total Teams</button></li>
-             	 	 	 	<li><button onclick="load_TotalProject()" id="btTotal" class="btn-success"	><i class="icon-book"></i><strong>100</strong><br>Total Projects</button></li>
+		             	 	<li><button onclick="load_TotalEngineer()" id="btTotal" class="btn-success"><i class="icon-user"></i><strong><?php echo e($totalEngineer); ?></strong><br>Total Engineers</button></li>
+	             	 	 	<li><button onclick="load_TotalTeam()" id="btTotal" class="btn-success"><i class="icon-group"></i><strong><?php echo e($totalTeam); ?></strong><br>Total Teams</button></li>
+             	 	 	 	<li><button onclick="load_TotalProject()" id="btTotal" class="btn-success"	><i class="icon-book"></i><strong><?php echo e($totalProject); ?></strong><br>Total Projects</button></li>
 		             	</ul> 
 		            </div>
 		          </div>
@@ -80,8 +80,7 @@
 	          <div class="widget-content nopadding collapse in" id="collapseG4">
 	            <div class="chat-users panel-right2">
 	              <div class="panel-content nopadding">
-	                <ul class="contact-list">
-	                  
+	                <ul class="contact-list">     
 	                  <li id="user1" class="online">
 	                  	<a id="one" onclick="load_TableTopEngineer()"><img alt="" src="<?php echo e(asset('img/demo/av2.jpg')); ?>" /> <span>Leesin</span></a><span class="msg-count badge badge-info">1</span>
 	                  </li>

@@ -65,7 +65,6 @@
 <!-- dialog box -->
 
 <div id="white-background">
-
 </div>
 <div id="dlgbox">
   <div id="dlg-header">

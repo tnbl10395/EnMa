@@ -14,16 +14,14 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-  		    @foreach ($list as $list)
 		    <tr class="gradeX">
-		      <td>{{ $list-> }}</td>
+		      <td>EN001</td>
 		      <td>Long (Leesin) N.B. TRAN</td>
 		      <td>intern.m0011@enclave.vn</td>
 		      <td>01654351834</td>
 		      <td>PHP, Java</td>
 		      <td>10 years</td>
 		    </tr>
-		    @endforeach
 		  </tbody>
 		</table>
 	</div>   
