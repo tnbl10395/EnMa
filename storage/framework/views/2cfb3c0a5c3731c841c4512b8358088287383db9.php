@@ -14,14 +14,16 @@
 				  </tr>
 				</thead>
 				<tbody>
-				  <tr class="gradeX">
-				    <td>PR001</td>
-				    <td>pr111</td>
-				    <td>new</td>
-				    <td>Php</td>
-				    <td>01/01/2017</td>
-				    <td>01/05/2017</td>
+				<?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $list): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>	
+				 <tr class="gradeX">
+				    <td><?php echo e($list->idProject); ?></td>
+				    <td><?php echo e($list->projectName); ?></td>
+				    <td><?php echo e($list->status); ?></td>
+				    <td><?php echo e($list->techSkill); ?></td>
+				    <td><?php echo e($list->dateOfBegin); ?></td>
+				    <td><?php echo e($list->dateOfEnd); ?></td>
 				  </tr>
+				 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 				</tbody>
 			</table>
 		</div>

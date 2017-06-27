@@ -9,7 +9,7 @@ class ShowEngiDashboardController extends Controller
 {
     public function ShowEngineer(){
     	$_engineer = new Engineer();
-    	$_list = $_engineer::all();
+    	$_list = $_engineer->get();
     	return view('table.totalEngineers')->with('list',$_list);
     }
 }

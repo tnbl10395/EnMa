@@ -14,14 +14,16 @@
 				  </tr>
 				</thead>
 				<tbody>
-				  <tr class="gradeX">
-				    <td>PR001</td>
-				    <td>pr111</td>
-				    <td>new</td>
-				    <td>Php</td>
-				    <td>01/01/2017</td>
-				    <td>01/05/2017</td>
+				@foreach ($list as $list)	
+				 <tr class="gradeX">
+				    <td>{{ $list->idProject }}</td>
+				    <td>{{ $list->projectName }}</td>
+				    <td>{{ $list->status }}</td>
+				    <td>{{ $list->techSkill }}</td>
+				    <td>{{ $list->dateOfBegin }}</td>
+				    <td>{{ $list->dateOfEnd }}</td>
 				  </tr>
+				 @endforeach
 				</tbody>
 			</table>
 		</div>

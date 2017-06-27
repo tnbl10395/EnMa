@@ -30,14 +30,16 @@
 								    </tr>
 								  </thead>
 								  <tbody>
-								    <tr class="gradeX">
-								      <td>EN001</td>
-								      <td>Long (Leesin) N.B. TRAN</td>
-								      <td>intern.m0011@enclave.vn</td>
-								      <td>01654351834</td>
-								      <td>PHP, Java</td>
-								      <td>10 years</td>
-								    </tr>
+							    @foreach ($listEngineer as $Engieer)
+							    <tr class="gradeX">
+							      <td><a href="">{{ $Engieer->idEngineer }}</a></td>
+							      <td>{{ $Engieer->engineerName }}</td>
+							      <td>{{ $Engieer->Email }}</td>
+							      <td>{{ $Engieer->Phone }}</td>
+							      <td>{{ $Engieer->TechSkill }}</td>
+							      <td>{{ $Engieer->Experience }}</td>
+							    </tr>
+							    @endforeach
 								  </tbody>
 								</table>
 							</div>   
