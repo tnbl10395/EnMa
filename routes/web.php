@@ -40,7 +40,8 @@ Route::get('/dashboard', 'ShowTotalController@total');
 Route::get('/dashboard/totalEngineer', 'ShowEngiDashboardController@ShowEngineer');
 Route::get('/dashboard/totalTeam', 'ShowTeamDashboardController@ShowTeam');
 Route::get('/dashboard/totalProject', 'ShowProjDashboardController@ShowProject');
-Route::get('/dashboard/tableTopEngineer', 'MiniUserController@TableTopEngineer');
+Route::get('/dashboard/tableTopEngineer', 'ShowTopEngineerController@ShowTopEngineer');
+// Route::get('/dashboard/tableTopEngineer', 'MiniUserController@TableTopEngineer');
 
 
 

@@ -1,4 +1,4 @@
-<div class="span2" style="width: 200px;height: 230px; background: #000000;margin-left: -25px;">
+ <div class="span2" style="width: 200px;height: 230px; background: #000000;margin-left: -25px;">
 	<img src="" alt="" style="">
 </div>
 <div class="span3" style="margin-left: 0px;margin-top: -15px;">
@@ -7,16 +7,16 @@
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
-						<td><h4>Long (Leesin) N.B. TRAN</h4></td>
+						<td><h2><?php echo e($list->engineerName); ?></h2></td>
 					</tr>
 					<tr>
-						<td><h6>10-MAR-1995</h6></td>
+						<td><h6><?php echo e($list->Experience); ?></h6></td>
 					</tr>
 					<tr>
-						<td><h6>PHP, JAVA</h6></td>
+						<td><h6><?php echo e($list->TechSkill); ?></h6></td>
 					</tr>
 					<tr>
-						<td><h6>More 10 years</h6></td>
+						<td><h6>Have <?php echo e($list->total); ?> projects</h6></td>
 					</tr>
 				</tbody>
 			</table>

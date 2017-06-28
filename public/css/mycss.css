@@ -51,7 +51,7 @@
 }
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {
-	0%   {background-color: green;}
+	  0%   {background-color: green;}
     25%  {background-color: yellow;}
     50%  {background-color: blue;}
     100% {background-color: red;}
@@ -59,13 +59,26 @@
 
 /* Standard syntax */
 @keyframes example {
-	0%   {background-color: green;}
+   	0%   {background-color: green;}
     25%  {background-color: yellow;}
     50%  {background-color: blue;}
     100% {background-color: red;}
 }
 #user:focus{
 	background-color: #000000;
+}
+#changeTopEngineer h4{
+  color:  #2929a3;
+  animation-name: example1;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes example1 {
+    from {color: #adadeb;}
+    to   {color: #2929a3;}
+}    
+#changeTopEngineer h6{
+  color: #6f6fdc;
 }
 /* end-dashboard */
 /* indexProject */

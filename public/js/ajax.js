@@ -25,10 +25,11 @@ function load_TotalProject(){
 		}
 	});
 }
-function load_TableTopEngineer(){
+function load_TableTopEngineer(id){
 	$.ajax({
 		url : "/dashboard/tableTopEngineer",
 		type: "GET",
+		data: {"id" : ""+id},
 		success: function(html){
 			$('#changeTopEngineer').html(html);
 

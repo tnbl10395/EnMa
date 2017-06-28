@@ -70,23 +70,24 @@
 	              <div class="panel-content nopadding">
 	                <ul class="contact-list">     
 	                  <li id="user1" class="online">
-	                  	<a id="one" onclick="load_TableTopEngineer()"><img alt="" src="<?php echo e(asset('img/demo/av2.jpg')); ?>" /> <span>Leesin</span></a><span class="msg-count badge badge-info">1</span>
+
+	                  	<a id="one" onclick="load_TableTopEngineer(<?php echo e($topEngineer[0]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av2.jpg')); ?>" /> <span><?php echo e($topEngineer[0]->engineerName); ?></span></a><span class="msg-count badge badge-info">1</span>
 	                  </li>
 	                  
 	                  <li id="user2" class="online">
-	                  	<a id="two" onclick="load_TableTopEngineer()"><img alt="" src="<?php echo e(asset('img/demo/av4.jpg')); ?>" /> <span>Tristina</span></a><span class="msg-count badge badge-info">2</span>
+	                  	<a id="two" onclick="load_TableTopEngineer(<?php echo e($topEngineer[1]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av4.jpg')); ?>" /> <span><?php echo e($topEngineer[1]->engineerName); ?></span></a><span class="msg-count badge badge-info">2</span>
 	                  </li>
 	                  
 	                  <li id="user3" class="online">
-	                  	<a onclick="load_TableTopEngineer()"><img alt="" src="<?php echo e(asset('img/demo/av4.jpg')); ?>" /> <span>Nathan</span></a><span class="msg-count badge badge-info">3</span>
+	                  	<a onclick="load_TableTopEngineer(<?php echo e($topEngineer[2]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av4.jpg')); ?>" /> <span><?php echo e($topEngineer[2]->engineerName); ?></span></a><span class="msg-count badge badge-info">3</span>
 	                  </li>
 	                  
 	                  <li id="user4" class="online">
-	                  	<a onclick="load_TableTopEngineer()"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span>Lanston</span></a><span class="msg-count badge badge-info">4</span>
+	                  	<a onclick="load_TableTopEngineer(<?php echo e($topEngineer[3]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span><?php echo e($topEngineer[3]->engineerName); ?></span></a><span class="msg-count badge badge-info">4</span>
 	                  </li>
 	                  
 	                  <li id="user5" class="online">
-	                  	<a onclick="load_TableTopEngineer()"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span>Zeen</span></a><span class="msg-count badge badge-info">5</span>
+	                  	<a onclick="load_TableTopEngineer(<?php echo e($topEngineer[4]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span><?php echo e($topEngineer[4]->engineerName); ?></span></a><span class="msg-count badge badge-info">5</span>
 	                  </li>
 
 	                </ul>
@@ -105,16 +106,16 @@
 											<table class="table table-bordered">
 												<tbody>
 													<tr>
-														<td><h4>Long (Leesin) N.B. TRAN</h4></td>
+														<td><h4><?php echo e($topEngineer[0]->engineerName); ?></h4></td>
 													</tr>
 													<tr>
-														<td><h6>10-MAR-1995</h6></td>
+														<td><h6><?php echo e($topEngineer[0]->TechSkill); ?></h6></td>
 													</tr>
 													<tr>
-														<td><h6>PHP, JAVA</h6></td>
+														<td><h6><?php echo e($topEngineer[0]->Experience); ?></h6></td>
 													</tr>
 													<tr>
-														<td><h6>More 10 years</h6></td>
+														<td><h6>Have <?php echo e($topEngineer[0]->total); ?> projects</h6></td>
 													</tr>
 												</tbody>
 											</table>

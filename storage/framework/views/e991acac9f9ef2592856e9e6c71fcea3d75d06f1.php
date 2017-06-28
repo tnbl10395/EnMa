@@ -6,18 +6,7 @@
 			 <div class="widget-content nopadding">
 			<table class="table table-bordered">
 				<tbody>
-					<tr>
-						<td><h4>Nhan (NaThan) N. NGO</h4></td>
-					</tr>
-					<tr>
-						<td><h6>10-MAR-1995</h6></td>
-					</tr>
-					<tr>
-						<td><h6>PHP, JAVA</h6></td>
-					</tr>
-					<tr>
-						<td><h6>No experience</h6></td>
-					</tr>
+
 				</tbody>
 			</table>
 		</div>

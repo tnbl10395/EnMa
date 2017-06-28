@@ -18,19 +18,22 @@ class ShowTotalController extends Controller
     	$_totalEngineer = $_engineer->count();
     	$_totalTeam = $_team->count();
     	$_totalProject = $_project->count();
-
+  
         $_listEngineer = $_engineer->get();
-        $_count = $_history->count('History.idEngineer')
-                           ->distinct()
-                           ->groupBy('History.idEngineer');
-        $_topEngineer = $_engineer->select('History.idEngineer','Engineer.engineerName',);
-                                  ->join($_history,'Engineer.idEngineer','=','History.idEngineer')
-                                  ->
+        $_topEngineer = $_engineer->join('History','Engineer.idEngineer','=','History.idEngineer')
+                                  ->selectRaw('History.idEngineer, Engineer.engineerName, Engineer.TechSkill, Engineer.Experience, COUNT(History.idEngineer) as total')
+                                  ->distinct('History.idEngineer')
+                                  ->groupBy('History.idEngineer')
+                                  ->orderBy('total','desc')
+                                  ->take(5)
+                                  ->get();
+                     
     	return view('dashboard')->with([
     			'totalEngineer' => $_totalEngineer,
     			'totalTeam' => $_totalTeam,
     			'totalProject' => $_totalProject,
-                'listEngineer' => $_listEngineer,
+          'listEngineer' => $_listEngineer,
+          'topEngineer' => $_topEngineer
     		]);
     }
 }
