@@ -6,7 +6,18 @@
 			 <div class="widget-content nopadding">
 			<table class="table table-bordered">
 				<tbody>
-
+					<tr>
+						<td><h4><?php echo e($top[0]->engineerName); ?></h4></td>
+					</tr>
+					<tr>
+						<td><h6><?php echo e($top[0]->TechSkill); ?></h6></td>
+					</tr>
+					<tr>
+						<td><h6><?php echo e($top[0]->Experience); ?></h6></td>
+					</tr>
+					<tr>
+						<td><h6>Have <?php echo e($top[0]->total); ?> projects</h6></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>

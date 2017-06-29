@@ -140,15 +140,11 @@
 	          <div class="widget-content">
 	            <div class="todo">
 	              <ul>
+	              	@foreach($newProject as $_pro)
 	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> Software Hotel Management </a><span class="date badge badge-important">New</span> </div>
+	                  <div class="txt"><a href="" title=""> {{ $_pro->projectName }} </a><span class="date badge badge-important">New</span> </div>
 	                </li>
-	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> Software Bank Security </a><span class="date badge badge-important">New</span> </div>             
-	                </li>
-	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> Website Sell Online </a><span class="date badge badge-important">New</span> </div>
-	                </li>
+	                @endforeach
 	              </ul>
 	            </div>
 	          </div>

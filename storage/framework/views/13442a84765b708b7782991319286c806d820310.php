@@ -138,15 +138,11 @@
 	          <div class="widget-content">
 	            <div class="todo">
 	              <ul>
+	              	<?php $__currentLoopData = $newProject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $_pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> Software Hotel Management </a><span class="date badge badge-important">New</span> </div>
+	                  <div class="txt"><a href="" title=""> <?php echo e($_pro->projectName); ?> </a><span class="date badge badge-important">New</span> </div>
 	                </li>
-	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> Software Bank Security </a><span class="date badge badge-important">New</span> </div>             
-	                </li>
-	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> Website Sell Online </a><span class="date badge badge-important">New</span> </div>
-	                </li>
+	                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	              </ul>
 	            </div>
 	          </div>
