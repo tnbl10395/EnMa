@@ -865,6 +865,7 @@ hr{ border-top-color:#dadada;}
 }
 .chat-users .contact-list li.online a {
 	font-weight: bold;
+	font-size: 9px;
 }
 .chat-users .contact-list li.new {
 	background-color: #eaeaea;

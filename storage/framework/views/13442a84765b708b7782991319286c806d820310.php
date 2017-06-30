@@ -140,7 +140,7 @@
 	              <ul>
 	              	<?php $__currentLoopData = $newProject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $_pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> <?php echo e($_pro->projectName); ?> </a><span class="date badge badge-important">New</span> </div>
+	                  <div class="txt"><a href="/EditProject/id=<?php echo e($_pro->idProject); ?>" title=""> <?php echo e($_pro->projectName); ?> </a><span class="date badge badge-important">New</span> </div>
 	                </li>
 	                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	              </ul>

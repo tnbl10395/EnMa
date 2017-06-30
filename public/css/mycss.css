@@ -26,8 +26,20 @@
 	display: none;
 }
 .btGroup #btTotal:hover{
-	background: #000000;
+  -webkit-animation-name: example3;
+  -webkit-animation-duration: 2s;
+  animation-name: example3;
+  animation-duration: 2s;
 }
+@-webkit-keyframes example3{
+  from {background: #28db00;}
+  to   {background: #000000;}
+}
+@keyframes example3{
+  from {background: #28db00;}
+  to   {background: #000000;}
+}
+
 /* click */
 .btGroup #btTotal:focus{
 	background: #000000;

@@ -33,7 +33,7 @@ Route::get('/AddEngineerController','AddEngineerController@AddEngineer');
 
 Route::get('/ProjectManagement','MiniUserController@IndexPro');
 Route::get('/AddProject','MiniUserController@AddPro');
-Route::get('/EditProject','MiniUserController@EditPro');
+Route::get('/EditProject/','MiniUserController@EditPro');
 
 
 Route::get('/dashboard', 'ShowTotalController@total');

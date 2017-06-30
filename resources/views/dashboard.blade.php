@@ -142,7 +142,7 @@
 	              <ul>
 	              	@foreach($newProject as $_pro)
 	                <li class="clearfix">
-	                  <div class="txt"><a href="" title=""> {{ $_pro->projectName }} </a><span class="date badge badge-important">New</span> </div>
+	                  <div class="txt"><a href="/EditProject/id={{ $_pro->idProject }}" title=""> {{ $_pro->projectName }} </a><span class="date badge badge-important">New</span> </div>
 	                </li>
 	                @endforeach
 	              </ul>

@@ -31,6 +31,7 @@ class ShowTotalController extends Controller
           'newProject' => $_newProject
     		]);
     }
+    
     public function topEngineer($_engineer){
       $_topEngineer = $_engineer->join('History','Engineer.idEngineer','=','History.idEngineer')
                                 ->selectRaw('History.idEngineer, Engineer.engineerName, Engineer.TechSkill, Engineer.Experience, COUNT(History.idEngineer) as total')
