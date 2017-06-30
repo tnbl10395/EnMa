@@ -22,7 +22,26 @@ $(document).ready(function(){
         default:
             $('#sidebar li:eq(0)').addClass('active');
     }
-
+    $('#myAlert div.modal-footer a:eq(0)').click(function(){
+        id=$(this).attr('title');
+        //id=89;
+        $.ajax({
+            url : "/DelTeam/"+id,
+            type : "get",
+            dataType:"text",
+            success : function (result){
+                if(result==1) {
+                    console.log(result);
+                    $("."+id+"").remove();
+                    console.log('Ok');
+                }
+                else {
+                    console.log(result);
+                    console.log('failed');
+                }
+            }
+        });
+    });
 });
 // change color li tag
 $(document).ready(function(){
@@ -87,4 +106,10 @@ function showDialog(){
   var winHeight = window.innerHeight;
   dlg.style.left = (winWidth/2 - 480/2) + "px";
   dlg.style.top = "150px";
+}
+
+function IdToModal(id,selector){//must be a string
+    //html = $('#myAlert div.modal-footer a:eq(0)').attr("href", "/DelTeam/"+id);
+    html = $('#myAlert div.modal-footer a:eq(0)').attr("title", id);
+    //console.log(selector);
 }

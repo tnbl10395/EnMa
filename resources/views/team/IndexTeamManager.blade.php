@@ -48,13 +48,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="gradeX">
-                                    <td>TE001</td>
-                                    <td>Big hero</td>
-                                    <td>PHP, Java</td>
-                                    <td style="text-align: center;"> <a href="/EditTeam" ><i class="icon-edit"></i></a></td>
-                                    <td style="text-align: center;"> <a onclick="showDialog()" href="#" ><i class="icon-remove"></i></a></td>
+                                @foreach($data as $data)
+                                <tr class="gradeX {{$data->idTeam}}">
+                                    <td>{{$data->idTeam}}</td>
+                                    <td>{{$data->teamName}}</td>
+                                    <td>{{$data->techSkill}}</td>
+                                    <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
+{{--                                    <td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data->idTeam}}" ><i class="icon-remove"></i></a></td>--}}
+                                    {{--<td style="text-align: center;"> <a onclick="showDialog()" href="#" ><i class="icon-remove"></i></a></td>--}}
+                                    {{--<td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" class="btn btn-warning"><i class="icon-remove"></i></a></td>--}}
+                                    <td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" onclick="IdToModal('{{$data->idTeam}}',this)"><i class="icon-remove"></i></a></td>
                                 </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -78,4 +83,14 @@
     <button onclick="dlgCancelPro()">No</button>
   </div>
 </div>
+    <div id="myAlert" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Delete Team</h3>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure that you want to delete this team?</p>
+        </div>
+        <div class="modal-footer"> <a data-dismiss="modal" class="btn btn-primary" href="#">Confirm</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+    </div>
 @stop

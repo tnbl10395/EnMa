@@ -15,17 +15,18 @@
                             <h5>Information</h5>
                         </div>
                         <div class="widget-content nopadding">
-                            <form action="#" method="get" class="form-horizontal">
+                            <form action="/AddTeamController" method="post" class="form-horizontal">
+                                <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                                 <div class="control-group">
                                     <label class="control-label">ID :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" placeholder="ID" required="" />
+                                        <input type="text" class="span11" placeholder="ID" name="idTeam" required="" />
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label">Team Name :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" placeholder="Team Name" required="" />
+                                        <input type="text" class="span11" placeholder="Team Name" name="teamName" required="" />
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -49,19 +50,24 @@
                                     <label class="control-label">Technical Skill :</label>
                                     <div class="controls">
                                         <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                                            <li><input type="checkbox" name="PHP" value=""> PHP</li>
-                                            <li><input type="checkbox" name="PHP" value=""> Java</li>
-                                            <li><input type="checkbox" name="PHP" value=""> .Net</li>
+                                            <li><label><input type="radio" name="techSkill" value="PHP"/>PHP</label></li> {{--must be have label tag--}}
+                                            <li><label><input type="radio" name="techSkill" value="Java"/>Java</label></li>
+                                            <li><label><input type="radio" name="techSkill" value=".Net"/>.Net</label></li>
+                                            {{--<li><input type="radio" name="techSkill[]" value="JAVA"> Java</li>--}}
+                                            {{--<li><input type="radio" name="techSkill[]" value=".Net"> .Net</li>--}}
                                         </ul>
                                         <ul style="list-style-type: none; float: left;">
-                                            <li><input type="checkbox" name="PHP" value=""> Ruby</li>
-                                            <li><input type="checkbox" name="PHP" value=""> Android</li>
-                                            <li><input type="checkbox" name="PHP" value=""> IOS</li>
+                                            <li><label><input type="radio" name="techSkill" value="Ruby"/>Ruby</label></li>
+                                            <li><label><input type="radio" name="techSkill" value="Android"/>Android</label></li>
+                                            <li><label><input type="radio" name="techSkill" value="IOS"/>IOS</label></li>
+                                            {{--<li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>--}}
+                                            {{--<li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>--}}
+                                            {{--<li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>--}}
                                         </ul>
                                         <ul style="list-style-type: none; float: left;">
-                                            <li><input type="checkbox" name="PHP" value=""> C#</li>
-                                            <li><input type="checkbox" name="PHP" value=""> C++</li>
-                                            <li><input type="checkbox" name="PHP" value=""> Assembly</li>
+                                            <li><label><input type="radio" name="techSkill" value="HTML"/>HTML</label></li>
+                                            <li><label><input type="radio" name="techSkill" value="CSS"/>CSS</label></li>
+                                            <li><label><input type="radio" name="techSkill" value="JS"/>JS</label></li>
                                         </ul>
                                     </div>
                                 </div>
