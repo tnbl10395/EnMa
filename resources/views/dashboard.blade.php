@@ -153,5 +153,6 @@
     	</div>
         <!-- end-new project -->
 		</div>
-	</div>	
+	</div>
+	</div>
 @stop

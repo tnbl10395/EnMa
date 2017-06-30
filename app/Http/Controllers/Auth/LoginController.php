@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\MessageBag;
 use Validator;
 class LoginController extends Controller
@@ -43,24 +43,26 @@ class LoginController extends Controller
 
     }
 
-//    public function showLoginForm() {
-//        return view("auth.login");
-//    }
+    public function showLoginForm() {
+        return view("auth.login");
+    }
 
     public function login(Request $request){
         $rules=
             [
-                'username'=>'required',
+                'username'=>'required|regex:/^[a-zA-Z0-9!@#$%^&*)(]{2,20}$/',
                 'password'=>'required|min:5|max:20'
             ];
         $mess=    [
-                'username.required'=>'Please enter your username',
-                'password.required'=>'Please enter your password',
-                'password.min'=>'Your password is from 5 to 20 characters',
-                'password.max'=>'Your password is from 5 to 20 characters',
-            ];
+//            'username'=>'regex:/^[a-zA-Z0-9!@#$%^&*)(]{2,20}$/',
+            'username.required'=>'Please enter your username',
+            'password.required'=>'Please enter your password',
+            'password.min'=>'Your password is from 6 to 20 characters',
+            'password.max'=>'Your password is from 6 to 20 characters',
+        ];
+
         $validate = Validator::make($request->all(),$rules,$mess);
-      //  $cre = array('name'=>$request->username,'password'=>$request->password);
+        //  $cre = array('name'=>$request->username,'password'=>$request->password);
 
         if($validate->fails()){
             return redirect()->back()->withErrors($validate);
@@ -69,16 +71,21 @@ class LoginController extends Controller
             $name = $request->input('username');
             $pass = $request->input('password');
             if(Auth::attempt(['name'=>$name, 'password'=>$pass])){
-                return view('dashboard');
+                $request->session()->put('login', true);
+                $request->session()->put('name', $name);
+                return redirect()->intended('index');
 
             }else{
                 $errors = new MessageBag(['errorlogin'=>'Username or Password is not correct!']);
-                return redirect()->back()->withInput()->withErrors($errors);
+                return back()->withInput()->withErrors($errors);
             }
 
         }
-         //   dd($validate);
-     //  dd($request->all());
+        //   dd($validate);
+        //  dd($request->all());
 
+    }
+    public  function logout()
+    {
     }
 }

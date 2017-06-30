@@ -14,8 +14,18 @@
 // Route::get('/', function () {
 //     return view('dashboard');
 // });
+Auth::routes();
 Route::get('/', 'ShowTotalController@total');
 // View::composer('dashboard','ShowTotalController@totalEngineer');
+
+Route::get('login', 'LoginController@showLoginForm');
+//Route::post('login', 'LoginController@login');
+Route::get('/', 'HomeController@index')->name('dashboard');
+Route::get('logout',function (){
+    Request::session()->flush();
+    //Auth::logout();
+    return redirect('login');
+});
 
 Route::get('test', function (){
     return view('test');
@@ -62,8 +72,11 @@ Route::get('/checkDB', function ()
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
 // Auth::routes();
 
 
 
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('dashboard');
