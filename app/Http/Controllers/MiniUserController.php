@@ -34,15 +34,15 @@ class MiniUserController extends Controller
     }
 
 
-    public function IndexPro(){
-    	return view('project.IndexProjectManagement');
-    }
-    public function AddPro(){
-    	return view('project.FormAddPro');
-    }
-    public function EditPro(){
-    	return view('project.FormEditPro');
-    }
+    // public function IndexPro(){
+    // 	return view('project.IndexProjectManagement');
+    // }
+    // public function AddPro(){
+    // 	return view('project.FormAddPro');
+    // }
+    // public function EditPro(){
+    // 	return view('project.FormEditPro');
+    // }
 
     public function IndexTm(){
         return view('team.IndexTeamManager');

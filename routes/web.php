@@ -41,9 +41,22 @@ Route::get('/AddEngineer','MiniUserController@AddEm');
 Route::get('/EditEngineer','MiniUserController@EditEm');
 Route::get('/AddEngineerController','AddEngineerController@AddEngineer');
 
+// Route::get('/ProjectManagement','MiniUserController@IndexPro');
+// Route::get('/AddProject','MiniUserController@AddPro');
+// Route::get('/EditProject','MiniUserController@EditPro');
+Route::get('/ProjectManagement','ProjectController@IndexPro');
+Route::get('/AddProject','ProjectController@AddPro');
+Route::post('/AddProject','ProjectController@postAddPro');
+
+Route::get('/EditProject','ProjectController@EditPro');
+Route::get('/EditProject/{idProject}','ProjectController@EditPro,$idProject');
+Route::post('/postEditPro/{idProject}','ProjectController@postEditPro');
+
+
 Route::get('/ProjectManagement','MiniUserController@IndexPro');
 Route::get('/AddProject','MiniUserController@AddPro');
 Route::get('/EditProject/','MiniUserController@EditPro');
+
 
 
 Route::get('/dashboard', 'ShowTotalController@total');
