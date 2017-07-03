@@ -73,7 +73,7 @@ class LoginController extends Controller
             if(Auth::attempt(['name'=>$name, 'password'=>$pass])){
                 $request->session()->put('login', true);
                 $request->session()->put('name', $name);
-                return redirect()->intended('index');
+                return redirect()->intended('/');
 
             }else{
                 $errors = new MessageBag(['errorlogin'=>'Username or Password is not correct!']);

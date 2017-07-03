@@ -1,6 +1,6 @@
 function load_TotalEngineer(){
 	$.ajax({
-		url : "/dashboard/totalEngineer",
+		url : "/totalEngineer",
 		type: "GET",
 		success: function(html){
 			$('#changetable').html(html);
@@ -9,7 +9,7 @@ function load_TotalEngineer(){
 }
 function load_TotalTeam(){
 	$.ajax({
-		url : "/dashboard/totalTeam",
+		url : "/totalTeam",
 		type: "GET",
 		success: function(html){
 			$('#changetable').html(html);
@@ -18,7 +18,7 @@ function load_TotalTeam(){
 }
 function load_TotalProject(){
 	$.ajax({
-		url : "/dashboard/totalProject",
+		url : "/totalProject",
 		type: "GET",
 		success: function(html){
 			$('#changetable').html(html);
@@ -27,7 +27,7 @@ function load_TotalProject(){
 }
 function load_TableTopEngineer(id){
 	$.ajax({
-		url : "/dashboard/tableTopEngineer",
+		url : "/tableTopEngineer",
 		type: "GET",
 		data: {"id" : ""+id},
 		success: function(html){

@@ -13,52 +13,52 @@
           <h5>Information</h5>
         </div>
         <div class="widget-content nopadding">
-          <form action="#" method="get" class="form-horizontal">
+
+          <form action="/AddProject" method="POST" class="form-horizontal">
+            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+       
             <div class="control-group">
               <label class="control-label">idProject:</label>
               <div class="controls">
-                <input type="text" class="span11" placeholder="idProject" required="" />
+                <input type="text" class="span11" placeholder="idProject" name="idProject" required="" />
               </div>
             </div>
             <div class="control-group">
               <label class="control-label">projectName :</label>
               <div class="controls">
-                <input type="text" class="span11" placeholder="projectName" required="" />
+                <input type="text" class="span11" placeholder="projectName" name="projectName" required="" />
               </div>
             </div>
            
             <div class="control-group">
               <label class="control-label">Status :</label>
-              <div class="controls">
-                <select >
-                  <option>New</option>
-                  <option>Assigned</option>
-                  <option>Feedback</option>
-                  <option>In progress</option>
-                  <option>Resolved</option>
+              <div class="controls" >
+                <select name= "status" value="status">
+                  <option value="0">New</option>
+                  <option value="1">Assigned</option>
+                  <option value="2">Feedback</option>
+                  <option value="3">In progress</option>
+                  <option value="4">Resolved</option>
                 </select>
               </div>
             </div>
              <div class="control-group">
               <label class="control-label">Technical Skill :</label>
               <div class="controls">
-                <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                  <li><input type="checkbox" name="PHP" value=""> PHP</li>
-                  <li><input type="checkbox" name="PHP" value=""> Java</li>
-                  <li><input type="checkbox" name="PHP" value=""> .Net</li>
-                </ul>
-                <ul style="list-style-type: none; float: left;">
-                  <li><input type="checkbox" name="PHP" value=""> Ruby</li>
-                  <li><input type="checkbox" name="PHP" value=""> Android</li>
-                  <li><input type="checkbox" name="PHP" value=""> IOS</li>
-                </ul> 
-                <ul style="list-style-type: none; float: left;">
-                  <li><input type="checkbox" name="PHP" value=""> C#</li>
-                  <li><input type="checkbox" name="PHP" value=""> C++</li>
-                  <li><input type="checkbox" name="PHP" value=""> Assembly</li>
-                </ul>        
-              </div>
 
+                <select name= "techSkill" value="techSkill">
+                  <option value="PHP">PHP</option>
+                  <option value="Java">Java</option>
+                  <option value=".Net">.Net</option>
+                  <option value="Ruby">Ruby</option>
+                  <option value="Android">Android</option>
+                  <option value="IOS">IOS</option>
+                  <option value="C#">C#</option>
+                  <option value="C++">C++</option>
+                  <option value="Assembly">Assembly</option>
+                </select>
+         
+              </div>
 
             </div>
 
@@ -66,15 +66,21 @@
             <div class="control-group">
               <label class="control-label">dateOfBegin(dd-mm)</label>
               <div class="controls">
-                <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" value="01-02-2017" class="datepicker span11">
-                <span class="help-block">Date with Formate of  (dd-mm-yy)</span> </div>
+                <input type="text"  data-date-format="yyyy-mm-dd" placeholder ="2017-02-01" class="datepicker span11" name="dateOfBegin">
+                <span class="help-block">Date with Formate of  (yyyy-mm-dd)</span> </div>
             </div>
 
             <div class="control-group">
               <label class="control-label">dateOfEnd(dd-mm)</label>
               <div class="controls">
-                <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" value="01-02-2017" class="datepicker span11">
-                <span class="help-block">Date with Formate of  (dd-mm-yy)</span> </div>
+                <input type="text"  data-date-format="yyyy-mm-dd" placeholder="2017-02-01" class="datepicker span11" name="dateOfEnd">
+                <span class="help-block">Date with Formate of  (yyyy-mm-dd</span> </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">customer_code:</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="customer_code" name="customer_code" required="" />
+              </div>
             </div>
             <div class="form-actions">
               <button type="submit" class="btn-success">Submit</button>
@@ -87,5 +93,4 @@
 <script src="js/matrix.form_common.js"></script>
 
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('template.menubar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

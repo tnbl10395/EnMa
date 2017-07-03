@@ -46,13 +46,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="gradeX">
-                                    <td>TE001</td>
-                                    <td>Big hero</td>
-                                    <td>PHP, Java</td>
-                                    <td style="text-align: center;"> <a href="/EditTeam" ><i class="icon-edit"></i></a></td>
-                                    <td style="text-align: center;"> <a onclick="showDialog()" href="#" ><i class="icon-remove"></i></a></td>
+                                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tr class="gradeX <?php echo e($data->idTeam); ?>">
+                                    <td><?php echo e($data->idTeam); ?></td>
+                                    <td><?php echo e($data->teamName); ?></td>
+                                    <td><?php echo e($data->techSkill); ?></td>
+                                    <td style="text-align: center;"> <a href="/EditTeam/<?php echo e($data->idTeam); ?>" ><i class="icon-edit"></i></a></td>
+
+                                    
+                                    
+                                    <td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" onclick="IdToModal('<?php echo e($data->idTeam); ?>',this)"><i class="icon-remove"></i></a></td>
                                 </tr>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
                             </table>
                         </div>
@@ -76,6 +81,16 @@
     <button onclick="dlgCancelPro()">No</button>
   </div>
 </div>
+    <div id="myAlert" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Delete Team</h3>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure that you want to delete this team?</p>
+        </div>
+        <div class="modal-footer"> <a data-dismiss="modal" class="btn btn-primary" href="#">Confirm</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+    </div>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('template.menubar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
