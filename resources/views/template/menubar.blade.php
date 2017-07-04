@@ -65,7 +65,7 @@
 
 
                     <li class="divider"></li>
-                    <li><a href="/reset"><i class="icon-check"></i> Change password</a></li>
+                    <li><a href="/password/reset"><i class="icon-check"></i> Change password</a></li>
                     <li class="divider"></li>
                     <li><a href="/logout"><i class="icon-key"></i> Log Out</a></li>
                     @endif
@@ -85,13 +85,13 @@
   <ul>
     <li class=""><a href="/"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     
-    <li class=""> <a href="/TeamManagement"><i class="icon icon-th-list"></i> <span>Teams</span> <span class="label label-important">{{ $totalTeam }}</span></a>
+    <li class=""> <a href="/TeamManagement"><i class="icon icon-th-list"></i> <span>Teams</span> <span class="label label-important"></span></a>
     </li>
     
-    <li class=""> <a href="/ProjectManagement"><i class="icon icon-file"></i> <span>Projects</span> <span class="label label-important">{{ $totalProject }}</span></a>
+    <li class=""> <a href="/ProjectManagement"><i class="icon icon-file"></i> <span>Projects</span> <span class="label label-important"></span></a>
     </li>
     
-    <li class=""> <a href="/EngineerManagement"><i class="icon icon-user"></i> <span>Engineers</span> <span class="label label-important">{{ $totalEngineer }}</span></a>
+    <li class=""> <a href="/EngineerManagement"><i class="icon icon-info-sign"></i> <span>Engineers</span> <span class="label label-important"></span></a>
     </li>
     
     <li><a href="/logout"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>

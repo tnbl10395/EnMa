@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use App\Engineer;
+
 class MiniUserController extends Controller
 {
     
@@ -25,9 +24,7 @@ class MiniUserController extends Controller
     }
 
     public function IndexEM(){
-    	$_engineer = new Engineer();
-        $_list = $_engineer::all();
-        return view('engineer.IndexEngiManage')->with('list',$_list);
+    	return view('engineer.IndexEngiManage');
     }
     public function AddEm(){
     	return view('engineer.FormInsertEngi');

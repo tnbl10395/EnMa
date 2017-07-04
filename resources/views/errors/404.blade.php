@@ -5,16 +5,17 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/colorpicker.css" />
-  <link rel="stylesheet" href="css/uniform.css"/>
-  <link rel="stylesheet" href="css/select2.css"/>
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-  <link rel="stylesheet" href="css/fullcalendar.css" />
-  <link rel="stylesheet" href="css/matrix-style-404.css" />
-  <link rel="stylesheet" href="css/datepicker.css" />
-  <link rel="stylesheet" href="css/matrix-media.css" />
-  <link href="font-awesome/css/font-awesome.css" rel="stylesheet" /></head>
+  <link rel="stylesheet" href="{{asset('css/colorpicker.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/uniform.css')}}"/>
+  <link rel="stylesheet" href="{{asset('css/select2.css')}}"/>
+  <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.min.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/fullcalendar.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/matrix-style-404.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/datepicker.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/matrix-media.css')}}" />
+  <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+</head>
 <body>
 
 <div id="content">

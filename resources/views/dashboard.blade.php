@@ -7,7 +7,7 @@
 		    </div>  
 			<!-- information -->
 			  <div class="container-fluid">
-		      <div class="widget-box" style="margin-left: -5px;">
+		      <div class="widget-box">
 		        <div class="widget-title bg_lg"><span class="icon"><i class="icon-signal"></i></span>
 		          <h5>Information</h5>
 		        </div>
@@ -63,7 +63,7 @@
 			<!-- end-information -->
 			<!-- top engineer -->
 		
-		<div class="span7" style="margin: -20px 0px 0px -5px;">
+		<div class="span7" style="margin: -20px 0px 0px -10px;">
 	        <div class="widget-box widget-chat">
 	          <div class="widget-title bg_lb"> <span class="icon"> <i class="icon-star"></i> </span>
 	            <h5>Top Engineers</h5>
@@ -133,7 +133,7 @@
 	        </div>
 	        <!-- end- top engineer -->
 	        <!-- new project -->
-	        <div class="span3" style="margin: -20px 0px 0px 5px;">
+	        <div class="span3" style="margin: -20px 0px 0px 10px;">
 	        <div class="widget-box">
 	          <div class="widget-title"> <span class="icon"><i class="icon-tasks"></i></span>
 	            <h5>New Projects</h5>
