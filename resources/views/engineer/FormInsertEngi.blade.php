@@ -29,13 +29,13 @@
                     <div class=""  style="margin-bottom: 8px;">
                         <div class="control-group">
                           <div class="controls">
-                        <!--     <input type="text" name="id" class="span11" placeholder="ID" required="" /> -->
+                            <input type="text" name="id" class="span11" placeholder="ID" required="" />
                           </div>
                           <div class="controls">
                             <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" />
                           </div>
                           <div class="controls">
-                            <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" placeholder="Date of Birth" name="birthday" class="datepicker span11"> 
+                            <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" placeholder="Date of Birth" class="datepicker span11"> 
                           </div>
                           <div class="controls">
                             <select class="span11" name="experience">
@@ -57,13 +57,13 @@
                <div class="control-group">
                   <label class="control-label">Date Of Join</label>
                   <div class="controls">
-                    <input type="text" placeholder="Date Of Join" data-date-format="dd-mm-yyyy" value="01-02-2017" name="datejoin" class="datepicker span11">
+                    <input type="text" placeholder="Date Of Join" data-date-format="dd-mm-yyyy" value="01-02-2017" class="datepicker span11">
                   </div>
                 </div>
                 <div class="control-group" style="margin-bottom: 10px;">
                   <label class="control-label">Date Of Out</label>
                   <div class="controls">
-                    <input type="text" placeholder="Date Of Out" data-date-format="dd-mm-yyyy" value="01-02-2017" name="dateout" class="datepicker span11">
+                    <input type="text" placeholder="Date Of Out" data-date-format="dd-mm-yyyy" value="01-02-2017" class="datepicker span11">
                   </div>
                  </div>
               </div>
@@ -108,19 +108,19 @@
             <label id="label" class="control-label">Technical Skill :</label>
             <div class="controls">
               <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                <li><input type="checkbox" name="technical[]" value="0"> PHP</li>
-                <li><input type="checkbox" name="technical[]" value="1"> Java</li>
-                <li><input type="checkbox" name="technical[]" value="2"> .Net</li>
+                <li><input type="checkbox" name="technical" value="0"> PHP</li>
+                <li><input type="checkbox" name="technical" value="1"> Java</li>
+                <li><input type="checkbox" name="technical" value="2"> .Net</li>
               </ul>
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="3"> Ruby</li>
-                <li><input type="checkbox" name="technical[]" value="4"> Android</li>
-                <li><input type="checkbox" name="technical[]" value="5"> IOS</li>
+                <li><input type="checkbox" name="technical" value="3"> Ruby</li>
+                <li><input type="checkbox" name="technical" value="4"> Android</li>
+                <li><input type="checkbox" name="technical" value="5"> IOS</li>
               </ul> 
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="6"> HTML</li>
-                <li><input type="checkbox" name="technical[]" value="7"> CSS</li>
-                <li><input type="checkbox" name="technical[]" value="8"> JS</li>
+                <li><input type="checkbox" name="technical" value="6"> HTML</li>
+                <li><input type="checkbox" name="technical" value="7"> CSS</li>
+                <li><input type="checkbox" name="technical" value="8"> JS</li>
               </ul>        
             </div>
           </div>

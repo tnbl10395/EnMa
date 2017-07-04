@@ -35,7 +35,7 @@ Route::get('login', function(){
 Route::get('/EngineerManagement','MiniUserController@IndexEm');
 Route::get('/AddEngineer','MiniUserController@AddEm');
 Route::get('/EditEngineer','MiniUserController@EditEm');
-Route::post('/AddEngineerController',array('uses' =>'AddEngineerController@AddEngineer'));
+Route::get('/AddEngineerController','AddEngineerController@AddEngineer');
 
 Route::get('/ProjectManagement','ProjectController@IndexPro');
 Route::get('/AddProject','ProjectController@AddPro');
@@ -66,4 +66,5 @@ Route::get('/checkDB', function ()
 });
 
 Auth::routes();
+//Route::get('reset','Auth\ResetPasswordController@showLinkRequest');
 

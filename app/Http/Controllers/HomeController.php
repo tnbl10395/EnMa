@@ -59,10 +59,7 @@ class HomeController extends Controller
                                 ->get();
       return $_topEngineer;
     }
-    public function statisticEngineer($_engineer){
-      // $_statisticEngineer = $_engineer->
-      return $_statisticEngineer;
-    }
+
     public function newProject($_project){
       $_newProject = $_project->selectRaw('idProject, projectName')
                               ->orderBy('dateOfBegin','desc')
