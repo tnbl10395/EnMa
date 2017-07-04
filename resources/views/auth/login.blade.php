@@ -71,18 +71,29 @@
         @endif
 
     </form>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <form id="recoverform" action="#" class="form-vertical">
+        {{ csrf_field() }}
         <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
 
-        <div class="controls">
+        <div class="controls{{ $errors->has('email') ? ' has-error' : '' }}">
             <div class="main_input_box">
                 <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                @endif
             </div>
         </div>
 
         <div class="form-actions">
             <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-            <span class="pull-right"><a class="btn btn-info">Recover</a></span>
+            <span class="pull-right"><button type="submit" class="btn btn-info">Recover</button></span>
         </div>
     </form>
 </div>
