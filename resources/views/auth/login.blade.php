@@ -20,7 +20,7 @@
 @endif
 <div id="loginbox">
     <form id="loginform" class="form-vertical" action="{{route('login')}}" method="POST" role="form">
-        <div class="control-group normal_text"> <h3><img src="{{asset('img/logo.png')}}" alt="Logo" /></h3></div>
+        <div class="control-group normal_text"> <h3><img src="{{asset('img/Image_from_Skype1.png')}}" alt="Logo" /></h3></div>
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">

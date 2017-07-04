@@ -32,10 +32,10 @@ Route::get('login', function(){
     return view('login');
 });
 
-Route::get('/EngineerManagement','MiniUserController@IndexEm');
-Route::get('/AddEngineer','MiniUserController@AddEm');
-Route::get('/EditEngineer','MiniUserController@EditEm');
-Route::get('/AddEngineerController','AddEngineerController@AddEngineer');
+Route::get('/EngineerManagement','EngineerController@IndexEm');
+Route::get('/AddEngineer','EngineerController@AddEm');
+Route::get('/EditEngineer','EngineerController@EditEm');
+Route::post('/AddEngineerController',array('uses' =>'AddEngineerController@AddEngineer'));
 
 Route::get('/ProjectManagement','ProjectController@IndexPro');
 Route::get('/AddProject','ProjectController@AddPro');

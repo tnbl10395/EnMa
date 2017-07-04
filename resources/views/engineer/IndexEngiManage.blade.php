@@ -24,6 +24,7 @@
         <div style="width: 150px;float: left; margin-bottom: 5px;">
         <label for="">Technical Skill</label>
           <select name="">
+            <option value="">All</option>
             <option value="">PHP</option>
             <option value="">Java</option>
             <option value="">C++</option>
@@ -55,17 +56,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="gradeX">
-                  <td>EN001</td>
-                  <td>Long (Leesin) N.B. TRAN</td>
-                  <td>Danang City</td>
-                  <td>intern.m0011@enclave.vn</td>
-                  <td>01654351834</td>
-                  <td>PHP, Java</td>
-                  <td>10 years</td>
-                  <td> <a href="" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-                  <td> <a onclick="showDialog()" href="#" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
-                </tr>
+              @foreach ($list as $list)
+              <tr class="gradeX">
+                <td><a href="">{{ $list->idEngineer }}</a></td>
+                <td>{{ $list->engineerName }}</td>
+                <td>{{ $list->Address }}</td>
+                <td>{{ $list->Phone }}</td>
+                <td>{{ $list->Email }}</td>
+                <td>{{ $list->TechSkill }}</td>
+                <td>{{ $list->Experience }}</td>
+                <td> <a href="EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                <td> <a onclick="showDialog()" href="#" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+              </tr> 
+             @endforeach
               </tbody>
             </table>
           </div>

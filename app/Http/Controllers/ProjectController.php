@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\Team;
+use App\Engineer;
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
@@ -16,11 +18,22 @@ class ProjectController extends Controller
     }
 
     public function IndexPro(){
-    	$Project = Project::all();
-        return view('project.IndexProjectManagement',['Project' => $Project]);
+    	  $Project = Project::all();  
+        $_totalTeam = $this->totalTeam();
+        $_totalProject = $this->totalProject();
+        $_totalEngineer = $this->totalEngineer();
+        return view('project.IndexProjectManagement',['Project' => $Project, 
+                                                      'totalEngineer' => $_totalEngineer,
+                                                      'totalTeam' => $_totalTeam,
+                                                      'totalProject' => $_totalProject,]);
     }
     public function AddPro(){
-    	return view('project.FormAddPro');
+        $_totalTeam = $this->totalTeam();
+        $_totalProject = $this->totalProject();
+        $_totalEngineer = $this->totalEngineer();
+    	return view('project.FormAddPro')->with(['totalEngineer' => $_totalEngineer,
+                                                 'totalTeam' => $_totalTeam,
+                                                 'totalProject' => $_totalProject,]);
     }
     public function postAddPro(Request $request)
     {
@@ -47,7 +60,9 @@ class ProjectController extends Controller
     }
 
     public function EditPro($idProject){
-
+        $_totalTeam = $this->totalTeam();
+        $_totalProject = $this->totalProject();
+        $_totalEngineer = $this->totalEngineer();
        // $oneProject = DB::table('Project')->where('idProject', '=', $idProject)->get();
 
        // echo $oneProject;
@@ -61,10 +76,30 @@ class ProjectController extends Controller
 
         //return redirect('/ProjectManagement');
         //->action('ProjectController@EditPro');
-        return view('project.FormEditPro', ['oneProject'=>$idProject]);
+        return view('project.FormEditPro', ['oneProject'=>$idProject,
+                                            'totalEngineer' => $_totalEngineer,
+                                            'totalTeam' => $_totalTeam,
+                                            'totalProject' => $_totalProject,]);
 
     }
     public function postEditPro(Request $request, $idProject){
         
+    }
+    public function totalEngineer(){
+      $_engineer = new Engineer();
+      $_totalEngineer = $_engineer->count();
+      return $_totalEngineer;
+    }
+
+    public function totalProject(){
+      $_project = new Project();
+      $_totalProject = $_project->count();
+      return $_totalProject;
+    }
+
+    public function totalTeam(){
+      $_team = new Team();
+      $_totalTeam = $_team->count();
+      return $_totalTeam;
     }
 }

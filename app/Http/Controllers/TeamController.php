@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Team;
+use App\Project;
+use App\Engineer;
 use Illuminate\Support\Facades\DB;
 
 class TeamController extends Controller
@@ -15,10 +17,21 @@ class TeamController extends Controller
 
     public function IndexTm(){
         $datas = DB::table('Team')->get();
-        return view('team.IndexTeamManager',['data'=>$datas]);
+        $_totalTeam = $this->totalTeam();
+        $_totalProject = $this->totalProject();
+        $_totalEngineer = $this->totalEngineer();
+        return view('team.IndexTeamManager',['data'=>$datas,
+                                             'totalEngineer' => $_totalEngineer,
+                                             'totalTeam' => $_totalTeam,
+                                             'totalProject' => $_totalProject,]);
     }
     public function AddTm(){
-        return view('team.FormInsertTeam');
+        $_totalTeam = $this->totalTeam();
+        $_totalProject = $this->totalProject();
+        $_totalEngineer = $this->totalEngineer();
+        return view('team.FormInsertTeam')->with(['totalEngineer' => $_totalEngineer,
+                                                  'totalTeam' => $_totalTeam,
+                                                  'totalProject' => $_totalProject,]);
     }
 
     public function AddTeam(Request $request){
@@ -32,7 +45,12 @@ class TeamController extends Controller
         return redirect('TeamManagement');
     }
     public function EditTm(){
-        return view('team.FormEditTeam');
+        $_totalTeam = $this->totalTeam();
+        $_totalProject = $this->totalProject();
+        $_totalEngineer = $this->totalEngineer();
+        return view('team.FormEditTeam')->with(['totalEngineer' => $_totalEngineer,
+                                                  'totalTeam' => $_totalTeam,
+                                                  'totalProject' => $_totalProject,]);
     }
 
     public function DelTm(Request $request, $id){
@@ -40,5 +58,22 @@ class TeamController extends Controller
 //        return redirect('TeamManagement');//because using ajax
        $result =  DB::table('Team')->where('idTeam',$id)->delete();
         return $result;
+    }
+    public function totalEngineer(){
+      $_engineer = new Engineer();
+      $_totalEngineer = $_engineer->count();
+      return $_totalEngineer;
+    }
+
+    public function totalProject(){
+      $_project = new Project();
+      $_totalProject = $_project->count();
+      return $_totalProject;
+    }
+
+    public function totalTeam(){
+      $_team = new Team();
+      $_totalTeam = $_team->count();
+      return $_totalTeam;
     }
 }

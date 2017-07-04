@@ -4,7 +4,7 @@
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="ProjectManagement" class="tip-bottom">Project Management</a> <a href="#" class="current">Edit Project</a> </div>
-  <h1>UPDATE PROJECT</h1>
+  <h1>Update Project</h1>
 </div>
 
 <?php
@@ -142,9 +142,10 @@ $decoded = json_decode($listPro, true);
           </form>
         </div>
       </div>
-
-</select>
-</div></div>
+    </div>
+  </div>
+</div>
+</div>
 <script src="{{asset('js/matrix.form_common.js')}}"></script>
 
 @stop
