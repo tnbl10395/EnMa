@@ -117,13 +117,13 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>Id Project</th>
+                  <th>Project ID</th>
                   <th>Project Name</th>
-                  <th>status</th>
+                  <th>Status</th>
                   <th>Technical Skill</th>
                   <th>Date Of Begin</th>
                   <th>Date Of End</th>
-                  <th>customer</th>
+                  <th>Customer</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
