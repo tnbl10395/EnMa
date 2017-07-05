@@ -58,18 +58,20 @@
 
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
-  <ul class="nav">
-    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome User</span><b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
-        <li class="divider"></li>
-        <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
-        <li class="divider"></li>
-        <li><a href="logout"><i class="icon-key"></i> Log Out</a></li>
-      </ul>
-    </li>
-    <li class=""><a title="" href="/logout"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
-  </ul>
+    <ul class="nav">
+        <?php if(Session::has('login') && Session::get('login') == true): ?>
+            <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome <?php echo e(Session::get('name')); ?></span><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+
+
+                    <li class="divider"></li>
+                    <li><a href="/password/reset"><i class="icon-check"></i> Change password</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/logout"><i class="icon-key"></i> Log Out</a></li>
+                    <?php endif; ?>
+                </ul>
+            </li>
+    </ul>
 </div>
 <!--close-top-Header-menu-->
 <!--start-top-serch-->
@@ -83,13 +85,13 @@
   <ul>
     <li class=""><a href="/"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     
-    <li class=""> <a href="/TeamManagement"><i class="icon icon-th-list"></i> <span>Teams</span> <span class="label label-important"></span></a>
+    <li class=""> <a href="/TeamManagement"><i class="icon icon-th-list"></i> <span>Teams</span> <span class="label label-important"><?php echo e($totalTeam); ?></span></a>
     </li>
     
-    <li class=""> <a href="/ProjectManagement"><i class="icon icon-file"></i> <span>Projects</span> <span class="label label-important"></span></a>
+    <li class=""> <a href="/ProjectManagement"><i class="icon icon-file"></i> <span>Projects</span> <span class="label label-important"><?php echo e($totalProject); ?></span></a>
     </li>
     
-    <li class=""> <a href="/EngineerManagement"><i class="icon icon-info-sign"></i> <span>Engineers</span> <span class="label label-important"></span></a>
+    <li class=""> <a href="/EngineerManagement"><i class="icon icon-user"></i> <span>Engineers</span> <span class="label label-important"><?php echo e($totalEngineer); ?></span></a>
     </li>
     
     <li><a href="/logout"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>

@@ -2,7 +2,7 @@
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="ProjectManagement" class="tip-bottom">Project Management</a> <a href="#" class="current">Insert Project</a> </div>
-  <h1>INSERT PROJECT</h1>
+  <h1>Insert Project</h1>
 </div>
 <div class="container-fluid">
   <hr>
@@ -18,13 +18,13 @@
             <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
        
             <div class="control-group">
-              <label class="control-label">idProject:</label>
+              <label class="control-label">Project ID:</label>
               <div class="controls">
                 <input type="text" class="span11" placeholder="idProject" name="idProject" required="" />
               </div>
             </div>
             <div class="control-group">
-              <label class="control-label">projectName :</label>
+              <label class="control-label">Project Name :</label>
               <div class="controls">
                 <input type="text" class="span11" placeholder="projectName" name="projectName" required="" />
               </div>
@@ -64,20 +64,20 @@
 
 
             <div class="control-group">
-              <label class="control-label">dateOfBegin(dd-mm)</label>
+              <label class="control-label">Date Of Begin :</label>
               <div class="controls">
                 <input type="text"  data-date-format="yyyy-mm-dd" placeholder ="2017-02-01" class="datepicker span11" name="dateOfBegin">
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd)</span> </div>
             </div>
 
             <div class="control-group">
-              <label class="control-label">dateOfEnd(dd-mm)</label>
+              <label class="control-label">Date Of End</label>
               <div class="controls">
                 <input type="text"  data-date-format="yyyy-mm-dd" placeholder="2017-02-01" class="datepicker span11" name="dateOfEnd">
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd</span> </div>
             </div>
             <div class="control-group">
-              <label class="control-label">customer_code:</label>
+              <label class="control-label">Customer :</label>
               <div class="controls">
                 <input type="text" class="span11" placeholder="customer_code" name="customer_code" required="" />
               </div>

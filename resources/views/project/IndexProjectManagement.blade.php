@@ -74,7 +74,7 @@
 
   <div id="content-header">
     <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="ProjectManagement" class="current">Project Management</a> </div>
-    <h1>PROJECT MANAGEMENT</h1>
+    <h1>Projects Management</h1>
   </div>
   <div class="container-fluid">
 

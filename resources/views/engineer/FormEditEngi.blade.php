@@ -3,8 +3,8 @@
 @section('content')
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="tip-bottom">Engineer Management</a> <a href="#" class="current">Update Engineer</a> </div>
-  <h1>Update Engineer</h1>
+  <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="tip-bottom">Engineer Management</a> <a href="#" class="current">Edit Engineer</a> </div>
+  <h1>Edit Engineer</h1>
 </div>
 <div class="container-fluid">
   <hr>

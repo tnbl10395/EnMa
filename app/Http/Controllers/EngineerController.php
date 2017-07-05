@@ -12,6 +12,11 @@ use App\json;
 
 class EngineerController extends Controller
 {	
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
+  
 	public function IndexEM(){ 
         $_list = Engineer::all();
         $_totalTeam = $this->totalTeam();

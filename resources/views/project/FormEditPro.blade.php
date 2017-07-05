@@ -4,7 +4,7 @@
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="ProjectManagement" class="tip-bottom">Project Management</a> <a href="#" class="current">Edit Project</a> </div>
-  <h1>Update Project</h1>
+  <h1>Edit Project</h1>
 </div>
 
 <?php
