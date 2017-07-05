@@ -18,6 +18,7 @@ class ProjectController extends Controller
     }
 
     public function IndexPro(){
+
     	  $Project = Project::all();  
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
@@ -26,6 +27,7 @@ class ProjectController extends Controller
                                                       'totalEngineer' => $_totalEngineer,
                                                       'totalTeam' => $_totalTeam,
                                                       'totalProject' => $_totalProject,]);
+
     }
     public function AddPro(){
         $_totalTeam = $this->totalTeam();
@@ -56,7 +58,7 @@ class ProjectController extends Controller
         $pro -> customer_code = $request -> customer_code;
         $pro -> save();
  
-        return redirect ('/ProjectManagement')-> with ('thbao','Them thanh cong Project');
+        return redirect ('/ProjectManagement')-> with ('thbao','Add Success a new Project');
     }
 
     public function EditPro($idProject){
@@ -71,19 +73,48 @@ class ProjectController extends Controller
         //return view ('/project.FormEditPro',['Project' => $oneProject]);
         // return view ('/project.FormAddPro');
 
-        //return redirect ('dashboard',['oneProject' => $oneProject]);
-        // return redirect()->route('/EditProject/{idProject}', ['oneProject' => $oneProject ]);
-
         //return redirect('/ProjectManagement');
+
         //->action('ProjectController@EditPro');
         return view('project.FormEditPro', ['oneProject'=>$idProject,
                                             'totalEngineer' => $_totalEngineer,
                                             'totalTeam' => $_totalTeam,
                                             'totalProject' => $_totalProject,]);
 
+
     }
     public function postEditPro(Request $request, $idProject){
+        //$listPro = Project::find($idProject);
+
+
+            $list = DB::table('Project')->where('idProject', '=', $idProject)->get();
+                                    //$decoded = json_decode($list, true);
         
+            $list -> update($request->all());
+            echo $list;
+
+                                // $list = DB::table('users')
+                                // ->where('id', 1)
+                                // ->update(array('votes' => 1))
+                                // echo $idProject;
+                                   //      $list -> idProject = $request -> idProject;
+                                   //      $list -> idProject = $idProject;
+                                   //      $list -> projectName = $request -> projectName;
+                                   //      $list -> status = $request -> status;
+                                   //      $list -> techSkill = $request -> techSkill;
+                                   //      $list -> dateOfBegin = $request -> dateOfBegin;
+                                   //      $list -> dateOfEnd = $request -> dateOfEnd;
+                                   //      $list -> customer_code = $request -> customer_code;
+
+                                   //      $list -> save();
+
+       // return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update success a Project');
+        
+    }
+    public function DelPro(Request $request, $id){
+
+       $result =  DB::table('Project')->where('idProject',$id)->delete();
+        return $result;
     }
     public function totalEngineer(){
       $_engineer = new Engineer();

@@ -42,6 +42,27 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('#myAlertPro div.modal-footer a:eq(0)').click(function(){
+        id=$(this).attr('title');
+        //id=89;
+        $.ajax({
+            url : "/DelProject/"+id,
+            type : "get",
+            dataType:"text",
+            success : function (result){
+                if(result==1) {
+                    console.log(result);
+                    $("."+id+"").remove();
+                    console.log('Ok');
+                }
+                else {
+                    console.log(result);
+                    console.log('failed');
+                }
+            }
+        });
+    });
 });
 // change color li tag
 $(document).ready(function(){
@@ -81,6 +102,7 @@ $(document).ready(function(){
       $("#user1").css("background-color","#FFFFFF");
   });
 });
+
 function dlgDelPro(){
   var whitebg = document.getElementById("white-background");
   var dlg = document.getElementById("dlgbox");
@@ -113,3 +135,10 @@ function IdToModal(id,selector){//must be a string
     html = $('#myAlert div.modal-footer a:eq(0)').attr("title", id);
     //console.log(selector);
 }
+
+function IdToModalPro(id,selector){//must be a string
+    
+    html = $('#myAlertPro div.modal-footer a:eq(0)').attr("title", id);
+
+}
+

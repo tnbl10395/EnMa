@@ -46,42 +46,40 @@ $decoded = json_decode($listPro, true);
         </div>
         <div class="widget-content nopadding">
 
-          <form action="/EditProject/idProject" method="post" class="form-horizontal">
+          <form action="/EditProject/{{$decoded[0]['idProject']}}" method="post" class="form-horizontal">
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
        
+            <!-- ahihi -->
             <div class="control-group">
               <label class="control-label">Project ID :</label>
               <div class="controls">
                 <input type="text" class="span11" placeholder="idProject" name="idProject" value= "{{ $decoded[0]['idProject'] }}"/>
               </div>
-            </div>
+            </div> 
             <div class="control-group">
               <label class="control-label">Project Name :</label>
               <div class="controls">
                 <input type="text" class="span11" placeholder="projectName" name="projectName" value= "{{ $decoded[0]['projectName'] }} "/>
               </div>
             </div>
-           
             <div class="control-group">
               <label class="control-label">Status :</label>
               <div class="controls" >
-                    <select name= "status" >
-
+                    <select name= "status" id="sts_project">
+                    {{--<option value="{{$decoded[0]['status']}}" >--}}
                       
+                         <?php 
+                      //    switch( {{ $decoded[0]['status'] }} ) {
+                      //     case '0': echo 'New'; break;
+                      //     case '1':  echo 'Assigned'; break;
+                      //     case '2': echo 'Feedback'; break;
+                      //     case '3':   echo 'In progress'; break;
+                      //     case '4':   echo 'Resolve'; break;
+                      // } 
+                      ?>
 
-                    <option value="{{$decoded[0]['status']}} 
-                      ">
-                          <? php switch( {{ $decoded[0]['status'] }} ) {
-                          case '0': echo 'New'; break;
-                          case '1':  echo 'Assigned'; break;
-                          case '2': echo 'Feedback'; break;
-                          case '3':   echo 'In progress'; break;
-                          case '4':   echo 'Resolve'; break;
-
-                      } ?>
-
-                      </option>}
+                      {{--</option>--}}
 
                   
                   <option value="0">New</option>
@@ -89,25 +87,31 @@ $decoded = json_decode($listPro, true);
                   <option value="2">Feedback</option>
                   <option value="3">In progress</option>
                   <option value="4">Resolved</option>
-            
+
+                  <?php
+                    $status = $decoded[0]['status'];
+                  ?>            
+                  <script>
+                    document.getElementById('sts_project').value={{$status}};
+                  </script>
                 </select>
               </div>
             </div>
              <div class="control-group">
               <label class="control-label">Technical Skill :</label>
               <div class="controls">
-
                 <select  name= "techSkill" >
-                  <option value="{{ $decoded[0]['techSkill'] }}"> {{ $decoded[0]['techSkill'] }}</option>
-                  <option value="PHP"> PHP</option>
-                  <option value="Java">Java</option>
-                  <option value=".Net">.Net</option>
-                  <option value="Ruby">Ruby</option>
-                  <option value="Android">Android</option>
-                  <option value="IOS">IOS</option>
-                  <option value="C#">C#</option>
-                  <option value="C++">C++</option>
-                  <option value="Assembly">Assembly</option>
+                  <!-- <option value="{{ $decoded[0]['techSkill'] }}"> {{ $decoded[0]['techSkill'] }}</option> -->
+
+                  <option <?php if($decoded[0]['techSkill']=='PHP') echo "selected"; ?> value="PHP"> PHP</option>
+                  <option <?php if($decoded[0]['techSkill']=='Java') echo "selected"; ?> value="Java">Java</option>
+                  <option <?php if($decoded[0]['techSkill']=='.Net') echo "selected"; ?> value=".Net">.Net</option>
+                  <option <?php if($decoded[0]['techSkill']=='Ruby') echo "selected" ?> value="Ruby">Ruby</option>
+                  <option <?php if($decoded[0]['techSkill']=='Android') echo "selected" ?> value="Android">Android</option>
+                  <option <?php if($decoded[0]['techSkill']=='IOS') echo "selected" ?> value="IOS">IOS</option>
+                  <option <?php if($decoded[0]['techSkill']=='C#') echo "selected" ?> value="C#">C#</option>
+                  <option <?php if($decoded[0]['techSkill']=='C++') echo "selected" ?> value="C++">C++</option>
+                  <option <?php if($decoded[0]['techSkill']=='Assembly') echo "selected;" ?> value="Assembly">Assembly</option>
                   
                 </select>
          
@@ -124,8 +128,8 @@ $decoded = json_decode($listPro, true);
             </div>
 
             <div class="control-group">
-              <label class="control-label">Date Of End :</label>
-              <div class="controls">
+             <label class="control-label">Date Of End :</label>
+            <div class="controls">
                 <input type="text"  data-date-format="yyyy-mm-dd" class="datepicker span11" name="dateOfEnd" value= "{{ $decoded[0]['dateOfEnd'] }}">
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd</span> </div>
             </div>
