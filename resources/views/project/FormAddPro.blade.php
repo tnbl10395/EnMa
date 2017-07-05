@@ -16,11 +16,13 @@
         </div>
         <div class="widget-content nopadding">
 
-          <form action="/AddProject" method="POST" class="form-horizontal">
+          <form action="/AddProject" method="POST" class="form-horizontal" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
        
             <div class="control-group">
+
               <label class="control-label">Project ID:</label>
+
               <div class="controls">
                 <input type="text" class="span11" placeholder="idProject" name="idProject" required="" />
               </div>
@@ -66,7 +68,9 @@
 
 
             <div class="control-group">
+
               <label class="control-label">Date Of Begin :</label>
+
               <div class="controls">
                 <input type="text"  data-date-format="yyyy-mm-dd" placeholder ="2017-02-01" class="datepicker span11" name="dateOfBegin">
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd)</span> </div>
@@ -79,7 +83,9 @@
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd</span> </div>
             </div>
             <div class="control-group">
+
               <label class="control-label">Customer :</label>
+
               <div class="controls">
                 <input type="text" class="span11" placeholder="customer_code" name="customer_code" required="" />
               </div>

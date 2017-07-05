@@ -93,6 +93,22 @@
             {{session('thbao')}}
           </div>
         @endif
+
+        <!-- mess of the edit -->
+        @if(count($errors) > 0)
+          <div class="alert alert-danger">
+            @foreach ($errors -> all() as $err)
+            {{$err}}<br>
+            @endforeach
+          </div>
+        @endif
+
+          @if(session('thbaoEdit'))
+
+            <div class="alert alert-success">
+                {{session('thbaoEdit')}}
+            </div>
+          @endif
     <hr>
         <div style="width: 150px;float: left; margin-bottom: 5px;">
         <label for="">Technical Skill</label>
@@ -130,7 +146,7 @@
               </thead>
               <tbody>
               @foreach($Project as $pr)
-                <tr class="gradeX">
+                <tr class="gradeX {{$pr->idProject}}">
                   <td>{{$pr -> idProject}}</td>
                   <td>{{$pr -> projectName}}</td>
 
@@ -154,13 +170,14 @@
                   <td>{{$pr -> dateOfEnd}}</td>
                   <td>{{$pr -> customer_code}}</td>   
                   <td style="text-align: center;"> <a href="../EditProject/{{ $pr -> idProject}}" ><i class="icon-edit"></i></a></td>
-                  <td> <a href="" ><i class="icon-remove" style="margin-left: 40px;" onclick="showDialog()"></i></a></td>
+                  <td> <a href="#myAlertPro" data-toggle="modal" onclick="IdToModalPro('{{$pr->idProject}}')" ><i class="icon-remove" style="margin-left: 40px;" ></i></a></td>
+
                 </tr>
                 @endforeach
               </tbody>
             </table>
 
-            <script>
+            <!-- <script>
                 function dlgDelPro(){
                   var whitebg = document.getElementById("white-background");
                   var dlg = document.getElementById("dlgbox");
@@ -180,12 +197,22 @@
                   dlg.style.left = (winWidth/2 - 480/2) + "px";
                   dlg.style.top = "150px";
                 }
-              </script>
+              </script> -->
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<div id="myAlertPro" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Delete Project</h3>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure that you want to delete this project?</p>
+        </div>
+        <div class="modal-footer"> <a data-dismiss="modal" class="btn btn-primary" href="#">Confirm</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+    </div>
 @stop
+
