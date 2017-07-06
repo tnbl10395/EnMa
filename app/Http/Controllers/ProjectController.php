@@ -98,7 +98,7 @@ class ProjectController extends Controller
                                       'dateOfEnd' => $request->input('dateOfEnd'),
                                       'customer_code' => $request->input('customer_code')]);
                            
-            // echo $list;
+         
             // return view('project.FormEditPro',['oneProject',$idProject]);
             // return redirect('/ProjectManagement');
 
