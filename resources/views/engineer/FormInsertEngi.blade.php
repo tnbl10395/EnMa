@@ -9,7 +9,7 @@
 <div class="container-fluid">
   <hr>
   <div class="row-fluid">
-    <form action="/AddEngineerController" method="POST" class="form-horizontal">
+    <form action="/AddEngineerController" method="POST" class="form-horizontal" enctype='multipart/form-data'>
      <!-- right -->
         <div class="span6">
             <div class="widget-box">
@@ -22,7 +22,7 @@
                           <img src="" alt="">  
                         </div>
                         <div class=""  >
-                          <input type="file" name="" value="" placeholder="">      
+                          <input type="file" name="photo">      
                         </div>
                     </div>
       

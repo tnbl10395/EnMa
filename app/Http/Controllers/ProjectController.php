@@ -87,11 +87,20 @@ class ProjectController extends Controller
         //$listPro = Project::find($idProject);
 
 
-            $list = DB::table('Project')->where('idProject', '=', $idProject)->get();
-                                    //$decoded = json_decode($list, true);
-        
-            $list -> update($request->all());
-            echo $list;
+            // $list = DB::table('Project')->where('idProject', '=', $idProject)->get();
+            // $list -> update($request->all());
+            $project = new Project();
+            $list = $project->where('idProject',$idProject)
+                            ->update(['projectName' => $request->input('projectName'),
+                                      'status' => $request->input('status'), 
+                                      'techSkill' => $request->input('techSkill'), 
+                                      'dateOfBegin' => $request->input('dateOfBegin'),
+                                      'dateOfEnd' => $request->input('dateOfEnd'),
+                                      'customer_code' => $request->input('customer_code')]);
+                           
+            // echo $list;
+            // return view('project.FormEditPro',['oneProject',$idProject]);
+            // return redirect('/ProjectManagement');
 
                                 // $list = DB::table('users')
                                 // ->where('id', 1)
@@ -108,30 +117,13 @@ class ProjectController extends Controller
 
                                    //      $list -> save();
 
-       // return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update success a Project');
+       return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update success a Project');
         
     }
     public function DelPro(Request $request, $id){
 
        $result =  DB::table('Project')->where('idProject',$id)->delete();
         return $result;
-    }
-    public function totalEngineer(){
-      $_engineer = new Engineer();
-      $_totalEngineer = $_engineer->count();
-      return $_totalEngineer;
-    }
-
-    public function totalProject(){
-      $_project = new Project();
-      $_totalProject = $_project->count();
-      return $_totalProject;
-    }
-
-    public function totalTeam(){
-      $_team = new Team();
-      $_totalTeam = $_team->count();
-      return $_totalTeam;
     }
     public function totalEngineer(){
       $_engineer = new Engineer();

@@ -3,7 +3,7 @@
 @section('content')
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="ProjectManagement" class="tip-bottom">Project Management</a> <a href="#" class="current">Edit Project</a> </div>
+  <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/ProjectManagement" class="tip-bottom">Project Management</a> <a href="#" class="current">Edit Project</a> </div>
   <h1>Edit Project</h1>
 </div>
 
@@ -104,8 +104,8 @@ $decoded = json_decode($listPro, true);
                   <!-- <option value="{{ $decoded[0]['techSkill'] }}"> {{ $decoded[0]['techSkill'] }}</option> -->
 
                   <option <?php if($decoded[0]['techSkill']=='PHP') echo "selected"; ?> value="PHP"> PHP</option>
-                  <option <?php if($decoded[0]['techSkill']=='Java') echo "selected"; ?> value="Java">Java</option>
-                  <option <?php if($decoded[0]['techSkill']=='.Net') echo "selected"; ?> value=".Net">.Net</option>
+                  <option <?php if($decoded[0]['techSkill']=='JAVA') echo "selected"; ?> value="JAVA">JAVA</option>
+                  <option <?php if($decoded[0]['techSkill']=='.NET') echo "selected"; ?> value=".NET">.Net</option>
                   <option <?php if($decoded[0]['techSkill']=='Ruby') echo "selected" ?> value="Ruby">Ruby</option>
                   <option <?php if($decoded[0]['techSkill']=='Android') echo "selected" ?> value="Android">Android</option>
                   <option <?php if($decoded[0]['techSkill']=='IOS') echo "selected" ?> value="IOS">IOS</option>

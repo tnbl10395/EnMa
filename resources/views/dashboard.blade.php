@@ -74,7 +74,7 @@
 	                <ul class="contact-list">     
 	                  <li id="user1" class="online">
 
-	                  	<a id="one" href="#" onclick="load_TableTopEngineer({{ $topEngineer[0]->idEngineer }})"><img alt="" src="{{asset('img/demo/av2.jpg')}}" /> <span>{{ $topEngineer[0]->engineerName }}</span></a><span class="msg-count badge badge-info">1</span>
+	                  	<a id="one" onclick="load_TableTopEngineer({{ $topEngineer[0]->idEngineer }})"><img alt="" src="{{asset('img/demo/av2.jpg')}}" /> <span>{{ $topEngineer[0]->engineerName }}</span></a><span class="msg-count badge badge-info">1</span>
 	                  </li>
 	                  
 	                  <li id="user2"  class="online">
@@ -101,8 +101,8 @@
 	              <div class="chat-messages" id="chat-messages">
 	                <div id="changeTopEngineer">
 	                	<!-- content-topengineer -->
-	                	<div class="span2" style="width: 200px;height: 230px; background: #000000;margin-left: -25px;">
-								<img src="../img/4.jpg" alt="" style="width: 200px;height: 230px;">
+	                	<div class="span2" style="width: 200px;height: 230px; margin-left: -25px;">
+								<img src="{{asset('upload')}}/{{ $topEngineer[0]->avatar }}" alt="" style="width: 200px;height: 230px;">
 						</div>
 						<div class="span3" style="margin-left: 0px;margin-top: -15px;">
 							<div class="widget-box">
