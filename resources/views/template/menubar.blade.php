@@ -110,7 +110,7 @@
       <span class="percent">87%</span>
       <div class="stat">604.44 / 4000 MB</div>
     </li> -->
-  
+
   </ul>
 </div>
 <!--sidebar-menu-->

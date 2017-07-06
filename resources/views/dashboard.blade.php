@@ -92,8 +92,9 @@
 	                  <li id="user5"  class="online">
 	                  	<a id="one" onclick="load_TableTopEngineer({{ $topEngineer[4]->idEngineer }})"><img alt="" src="{{asset('img/demo/av1.jpg')}}" /> <span>{{ $topEngineer[4]->engineerName }}</span></a><span class="msg-count badge badge-info">5</span>
 
-	                  </li>
 
+	                  </li>
+	                  
 	                </ul>
 	              </div>
 	            </div>
