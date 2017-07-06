@@ -89,8 +89,10 @@
 	                  
 	                  <li id="user5"  class="online">
 	                  	<a id="one" onclick="load_TableTopEngineer(<?php echo e($topEngineer[4]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span><?php echo e($topEngineer[4]->engineerName); ?></span></a><span class="msg-count badge badge-info">5</span>
-	                  </li>
 
+
+	                  </li>
+	                  
 	                </ul>
 	              </div>
 	            </div>
@@ -98,8 +100,8 @@
 	              <div class="chat-messages" id="chat-messages">
 	                <div id="changeTopEngineer">
 	                	<!-- content-topengineer -->
-	                	<div class="span2" style="width: 200px;height: 230px; background: #000000;margin-left: -25px;">
-								<img src="../img/4.jpg" alt="" style="width: 200px;height: 230px;">
+	                	<div class="span2" style="width: 200px;height: 230px; margin-left: -25px;">
+								<img src="<?php echo e(asset('upload')); ?>/<?php echo e($topEngineer[0]->avatar); ?>" alt="" style="width: 200px;height: 230px;">
 						</div>
 						<div class="span3" style="margin-left: 0px;margin-top: -15px;">
 							<div class="widget-box">

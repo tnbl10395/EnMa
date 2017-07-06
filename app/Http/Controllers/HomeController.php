@@ -51,7 +51,7 @@ class HomeController extends Controller
     
     public function topEngineer($_engineer){
       $_topEngineer = $_engineer->join('History','Engineer.idEngineer','=','History.idEngineer')
-                                ->selectRaw('History.idEngineer, Engineer.engineerName, Engineer.TechSkill, Engineer.Experience, COUNT(History.idEngineer) as total')
+                                ->selectRaw('History.idEngineer, Engineer.engineerName, Engineer.TechSkill, Engineer.Experience, Engineer.avatar, COUNT(History.idEngineer) as total')
                                 ->distinct('History.idEngineer')
                                 ->groupBy('History.idEngineer')
                                 ->orderBy('total','desc')
