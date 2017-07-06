@@ -4,7 +4,7 @@
     <div id="content">
         <div id="content-header">
             <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="TeamManagement" class="tip-bottom">Team Management</a> <a href="AddTeam" class="current">Insert Team</a> </div>
-            <h1>INSERT TEAM</h1>
+            <h1>Insert Team</h1>
         </div>
         <div class="container-fluid">
             <hr>

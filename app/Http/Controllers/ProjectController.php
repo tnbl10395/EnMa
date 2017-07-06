@@ -133,4 +133,21 @@ class ProjectController extends Controller
       $_totalTeam = $_team->count();
       return $_totalTeam;
     }
+    public function totalEngineer(){
+      $_engineer = new Engineer();
+      $_totalEngineer = $_engineer->count();
+      return $_totalEngineer;
+    }
+
+    public function totalProject(){
+      $_project = new Project();
+      $_totalProject = $_project->count();
+      return $_totalProject;
+    }
+
+    public function totalTeam(){
+      $_team = new Team();
+      $_totalTeam = $_team->count();
+      return $_totalTeam;
+    }
 }

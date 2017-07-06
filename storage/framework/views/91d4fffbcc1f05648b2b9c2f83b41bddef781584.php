@@ -20,7 +20,7 @@
 <?php endif; ?>
 <div id="loginbox">
     <form id="loginform" class="form-vertical" action="<?php echo e(route('login')); ?>" method="POST" role="form">
-        <div class="control-group normal_text"> <h3><img src="<?php echo e(asset('img/logo.png')); ?>" alt="Logo" /></h3></div>
+        <div class="control-group normal_text"> <h3><img src="<?php echo e(asset('img/Image_from_Skype1.png')); ?>" alt="Logo" /></h3></div>
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
@@ -44,7 +44,7 @@
         <?php echo csrf_field(); ?>
 
         <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span>
+            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Forgot password?</a></span>
             <span class="pull-right"><button type="submit"  class="btn btn-success" > Login</button></span>
         </div>
         <?php if($errors->has('username')  ): ?>
@@ -72,18 +72,31 @@
         <?php endif; ?>
 
     </form>
+    <?php if(session('status')): ?>
+        <div class="alert alert-success">
+            <?php echo e(session('status')); ?>
+
+        </div>
+    <?php endif; ?>
     <form id="recoverform" action="#" class="form-vertical">
+        <?php echo e(csrf_field()); ?>
+
         <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
 
-        <div class="controls">
+        <div class="controls<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
             <div class="main_input_box">
                 <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
+                <?php if($errors->has('email')): ?>
+                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('email')); ?></strong>
+                                    </span>
+                <?php endif; ?>
             </div>
         </div>
 
         <div class="form-actions">
             <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-            <span class="pull-right"><a class="btn btn-info">Recover</a></span>
+            <span class="pull-right"><button type="submit" class="btn btn-info">Recover</button></span>
         </div>
     </form>
 </div>

@@ -5,7 +5,7 @@
 		    </div>  
 			<!-- information -->
 			  <div class="container-fluid">
-		      <div class="widget-box">
+		      <div class="widget-box" style="margin-left: -5px;">
 		        <div class="widget-title bg_lg"><span class="icon"><i class="icon-signal"></i></span>
 		          <h5>Information</h5>
 		        </div>
@@ -61,7 +61,7 @@
 			<!-- end-information -->
 			<!-- top engineer -->
 		
-		<div class="span7" style="margin: -20px 0px 0px -10px;">
+		<div class="span7" style="margin: -20px 0px 0px -5px;">
 	        <div class="widget-box widget-chat">
 	          <div class="widget-title bg_lb"> <span class="icon"> <i class="icon-star"></i> </span>
 	            <h5>Top Engineers</h5>
@@ -75,20 +75,20 @@
 	                  	<a id="one" onclick="load_TableTopEngineer(<?php echo e($topEngineer[0]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av2.jpg')); ?>" /> <span><?php echo e($topEngineer[0]->engineerName); ?></span></a><span class="msg-count badge badge-info">1</span>
 	                  </li>
 	                  
-	                  <li id="user2" class="online">
-	                  	<a id="two" onclick="load_TableTopEngineer(<?php echo e($topEngineer[1]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av4.jpg')); ?>" /> <span><?php echo e($topEngineer[1]->engineerName); ?></span></a><span class="msg-count badge badge-info">2</span>
+	                  <li id="user2"  class="online">
+	                  	<a id="one" onclick="load_TableTopEngineer(<?php echo e($topEngineer[1]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av4.jpg')); ?>" /> <span><?php echo e($topEngineer[1]->engineerName); ?></span></a><span class="msg-count badge badge-info">2</span>
 	                  </li>
 	                  
-	                  <li id="user3" class="online">
-	                  	<a onclick="load_TableTopEngineer(<?php echo e($topEngineer[2]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av4.jpg')); ?>" /> <span><?php echo e($topEngineer[2]->engineerName); ?></span></a><span class="msg-count badge badge-info">3</span>
+	                  <li id="user3"  class="online">
+	                  	<a id="one" onclick="load_TableTopEngineer(<?php echo e($topEngineer[2]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av4.jpg')); ?>" /> <span><?php echo e($topEngineer[2]->engineerName); ?></span></a><span class="msg-count badge badge-info">3</span>
 	                  </li>
 	                  
-	                  <li id="user4" class="online">
-	                  	<a onclick="load_TableTopEngineer(<?php echo e($topEngineer[3]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span><?php echo e($topEngineer[3]->engineerName); ?></span></a><span class="msg-count badge badge-info">4</span>
+	                  <li id="user4"  class="online">
+	                  	<a id="one" onclick="load_TableTopEngineer(<?php echo e($topEngineer[3]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span><?php echo e($topEngineer[3]->engineerName); ?></span></a><span class="msg-count badge badge-info">4</span>
 	                  </li>
 	                  
-	                  <li id="user5" class="online">
-	                  	<a onclick="load_TableTopEngineer(<?php echo e($topEngineer[4]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span><?php echo e($topEngineer[4]->engineerName); ?></span></a><span class="msg-count badge badge-info">5</span>
+	                  <li id="user5"  class="online">
+	                  	<a id="one" onclick="load_TableTopEngineer(<?php echo e($topEngineer[4]->idEngineer); ?>)"><img alt="" src="<?php echo e(asset('img/demo/av1.jpg')); ?>" /> <span><?php echo e($topEngineer[4]->engineerName); ?></span></a><span class="msg-count badge badge-info">5</span>
 	                  </li>
 
 	                </ul>
@@ -116,7 +116,7 @@
 														<td><h6><?php echo e($topEngineer[0]->Experience); ?></h6></td>
 													</tr>
 													<tr>
-														<td><h6>Have <?php echo e($topEngineer[0]->total); ?> projects</h6></td>
+														<td><h6>Have joined <?php echo e($topEngineer[0]->total); ?> projects</h6></td>
 													</tr>
 												</tbody>
 											</table>
@@ -131,7 +131,7 @@
 	        </div>
 	        <!-- end- top engineer -->
 	        <!-- new project -->
-	        <div class="span3" style="margin: -20px 0px 0px 10px;">
+	        <div class="span3" style="margin: -20px 0px 0px 5px;">
 	        <div class="widget-box">
 	          <div class="widget-title"> <span class="icon"><i class="icon-tasks"></i></span>
 	            <h5>New Projects</h5>
@@ -141,7 +141,7 @@
 	              <ul>
 	              	<?php $__currentLoopData = $newProject; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $_pro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	                <li class="clearfix">
-	                  <div class="txt"><a href="/EditProject/id=<?php echo e($_pro->idProject); ?>" title=""> <?php echo e($_pro->projectName); ?> </a><span class="date badge badge-important">New</span> </div>
+	                  <div class="txt"><a href="/EditProject/<?php echo e($_pro->idProject); ?>" title=""> <?php echo e($_pro->projectName); ?> </a><span class="date badge badge-important">New</span> </div>
 	                </li>
 	                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	              </ul>

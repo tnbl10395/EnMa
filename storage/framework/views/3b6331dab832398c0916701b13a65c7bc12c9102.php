@@ -1,8 +1,8 @@
 <?php $__env->startSection('content'); ?>
     <div id="content">
         <div id="content-header">
-            <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/TeamManagement" class="tip-bottom">Team Management</a> <a href="#" class="current">Update Team</a> </div>
-            <h1>UPDATE TEAM</h1>
+            <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/TeamManagement" class="tip-bottom">Team Management</a> <a href="#" class="current">Edit Team</a> </div>
+            <h1>Edit Team</h1>
         </div>
         <div class="container-fluid">
             <hr>
@@ -14,6 +14,7 @@
                         </div>
                         <div class="widget-content nopadding">
                             <form action="#" method="get" class="form-horizontal">
+                                <form action="/UpdateTeamController" method="post" class="form-horizontal">
                                 <div class="control-group">
                                     <label class="control-label">ID :</label>
                                     <div class="controls">
@@ -54,19 +55,19 @@
                                     <label class="control-label">Technical Skill :</label>
                                     <div class="controls">
                                         <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                                            <li><input type="checkbox" name="PHP" value=""> PHP</li>
-                                            <li><input type="checkbox" name="PHP" value=""> Java</li>
-                                            <li><input type="checkbox" name="PHP" value=""> .Net</li>
+                                            <li><label><input type="radio" name="techSkill" value="PHP"/>PHP</label></li> 
+                                            <li><label><input type="radio" name="techSkill" value="Java"/>Java</label></li>
+                                            <li><label><input type="radio" name="techSkill" value=".Net"/>.Net</label></li>
                                         </ul>
                                         <ul style="list-style-type: none; float: left;">
-                                            <li><input type="checkbox" name="PHP" value=""> Ruby</li>
-                                            <li><input type="checkbox" name="PHP" value=""> Android</li>
-                                            <li><input type="checkbox" name="PHP" value=""> IOS</li>
+                                            <li><label><input type="radio" name="techSkill" value="Ruby"/>Ruby</label></li>
+                                            <li><label><input type="radio" name="techSkill" value="Android"/>Android</label></li>
+                                            <li><label><input type="radio" name="techSkill" value="IOS"/>IOS</label></li>
                                         </ul>
                                         <ul style="list-style-type: none; float: left;">
-                                            <li><input type="checkbox" name="PHP" value=""> C#</li>
-                                            <li><input type="checkbox" name="PHP" value=""> C++</li>
-                                            <li><input type="checkbox" name="PHP" value=""> Assembly</li>
+                                            <li><label><input type="radio" name="techSkill" value="HTML"/>HTML</label></li>
+                                            <li><label><input type="radio" name="techSkill" value="CSS"/>CSS</label></li>
+                                            <li><label><input type="radio" name="techSkill" value="JS"/>JS</label></li>
                                         </ul>
                                     </div>
                                 </div>
