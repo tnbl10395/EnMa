@@ -12,14 +12,12 @@ use App\json;
 
 class EngineerController extends Controller
 {	
-
   public function __construct()
   {
     $this->middleware('auth');
   }
-  
-
-	public function IndexEM(){ 
+    
+    public function IndexEM(){ 
         $_list = Engineer::all();
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
@@ -82,6 +80,10 @@ class EngineerController extends Controller
 	             # code...
 	             break;
      }
+  // Get photo
+        $photo  = $request->photo;
+        $namePhoto = $photo->getClientOriginalName();
+        $photo->move('upload',$namePhoto);   
   // Convert date
         $newbirth = date("Y-m-d", strtotime($birth));
         $newdateout = date("Y-m-d", strtotime($dateout));
@@ -94,12 +96,13 @@ class EngineerController extends Controller
         $engineer->Email="$email";
         $engineer->TechSkill="2";
         $engineer->Experience="$ex";
+        $engineer->avatar=$namePhoto;
         $engineer->dateJoin=$newdatein;
         $engineer->outOfdate=$newdateout;
         $engineer->birthday=$newbirth;
         $engineer->save();
 //     return view('engineer.FormInsertEngi');
-        echo "luu thanh cong";
+        echo "Successful!";
     }
     public function totalEngineer(){
       $_engineer = new Engineer();

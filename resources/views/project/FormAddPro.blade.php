@@ -52,8 +52,8 @@
 
                 <select name= "techSkill" value="techSkill">
                   <option value="PHP">PHP</option>
-                  <option value="Java">Java</option>
-                  <option value=".Net">.Net</option>
+                  <option value="JAVA">JAVA</option>
+                  <option value=".NET">.NET</option>
                   <option value="Ruby">Ruby</option>
                   <option value="Android">Android</option>
                   <option value="IOS">IOS</option>

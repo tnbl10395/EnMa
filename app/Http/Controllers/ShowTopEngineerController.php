@@ -12,7 +12,7 @@ class ShowTopEngineerController extends Controller
     	$_id = $_data['id'];
     	$_engineer = new Engineer();
     	$_topEngineer = $_engineer->join('History','Engineer.idEngineer','=','History.idEngineer')
-                                  ->selectRaw('History.idEngineer, Engineer.engineerName, Engineer.TechSkill, Engineer.Experience, COUNT(History.idEngineer) AS total')
+                                  ->selectRaw('History.idEngineer, Engineer.engineerName, Engineer.TechSkill, Engineer.Experience,Engineer.avatar, COUNT(History.idEngineer) AS total')
                                   ->where('History.idEngineer','=',$_id)
                                   ->groupBy('History.idEngineer')
     						                  ->get();
