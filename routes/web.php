@@ -57,7 +57,9 @@ Route::get('TeamManagement','TeamController@IndexTm');
 Route::get('AddTeam','TeamController@AddTm');
 Route::post('AddTeamController','TeamController@AddTeam');
 Route::get('EditTeam','TeamController@EditTm');
-Route::post('EditTeamController','TeamController@EditTeam');
+Route::get('EditTeam/{id}','TeamController@EditTm');
+Route::post('EditTeam/{id}','TeamController@EditTeam');
+//Route::post('EditTeamController','TeamController@EditTeam');
 Route::get('DelTeam/{id}','TeamController@DelTm');
 
 Route::get('/checkDB', function ()

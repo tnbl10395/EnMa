@@ -50,24 +50,28 @@
                                     <label class="control-label">Technical Skill :</label>
                                     <div class="controls">
                                         <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                                            <li><label><input type="radio" name="techSkill" value="PHP"/>PHP</label></li> {{--must be have label tag--}}
-                                            <li><label><input type="radio" name="techSkill" value="Java"/>Java</label></li>
-                                            <li><label><input type="radio" name="techSkill" value=".Net"/>.Net</label></li>
-                                            {{--<li><input type="radio" name="techSkill[]" value="JAVA"> Java</li>--}}
-                                            {{--<li><input type="radio" name="techSkill[]" value=".Net"> .Net</li>--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value="PHP"/>PHP</label></li> --}}{{--must be have label tag--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value="Java"/>Java</label></li>--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value=".Net"/>.Net</label></li>--}}
+                                            <li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="JAVA"> Java</li>
+                                            <li><input type="checkbox" name="techSkill[]" value=".Net"> .Net</li>
                                         </ul>
                                         <ul style="list-style-type: none; float: left;">
-                                            <li><label><input type="radio" name="techSkill" value="Ruby"/>Ruby</label></li>
-                                            <li><label><input type="radio" name="techSkill" value="Android"/>Android</label></li>
-                                            <li><label><input type="radio" name="techSkill" value="IOS"/>IOS</label></li>
-                                            {{--<li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>--}}
-                                            {{--<li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>--}}
-                                            {{--<li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value="Ruby"/>Ruby</label></li>--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value="Android"/>Android</label></li>--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value="IOS"/>IOS</label></li>--}}
+                                            <li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>
                                         </ul>
                                         <ul style="list-style-type: none; float: left;">
-                                            <li><label><input type="radio" name="techSkill" value="HTML"/>HTML</label></li>
-                                            <li><label><input type="radio" name="techSkill" value="CSS"/>CSS</label></li>
-                                            <li><label><input type="radio" name="techSkill" value="JS"/>JS</label></li>
+                                            {{--<li><label><input type="radio" name="techSkill" value="HTML"/>HTML</label></li>--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value="CSS"/>CSS</label></li>--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value="JS"/>JS</label></li>--}}
+                                            <li><input type="checkbox" name="techSkill[]" value="HTML"> HTML</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="CSS"> CSS</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="JS"> JS</li>
                                         </ul>
                                     </div>
                                 </div>
