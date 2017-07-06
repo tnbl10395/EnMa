@@ -15,18 +15,18 @@
                             <h5>Information</h5>
                         </div>
                         <div class="widget-content nopadding">
-                            <form action="#" method="get" class="form-horizontal">
-                                <form action="/UpdateTeamController" method="post" class="form-horizontal">
+                            <form action="/EditTeam/{{$team->idTeam}}" method="post" class="form-horizontal">
+                                <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                                 <div class="control-group">
                                     <label class="control-label">ID :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" placeholder="ID" disabled/>
+                                        <input type="text" class="span11" placeholder="ID" name="idTeam" disabled value="{{$team->idTeam}}"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label">Team Name :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" placeholder="Team Name" />
+                                        <input type="text" class="span11" placeholder="Team Name" name="teamName" value="{{$team->teamName}}"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -55,22 +55,37 @@
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label">Technical Skill :</label>
-                                    <div class="controls">
+                                    <div class="controls" id="tech">
                                         <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                                            <li><label><input type="radio" name="techSkill" value="PHP"/>PHP</label></li> {{--must be have label tag--}}
-                                            <li><label><input type="radio" name="techSkill" value="Java"/>Java</label></li>
-                                            <li><label><input type="radio" name="techSkill" value=".Net"/>.Net</label></li>
+                                            <li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="JAVA"> Java</li>
+                                            <li><input type="checkbox" name="techSkill[]" value=".NET"> .Net</li>
                                         </ul>
                                         <ul style="list-style-type: none; float: left;">
-                                            <li><label><input type="radio" name="techSkill" value="Ruby"/>Ruby</label></li>
-                                            <li><label><input type="radio" name="techSkill" value="Android"/>Android</label></li>
-                                            <li><label><input type="radio" name="techSkill" value="IOS"/>IOS</label></li>
+                                            <li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>
                                         </ul>
                                         <ul style="list-style-type: none; float: left;">
-                                            <li><label><input type="radio" name="techSkill" value="HTML"/>HTML</label></li>
-                                            <li><label><input type="radio" name="techSkill" value="CSS"/>CSS</label></li>
-                                            <li><label><input type="radio" name="techSkill" value="JS"/>JS</label></li>
+                                            <li><input type="checkbox" name="techSkill[]" value="HTML"> HTML</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="CSS"> CSS</li>
+                                            <li><input type="checkbox" name="techSkill[]" value="JS"> JS</li>
                                         </ul>
+                                        <script>
+                                            <?php
+                                             //   $tech = (strpos($team->techSkill,' - ')!== false)?explode(" - ",$team->techSkill()):$team->techSkill;
+                                            ?>
+                                            var techs="{{$team->techSkill}}";console.log(techs);
+                                            techs=(techs.indexOf(" - ")>-1)?techs.split(" - "):techs.split();
+                                            console.log(techs.length);
+                                            $(document).ready(function(){
+                                                for(techSkill=0;techSkill<techs.length;techSkill++){
+//                                                        console.log($("#tech input[value='"+techs[techSkill]+"']"));
+//                                                        $("#tech input[value='"+techs[techSkill]+"']").parents("span").addClass("checked");
+                                                    $("#tech input[value='"+techs[techSkill]+"']")[0].click();//must have [0]
+                                                }
+                                                    });
+                                        </script>
                                     </div>
                                 </div>
                                 <div class="form-actions">

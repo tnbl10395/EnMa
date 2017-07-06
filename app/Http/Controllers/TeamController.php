@@ -39,18 +39,31 @@ class TeamController extends Controller
         $team = new Team;
         $team -> idTeam = $datas['idTeam'];
         $team -> teamName = $datas['teamName'];
-        $team -> techSkill = $datas['techSkill'];
+//        $team -> techSkill = $datas['techSkill'];
+        $team -> techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);
         $team->save();
         //return $this->IndexTm();
         return redirect('TeamManagement');
     }
-    public function EditTm(){
+//    public function EditTm(){
+        public function EditTm($id){
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+        $team = DB::table('Team')->where('idTeam',$id)->first();
         return view('team.FormEditTeam')->with(['totalEngineer' => $_totalEngineer,
                                                   'totalTeam' => $_totalTeam,
-                                                  'totalProject' => $_totalProject,]);
+                                                  'totalProject' => $_totalProject,'team' =>$team]);
+    }
+
+    public function EditTeam(Request $request,$id){
+        $datas = $request->all();
+//        dd($datas);
+//        $_team = DB::table('Team')->where('idTeam',$id)->first();
+        $team = DB::table('Team')->where('idTeam',$id);
+        $techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);
+        $team->update(['teamName'=>$datas['teamName'],'techSkill'=>$techSkill]);
+        return redirect("EditTeam/$id");
     }
 
     public function DelTm(Request $request, $id){
