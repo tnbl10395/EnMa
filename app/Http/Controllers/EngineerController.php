@@ -23,7 +23,7 @@ class EngineerController extends Controller
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
         return view('engineer.IndexEngiManage')->with(['list' => $_list,
-								           	'totalEngineer' => $_totalEngineer,
+								           	                'totalEngineer' => $_totalEngineer,
                                             'totalTeam' => $_totalTeam,
                                             'totalProject' => $_totalProject]);
     }
@@ -120,5 +120,18 @@ class EngineerController extends Controller
       $_team = new Team();
       $_totalTeam = $_team->count();
       return $_totalTeam;
+    }
+
+    public function idName($id){
+      if($id<10){
+        $_string = "EN00";  
+      }
+      else if($id<100){
+        $_string = "EN0";
+      }
+      else if($id<1000){
+        $_string = "EN";
+      }
+      return $_string.$id;
     }
 }
