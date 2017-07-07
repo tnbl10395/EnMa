@@ -7,6 +7,22 @@
             <h1>Teams Management</h1>
         </div>
         <div class="container-fluid">
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach($errors -> all() as $err)
+                        {{$err}}<br>
+                    @endforeach
+                </div>
+            @endif
+
+            @if(session('notify'))
+                    <div class="alert alert-success alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+
+                        <h4 class="alert-heading">Success!</h4>
+                        {{session('notify')}}
+                     </div>
+            @endif
+            <div id="alert_del_team"></div>
             <hr>
             {{--<div style="width: 150px;float: left; margin-bottom: 5px;">--}}
                 {{--<label for="">Technical Skill</label>--}}
