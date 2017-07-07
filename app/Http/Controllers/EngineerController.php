@@ -9,6 +9,7 @@ use App\Engineer;
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
+use App\lib\changeIDName;
 
 class EngineerController extends Controller
 {	
@@ -18,6 +19,7 @@ class EngineerController extends Controller
   }
     
     public function IndexEM(){ 
+        $_changeIDName = new changeIDName();
         $_list = Engineer::all();
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
@@ -25,7 +27,8 @@ class EngineerController extends Controller
         return view('engineer.IndexEngiManage')->with(['list' => $_list,
 								           	                'totalEngineer' => $_totalEngineer,
                                             'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject]);
+                                            'totalProject' => $_totalProject,
+                                            'controller' => $_changeIDName]);
     }
     public function AddEm(){
     	$_totalTeam = $this->totalTeam();
