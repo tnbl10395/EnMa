@@ -41,14 +41,12 @@
                                     <div class="controls">
                                         <select id="project_choice">
                                             <option></option>
-                                            <option>Project A</option>
-                                            <option>Project B</option>
-                                            <option>Project C</option>
-                                            <option>Project D</option>
-                                            <option>Project E</option>
-                                            <option>Project F</option>
-                                            <option>Project G</option>
-                                            <option>Project H</option>
+                                            {{--<option>Project A</option>--}}
+                                            @if(!empty($projects))
+                                                @foreach($projects as $project)
+                                                    <option value="{{$project->projectName}}">{{$project->projectName}}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
 
                                     </div>
@@ -128,13 +126,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($member as $member)
                                 <tr class="gradeX">
-                                    <td>M001</td>
-                                    <td>John Cornor</td>
-                                    <td>Project Manager</td>
+                                    <td>{{$member->idEngineer}}</td>
+                                    <td>{{$member->engineerName}}</td>
+                                    <td>{{$member->role}}</td>
                                     <td style="text-align: center"> <a href="/EditEngineer" ><i class="icon-edit"></i></a></td>
                                     <td style="text-align: center"> <a href="javascript:void(0)" ><i class="icon-remove"></i></a></td>
                                 </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
