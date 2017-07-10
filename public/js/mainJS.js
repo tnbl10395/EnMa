@@ -58,13 +58,45 @@ $(document).ready(function(){
             dataType:"text",
             success : function (result){
                 if(result==1) {
-                    console.log(result);
+                    //console.log(result);
                     $("."+id+"").remove();
-                    console.log('Ok');
+                    //console.log('Ok');
+                    html='<div class="alert alert-success alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>\
+                        <h4 class="alert-heading">Success!</h4>Delele project successfully </div>';
+                    $("#alert_del_project").html(html);
                 }
                 else {
-                    console.log(result);
-                    console.log('failed');
+                    //console.log(result);
+                    //console.log('failed');
+                    html='<div class="alert alert-error alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>\
+                        <h4 class="alert-heading">Error!</h4>Delele project failed </div>';
+                    $("#alert_del_project").html(html);
+                }
+            }
+        });
+    });
+    $('#myAlertEngi div.modal-footer a:eq(0)').click(function(){
+        id=$(this).attr('title');
+        //id=89;
+        $.ajax({
+            url : "/DelEngineer/"+id,
+            type : "get",
+            dataType:"text",
+            success : function (result){
+              if(result==1) {
+                    //console.log(result);
+                    $("."+id+"").remove();
+                    //console.log('Ok');
+                    html='<div class="alert alert-success alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>\
+                        <h4 class="alert-heading">Success!</h4>Delele engineer successfully </div>';
+                    $("#alert_del_engineer").html(html);
+                }
+                else {
+                    //console.log(result);
+                    //console.log('failed');
+                    html='<div class="alert alert-error alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>\
+                        <h4 class="alert-heading">Error!</h4>Delele enginer failed </div>';
+                    $("#alert_del_engineer").html(html);
                 }
             }
         });
@@ -147,4 +179,8 @@ function IdToModalPro(id,selector){//must be a string
     html = $('#myAlertPro div.modal-footer a:eq(0)').attr("title", id);
 
 }
+function IdToModalEngi(id){//must be a string
+    
+    html = $('#myAlertEngi div.modal-footer a:eq(0)').attr("title", id);
 
+}
