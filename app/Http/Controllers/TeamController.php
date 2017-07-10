@@ -75,8 +75,8 @@ class TeamController extends Controller
     public function DelTm(Request $request, $id){
 //       DB::table('Team')->where('idTeam',$id)->delete();
 //        return redirect('TeamManagement');//because using ajax
-       $result =  DB::table('Team')->where('idTeam',$id)->delete();
-        return $result;
+         $result =  DB::table('Team')->where('idTeam',$id)->delete();
+          return $result;
     }
     public function totalEngineer(){
       $_engineer = new Engineer();

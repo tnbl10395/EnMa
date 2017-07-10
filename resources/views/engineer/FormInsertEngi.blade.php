@@ -19,11 +19,19 @@
                 <div class="widget-content nopadding">
                     <div class="span5">
                         <div class="img">
-                          <img src="" alt="">  
+                          <img id="output" src="" alt="">  
                         </div>
                         <div class=""  >
-                          <input type="file" name="photo">      
+                          <input type="file" name="photo" accept="image/*" onchange="loadFile(event)">      
                         </div>
+                       
+
+                    <script>
+                      var loadFile = function(event) {
+                        var output = document.getElementById('output');
+                         output.src = URL.createObjectURL(event.target.files[0]);
+                       };
+                    </script>
                     </div>
       
                     <div class=""  style="margin-bottom: 8px;">
@@ -124,7 +132,7 @@
               </ul>        
             </div>
           </div>
-
+                   
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-actions">
             <button type="submit" name="submit" class="btn btn-success pull-right">Submit</button>
