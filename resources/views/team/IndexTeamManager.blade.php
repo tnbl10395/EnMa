@@ -54,7 +54,7 @@
                                     <td>{{$data->teamName}}</td>
                                     <td>{{$data->techSkill}}</td>
                                     <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
-{{--                                    <td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data->idTeam}}" ><i class="icon-remove"></i></a></td>--}}
+{{--                                    <td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="#" ><i class="icon-remove"></i></a></td>--}}
                                     {{--<td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" class="btn btn-warning"><i class="icon-remove"></i></a></td>--}}
                                     <td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" onclick="IdToModal('{{$data->idTeam}}',this)"><i class="icon-remove"></i></a></td>
@@ -82,7 +82,7 @@
     <button onclick="dlgDelPro()" >Yes</button>
     <button onclick="dlgCancelPro()">No</button>
   </div>
-</div>
+</div>z
     <div id="myAlert" class="modal hide">
         <div class="modal-header">
             <button data-dismiss="modal" class="close" type="button">×</button>

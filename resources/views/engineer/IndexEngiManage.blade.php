@@ -65,8 +65,8 @@
                 <td>{{ $list->Email }}</td>
                 <td>{{ $list->TechSkill }}</td>
                 <td>{{ $list->Experience }}</td>
-                <td> <a href="EditEngineer" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
-                <td> <a onclick="showDialog()" href="#" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+                <td> <a href="EditEngineer/{{$list->idEngineer}}" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                <td> <a onclick="showDialog()" href="DelEngineer/{{$list->idEngineer}}" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
               </tr> 
              @endforeach
               </tbody>
@@ -82,10 +82,10 @@
 </div>
 <div id="dlgbox">
   <div id="dlg-header">
-    Delete Project
+    Delete Engineer
   </div>
   <div id="dlg-body">
-    Are you sure that you want to delete this project?
+    Are you sure that you want to delete this engineer?
   </div>
   <div id="dlg-footer">
     <button onclick="dlgDelPro()" >Yes</button>
