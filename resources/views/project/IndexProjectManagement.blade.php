@@ -109,6 +109,7 @@
                 {{session('thbaoEdit')}}
             </div>
           @endif
+          <div id="alert_del_project"></div>
     <hr>
         <div style="width: 150px;float: left; margin-bottom: 5px;">
         <label for="">Technical Skill</label>

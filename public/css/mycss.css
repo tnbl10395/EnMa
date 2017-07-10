@@ -30,6 +30,7 @@
   -webkit-animation-duration: 2s;
   animation-name: example3;
   animation-duration: 2s;
+  background: #000000;
 }
 @-webkit-keyframes example3{
   from {background: #28db00;}

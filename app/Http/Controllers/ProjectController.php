@@ -58,7 +58,7 @@ class ProjectController extends Controller
         $pro -> customer_code = $request -> customer_code;
         $pro -> save();
  
-        return redirect ('/ProjectManagement')-> with ('thbao','Add Success a new Project');
+        return redirect ('/ProjectManagement')-> with ('thbao','Add Successfully a new project!');
     }
 
     public function EditPro($idProject){
@@ -115,7 +115,7 @@ class ProjectController extends Controller
 
                                    //      $list -> save();
 
-       return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update success a Project');
+       return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update successfully the project!');
         
     }
     public function DelPro(Request $request, $id){
