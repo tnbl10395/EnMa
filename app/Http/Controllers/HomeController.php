@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Engineer;
 use App\Team;
 use App\Project;
+use App\lib\changeIDName;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,7 @@ class HomeController extends Controller
         $_engineer = new Engineer();
         $_team = new Team();
         $_project = new Project();
-
+        $_changeIDName = new changeIDName();
         $_totalTeam = $this->totalTeam($_team);
         $_totalProject = $this->totalProject($_project);
         $_totalEngineer = $this->totalEngineer($_engineer);
@@ -45,7 +46,8 @@ class HomeController extends Controller
             'totalProject' => $_totalProject,
             'listEngineer' => $_listEngineer,
             'topEngineer' => $_topEngineer,
-            'newProject' => $_newProject
+            'newProject' => $_newProject,
+            'controller' => $_changeIDName
         ]);
     }
     

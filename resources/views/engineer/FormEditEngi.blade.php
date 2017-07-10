@@ -49,13 +49,36 @@
                             <input type="text" data-date-format="yyyy-mm-dd" placeholder="Date of Birth" name="birthday" class="datepicker span11" value="{{$list->birthday}}"> 
                           </div>
                           <div class="controls">
-                            <select class="span11" name="experience">
+                            <select class="span11" name="experience" id="experience">
                               <option value="0">No experience</option>
                               <option value="1">1 year</option>
                               <option value="2">More 2 years</option>
                               <option value="3">More 5 years</option>
                               <option value="4">More 10 years</option>
+                            <script>
+                              var exp = "{{$list->Experience}}";  
+                              var val; 
+                              switch (exp){
+                                case "No experience": val = 0;
+                                break;
+                                case "1 year": val = 1;
+                                break;
+                                case "More 2 years": val = 2;
+                                break;
+                                case "More 5 years": val = 3;
+                                break;
+                                case "More 10 years": val = 4;
+                                break;
+                                default:
+                                break;
+                              }
+                              $(document).ready(function(){
+                                $("#experience").val(val);
+                              });
+
+                            </script>
                             </select>
+                      
                           </div>
                         </div>
                     </div>
@@ -117,22 +140,33 @@
            </div>
            <div  id="control" class="control-group" style="margin-bottom: 27px;">
             <label id="label" class="control-label">Technical Skill :</label>
-            <div class="controls">
+            <div class="controls" id="tech">
               <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                <li><input type="checkbox" name="technical[]" value="0"> PHP</li>
-                <li><input type="checkbox" name="technical[]" value="1"> Java</li>
-                <li><input type="checkbox" name="technical[]" value="2  "> .Net</li>
+                <li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>
+                <li><input type="checkbox" name="techSkill[]" value="JAVA"> Java</li>
+                <li><input type="checkbox" name="techSkill[]" value=".NET"> .Net</li>
               </ul>
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="3"> Ruby</li>
-                <li><input type="checkbox" name="technical[]" value="4"> Android</li>
-                <li><input type="checkbox" name="technical[]" value="5"> IOS</li>
+                <li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>
+                <li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>
+                <li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>
               </ul> 
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="6"> HTML</li>
-                <li><input type="checkbox" name="technical[]" value="7"> CSS</li>
-                <li><input type="checkbox" name="technical[]" value="8"> JS</li>
-              </ul>        
+                <li><input type="checkbox" name="techSkill[]" value="HTML"> HTML</li>
+                <li><input type="checkbox" name="techSkill[]" value="CSS"> CSS</li>
+                <li><input type="checkbox" name="techSkill[]" value="JS"> JS</li>
+              </ul>
+               <script>
+                  var techs="{{$list->TechSkill}}";console.log(techs);
+                  techs=(techs.indexOf(" - ")>-1)?techs.split(" - "):techs.split();
+                  console.log(techs.length);
+                  $(document).ready(function(){
+                      for(techSkill=1;techSkill<techs.length;techSkill++){
+                          $("#tech input[value='"+techs[techSkill]+"']")[0].click();//must have [0]
+           
+                      }
+                  });
+              </script>        
             </div>
           </div>
 
