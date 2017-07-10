@@ -29,9 +29,10 @@ class TeamController extends Controller
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+        $_listProject = DB::table('Project')->select('projectName')->get();//get list project Name
         return view('team.FormInsertTeam')->with(['totalEngineer' => $_totalEngineer,
                                                   'totalTeam' => $_totalTeam,
-                                                  'totalProject' => $_totalProject,]);
+                                                  'totalProject' => $_totalProject,])->with(['projects'=>$_listProject]);
     }
 
     public function AddTeam(Request $request){
@@ -43,7 +44,7 @@ class TeamController extends Controller
         $team -> techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);
         $team->save();
         //return $this->IndexTm();
-        return redirect('TeamManagement');
+        return redirect('TeamManagement')->with('notify','Add Successfully a new Team');
     }
 //    public function EditTm(){
         public function EditTm($id){
@@ -51,9 +52,13 @@ class TeamController extends Controller
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
         $team = DB::table('Team')->where('idTeam',$id)->first();
+        $_listProject = DB::table('Project')->select('projectName')->get();//get list project Name
+        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role')->
+                        join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->get();
+            //SELECT History.idEngineer, Engineer.engineerName , History.role from History INNER JOIN Engineer on History.idEngineer=Engineer.idEngineer where History.`idTeam` = 'T01'
         return view('team.FormEditTeam')->with(['totalEngineer' => $_totalEngineer,
                                                   'totalTeam' => $_totalTeam,
-                                                  'totalProject' => $_totalProject,'team' =>$team]);
+                                                  'totalProject' => $_totalProject,'team' =>$team,'member'=>$teamMember])->with(['projects'=>$_listProject]);
     }
 
     public function EditTeam(Request $request,$id){
@@ -63,7 +68,8 @@ class TeamController extends Controller
         $team = DB::table('Team')->where('idTeam',$id);
         $techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);
         $team->update(['teamName'=>$datas['teamName'],'techSkill'=>$techSkill]);
-        return redirect("EditTeam/$id");
+//        return redirect("EditTeam/$id");
+        return redirect('TeamManagement')->with('notify','Update Successfully the Team');
     }
 
     public function DelTm(Request $request, $id){

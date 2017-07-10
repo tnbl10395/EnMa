@@ -73,8 +73,6 @@ class ProjectController extends Controller
         //return view ('/project.FormEditPro',['Project' => $oneProject]);
         // return view ('/project.FormAddPro');
 
-        //return redirect('/ProjectManagement');
-
         //->action('ProjectController@EditPro');
         return view('project.FormEditPro', ['oneProject'=>$idProject,
                                             'totalEngineer' => $_totalEngineer,
