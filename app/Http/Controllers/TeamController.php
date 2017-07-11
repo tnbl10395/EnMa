@@ -44,7 +44,7 @@ class TeamController extends Controller
         $team -> techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);
         $team->save();
         //return $this->IndexTm();
-        return redirect('TeamManagement')->with('notify','Add Successfully a new Team');
+        return redirect('TeamManagement')->with('notify','Add Successfully a new Team!');
     }
 //    public function EditTm(){
         public function EditTm($id){
@@ -69,7 +69,7 @@ class TeamController extends Controller
         $techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);
         $team->update(['teamName'=>$datas['teamName'],'techSkill'=>$techSkill]);
 //        return redirect("EditTeam/$id");
-        return redirect('TeamManagement')->with('notify','Update Successfully the Team');
+        return redirect('TeamManagement')->with('notify','Update Successfully the Team!');
     }
 
     public function DelTm(Request $request, $id){

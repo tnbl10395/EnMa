@@ -9,6 +9,22 @@
     <h1>Engineers Management</h1>
   </div>
   <div class="container-fluid">
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach($errors -> all() as $err)
+                        {{$err}}<br>
+                    @endforeach
+                </div>
+            @endif
+
+            @if(session('notify'))
+                    <div class="alert alert-success alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+
+                        <h4 class="alert-heading">Success!</h4>
+                        {{session('notify')}}
+                     </div>
+            @endif
+            <div id="alert_del_engineer"></div>
     <hr>
         <div style="width: 150px; float: left; margin-bottom: 5px;">
         <label for="">Experience</label>
@@ -57,8 +73,8 @@
               </thead>
               <tbody>
               @foreach ($list as $list)
-              <tr class="gradeX">
-                <td><a href="">{{ $list->idEngineer }}</a></td>
+              <tr class="gradeX {{$list->idEngineer}}">
+                <td><a href="">{{ $controller->idName($list->idEngineer) }}</a></td>
                 <td>{{ $list->engineerName }}</td>
                 <td>{{ $list->Address }}</td>
                 <td>{{ $list->Phone }}</td>
@@ -66,7 +82,11 @@
                 <td>{{ $list->TechSkill }}</td>
                 <td>{{ $list->Experience }}</td>
                 <td> <a href="EditEngineer/{{$list->idEngineer}}" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+<<<<<<< HEAD
                 <td> <a onclick="showDialog()" href="DelEngineer/{{$list->idEngineer}}" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+=======
+                <td> <a href="#myAlertEngi" data-toggle="modal" onclick="IdToModalEngi('{{$list->idEngineer}}')"><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+>>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
               </tr> 
              @endforeach
               </tbody>
@@ -91,5 +111,15 @@
     <button onclick="dlgDelPro()" >Yes</button>
     <button onclick="dlgCancelPro()">No</button>
   </div>
-</div>
+</div>z
+    <div id="myAlertEngi" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Delete Team</h3>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure that you want to delete this engineer?</p>
+        </div>
+        <div class="modal-footer"> <a data-dismiss="modal" class="btn btn-primary" href="#">Confirm</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+    </div>
 @stop

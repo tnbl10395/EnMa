@@ -116,19 +116,19 @@
             <label id="label" class="control-label">Technical Skill :</label>
             <div class="controls">
               <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                <li><input type="checkbox" name="technical[]" value="0"> PHP</li>
-                <li><input type="checkbox" name="technical[]" value="1"> Java</li>
-                <li><input type="checkbox" name="technical[]" value="2"> .Net</li>
+                <li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>
+                <li><input type="checkbox" name="techSkill[]" value="JAVA"> JAVA</li>
+                <li><input type="checkbox" name="techSkill[]" value=".NET"> .NET</li>
               </ul>
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="3"> Ruby</li>
-                <li><input type="checkbox" name="technical[]" value="4"> Android</li>
-                <li><input type="checkbox" name="technical[]" value="5"> IOS</li>
+                <li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>
+                <li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>
+                <li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>
               </ul> 
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="6"> HTML</li>
-                <li><input type="checkbox" name="technical[]" value="7"> CSS</li>
-                <li><input type="checkbox" name="technical[]" value="8"> JS</li>
+                <li><input type="checkbox" name="techSkill[]" value="HTML"> HTML</li>
+                <li><input type="checkbox" name="techSkill[]" value="CSS"> CSS</li>
+                <li><input type="checkbox" name="techSkill[]" value="JS"> JS</li>
               </ul>        
             </div>
           </div>
