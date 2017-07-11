@@ -36,11 +36,9 @@ Route::get('/EngineerManagement','EngineerController@IndexEm');
 Route::get('/AddEngineer','EngineerController@AddEm');
 
 Route::post('/AddEngineerController',array('uses' =>'EngineerController@AddEngineer'));
-<<<<<<< HEAD
-Route::get('DelEngineer/{id}','EngineerController@DelEng');
-=======
+
 Route::get('/DelEngineer/{id}','EngineerController@DelEng');
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
 Route::get('/EditEngineer','EngineerController@EditEm');
 Route::get('/EditEngineer/{id}','EngineerController@EditEm');
 Route::post('EditEngineer/{id}','EngineerController@EditEngineer');

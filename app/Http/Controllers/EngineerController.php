@@ -72,37 +72,7 @@ class EngineerController extends Controller
   // Hadle multi Checkboxes Technical skill       
          $tech="";
 
-<<<<<<< HEAD
-      foreach ($request->input('technical') as $value => $key) {
-            
-             $t="";
-            switch ($key) {
-                        case '0':
-                          $t="- PHP";
-                          break;
-                        case '1':
-                          $t="- Java";
-                          break;
-                        case '2':
-                          $t="- .Net";
-                          break;
-                        case '3':
-                          $t="- Ruby";
-                          break;
-                        case '4':
-                          $t="- Adroid";
-                          break;
-                        case '5':
-                          $t="- IOS";
-                          break;
-                        case '6':
-                          $t="- HTML";
-                          break;  
-                        case '7':
-                          $t="- CSS";
-                          break;  
-                        case '8':
-=======
+
       foreach ($request->input('techSkill') as $value => $key) {
             
              $t="";
@@ -132,7 +102,7 @@ class EngineerController extends Controller
                           $t="- CSS";
                           break;  
                         case 'JS':
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
                           $t="- JS";
                           break;     
                         default:
@@ -182,11 +152,9 @@ class EngineerController extends Controller
         $namePhoto = $photo->getClientOriginalName();
         $photo->move('upload',$namePhoto);
         $engineer->avatar=$namePhoto; 
-<<<<<<< HEAD
-}else $namePhoto="";
-=======
+
     }else $namePhoto="";
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
         $engineer->engineerName="$name";
         $engineer->Address="$address";
         $engineer->Phone="$phone";
@@ -200,16 +168,7 @@ class EngineerController extends Controller
        
       echo $tech;
        $engineer->save();
-<<<<<<< HEAD
-    return redirect('EngineerManagement');
 
-    }
-
-public function DelEng(Request $request, $id){
-         $result =  DB::table('Engineer')->where('idEngineer',$id)->delete();
-          return $result;
-    }
-=======
     return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
 
     }
@@ -218,7 +177,7 @@ public function DelEng(Request $request, $id){
          $result =  DB::table('Engineer')->where('idEngineer',$id)->delete();
           return $result;
     }
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
 public function EditEngineer(Request $request,$id){
       $name = $request->input('fullname');
       $birth = $request->input('birthday');
@@ -239,17 +198,12 @@ public function EditEngineer(Request $request,$id){
                break;
            case '1':
               $ex="1 year";
-<<<<<<< HEAD
-                            break;
-           case '2':
-              $ex="More 2 years";
-                            break;  
-=======
+
               break;
            case '2':
               $ex="More 2 years";
               break;  
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
            case '3':
               $ex="More 5 years";
                
@@ -265,37 +219,7 @@ public function EditEngineer(Request $request,$id){
       //  Handle Technical
               $tech="";
 
-<<<<<<< HEAD
-      foreach ($request->input('technical') as $value => $key) {
-            
-             $t="";
-            switch ($key) {
-                        case '0':
-                          $t="- PHP";
-                          break;
-                        case '1':
-                          $t="- Java";
-                          break;
-                        case '2':
-                          $t="- .Net";
-                          break;
-                        case '3':
-                          $t="- Ruby";
-                          break;
-                        case '4':
-                          $t="- Adroid";
-                          break;
-                        case '5':
-                          $t="- IOS";
-                          break;
-                        case '6':
-                          $t="- HTML";
-                          break;  
-                        case '7':
-                          $t="- CSS";
-                          break;  
-                        case '8':
-=======
+
       foreach ($request->input('techSkill') as $value => $key) {
             
              $t="";
@@ -325,7 +249,7 @@ public function EditEngineer(Request $request,$id){
                           $t="- CSS";
                           break;  
                         case 'JS':
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
                           $t="- JS";
                           break;     
                         default:
@@ -333,11 +257,9 @@ public function EditEngineer(Request $request,$id){
                           break;
                       }
                       $tech = $tech." ".$t;          
-<<<<<<< HEAD
- }
-=======
+
       }
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
 
       // Get photo
         $Editname = "";
@@ -353,11 +275,9 @@ public function EditEngineer(Request $request,$id){
 
    
         $engineer->update(['engineerName'=>$name,'Address'=>$address,'Phone'=>$phone,'Email'=>$email,'Experience'=>$ex,'dateJoin'=>$datein,'outOfdate'=>$dateout,'TechSkill'=>$tech,'avatar'=>$Editname,'birthday'=>$birth]);
-<<<<<<< HEAD
-        return redirect("EditEngineer/$id");
-=======
+
         return redirect("EngineerManagement")->with('notify','Update Successfully the engineer!');
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
     }
 
   

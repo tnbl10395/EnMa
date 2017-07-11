@@ -142,15 +142,11 @@
             <label id="label" class="control-label">Technical Skill :</label>
             <div class="controls" id="tech">
               <ul style="list-style-type: none; float: left; margin-left: -5px;">
-<<<<<<< HEAD
-                <li><input type="checkbox" name="technical[]" value="0"> PHP</li>
-                <li><input type="checkbox" name="technical[]" value="1"> Java</li>
-                <li><input type="checkbox" name="technical[]" value="2  "> .Net</li>
-=======
+
                 <li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>
                 <li><input type="checkbox" name="techSkill[]" value="JAVA"> Java</li>
                 <li><input type="checkbox" name="techSkill[]" value=".NET"> .Net</li>
->>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
+
               </ul>
               <ul style="list-style-type: none; float: left;">
                 <li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>
