@@ -44,7 +44,7 @@
   from {background: #29a329;}
   to   {background: #000000;}
 }
-
+/* ... */
 /* click */
 .btGroup #btTotal:focus{
 	background: #000000;

@@ -82,7 +82,11 @@
                 <td>{{ $list->TechSkill }}</td>
                 <td>{{ $list->Experience }}</td>
                 <td> <a href="EditEngineer/{{$list->idEngineer}}" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+<<<<<<< HEAD
+                <td> <a onclick="showDialog()" href="DelEngineer/{{$list->idEngineer}}" ><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+=======
                 <td> <a href="#myAlertEngi" data-toggle="modal" onclick="IdToModalEngi('{{$list->idEngineer}}')"><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
+>>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
               </tr> 
              @endforeach
               </tbody>
@@ -98,10 +102,10 @@
 </div>
 <div id="dlgbox">
   <div id="dlg-header">
-    Delete Project
+    Delete Engineer
   </div>
   <div id="dlg-body">
-    Are you sure that you want to delete this project?
+    Are you sure that you want to delete this engineer?
   </div>
   <div id="dlg-footer">
     <button onclick="dlgDelPro()" >Yes</button>
