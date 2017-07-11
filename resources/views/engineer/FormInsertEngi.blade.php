@@ -37,7 +37,7 @@
                     <div class=""  style="margin-bottom: 8px;">
                         <div class="control-group">
                           <div class="controls">
-                        <!--     <input type="text" name="id" class="span11" placeholder="ID" required="" /> -->
+   
                           </div>
                           <div class="controls">
                             <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" />

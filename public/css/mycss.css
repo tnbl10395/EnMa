@@ -4,7 +4,11 @@
 	margin: 0px;
 }
 .btGroup button{
-	background-color: #28db00;
+	background: #82c23d; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(-90deg, #82c23d, #29a329); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-90deg, #82c23d, #29a329); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-90deg, #82c23d, #29a329); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-90deg, #82c23d, #29a329); /* Standard syntax */
 }
 .btGroup i{
 	font-size: 24px;
@@ -33,14 +37,14 @@
   background: #000000;
 }
 @-webkit-keyframes example3{
-  from {background: #28db00;}
+  from {background: #29a329;}
   to   {background: #000000;}
 }
 @keyframes example3{
-  from {background: #28db00;}
+  from {background: #29a329;}
   to   {background: #000000;}
 }
-
+/* ... */
 /* click */
 .btGroup #btTotal:focus{
 	background: #000000;
