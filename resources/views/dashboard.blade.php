@@ -157,4 +157,22 @@
 		
 	</div>
 	</div>
+  <div id="myModal" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Happy birthday!</h3>
+        </div>
+        <div class="modal-body">
+        	@foreach ($birthday as $engineer)
+            <p>{{$engineer->engineerName}}</p>
+            <br/>
+            @endforeach
+        </div>
+  </div>
+	@if(isset($birthday[0])!=NULL)
+		<link rel="stylesheet" href="{{asset('css/jquery.gritter.css')}}"/>  
+	    <script src="{{asset('js/jquery.peity.min.js')}}"></script>
+	    <script src="{{asset('js/jquery.gritter.min.js')}}"></script>
+	    <script src="{{asset('js/matrix.interface.js')}}"></script>
+	@endif	
 @stop

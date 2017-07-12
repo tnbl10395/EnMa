@@ -7,7 +7,7 @@ use App\Engineer;
 use App\Team;
 use App\Project;
 use App\lib\changeIDName;
-
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -38,8 +38,10 @@ class HomeController extends Controller
         $_listEngineer = $this->listEngineer($_engineer);
         $_topEngineer = $this->topEngineer($_engineer);
         $_newProject = $this->newProject($_project);
+        $_birthday = $this->birthdayNotification($_engineer);
+      
+      // dd($_birthday);
 
-      // dd($_newProject);
         return view('dashboard')->with([
             'totalEngineer' => $_totalEngineer,
             'totalTeam' => $_totalTeam,
@@ -47,7 +49,8 @@ class HomeController extends Controller
             'listEngineer' => $_listEngineer,
             'topEngineer' => $_topEngineer,
             'newProject' => $_newProject,
-            'controller' => $_changeIDName
+            'controller' => $_changeIDName,
+            'birthday' => $_birthday
         ]);
     }
     
@@ -65,12 +68,21 @@ class HomeController extends Controller
       // $_statisticEngineer = $_engineer->
       return $_statisticEngineer;
     }
+
     public function newProject($_project){
       $_newProject = $_project->selectRaw('idProject, projectName')
                               ->orderBy('dateOfBegin','desc')
                               ->take(6)
                               ->get();
       return $_newProject;
+    }
+
+    public function birthdayNotification($_engineer){
+      $_birthday = $_engineer->selectRaw('engineerName')
+                             ->whereDay('birthday',Carbon::NOW()->day)
+                             ->whereMonth('birthday',Carbon::NOW()->month)
+                             ->get();
+      return $_birthday;
     }
 
     public function listEngineer($_engineer){

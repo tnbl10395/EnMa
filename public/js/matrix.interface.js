@@ -41,34 +41,40 @@ $(document).ready(function(){
 	
 	// === jQeury Gritter, a growl-like notifications === //
 	$.gritter.add({
-		title:	'Important Unread messages',
-		text:	'You have 12 unread messages.',
+		title:	'You have a notification!',
+		text:	'The date is Birthday of Employees',
 		image: 	'img/demo/envelope.png',
-		sticky: false
-	});	
-	$('#gritter-notify .normal').click(function(){
-		$.gritter.add({
-			title:	'Normal notification',
-			text:	'This is a normal notification',
-			sticky: false
-		});		
+		sticky: false,		
 	});
+	$(".gritter-item-wrapper").click(function(){
+		$("#myModal").ready(function(){
+
+		});
+	});
+
+	// $('#gritter-notify .normal').click(function(){
+	// 	$.gritter.add({
+	// 		title:	'Normal notification',
+	// 		text:	'This is a normal notification',
+	// 		sticky: false
+	// 	});		
+	// });
 	
-	$('#gritter-notify .sticky').click(function(){
-		$.gritter.add({
-			title:	'Sticky notification',
-			text:	'This is a sticky notification',
-			sticky: true
-		});		
-	});
+	// $('#gritter-notify .sticky').click(function(){
+	// 	$.gritter.add({
+	// 		title:	'Sticky notification',
+	// 		text:	'This is a sticky notification',
+	// 		sticky: true
+	// 	});		
+	// });
 	
-	$('#gritter-notify .image').click(function(){
-		var imgsrc = $(this).attr('data-image');
-		$.gritter.add({
-			title:	'Important Unread messages',
-			text:	'You have 12 unread messages.',
-			image: imgsrc,
-			sticky: false
-		});		
-	});
+	// $('#gritter-notify .image').click(function(){
+	// 	var imgsrc = $(this).attr('data-image');
+	// 	$.gritter.add({
+	// 		title:	'Important Unread messages',
+	// 		text:	'You have 12 unread messages.',
+	// 		image: imgsrc,
+	// 		sticky: false
+	// 	});		
+	// });
 });
