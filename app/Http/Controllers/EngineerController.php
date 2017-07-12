@@ -9,6 +9,7 @@ use App\Engineer;
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
+use App\lib\changeIDName;
 
 class EngineerController extends Controller
 {	
@@ -18,14 +19,16 @@ class EngineerController extends Controller
   }
     
     public function IndexEM(){ 
+        $_changeIDName = new changeIDName();
         $_list = Engineer::all();
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
         return view('engineer.IndexEngiManage')->with(['list' => $_list,
-								           	'totalEngineer' => $_totalEngineer,
+								           	                'totalEngineer' => $_totalEngineer,
                                             'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject]);
+                                            'totalProject' => $_totalProject,
+                                            'controller' => $_changeIDName]);
     }
     public function AddEm(){
     	$_totalTeam = $this->totalTeam();
@@ -35,14 +38,24 @@ class EngineerController extends Controller
                                             'totalTeam' => $_totalTeam,
                                             'totalProject' => $_totalProject,]);
     }
-    public function EditEm(){
-    	$_totalTeam = $this->totalTeam();
+    // public function EditEm(){
+    // 	$_totalTeam = $this->totalTeam();
+    //     $_totalProject = $this->totalProject();
+    //     $_totalEngineer = $this->totalEngineer();
+    // 	return view('engineer.FormEditEngi')->with(['totalEngineer' => $_totalEngineer,
+    //                                         'totalTeam' => $_totalTeam,
+    //                                         'totalProject' => $_totalProject,]);
+    // }
+    public function EditEm($id){
+      $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
-    	return view('engineer.FormEditEngi')->with(['totalEngineer' => $_totalEngineer,
+        $list = DB::table('Engineer')->where('idEngineer',$id)->first();
+      return view('engineer.FormEditEngi')->with(['totalEngineer' => $_totalEngineer,
                                             'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject,]);
-    }
+                                            'totalProject' => $_totalProject,'list'=>$list]);
+  
+      }
 
 
      public function AddEngineer(Request $request){
@@ -54,8 +67,53 @@ class EngineerController extends Controller
          $phone= $request->input('phone');
          $email= $request->input('email');
          $dateout= $request->input('dateout');
-         $datein = $request->input('datein');   
-// handle experience       
+         $datein = $request->input('datein'); 
+       
+  // Hadle multi Checkboxes Technical skill       
+         $tech="";
+
+
+      foreach ($request->input('techSkill') as $value => $key) {
+            
+             $t="";
+            switch ($key) {
+                        case 'PHP':
+                          $t="- PHP";
+                          break;
+                        case 'JAVA':
+                          $t="- JAVA";
+                          break;
+                        case '.NET':
+                          $t="- .NET";
+                          break;
+                        case 'Ruby':
+                          $t="- Ruby";
+                          break;
+                        case 'Android':
+                          $t="- Android";
+                          break;
+                        case 'IOS':
+                          $t="- IOS";
+                          break;
+                        case 'HTML':
+                          $t="- HTML";
+                          break;  
+                        case 'CSS':
+                          $t="- CSS";
+                          break;  
+                        case 'JS':
+
+                          $t="- JS";
+                          break;     
+                        default:
+                          # code...
+                          break;
+                      }
+                      $tech = $tech." ".$t;          
+ }
+
+
+  // handle Experience       
              $ex="";
      	 switch ($exp) {
 	         case '0':
@@ -80,30 +138,149 @@ class EngineerController extends Controller
 	             # code...
 	             break;
      }
-  // Get photo
-        $photo  = $request->photo;
-        $namePhoto = $photo->getClientOriginalName();
-        $photo->move('upload',$namePhoto);   
+  
+        
   // Convert date
         $newbirth = date("Y-m-d", strtotime($birth));
         $newdateout = date("Y-m-d", strtotime($dateout));
         $newdatein = date("Y-m-d", strtotime($datein));
  // Save data to DataBase                
-        $engineer = new Engineer();
+        $engineer = new Engineer();  
+
+        $photo  = $request->photo;
+        if ($request->hasFile('photo')) {
+        $namePhoto = $photo->getClientOriginalName();
+        $photo->move('upload',$namePhoto);
+        $engineer->avatar=$namePhoto; 
+
+    }else $namePhoto="";
+
         $engineer->engineerName="$name";
         $engineer->Address="$address";
         $engineer->Phone="$phone";
         $engineer->Email="$email";
         $engineer->TechSkill="2";
         $engineer->Experience="$ex";
-        $engineer->avatar=$namePhoto;
+        $engineer->TechSkill=$tech;
         $engineer->dateJoin=$newdatein;
         $engineer->outOfdate=$newdateout;
         $engineer->birthday=$newbirth;
-        $engineer->save();
-//     return view('engineer.FormInsertEngi');
-        echo "Successful!";
+       
+      echo $tech;
+       $engineer->save();
+
+    return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
+
     }
+
+public function DelEng(Request $request, $id){
+         $result =  DB::table('Engineer')->where('idEngineer',$id)->delete();
+          return $result;
+    }
+
+public function EditEngineer(Request $request,$id){
+      $name = $request->input('fullname');
+      $birth = $request->input('birthday');
+      $exp = $request->input('experience');
+      $address= $request->input('address');
+      $phone= $request->input('phone');
+      $email= $request->input('email');
+      $dateout= $request->input('dateout');
+      $datein = $request->input('datejoin'); 
+  
+
+           //Handle Experience
+             $ex="";
+       switch ($exp) {
+           case '0':
+              $ex="No experience";
+               
+               break;
+           case '1':
+              $ex="1 year";
+
+              break;
+           case '2':
+              $ex="More 2 years";
+              break;  
+
+           case '3':
+              $ex="More 5 years";
+               
+               break;
+           case '4':
+              $ex="More 10 years";
+               # code...
+               break;        
+           default:
+               # code...
+               break;
+     }
+      //  Handle Technical
+              $tech="";
+
+
+      foreach ($request->input('techSkill') as $value => $key) {
+            
+             $t="";
+            switch ($key) {
+                        case 'PHP':
+                          $t="- PHP";
+                          break;
+                        case 'JAVA':
+                          $t="- JAVA";
+                          break;
+                        case '.NET':
+                          $t="- .NET";
+                          break;
+                        case 'Ruby':
+                          $t="- Ruby";
+                          break;
+                        case 'Android':
+                          $t="- Android";
+                          break;
+                        case 'IOS':
+                          $t="- IOS";
+                          break;
+                        case 'HTML':
+                          $t="- HTML";
+                          break;  
+                        case 'CSS':
+                          $t="- CSS";
+                          break;  
+                        case 'JS':
+
+                          $t="- JS";
+                          break;     
+                        default:
+                          # code...
+                          break;
+                      }
+                      $tech = $tech." ".$t;          
+
+      }
+
+
+      // Get photo
+        $Editname = "";
+         $photo  = $request->photo;
+       if($request->hasFile('photo')){
+        $Editname = $photo->getClientOriginalName();
+        $photo->move('upload',$Editname);   
+    
+      }
+      //Update database    
+     $engineer = DB::table('Engineer')->where('idEngineer',$id);
+
+
+   
+        $engineer->update(['engineerName'=>$name,'Address'=>$address,'Phone'=>$phone,'Email'=>$email,'Experience'=>$ex,'dateJoin'=>$datein,'outOfdate'=>$dateout,'TechSkill'=>$tech,'avatar'=>$Editname,'birthday'=>$birth]);
+
+        return redirect("EngineerManagement")->with('notify','Update Successfully the engineer!');
+
+    }
+
+  
     public function totalEngineer(){
       $_engineer = new Engineer();
       $_totalEngineer = $_engineer->count();
@@ -121,4 +298,18 @@ class EngineerController extends Controller
       $_totalTeam = $_team->count();
       return $_totalTeam;
     }
+
+    public function idName($id){
+      if($id<10){
+        $_string = "EN00";  
+      }
+      else if($id<100){
+        $_string = "EN0";
+      }
+      else if($id<1000){
+        $_string = "EN";
+      }
+      return $_string.$id;
+    }
 }
+// ...

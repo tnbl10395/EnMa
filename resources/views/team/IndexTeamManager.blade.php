@@ -7,6 +7,22 @@
             <h1>Teams Management</h1>
         </div>
         <div class="container-fluid">
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach($errors -> all() as $err)
+                        {{$err}}<br>
+                    @endforeach
+                </div>
+            @endif
+
+            @if(session('notify'))
+                    <div class="alert alert-success alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+
+                        <h4 class="alert-heading">Success!</h4>
+                        {{session('notify')}}
+                     </div>
+            @endif
+            <div id="alert_del_team"></div>
             <hr>
             {{--<div style="width: 150px;float: left; margin-bottom: 5px;">--}}
                 {{--<label for="">Technical Skill</label>--}}
@@ -54,7 +70,11 @@
                                     <td>{{$data->teamName}}</td>
                                     <td>{{$data->techSkill}}</td>
                                     <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
-{{--                                    <td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data->idTeam}}" ><i class="icon-remove"></i></a></td>--}}
+<<<<<<< HEAD
+{{--                                    <td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}
+=======
+                                    {{--<td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}
+>>>>>>> 7e6cef737b386598c50a539f861a40ec0b33d296
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="#" ><i class="icon-remove"></i></a></td>--}}
                                     {{--<td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" class="btn btn-warning"><i class="icon-remove"></i></a></td>--}}
                                     <td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" onclick="IdToModal('{{$data->idTeam}}',this)"><i class="icon-remove"></i></a></td>
@@ -82,7 +102,7 @@
     <button onclick="dlgDelPro()" >Yes</button>
     <button onclick="dlgCancelPro()">No</button>
   </div>
-</div>
+</div>z
     <div id="myAlert" class="modal hide">
         <div class="modal-header">
             <button data-dismiss="modal" class="close" type="button">×</button>

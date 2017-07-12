@@ -9,7 +9,7 @@
 <div class="container-fluid">
   <hr>
   <div class="row-fluid">
-    <form action="/AddEngineerController" method="POST" class="form-horizontal">
+    <form action="/EditEngineer/{{$list->idEngineer}}" method="POST" class="form-horizontal" enctype='multipart/form-data'>
      <!-- right -->
         <div class="span6">
             <div class="widget-box">
@@ -19,11 +19,22 @@
                 <div class="widget-content nopadding">
                     <div class="span5">
                         <div class="img">
-                          <img src="" alt="">  
+                        @if(!($list->avatar))
+                        <img id="output" src="" alt="">
+                        @else
+                        <img id="output" src="{{ asset('upload/' . $list->avatar) }}" alt="">  
+                        @endif
                         </div>
                         <div class=""  >
-                          <input type="file" name="" value="" placeholder="">      
+                          <input type="file" name="photo" accept="image/*" placeholder="" accept="image/*" onchange="loadFile(event)">      
                         </div>
+
+                         <script>
+                      var loadFile = function(event) {
+                        var output = document.getElementById('output');
+                         output.src = URL.createObjectURL(event.target.files[0]);
+                       };
+                    </script>
                     </div>
       
                     <div class=""  style="margin-bottom: 8px;">
@@ -32,19 +43,42 @@
                         <!--     <input type="text" name="id" class="span11" placeholder="ID" required="" /> -->
                           </div>
                           <div class="controls">
-                            <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" />
+                            <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" value="{{$list->engineerName}}" />
                           </div>
                           <div class="controls">
-                            <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" placeholder="Date of Birth" name="birthday" class="datepicker span11"> 
+                            <input type="text" data-date-format="yyyy-mm-dd" placeholder="Date of Birth" name="birthday" class="datepicker span11" value="{{$list->birthday}}"> 
                           </div>
                           <div class="controls">
-                            <select class="span11" name="experience">
+                            <select class="span11" name="experience" id="experience">
                               <option value="0">No experience</option>
                               <option value="1">1 year</option>
                               <option value="2">More 2 years</option>
                               <option value="3">More 5 years</option>
                               <option value="4">More 10 years</option>
+                            <script>
+                              var exp = "{{$list->Experience}}";  
+                              var val; 
+                              switch (exp){
+                                case "No experience": val = 0;
+                                break;
+                                case "1 year": val = 1;
+                                break;
+                                case "More 2 years": val = 2;
+                                break;
+                                case "More 5 years": val = 3;
+                                break;
+                                case "More 10 years": val = 4;
+                                break;
+                                default:
+                                break;
+                              }
+                              $(document).ready(function(){
+                                $("#experience").val(val);
+                              });
+
+                            </script>
                             </select>
+                      
                           </div>
                         </div>
                     </div>
@@ -57,13 +91,13 @@
                <div class="control-group">
                   <label class="control-label">Date Of Join</label>
                   <div class="controls">
-                    <input type="text" placeholder="Date Of Join" data-date-format="dd-mm-yyyy" value="01-02-2017" name="datejoin" class="datepicker span11">
+                    <input type="text" placeholder="Date Of Join" data-date-format="yyyy-mm-dd" name="datejoin" class="datepicker span11" value="{{$list->dateJoin}}">
                   </div>
                 </div>
                 <div class="control-group" style="margin-bottom: 10px;">
                   <label class="control-label">Date Of Out</label>
                   <div class="controls">
-                    <input type="text" placeholder="Date Of Out" data-date-format="dd-mm-yyyy" value="01-02-2017" name="dateout" class="datepicker span11">
+                    <input type="text" placeholder="Date Of Out" data-date-format="yyyy-mm-dd" name="dateout"   class="datepicker span11" value="{{$list->outOfDate}}">
                   </div>
                  </div>
               </div>
@@ -83,21 +117,21 @@
           <div id="control" class="control-group">
             <label id="label" class="control-label">Address :</label>
             <div class="controls">
-              <input id="input" type="text" name="address" class="span11" placeholder="Address"  />
+              <input id="input" type="text" name="address" class="span11" placeholder="Address" value="{{$list->Address}}" />
             </div>
           </div>
 
           <div  id="control" class="control-group">
             <label id="label" class="control-label">Phone :</label>
             <div class="controls">
-              <input id="input" type="text" name="phone" class="span11" placeholder="Phone" />
+              <input id="input" type="text" name="phone" class="span11" placeholder="Phone" value="{{$list->Phone}}" />
             </div>
           </div>
 
           <div id="control" class="control-group">
             <label id="label"  class="control-label">Email :</label>
             <div class="controls">
-              <input id="input" type="text" name="email" class="span11" placeholder="Email" />
+              <input id="input" type="text" name="email" class="span11" placeholder="Email" value="{{$list->Email}}" />
             </div>
           </div>
           
@@ -106,22 +140,35 @@
            </div>
            <div  id="control" class="control-group" style="margin-bottom: 27px;">
             <label id="label" class="control-label">Technical Skill :</label>
-            <div class="controls">
+            <div class="controls" id="tech">
               <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                <li><input type="checkbox" name="technical[]" value="0"> PHP</li>
-                <li><input type="checkbox" name="technical[]" value="1"> Java</li>
-                <li><input type="checkbox" name="technical[]" value="2"> .Net</li>
+
+                <li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>
+                <li><input type="checkbox" name="techSkill[]" value="JAVA"> Java</li>
+                <li><input type="checkbox" name="techSkill[]" value=".NET"> .Net</li>
+
               </ul>
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="3"> Ruby</li>
-                <li><input type="checkbox" name="technical[]" value="4"> Android</li>
-                <li><input type="checkbox" name="technical[]" value="5"> IOS</li>
+                <li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>
+                <li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>
+                <li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>
               </ul> 
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="6"> HTML</li>
-                <li><input type="checkbox" name="technical[]" value="7"> CSS</li>
-                <li><input type="checkbox" name="technical[]" value="8"> JS</li>
-              </ul>        
+                <li><input type="checkbox" name="techSkill[]" value="HTML"> HTML</li>
+                <li><input type="checkbox" name="techSkill[]" value="CSS"> CSS</li>
+                <li><input type="checkbox" name="techSkill[]" value="JS"> JS</li>
+              </ul>
+               <script>
+                  var techs="{{$list->TechSkill}}";console.log(techs);
+                  techs=(techs.indexOf(" - ")>-1)?techs.split(" - "):techs.split();
+                  console.log(techs.length);
+                  $(document).ready(function(){
+                      for(techSkill=1;techSkill<techs.length;techSkill++){
+                          $("#tech input[value='"+techs[techSkill]+"']")[0].click();//must have [0]
+           
+                      }
+                  });
+              </script>        
             </div>
           </div>
 

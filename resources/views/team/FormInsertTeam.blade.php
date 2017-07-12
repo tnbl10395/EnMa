@@ -32,16 +32,15 @@
                                 <div class="control-group">
                                     <label class="control-label" for="project_choice">Name of Initial Project :</label>
                                     <div class="controls">
-                                        <select id="project_choice">
+                                        <select name="project_choice" id="project_choice">
                                             <option value="" selected></option>
-                                            <option>Project A</option>
-                                            <option>Project B</option>
-                                            <option>Project C</option>
-                                            <option>Project D</option>
-                                            <option>Project E</option>
-                                            <option>Project F</option>
-                                            <option>Project G</option>
-                                            <option>Project H</option>
+                                            @if(!empty($projects))
+                                                @foreach($projects as $project)
+                                                    <option value="{{$project->projectName}}">{{$project->projectName}}</option>
+                                                @endforeach
+                                            @endif    
+                                            {{--<option>Project A</option>--}}
+
                                         </select>
 
                                     </div>

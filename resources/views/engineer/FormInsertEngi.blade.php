@@ -19,17 +19,25 @@
                 <div class="widget-content nopadding">
                     <div class="span5">
                         <div class="img">
-                          <img src="" alt="">  
+                          <img id="output" src="" alt="">  
                         </div>
                         <div class=""  >
-                          <input type="file" name="photo">      
+                          <input type="file" name="photo" accept="image/*" onchange="loadFile(event)">      
                         </div>
+                       
+
+                    <script>
+                      var loadFile = function(event) {
+                        var output = document.getElementById('output');
+                         output.src = URL.createObjectURL(event.target.files[0]);
+                       };
+                    </script>
                     </div>
       
                     <div class=""  style="margin-bottom: 8px;">
                         <div class="control-group">
                           <div class="controls">
-                        <!--     <input type="text" name="id" class="span11" placeholder="ID" required="" /> -->
+   
                           </div>
                           <div class="controls">
                             <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" />
@@ -108,23 +116,23 @@
             <label id="label" class="control-label">Technical Skill :</label>
             <div class="controls">
               <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                <li><input type="checkbox" name="technical[]" value="0"> PHP</li>
-                <li><input type="checkbox" name="technical[]" value="1"> Java</li>
-                <li><input type="checkbox" name="technical[]" value="2"> .Net</li>
+                <li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>
+                <li><input type="checkbox" name="techSkill[]" value="JAVA"> JAVA</li>
+                <li><input type="checkbox" name="techSkill[]" value=".NET"> .NET</li>
               </ul>
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="3"> Ruby</li>
-                <li><input type="checkbox" name="technical[]" value="4"> Android</li>
-                <li><input type="checkbox" name="technical[]" value="5"> IOS</li>
+                <li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>
+                <li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>
+                <li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>
               </ul> 
               <ul style="list-style-type: none; float: left;">
-                <li><input type="checkbox" name="technical[]" value="6"> HTML</li>
-                <li><input type="checkbox" name="technical[]" value="7"> CSS</li>
-                <li><input type="checkbox" name="technical[]" value="8"> JS</li>
+                <li><input type="checkbox" name="techSkill[]" value="HTML"> HTML</li>
+                <li><input type="checkbox" name="techSkill[]" value="CSS"> CSS</li>
+                <li><input type="checkbox" name="techSkill[]" value="JS"> JS</li>
               </ul>        
             </div>
           </div>
-
+                   
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-actions">
             <button type="submit" name="submit" class="btn btn-success pull-right">Submit</button>

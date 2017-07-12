@@ -33,7 +33,7 @@
 								  <tbody>
 							    @foreach ($listEngineer as $Engieer)
 							    <tr class="gradeX">
-							      <td><a href="">{{ $Engieer->idEngineer }}</a></td>
+							      <td><a href="">{{ $controller->idName($Engieer->idEngineer) }}</a></td>
 							      <td>{{ $Engieer->engineerName }}</td>
 							      <td>{{ $Engieer->Email }}</td>
 							      <td>{{ $Engieer->Phone }}</td>
