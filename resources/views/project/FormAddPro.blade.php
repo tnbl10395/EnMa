@@ -90,6 +90,15 @@
                 <input type="text" class="span11" placeholder="customer_code" name="customer_code" required="" />
               </div>
             </div>
+
+            <div class="control-group">
+
+              <label class="control-label">Id Team :</label>
+
+              <div class="controls">
+                <input type="text" class="span11" placeholder="idTeam" name="idTeam" required="" />
+              </div>
+            </div>
             <div class="form-actions">
               <button type="submit" class="btn-success">Submit</button>
               <button type="reset" class="btn-warning">Reset</button>

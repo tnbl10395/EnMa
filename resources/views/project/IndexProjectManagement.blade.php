@@ -140,6 +140,7 @@
                   <th>Date Of Begin</th>
                   <th>Date Of End</th>
                   <th>Customer</th>
+                  <th>Id Team</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
@@ -168,7 +169,8 @@
                   <td>{{$pr -> techSkill}}</td>
                   <td>{{$pr -> dateOfBegin}}</td>
                   <td>{{$pr -> dateOfEnd}}</td>
-                  <td>{{$pr -> customer_code}}</td>   
+                  <td>{{$pr -> customer_code}}</td> 
+                  <td>{{$pr -> idTeam}}</td>  
                   <td style="text-align: center;"> <a href="../EditProject/{{ $pr -> idProject}}" ><i class="icon-edit"></i></a></td>
                   <td> <a href="#myAlertPro" data-toggle="modal" onclick="IdToModalPro('{{$pr->idProject}}')" ><i class="icon-remove" style="margin-left: 40px;" ></i></a></td>
 

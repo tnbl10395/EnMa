@@ -139,6 +139,13 @@ $decoded = json_decode($listPro, true);
                 <input type="text" class="span11" name= "customer_code" value= "{{ $decoded[0]['customer_code'] }}" />
               </div>
             </div>
+
+            <div class="control-group">
+              <label class="control-label">ID Team :</label>
+              <div class="controls">
+                <input type="text" class="span11" name= "idTeam" value= "{{ $decoded[0]['idTeam'] }}" />
+              </div>
+            </div>
             <div class="form-actions">
               <button type="submit" class="btn-success">Submit</button>
               <button type="reset" class="btn-warning">Reset</button>

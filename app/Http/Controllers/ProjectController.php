@@ -56,6 +56,7 @@ class ProjectController extends Controller
         $pro -> dateOfBegin = $request -> dateOfBegin;
         $pro -> dateOfEnd = $request -> dateOfEnd;
         $pro -> customer_code = $request -> customer_code;
+        $pro -> idTeam = $request -> idTeam;
         $pro -> save();
  
         return redirect ('/ProjectManagement')-> with ('thbao','Add Success a new Project');
@@ -94,7 +95,8 @@ class ProjectController extends Controller
                                       'techSkill' => $request->input('techSkill'), 
                                       'dateOfBegin' => $request->input('dateOfBegin'),
                                       'dateOfEnd' => $request->input('dateOfEnd'),
-                                      'customer_code' => $request->input('customer_code')]);
+                                      'customer_code' => $request->input('customer_code'),
+                                      'idTeam' => $request -> input ('idTeam')]);
                            
          
             // return view('project.FormEditPro',['oneProject',$idProject]);
