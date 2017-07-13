@@ -7,6 +7,10 @@ use App\Engineer;
 
 class ShowTopEngineerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function ShowTopEngineer(Request $_request){
     	$_data = $_request->all();
     	$_id = $_data['id'];

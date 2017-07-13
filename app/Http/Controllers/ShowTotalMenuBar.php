@@ -7,7 +7,10 @@ use App\Team;
 use App\Project;
 use App\Engineer;
 class ShowTotalMenuBar extends Controller
+{  public function __construct()
 {
+    $this->middleware('auth');
+}
     public function totalEngineer(){
     	
     }
