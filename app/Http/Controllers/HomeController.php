@@ -39,19 +39,20 @@ class HomeController extends Controller
         $_topEngineer = $this->topEngineer($_engineer);
         $_newProject = $this->newProject($_project);
         $_birthday = $this->birthdayNotification($_engineer);
-      
-      // dd($_birthday);
+        $_newEngineer = $this->newEngineerNotification($_engineer);
+      dd($_newEngineer);
 
-        return view('dashboard')->with([
-            'totalEngineer' => $_totalEngineer,
-            'totalTeam' => $_totalTeam,
-            'totalProject' => $_totalProject,
-            'listEngineer' => $_listEngineer,
-            'topEngineer' => $_topEngineer,
-            'newProject' => $_newProject,
-            'controller' => $_changeIDName,
-            'birthday' => $_birthday
-        ]);
+        // return view('dashboard')->with([
+        //     'totalEngineer' => $_totalEngineer,
+        //     'totalTeam' => $_totalTeam,
+        //     'totalProject' => $_totalProject,
+        //     'listEngineer' => $_listEngineer,
+        //     'topEngineer' => $_topEngineer,
+        //     'newProject' => $_newProject,
+        //     'controller' => $_changeIDName,
+        //     'birthday' => $_birthday,
+        //     'newEngineer' => $_newEngineer
+        // ]);
     }
     
     public function topEngineer($_engineer){
@@ -75,6 +76,13 @@ class HomeController extends Controller
                               ->take(6)
                               ->get();
       return $_newProject;
+    }
+
+    public function newEngineerNotification($_engineer){
+      $_newEngineer = $_engineer->selectRaw('engineerName')
+                                ->where('DATEDIFF()','=','3')
+                                ->get();
+      return $_newEngineer;
     }
 
     public function birthdayNotification($_engineer){
