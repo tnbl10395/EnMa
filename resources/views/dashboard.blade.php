@@ -51,9 +51,26 @@
 		            </div>
 		            <div class="span2">
 		             	<ul class="btGroup">
-		             	 	<li><button onclick="load_TotalEngineer()" id="btTotal" class="btn-success"><i class="icon-user"></i><strong>{{ $totalEngineer }}</strong><br>Total Engineers</button></li>
-	             	 	 	<li><button onclick="load_TotalTeam()" id="btTotal" class="btn-success"><i class="icon-group"></i><strong>{{ $totalTeam }}</strong><br>Total Teams</button></li>
-             	 	 	 	<li><button onclick="load_TotalProject()" id="btTotal" class="btn-success"	><i class="icon-book"></i><strong>{{ $totalProject }}</strong><br>Total Projects</button></li>
+		             	 	<li>
+ 		 	            	 	<button onclick="load_TotalEngineer()" id="btTotal" class="btn-success">
+ 		 	            	 		<i class="icon-user"></i>
+ 		 	            	 		<strong>
+ 		 	            	 			{{ $totalEngineer }}										
+ 		 	            	 		</strong>
+ 		 	            	 	<br>Total Engineers</button>
+		             	 	</li>
+	             	 	 	<li>
+	             	 	 		<button onclick="load_TotalTeam()" id="btTotal" class="btn-success">
+	             	 	 			<i class="icon-group"></i>
+	             	 	 			<strong>{{ $totalTeam }}</strong>
+	             	 	 		<br>Total Teams</button>
+	             	 	 	</li>
+             	 	 	 	<li>
+             	 	 	 		<button onclick="load_TotalProject()" id="btTotal" class="btn-success"	>
+             	 	 	 			<i class="icon-book"></i>
+             	 	 	 			<strong>{{ $totalProject }}</strong>
+             	 	 	 		<br>Total Projects</button>
+         	 	 	 		</li>
 		             	</ul> 
 		            </div>
 		          </div>
@@ -174,5 +191,6 @@
 	    <script src="{{asset('js/jquery.peity.min.js')}}"></script>
 	    <script src="{{asset('js/jquery.gritter.min.js')}}"></script>
 	    <script src="{{asset('js/matrix.interface.js')}}"></script>
-	@endif	
+	@endif
+
 @stop

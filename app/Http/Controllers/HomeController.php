@@ -32,15 +32,22 @@ class HomeController extends Controller
         $_team = new Team();
         $_project = new Project();
         $_changeIDName = new changeIDName();
+
         $_totalTeam = $this->totalTeam($_team);
         $_totalProject = $this->totalProject($_project);
         $_totalEngineer = $this->totalEngineer($_engineer);
+
         $_listEngineer = $this->listEngineer($_engineer);
         $_topEngineer = $this->topEngineer($_engineer);
+
         $_newProject = $this->newProject($_project);
+
+        $_newEngineer = $this->newEngineerNotification($_engineer);
+
         $_birthday = $this->birthdayNotification($_engineer);
-      
-      // dd($_birthday);
+
+      // dd($_newEngineer);
+
 
         return view('dashboard')->with([
             'totalEngineer' => $_totalEngineer,
@@ -50,7 +57,9 @@ class HomeController extends Controller
             'topEngineer' => $_topEngineer,
             'newProject' => $_newProject,
             'controller' => $_changeIDName,
-            'birthday' => $_birthday
+            'birthday' => $_birthday,
+            'newEngineer' => $_newEngineer
+
         ]);
     }
     
@@ -75,6 +84,14 @@ class HomeController extends Controller
                               ->take(6)
                               ->get();
       return $_newProject;
+    }
+
+
+    public function newEngineerNotification($_engineer){
+      $_newEngineer = $_engineer->selectRaw('engineerName')
+                                ->whereRaw('DATEDIFF(NOW(),dateJoin) = 3')
+                                ->get();
+      return $_newEngineer;
     }
 
     public function birthdayNotification($_engineer){
