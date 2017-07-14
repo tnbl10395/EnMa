@@ -51,10 +51,14 @@ $(document).ready(function(){
 		$(".gritter-title").css("margin-left","-50px");	
 		$(".gritter-image").css('display', 'none');
 		$(".gritter-item p").css('display', 'none');
-		var vari = "{{$birthday[0]->engineerName}}";
-		if(vari!=null){
-			$(".gritter-title").html("<a href='#myModal' data-toggle='modal'>Today is the birthday of Engineers!</a>");	
+		var birthday = "{{$birthday[0]->engineerName}}";
+		var newEngi = "{{$newEngineer[0]->engineerName}}"
+		var String1 = "<a href='#myModal' data-toggle='modal'>Today is the birthday of Engineers!</a>";
+		var String2 = "<a href='#myModal' data-toggle='modal'>The company has some new Employees!</a>";
+		if((birthday!=null)||(newEngi!=null)){
+			$(".gritter-title").html(String1);	
 		}
+
 
 	});
 	$(".gritter-title a").click(function(){

@@ -192,7 +192,5 @@
 	    <script src="{{asset('js/jquery.gritter.min.js')}}"></script>
 	    <script src="{{asset('js/matrix.interface.js')}}"></script>
 	@endif
-	<script type="text/javascript">
-		var vari = "{{$birthday[0]->engineerName}}";console.log(vari);
-	</script>	
+
 @stop

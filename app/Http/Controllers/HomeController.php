@@ -32,27 +32,32 @@ class HomeController extends Controller
         $_team = new Team();
         $_project = new Project();
         $_changeIDName = new changeIDName();
+
         $_totalTeam = $this->totalTeam($_team);
         $_totalProject = $this->totalProject($_project);
         $_totalEngineer = $this->totalEngineer($_engineer);
+
         $_listEngineer = $this->listEngineer($_engineer);
         $_topEngineer = $this->topEngineer($_engineer);
-        $_newProject = $this->newProject($_project);
-        $_birthday = $this->birthdayNotification($_engineer);
-        $_newEngineer = $this->newEngineerNotification($_engineer);
-      dd($_newEngineer);
 
-        // return view('dashboard')->with([
-        //     'totalEngineer' => $_totalEngineer,
-        //     'totalTeam' => $_totalTeam,
-        //     'totalProject' => $_totalProject,
-        //     'listEngineer' => $_listEngineer,
-        //     'topEngineer' => $_topEngineer,
-        //     'newProject' => $_newProject,
-        //     'controller' => $_changeIDName,
-        //     'birthday' => $_birthday,
-        //     'newEngineer' => $_newEngineer
-        // ]);
+        $_newProject = $this->newProject($_project);
+        $_newEngineer = $this->newEngineerNotification($_engineer);
+
+        $_birthday = $this->birthdayNotification($_engineer);
+
+      // dd($_newEngineer);
+
+        return view('dashboard')->with([
+            'totalEngineer' => $_totalEngineer,
+            'totalTeam' => $_totalTeam,
+            'totalProject' => $_totalProject,
+            'listEngineer' => $_listEngineer,
+            'topEngineer' => $_topEngineer,
+            'newProject' => $_newProject,
+            'controller' => $_changeIDName,
+            'birthday' => $_birthday,
+            'newEngineer' => $_newEngineer
+        ]);
     }
     
     public function topEngineer($_engineer){
@@ -80,7 +85,7 @@ class HomeController extends Controller
 
     public function newEngineerNotification($_engineer){
       $_newEngineer = $_engineer->selectRaw('engineerName')
-                                ->where('DATEDIFF()','=','3')
+                                ->whereRaw('DATEDIFF(NOW(),dateJoin) = 3')
                                 ->get();
       return $_newEngineer;
     }
