@@ -182,10 +182,10 @@
             <h3></h3>
         </div>
         <div class="modal-body">
-       
+       		<h4></h4>
         </div>
   </div>
-	@if(isset($birthday[0])!=NULL)
+	@if((isset($birthday[0])!=NULL)||(isset($newEngineer[0])!=NULL))
 		<link rel="stylesheet" href="{{asset('css/jquery.gritter.css')}}"/>  
 	    <script src="{{asset('js/jquery.peity.min.js')}}"></script>
 	    <script src="{{asset('js/jquery.gritter.min.js')}}"></script>
@@ -194,30 +194,49 @@
 		<script type="text/javascript">
 
 		$(document).ready(function(){
-			birthday = "{{ $birthday[0]->engineerName }}";console.log(birthday);
+			birthday = "{{ $birthday }}";console.log(birthday);
+			newEngi = "{{ $newEngineer }}";console.log(newEngi);
+			if((birthday!="[]")||(newEngi!="[]")){
+				$.gritter.add({
 
-			$.gritter.add({
-
-				title:	'Notification!',
-				text:	'You have a new notification.',
-				image: 	'img/demo/envelope.png',
-				sticky: true,		
-			});
-			$(".gritter-item").mousemove(function() {
-				$(".gritter-title").css("margin-left","-50px");	
-				$(".gritter-image").css('display', 'none');
-				$(".gritter-item p").css('display', 'none');
-				var String1 = "<a href='#myModal'  data-toggle='modal'><i class='icon-gift'></i>Today is the birthday of Engineers!</a>";
-				var String2 = "<a href='#myModal'  data-toggle='modal'><i class='icon-user'></i>The company has some new Employees!</a>";
-				if(birthday!=null){
-					$(".gritter-title").html("");
-					if (birthday!=null) {
-						$(".gritter-title").append(String1+"<br/>");
-					}	
-				}
-
-
-			});
+					title:	'Notification!',
+					text:	'You have a new notification.',
+					image: 	'img/demo/envelope.png',
+					sticky: true,		
+				});
+				$(".gritter-item").mousemove(function() {
+					$(".gritter-title").css("margin-left","-50px");	
+					$(".gritter-image").css('display', 'none');
+					$(".gritter-item p").css('display', 'none');
+					String1 = "<a href='#myModal' id='birthday' data-toggle='modal'><i class='icon-gift'></i>Today is the birthday of Engineers!</a>";
+					String2 = "<a href='#myModal' id='newEngi' data-toggle='modal'><i class='icon-user'></i>The company has some new Employees!</a>";
+					// if((birthday!=null)||(newEngi!=null)){
+						$(".gritter-title").html("");
+						if (birthday!="[]") {
+							$(".gritter-title").append(String1+"<br/>");
+							$("#birthday").click(function(){
+								$(".modal-header h3").html("Happy birthday!");
+								$(".modal-body h4").html("@foreach ($birthday as $engineer)"
+													+"{{$engineer->engineerName}}"
+													+"<hr/>"
+													+"@endforeach");
+							});
+						}
+						if (newEngi!="[]") {
+							$(".gritter-title").append(String2+"<br/>");
+							$("#newEngi").click(function(){
+								$(".modal-header h3").html("New Engineers!");
+								$(".modal-body h4").html("@foreach ($newEngineer as $engineer)"
+													+"{{$engineer->engineerName}}"
+													+"<hr/>"
+													+"@endforeach");
+							});
+						}
+					// }
+				});
+			}
+			
+			
 
 		});
 		</script>

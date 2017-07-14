@@ -89,7 +89,7 @@ class HomeController extends Controller
 
     public function newEngineerNotification($_engineer){
       $_newEngineer = $_engineer->selectRaw('engineerName')
-                                ->whereRaw('DATEDIFF(NOW(),dateJoin) = 3')
+                                ->whereRaw("DATEDIFF(NOW(),dateJoin) < 3")
                                 ->get();
       return $_newEngineer;
     }
