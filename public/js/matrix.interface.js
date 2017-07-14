@@ -42,6 +42,7 @@ $(document).ready(function(){
 	
 	// === jQeury Gritter, a growl-like notifications === //
 	$.gritter.add({
+
 		title:	'Notification!',
 		text:	'You have a new notification.',
 		image: 	'img/demo/envelope.png',
@@ -65,6 +66,7 @@ $(document).ready(function(){
 		$("#myModal").ready(function(){
 		});
 	});
+
 	// $('#gritter-notify .normal').click(function(){
 	// 	$.gritter.add({
 	// 		title:	'Normal notification',

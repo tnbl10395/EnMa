@@ -7,6 +7,10 @@ use App\Project;
 
 class ShowProjDashboardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 	public function ShowProject(){
 		$_project = new Project();
 		$_list = $_project->get();

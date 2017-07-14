@@ -41,11 +41,13 @@ class HomeController extends Controller
         $_topEngineer = $this->topEngineer($_engineer);
 
         $_newProject = $this->newProject($_project);
+
         $_newEngineer = $this->newEngineerNotification($_engineer);
 
         $_birthday = $this->birthdayNotification($_engineer);
 
       // dd($_newEngineer);
+
 
         return view('dashboard')->with([
             'totalEngineer' => $_totalEngineer,
@@ -57,6 +59,7 @@ class HomeController extends Controller
             'controller' => $_changeIDName,
             'birthday' => $_birthday,
             'newEngineer' => $_newEngineer
+
         ]);
     }
     
@@ -82,6 +85,7 @@ class HomeController extends Controller
                               ->get();
       return $_newProject;
     }
+
 
     public function newEngineerNotification($_engineer){
       $_newEngineer = $_engineer->selectRaw('engineerName')

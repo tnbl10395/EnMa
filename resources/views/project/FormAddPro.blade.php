@@ -72,14 +72,14 @@
               <label class="control-label">Date Of Begin :</label>
 
               <div class="controls">
-                <input type="text"  data-date-format="yyyy-mm-dd" placeholder ="2017-02-01" class="datepicker span11" name="dateOfBegin">
+                <input type="text"  data-date-format="yyyy-mm-dd" placeholder ="2017-02-01" class="datepicker span11" name="dateOfBegin" required>
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd)</span> </div>
             </div>
 
             <div class="control-group">
               <label class="control-label">Date Of End</label>
               <div class="controls">
-                <input type="text"  data-date-format="yyyy-mm-dd" placeholder="2017-02-01" class="datepicker span11" name="dateOfEnd">
+                <input type="text"  data-date-format="yyyy-mm-dd" placeholder="2017-02-01" class="datepicker span11" name="dateOfEnd" required>
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd</span> </div>
             </div>
             <div class="control-group">

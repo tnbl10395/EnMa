@@ -7,6 +7,10 @@ use App\Team;
 
 class ShowTeamDashboardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 	public function ShowTeam(){
 		$_team = new Team();
 		$_list = $_team->get();
