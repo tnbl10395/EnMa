@@ -1,6 +1,7 @@
 @extends('template.menubar')
 
 @section('content')
+
 	<div id="content">
 		<div id="content-header">		
 		      <div id="breadcrumb"> <a href="#" title="Go to Home" class="current"><i class="icon-home"></i> Home</a></div>
@@ -174,23 +175,51 @@
 		
 	</div>
 	</div>
+
   <div id="myModal" class="modal hide">
         <div class="modal-header">
             <button data-dismiss="modal" class="close" type="button">×</button>
-            <h3>Happy birthday!</h3>
+            <h3></h3>
         </div>
         <div class="modal-body">
-        	@foreach ($birthday as $engineer)
-            <p>{{$engineer->engineerName}}</p>
-            <br/>
-            @endforeach
+       
         </div>
   </div>
 	@if(isset($birthday[0])!=NULL)
 		<link rel="stylesheet" href="{{asset('css/jquery.gritter.css')}}"/>  
 	    <script src="{{asset('js/jquery.peity.min.js')}}"></script>
 	    <script src="{{asset('js/jquery.gritter.min.js')}}"></script>
-	    <script src="{{asset('js/matrix.interface.js')}}"></script>
-	@endif
+		<!-- <script src="{{asset('js/matrix.interface.js')}}"></script> -->
+		
+		<script type="text/javascript">
 
+		$(document).ready(function(){
+			birthday = "{{ $birthday[0]->engineerName }}";console.log(birthday);
+
+			$.gritter.add({
+
+				title:	'Notification!',
+				text:	'You have a new notification.',
+				image: 	'img/demo/envelope.png',
+				sticky: true,		
+			});
+			$(".gritter-item").mousemove(function() {
+				$(".gritter-title").css("margin-left","-50px");	
+				$(".gritter-image").css('display', 'none');
+				$(".gritter-item p").css('display', 'none');
+				var String1 = "<a href='#myModal'  data-toggle='modal'><i class='icon-gift'></i>Today is the birthday of Engineers!</a>";
+				var String2 = "<a href='#myModal'  data-toggle='modal'><i class='icon-user'></i>The company has some new Employees!</a>";
+				if(birthday!=null){
+					$(".gritter-title").html("");
+					if (birthday!=null) {
+						$(".gritter-title").append(String1+"<br/>");
+					}	
+				}
+
+
+			});
+
+		});
+		</script>
+	@endif
 @stop

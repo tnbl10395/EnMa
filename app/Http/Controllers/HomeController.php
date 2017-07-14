@@ -58,7 +58,7 @@ class HomeController extends Controller
             'newProject' => $_newProject,
             'controller' => $_changeIDName,
             'birthday' => $_birthday,
-            'newEngineer' => $_newEngineer
+            'newEngineer' => $_newEngineer,
 
         ]);
     }

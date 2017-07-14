@@ -1,7 +1,34 @@
-
-
+var birthday = "{{ $birthday[0]->engineerName }}";console.log(birthday);
 $(document).ready(function(){
-	
+
+	$.gritter.add({
+
+		title:	'Notification!',
+		text:	'You have a new notification.',
+		image: 	'img/demo/envelope.png',
+		sticky: true,		
+	});
+	$(".gritter-item").mousemove(function() {
+		$(".gritter-title").css("margin-left","-50px");	
+		$(".gritter-image").css('display', 'none');
+		$(".gritter-item p").css('display', 'none');
+		var String1 = "<a href='#myModal'  data-toggle='modal'><i class='icon-gift'></i>{{$birthday[0][0]}}Today is the birthday of Engineers!</a>";
+		var String2 = "<a href='#myModal'  data-toggle='modal'><i class='icon-user'></i>The company has some new Employees!</a>";
+		if(birthday!=null){
+			$(".gritter-title").html("");
+			if (birthday!=null) {
+				$(".gritter-title").append(String1+"<br/>");
+			}	
+		// 	if (newEngi!=null) {
+		// 		$(".gritter-title").append(String2+"<br/>");
+		// 	}
+		}
+
+
+	});
+
+});
+
 	// === jQuery Peity === //
 	// $.fn.peity.defaults.line = {
 	// 	strokeWidth: 1,
@@ -39,34 +66,8 @@ $(document).ready(function(){
 	// $(".peity_bar_neutral span").peity("bar", {
 	// 	colour: "#757575"
 	// });
-	
+	// ===========================================================================
 	// === jQeury Gritter, a growl-like notifications === //
-	$.gritter.add({
-
-		title:	'Notification!',
-		text:	'You have a new notification.',
-		image: 	'img/demo/envelope.png',
-		sticky: true,		
-	});
-	$(".gritter-item").mousemove(function() {
-		$(".gritter-title").css("margin-left","-50px");	
-		$(".gritter-image").css('display', 'none');
-		$(".gritter-item p").css('display', 'none');
-		var birthday = "{{$birthday[0]->engineerName}}";
-		var newEngi = "{{$newEngineer[0]->engineerName}}"
-		var String1 = "<a href='#myModal' data-toggle='modal'>Today is the birthday of Engineers!</a>";
-		var String2 = "<a href='#myModal' data-toggle='modal'>The company has some new Employees!</a>";
-		if((birthday!=null)||(newEngi!=null)){
-			$(".gritter-title").html(String1);	
-		}
-
-
-	});
-	$(".gritter-title a").click(function(){
-		$("#myModal").ready(function(){
-		});
-	});
-
 	// $('#gritter-notify .normal').click(function(){
 	// 	$.gritter.add({
 	// 		title:	'Normal notification',
@@ -92,4 +93,3 @@ $(document).ready(function(){
 	// 		sticky: false
 	// 	});		
 	// });
-});
