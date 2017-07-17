@@ -91,7 +91,9 @@
                <div class="control-group">
                   <label class="control-label">Date Of Join</label>
                   <div class="controls">
-                    <input type="text" placeholder="Date Of Join" data-date-format="yyyy-mm-dd" name="datejoin" class="datepicker span11" value="{{$list->dateJoin}}" required>
+
+                    <input type="text" placeholder="Date Of Join" data-date-format="yyyy-mm-dd" name="datejoin" class="datepicker span11" value="{{$list->dateJoin}}" required="">
+
                   </div>
                 </div>
                 <div class="control-group" style="margin-bottom: 10px;">
