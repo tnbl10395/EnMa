@@ -97,3 +97,7 @@
 .gritter-item .gritter-title a:hover{
 	color: #000;
 }
+.gritter-item .gritter-title i{
+	font-size: 20px;
+	padding-right: 10px;
+}
