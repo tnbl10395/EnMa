@@ -185,18 +185,19 @@
        		<h4></h4>
         </div>
   </div>
-	@if((isset($birthday[0])!=NULL)||(isset($newEngineer[0])!=NULL))
+	@if((isset($birthday[0])!=NULL)||(isset($newEngineerNoti[0])!=NULL)||(isset($newProjectNoti[0])!=NULL)))
 		<link rel="stylesheet" href="{{asset('css/jquery.gritter.css')}}"/>  
 	    <script src="{{asset('js/jquery.peity.min.js')}}"></script>
 	    <script src="{{asset('js/jquery.gritter.min.js')}}"></script>
-		<!-- <script src="{{asset('js/matrix.interface.js')}}"></script> -->
+		<!-- <script src='{{asset("js/matrix.interface.js")}}'></script> -->
 		
 		<script type="text/javascript">
 
 		$(document).ready(function(){
 			birthday = "{{ $birthday }}";console.log(birthday);
-			newEngi = "{{ $newEngineer }}";console.log(newEngi);
-			if((birthday!="[]")||(newEngi!="[]")){
+			newEngi = "{{ $newEngineerNoti }}";console.log(newEngi);
+			newPro = "{{ $newProjectNoti }}";console.log(newPro);
+			if((birthday!="[]")||(newEngi!="[]")||(newPro!="[]")){
 				$.gritter.add({
 
 					title:	'Notification!',
@@ -210,6 +211,7 @@
 					$(".gritter-item p").css('display', 'none');
 					String1 = "<a href='#myModal' id='birthday' data-toggle='modal'><i class='icon-gift'></i>Today is the birthday of Engineers!</a>";
 					String2 = "<a href='#myModal' id='newEngi' data-toggle='modal'><i class='icon-user'></i>The company has some new Employees!</a>";
+					String3 = "<a href='#myModal' id='newPro' data-toggle='modal'><i class='icon-file'></i>The company has some new Projects!</a>";
 					// if((birthday!=null)||(newEngi!=null)){
 						$(".gritter-title").html("");
 						if (birthday!="[]") {
@@ -226,18 +228,30 @@
 							$(".gritter-title").append(String2+"<br/>");
 							$("#newEngi").click(function(){
 								$(".modal-header h3").html("New Engineers!");
-								$(".modal-body h4").html("@foreach ($newEngineer as $engineer)"
+								$(".modal-body h4").html("@foreach ($newEngineerNoti as $engineer)"
 													+"{{$engineer->engineerName}}"
 													+"<hr/>"
 													+"@endforeach");
 							});
 						}
+						if (newPro!="[]") {
+							$(".gritter-title").append(String3+"<br/>");
+							$("#newPro").click(function(){
+								$(".modal-header h3").html("New Projects!");
+								$(".modal-body h4").html("<table class='table table-hover' style='border-style:hidden;'>"
+													+"@foreach ($newProjectNoti as $project)"
+													+"<tr class='gradeX'>"
+													+"<td>{{$project->idProject}}</td>"
+													+"<td>{{$project->projectName}}</td>"
+													+"<td>{{$project->dateOfBegin}}</td>"
+													+"</tr>"
+													+"@endforeach"
+													+"</table>");
+							});
+						}
 					// }
 				});
 			}
-			
-			
-
 		});
 		</script>
 	@endif
