@@ -49,6 +49,7 @@ class HomeController extends Controller
       // dd($_newProjectNoti);
 
 
+
         return view('dashboard')->with([
             'totalEngineer' => $_totalEngineer,
             'totalTeam' => $_totalTeam,
@@ -60,6 +61,7 @@ class HomeController extends Controller
             'birthday' => $_birthday,
             'newEngineerNoti' => $_newEngineerNoti,
             'newProjectNoti' => $_newProjectNoti,
+
 
         ]);
     }
@@ -87,6 +89,7 @@ class HomeController extends Controller
       return $_newProject;
     }
 
+
     public function newProjectNotification($_project){
       $_newProjectNoti = $_project->selectRaw('idProject,projectName,dateOfBegin')
                                   ->whereRaw("DATEDIFF(NOW(),dateOfBegin) < 3")
@@ -95,10 +98,10 @@ class HomeController extends Controller
     }
 
     public function newEngineerNotification($_engineer){
-      $_newEngineer = $_engineer->selectRaw('engineerName')
+      $_newEngineerNoti = $_engineer->selectRaw('engineerName')
                                 ->whereRaw("DATEDIFF(NOW(),dateJoin) < 3")
                                 ->get();
-      return $_newEngineer;
+      return $_newEngineerNoti;
     }
 
     public function birthdayNotification($_engineer){
