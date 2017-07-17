@@ -46,7 +46,7 @@
                             <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" value="{{$list->engineerName}}" />
                           </div>
                           <div class="controls">
-                            <input type="text" data-date-format="yyyy-mm-dd" placeholder="Date of Birth" name="birthday" class="datepicker span11" value="{{$list->birthday}}"> 
+                            <input type="text" data-date-format="yyyy-mm-dd" placeholder="Date of Birth" name="birthday" class="datepicker span11" value="{{$list->birthday}}" required>
                           </div>
                           <div class="controls">
                             <select class="span11" name="experience" id="experience">
@@ -91,7 +91,7 @@
                <div class="control-group">
                   <label class="control-label">Date Of Join</label>
                   <div class="controls">
-                    <input type="text" placeholder="Date Of Join" data-date-format="yyyy-mm-dd" name="datejoin" class="datepicker span11" value="{{$list->dateJoin}}">
+                    <input type="text" placeholder="Date Of Join" data-date-format="yyyy-mm-dd" name="datejoin" class="datepicker span11" value="{{$list->dateJoin}}" required>
                   </div>
                 </div>
                 <div class="control-group" style="margin-bottom: 10px;">

@@ -1,54 +1,69 @@
 
+
 $(document).ready(function(){
 	
 	// === jQuery Peity === //
-	$.fn.peity.defaults.line = {
-		strokeWidth: 1,
-		delimeter: ",",
-		height: 24,
-		max: null,
-		min: 0,
-		width: 50
-	};
-	$.fn.peity.defaults.bar = {
-		delimeter: ",",
-		height: 24,
-		max: null,
-		min: 0,
-		width: 50
-	};
-	$(".peity_line_good span").peity("line", {
-		colour: "#B1FFA9",
-		strokeColour: "#459D1C"
-	});
-	$(".peity_line_bad span").peity("line", {
-		colour: "#FFC4C7",
-		strokeColour: "#BA1E20"
-	});	
-	$(".peity_line_neutral span").peity("line", {
-		colour: "#CCCCCC",
-		strokeColour: "#757575"
-	});
-	$(".peity_bar_good span").peity("bar", {
-		colour: "#459D1C"
-	});
-	$(".peity_bar_bad span").peity("bar", {
-		colour: "#BA1E20"
-	});	
-	$(".peity_bar_neutral span").peity("bar", {
-		colour: "#757575"
-	});
+	// $.fn.peity.defaults.line = {
+	// 	strokeWidth: 1,
+	// 	delimeter: ",",
+	// 	height: 24,
+	// 	max: null,
+	// 	min: 0,
+	// 	width: 50
+	// };
+	// $.fn.peity.defaults.bar = {
+	// 	delimeter: ",",
+	// 	height: 24,
+	// 	max: null,
+	// 	min: 0,
+	// 	width: 50
+	// };
+	// $(".peity_line_good span").peity("line", {
+	// 	colour: "#B1FFA9",
+	// 	strokeColour: "#459D1C"
+	// });
+	// $(".peity_line_bad span").peity("line", {
+	// 	colour: "#FFC4C7",
+	// 	strokeColour: "#BA1E20"
+	// });	
+	// $(".peity_line_neutral span").peity("line", {
+	// 	colour: "#CCCCCC",
+	// 	strokeColour: "#757575"
+	// });
+	// $(".peity_bar_good span").peity("bar", {
+	// 	colour: "#459D1C"
+	// });
+	// $(".peity_bar_bad span").peity("bar", {
+	// 	colour: "#BA1E20"
+	// });	
+	// $(".peity_bar_neutral span").peity("bar", {
+	// 	colour: "#757575"
+	// });
 	
 	// === jQeury Gritter, a growl-like notifications === //
 	$.gritter.add({
-		title:	'You have a notification!',
-		text:	'The date is Birthday of Employees',
-		image: 	'img/demo/envelope.png',
-		sticky: false,		
-	});
-	$(".gritter-item-wrapper").click(function(){
-		$("#myModal").ready(function(){
 
+		title:	'Notification!',
+		text:	'You have a new notification.',
+		image: 	'img/demo/envelope.png',
+		sticky: true,		
+	});
+	$(".gritter-item").mousemove(function() {
+		$(".gritter-title").css("margin-left","-50px");	
+		$(".gritter-image").css('display', 'none');
+		$(".gritter-item p").css('display', 'none');
+		var birthday = "{{$birthday[0]->engineerName}}";
+		var newEngi = "{{$newEngineer[0]->engineerName}}"
+		var String1 = "<a href='#myModal' data-toggle='modal'>Today is the birthday of Engineers!</a>";
+		var String2 = "<a href='#myModal' data-toggle='modal'>The company has some new Employees!</a>";
+		if((birthday!=null)||(newEngi!=null)){
+			$(".gritter-title").html(String1);	
+		}
+
+
+	});
+	$(".gritter-title a").click(function(){
+		$("#myModal").ready(function(){
 		});
 	});
 

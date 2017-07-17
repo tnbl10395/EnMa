@@ -184,3 +184,7 @@ function IdToModalEngi(id){//must be a string
     html = $('#myAlertEngi div.modal-footer a:eq(0)').attr("title", id);
 
 }
+// function popupShow(){
+//   var popup = document.getElementById("popuptext");
+//   popup.classList.toggle("show");
+// }

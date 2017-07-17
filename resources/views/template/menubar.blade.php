@@ -53,7 +53,7 @@
 
 <!--Header-part-->
 <div id="header">
-    <img src="../img/Image_from_Skype.png" alt=""> 
+    <img src="../img/Image_from_Skype.png" alt="">
 </div>
 <!--close-Header-part--> 
 
