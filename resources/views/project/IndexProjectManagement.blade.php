@@ -2,8 +2,6 @@
 
 @section('content')
 <div id="content">
-
-
             <!-- dialog box -->
 
             <div id="white-background">

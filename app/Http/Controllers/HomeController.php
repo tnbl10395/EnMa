@@ -7,7 +7,7 @@ use App\Engineer;
 use App\Team;
 use App\Project;
 use App\lib\changeIDName;
-
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -32,14 +32,24 @@ class HomeController extends Controller
         $_team = new Team();
         $_project = new Project();
         $_changeIDName = new changeIDName();
+
         $_totalTeam = $this->totalTeam($_team);
         $_totalProject = $this->totalProject($_project);
         $_totalEngineer = $this->totalEngineer($_engineer);
+
         $_listEngineer = $this->listEngineer($_engineer);
         $_topEngineer = $this->topEngineer($_engineer);
+
         $_newProject = $this->newProject($_project);
 
-      // dd($_newProject);
+        $_newEngineerNoti = $this->newEngineerNotification($_engineer);
+        $_newProjectNoti = $this->newProjectNotification($_project);
+        $_birthday = $this->birthdayNotification($_engineer);
+
+      // dd($_newProjectNoti);
+
+
+
         return view('dashboard')->with([
             'totalEngineer' => $_totalEngineer,
             'totalTeam' => $_totalTeam,
@@ -47,7 +57,12 @@ class HomeController extends Controller
             'listEngineer' => $_listEngineer,
             'topEngineer' => $_topEngineer,
             'newProject' => $_newProject,
-            'controller' => $_changeIDName
+            'controller' => $_changeIDName,
+            'birthday' => $_birthday,
+            'newEngineerNoti' => $_newEngineerNoti,
+            'newProjectNoti' => $_newProjectNoti,
+
+
         ]);
     }
     
@@ -65,12 +80,36 @@ class HomeController extends Controller
       // $_statisticEngineer = $_engineer->
       return $_statisticEngineer;
     }
+
     public function newProject($_project){
       $_newProject = $_project->selectRaw('idProject, projectName')
                               ->orderBy('dateOfBegin','desc')
                               ->take(6)
                               ->get();
       return $_newProject;
+    }
+
+
+    public function newProjectNotification($_project){
+      $_newProjectNoti = $_project->selectRaw('idProject,projectName,dateOfBegin')
+                                  ->whereRaw("DATEDIFF(NOW(),dateOfBegin) < 3")
+                                  ->get();
+      return $_newProjectNoti;
+    }
+
+    public function newEngineerNotification($_engineer){
+      $_newEngineerNoti = $_engineer->selectRaw('engineerName')
+                                ->whereRaw("DATEDIFF(NOW(),dateJoin) < 3")
+                                ->get();
+      return $_newEngineerNoti;
+    }
+
+    public function birthdayNotification($_engineer){
+      $_birthday = $_engineer->selectRaw('engineerName')
+                             ->whereDay('birthday',Carbon::NOW()->day)
+                             ->whereMonth('birthday',Carbon::NOW()->month)
+                             ->get();
+      return $_birthday;
     }
 
     public function listEngineer($_engineer){

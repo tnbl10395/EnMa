@@ -71,9 +71,11 @@
                                     <td>{{$data->techSkill}}</td>
                                     <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
 
+
 {{--                                    <td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}
 
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}
+
 
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="#" ><i class="icon-remove"></i></a></td>--}}
                                     {{--<td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" class="btn btn-warning"><i class="icon-remove"></i></a></td>--}}
@@ -89,7 +91,7 @@
         </div>
     </div>
 
-<div id="white-background">
+<!-- <div id="white-background">
 </div>
 <div id="dlgbox">
   <div id="dlg-header">
@@ -102,7 +104,7 @@
     <button onclick="dlgDelPro()" >Yes</button>
     <button onclick="dlgCancelPro()">No</button>
   </div>
-</div>z
+</div> -->
     <div id="myAlert" class="modal hide">
         <div class="modal-header">
             <button data-dismiss="modal" class="close" type="button">×</button>

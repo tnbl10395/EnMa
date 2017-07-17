@@ -8,6 +8,10 @@ use App\lib\changeIDName;
 
 class ShowEngiDashboardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function ShowEngineer(){
     	$_changeIDName = new changeIDName();
     	$_engineer = new Engineer();

@@ -50,7 +50,7 @@ $decoded = json_decode($listPro, true);
             <div class="control-group">
               <label class="control-label">Project Name :</label>
               <div class="controls">
-                <input type="text" class="span11" placeholder="projectName" name="projectName" value= "{{ $decoded[0]['projectName'] }} "/>
+                <input type="text" class="span11" placeholder="projectName" name="projectName" value= "{{ $decoded[0]['projectName'] }} " required/>
               </div>
             </div>
             <div class="control-group">
@@ -112,20 +112,20 @@ $decoded = json_decode($listPro, true);
             <div class="control-group">
               <label class="control-label">Date Of Begin :</label>
               <div class="controls">
-                <input type="text"  data-date-format="yyyy-mm-dd" class="datepicker span11" name="dateOfBegin" value= "{{ $decoded[0]['dateOfBegin'] }}" >
+                <input type="text"  data-date-format="yyyy-mm-dd" class="datepicker span11" name="dateOfBegin" value= "{{ $decoded[0]['dateOfBegin'] }}" required>
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd)</span> </div>
             </div>
 
             <div class="control-group">
              <label class="control-label">Date Of End :</label>
             <div class="controls">
-                <input type="text"  data-date-format="yyyy-mm-dd" class="datepicker span11" name="dateOfEnd" value= "{{ $decoded[0]['dateOfEnd'] }}">
+                <input type="text"  data-date-format="yyyy-mm-dd" class="datepicker span11" name="dateOfEnd" value= "{{ $decoded[0]['dateOfEnd'] }}" required>
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd</span> </div>
             </div>
             <div class="control-group">
               <label class="control-label">Customer :</label>
               <div class="controls">
-                <input type="text" class="span11" name= "customer_code" value= "{{ $decoded[0]['customer_code'] }}" />
+                <input type="text" class="span11" name= "customer_code" value= "{{ $decoded[0]['customer_code'] }}" required/>
               </div>
             </div>
 
