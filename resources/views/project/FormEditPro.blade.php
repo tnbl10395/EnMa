@@ -13,16 +13,6 @@
   ->get();
  // echo $listPro;
 
-//   $listPro = array(
-//     'name' => 'skylarkcob',
-//     'age' => '25',
-//     'website' => 'https://hocwp.net'
-// );
-// print_r($data);
-// echo '<hr>';
-// $encoded = json_encode($listPro);
-// echo $encoded;
-
   //------JSON->PHP
 echo '<hr>';
 $decoded = json_decode($listPro, true);
@@ -54,7 +44,7 @@ $decoded = json_decode($listPro, true);
             <div class="control-group">
               <label class="control-label">Project ID :</label>
               <div class="controls">
-                <input type="text" class="span11" placeholder="idProject" name="idProject" value= "{{ $decoded[0]['idProject'] }}"/>
+                <input type="text" class="span11" placeholder="idProject" name="idProject" value= "{{ $decoded[0]['idProject'] }}" disabled="disabled" />
               </div>
             </div> 
             <div class="control-group">
@@ -100,18 +90,17 @@ $decoded = json_decode($listPro, true);
              <div class="control-group">
               <label class="control-label">Technical Skill :</label>
               <div class="controls">
-                <select  name= "techSkill" >
-                  <!-- <option value="{{ $decoded[0]['techSkill'] }}"> {{ $decoded[0]['techSkill'] }}</option> -->
+                
 
-                  <option <?php if($decoded[0]['techSkill']=='PHP') echo "selected"; ?> value="PHP"> PHP</option>
-                  <option <?php if($decoded[0]['techSkill']=='JAVA') echo "selected"; ?> value="JAVA">JAVA</option>
-                  <option <?php if($decoded[0]['techSkill']=='.NET') echo "selected"; ?> value=".NET">.Net</option>
-                  <option <?php if($decoded[0]['techSkill']=='Ruby') echo "selected" ?> value="Ruby">Ruby</option>
-                  <option <?php if($decoded[0]['techSkill']=='Android') echo "selected" ?> value="Android">Android</option>
-                  <option <?php if($decoded[0]['techSkill']=='IOS') echo "selected" ?> value="IOS">IOS</option>
-                  <option <?php if($decoded[0]['techSkill']=='C#') echo "selected" ?> value="C#">C#</option>
-                  <option <?php if($decoded[0]['techSkill']=='C++') echo "selected" ?> value="C++">C++</option>
-                  <option <?php if($decoded[0]['techSkill']=='Assembly') echo "selected;" ?> value="Assembly">Assembly</option>
+              <select name= "techSkill">
+
+                  @if($Techni->count() > 0)
+                  @foreach($Techni as $Tech)
+                   <option value="{{$Tech->Technical}}">{{$Tech->Technical}}</option>
+                  @endForeach
+                  @else
+                   No Record Found
+                    @endif   
                   
                 </select>
          
@@ -143,12 +132,38 @@ $decoded = json_decode($listPro, true);
             <div class="control-group">
               <label class="control-label">ID Team :</label>
               <div class="controls">
-                <input type="text" class="span11" name= "idTeam" value= "{{ $decoded[0]['idTeam'] }}" />
+            
+                  @if($decoded[0]['idTeam'] == NULL)
+                    
+                    <select name= "idTeam">
+
+                      @foreach($getIdTeam as $getId)
+                      
+                        <option value="{{$getId->idTeam}}">{{ $getId->teamName }}</option>                      
+                     
+                      @endforeach
+                     </select>
+                  
+                  @elseif ($decoded[0]['idTeam'] != NULL)
+
+
+                  <input type="text" class="span11" name= "idTeam" disabled="disabled" value= "{{ $decoded[0]['idTeam'] }}" />
+
+                  
+                  @endif   
+                  
+                
+
+              </div>
+             <!--    <input type="text" class="span11" name= "idTeam" value= "{{ $decoded[0]['idTeam'] }}" /> -->
               </div>
             </div>
             <div class="form-actions">
-              <button type="submit" class="btn-success">Submit</button>
-              <button type="reset" class="btn-warning">Reset</button>
+
+                <div style="text-align: center">
+                    <button type="submit" class="btn-success" >Submit</button>
+                </div>
+             
             </div>
           </form>
         </div>
