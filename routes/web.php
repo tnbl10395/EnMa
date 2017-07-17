@@ -52,6 +52,7 @@ Route::get('/EditProject','ProjectController@EditPro');
 Route::get('/EditProject/{idProject}','ProjectController@EditPro');
 Route::post('/EditProject/{idProject}','ProjectController@postEditPro');
 Route::get('DelProject/{id}','ProjectController@DelPro');
+Route::get('DetailProject/{id}','ProjectController@DetailPro');
 
 
 Route::get('/totalEngineer', 'ShowEngiDashboardController@ShowEngineer');
