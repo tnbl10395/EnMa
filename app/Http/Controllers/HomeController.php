@@ -123,6 +123,7 @@ class HomeController extends Controller
             ->get();
 
 
+
         //config(['mail.driver' => 'smtp', 'mail.host' => 'smtp.gmail.com', 'mail.port' => 587, 'mail.username' => 'agent.enclave@gmail.com', 'mail.password' => 'enclave12345', 'mail.encryption' => 'tls']);
 
 
@@ -132,10 +133,7 @@ class HomeController extends Controller
         $data_email = [];
         foreach ($datas_email_db as $data_email_db) array_push($data_email, $data_email_db->Email);
 
-//            $_engineer1 = $_engineer
-//                ->whereDay('birthday', Carbon::NOW()->day)
-//                ->whereMonth('birthday', Carbon::NOW()->month)
-//                ->get();
+
 
         if ($data_email) {
 
@@ -157,6 +155,7 @@ class HomeController extends Controller
                 ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
 
         }
+
 
             return $_birthday;
     }

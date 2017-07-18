@@ -20,6 +20,7 @@ class SendBirthdayMail extends Mailable
      *
      * @return void
      */
+
     public function __construct($engineer)
     {
         $this->engineer=$engineer;
