@@ -54,9 +54,10 @@ class HomeController extends Controller
 
         $_newEngineerNoti = $this->newEngineerNotification($_engineer);
         $_newProjectNoti = $this->newProjectNotification($_project);
+        $_newTeamNoti = $this->newTeamNotification($_team);
         $_birthday = $this->birthdayNotification($_engineer);
 
-      // dd($_newProjectNoti);
+      // dd($_newTeamNoti);
 
 
 
@@ -71,7 +72,7 @@ class HomeController extends Controller
             'birthday' => $_birthday,
             'newEngineerNoti' => $_newEngineerNoti,
             'newProjectNoti' => $_newProjectNoti,
-
+            'newTeamNoti' => $_newTeamNoti
 
         ]);
     }
@@ -114,6 +115,15 @@ class HomeController extends Controller
       return $_newEngineerNoti;
     }
 
+
+    public function newTeamNotification($_team){
+      $_newTeamNoti = $_team->selectRaw('idTeam,teamName,status')
+                            ->whereRaw("DATEDIFF(NOW(),Timestamp) < 3")
+                            ->get();
+      return $_newTeamNoti;
+    }
+
+
     public function birthdayNotification($_engineer)
     {
 
@@ -145,9 +155,10 @@ class HomeController extends Controller
         DB::table('Engineer')->where('status', 1)
             ->whereDay('birthday', Carbon::NOW()->day)
             ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
-    }
+        }
 
             return $_birthday;
+
     }
 
     public function listEngineer($_engineer){
