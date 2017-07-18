@@ -20,12 +20,10 @@ class SendBirthdayMail extends Mailable
      *
      * @return void
      */
-    public function __construct(Engineer $engineer)
+
+    public function __construct($engineer)
     {
-        $this->engineer=$engineer->select('engineerName')->where('status',1)->where('birthday_mail',0)
-            ->whereDay('birthday', Carbon::NOW()->day)
-            ->whereMonth('birthday', Carbon::NOW()->month)
-            ->get();;
+        $this->engineer=$engineer;
 
     }
 

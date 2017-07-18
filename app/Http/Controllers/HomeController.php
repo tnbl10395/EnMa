@@ -133,6 +133,7 @@ class HomeController extends Controller
             ->get();
 
 
+
         //config(['mail.driver' => 'smtp', 'mail.host' => 'smtp.gmail.com', 'mail.port' => 587, 'mail.username' => 'agent.enclave@gmail.com', 'mail.password' => 'enclave12345', 'mail.encryption' => 'tls']);
 
 
@@ -142,20 +143,31 @@ class HomeController extends Controller
         $data_email = [];
         foreach ($datas_email_db as $data_email_db) array_push($data_email, $data_email_db->Email);
 
-//            $_engineer1 = $_engineer
-//                ->whereDay('birthday', Carbon::NOW()->day)
-//                ->whereMonth('birthday', Carbon::NOW()->month)
-//                ->get();
+
 
         if ($data_email) {
 
-        $mailable = new SendBirthdayMail($_engineer);
-        Mail::to($data_email)->send($mailable);
-        DB::table('Engineer')->update(['birthday_mail' => 0]);
-        DB::table('Engineer')->where('status', 1)
-            ->whereDay('birthday', Carbon::NOW()->day)
-            ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
+
+            foreach ($data_email as $mail) {
+                $idmail=$_engineer->select('engineerName')->where('Email',$mail)->where('birthday_mail',0)
+                    ->whereDay('birthday', Carbon::NOW()->day)
+                    ->whereMonth('birthday', Carbon::NOW()->month)
+                    ->get();
+                $mailable = new SendBirthdayMail($idmail);
+
+                Mail::to($mail)->send($mailable);
+                DB::table('Engineer')->where('status', 1)->where('Email',$mail)
+                    ->whereDay('birthday', Carbon::NOW()->day)
+                    ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
+            }
+            DB::table('Engineer')->update(['birthday_mail' => 0]);
+            DB::table('Engineer')->where('status', 1)
+                ->whereDay('birthday', Carbon::NOW()->day)
+                ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
+
         }
+
+
 
             return $_birthday;
 
