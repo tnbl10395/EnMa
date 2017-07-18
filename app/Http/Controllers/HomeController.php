@@ -139,13 +139,24 @@ class HomeController extends Controller
 
         if ($data_email) {
 
-        $mailable = new SendBirthdayMail($_engineer);
-        Mail::to($data_email)->send($mailable);
-        DB::table('Engineer')->update(['birthday_mail' => 0]);
-        DB::table('Engineer')->where('status', 1)
-            ->whereDay('birthday', Carbon::NOW()->day)
-            ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
-    }
+            foreach ($data_email as $mail) {
+                $idmail=$_engineer->select('engineerName')->where('Email',$mail)->where('birthday_mail',0)
+                    ->whereDay('birthday', Carbon::NOW()->day)
+                    ->whereMonth('birthday', Carbon::NOW()->month)
+                    ->get();
+                $mailable = new SendBirthdayMail($idmail);
+
+                Mail::to($mail)->send($mailable);
+                DB::table('Engineer')->where('status', 1)->where('Email',$mail)
+                    ->whereDay('birthday', Carbon::NOW()->day)
+                    ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
+            }
+            DB::table('Engineer')->update(['birthday_mail' => 0]);
+            DB::table('Engineer')->where('status', 1)
+                ->whereDay('birthday', Carbon::NOW()->day)
+                ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
+
+        }
 
             return $_birthday;
     }
