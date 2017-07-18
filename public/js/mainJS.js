@@ -125,7 +125,16 @@ $(document).ready(function(){
  
         })
     });
-
+    $("#detail").click(function() {
+      id = $(this).attr('data-value');
+      $.ajax({
+        url : "/DetailProject/"+id,
+        dataType: "text",
+        success: function(result){
+          $(".modal-body").html(result);
+        }
+      });
+    });
     $('#myAlertEngi div.modal-footer a:eq(0)').click(function(){
         id=$(this).attr('title');
         //id=89;

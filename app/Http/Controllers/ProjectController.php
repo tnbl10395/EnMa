@@ -124,7 +124,7 @@ class ProjectController extends Controller
     {
        $getDetail = DB::table('Project')->select('idProject','projectName','status','techSkill','dateOfBegin','dateOfEnd','customer_code','idTeam')->where('idProject',$_id)->get();
 
-      return $getDetail;
+      return view("project.FormDetailPro")->with("getDetail",$getDetail);
         
     }
     public function DelPro(Request $request, $id){
