@@ -165,6 +165,9 @@ class EngineerController extends Controller
         $engineer->dateJoin=$newdatein;
         $engineer->outOfdate=$newdateout;
         $engineer->birthday=$newbirth;
+        $engineer->birthday_mail=0;
+        $engineer->status=1;
+        $engineer->busy=0;
        
       echo $tech;
        $engineer->save();

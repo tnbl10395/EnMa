@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendBirthdayMail;
 use Illuminate\Http\Request;
 use App\Engineer;
 use App\Team;
 use App\Project;
 use App\lib\changeIDName;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailer;
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+
+
 class HomeController extends Controller
 {
     /**
@@ -15,6 +23,8 @@ class HomeController extends Controller
      *
      * @return void
      */
+    public $engineer;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -79,7 +89,7 @@ class HomeController extends Controller
     }
     public function statisticEngineer($_engineer){
       // $_statisticEngineer = $_engineer->
-      return $_statisticEngineer;
+      //return $_statisticEngineer;
     }
 
     public function newProject($_project){
@@ -105,6 +115,7 @@ class HomeController extends Controller
       return $_newEngineerNoti;
     }
 
+
     public function newTeamNotification($_team){
       $_newTeamNoti = $_team->selectRaw('idTeam,teamName,status')
                             ->whereRaw("DATEDIFF(NOW(),Timestamp) < 3")
@@ -112,12 +123,42 @@ class HomeController extends Controller
       return $_newTeamNoti;
     }
 
-    public function birthdayNotification($_engineer){
-      $_birthday = $_engineer->selectRaw('engineerName')
-                             ->whereDay('birthday',Carbon::NOW()->day)
-                             ->whereMonth('birthday',Carbon::NOW()->month)
-                             ->get();
-      return $_birthday;
+
+    public function birthdayNotification($_engineer)
+    {
+
+        $_birthday = $_engineer->selectRaw('engineerName')->where('status', 1)
+            ->whereDay('birthday', Carbon::NOW()->day)
+            ->whereMonth('birthday', Carbon::NOW()->month)
+            ->get();
+
+
+        //config(['mail.driver' => 'smtp', 'mail.host' => 'smtp.gmail.com', 'mail.port' => 587, 'mail.username' => 'agent.enclave@gmail.com', 'mail.password' => 'enclave12345', 'mail.encryption' => 'tls']);
+
+
+        $datas_email_db = DB::table('Engineer')->select('Email')->where('status', 1)->where('birthday_mail', 0)
+            ->whereDay('birthday', Carbon::NOW()->day)
+            ->whereMonth('birthday', Carbon::NOW()->month)->get();
+        $data_email = [];
+        foreach ($datas_email_db as $data_email_db) array_push($data_email, $data_email_db->Email);
+
+//            $_engineer1 = $_engineer
+//                ->whereDay('birthday', Carbon::NOW()->day)
+//                ->whereMonth('birthday', Carbon::NOW()->month)
+//                ->get();
+
+        if ($data_email) {
+
+        $mailable = new SendBirthdayMail($_engineer);
+        Mail::to($data_email)->send($mailable);
+        DB::table('Engineer')->update(['birthday_mail' => 0]);
+        DB::table('Engineer')->where('status', 1)
+            ->whereDay('birthday', Carbon::NOW()->day)
+            ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
+        }
+
+            return $_birthday;
+
     }
 
     public function listEngineer($_engineer){
