@@ -74,6 +74,36 @@ $(document).ready(function(){
 						}
 					});
 				}
+				if (newPro!="[]") {
+					$(".gritter-title").append(String3+"<br/>");
+					$("#newPro").click(function(){
+						$(".modal-header h3").html("New Projects!");
+						$(".modal-body h4").html("<table class='table table-hover' style='border-style:hidden;'>"
+											+"@foreach ($newProjectNoti as $project)"
+											+"<tr class='gradeX'>"
+											+"<td>{{$project->idProject}}</td>"
+											+"<td>{{$project->projectName}}</td>"
+											+"<td>{{$project->dateOfBegin}}</td>"
+											+"</tr>"
+											+"@endforeach"
+											+"</table>");
+					});
+				}
+				if (newTeam!="[]") {
+					$(".gritter-title").append(String4+"<br/>");
+					$("#newTeam").click(function(){
+						$(".modal-header h3").html("New Teams!");
+						$(".modal-body h4").html("<table class='table table-hover' style='border-style:hidden;'>"
+											+"@foreach ($newTeamNoti as $team)"
+											+"<tr class='gradeX'>"
+											+"<td>{{$team->idTeam}}</td>"
+											+"<td>{{$team->teamName}}</td>"
+											+"<td>{{$team->status}}</td>"
+											+"</tr>"
+											+"@endforeach"
+											+"</table>");
+					});
+				}
 			// }
 		});
 	}
@@ -98,3 +128,4 @@ $(document).ready(function(){
 		nt = nt.split(";");
 		return nt;
 	}
+
