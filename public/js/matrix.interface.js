@@ -1,16 +1,8 @@
 $(document).ready(function(){
 	 var bd = getBirthday(birthday);
 	 var ne = getNewEngi(newEngi);
-	 var np = newPro.replace(/&quot;/g,'"');
-	 var nt = newTeam.replace(/&quot;/g,'"').replace(/},/g,'};').replace("[","").replace("]","");
-	 nt = nt.split(";");
-	 // var ar = JSON.parse(bd[0]);
-	 // alert(ar.engineerName);
-
-	// birthday = "{{ $birthday }}";console.log(birthday);
-	// newEngi = "{{ $newEngineerNoti }}";console.log(newEngi);
-	// newPro = "{{ $newProjectNoti }}";console.log(newPro);
-	// newTeam = "{{ $newTeamNoti }}";console.log(newTeam);
+	 var np = getNewPro(newPro);
+	 var nt = getNewTeam(newTeam);
 	if((birthday!="[]")||(newEngi!="[]")||(newPro!="[]")||(newTeam!="[]")){
 		$.gritter.add({
 
@@ -33,55 +25,53 @@ $(document).ready(function(){
 					$(".gritter-title").append(String1+"<br/>");
 					$("#birthday").click(function(){
 						$(".modal-header h3").html("Happy birthday!");
+						$(".modal-body").html("<h4></h4>");
 						for (var i = 0; i<bd.length; i++){
 							var objBD = JSON.parse(bd[i]);
-							$(".modal-body h4").html("");
-							$(".modal-body h4").append(objBD.engineerName+"<hr/>");	
+							$(".modal-body h4").append(objBD.engineerName+"<hr/>");				
 						}
-						// $(".modal-body h4").html("@foreach ($birthday as $engineer)"
-						// 					+"{{$engineer->engineerName}}"
-						// 					+"<hr/>"
-						// 					+"@endforeach");
 					});
 				}
 				if (newEngi!="[]") {
 					$(".gritter-title").append(String2+"<br/>");
 					$("#newEngi").click(function(){
 						$(".modal-header h3").html("New Engineers!");
-						$(".modal-body h4").html("@foreach ($newEngineerNoti as $engineer)"
-											+"{{$engineer->engineerName}}"
-											+"<hr/>"
-											+"@endforeach");
+						$(".modal-body").html("<h4></h4>");
+						for (var i = 0; i<ne.length; i++){
+							var objNE = JSON.parse(ne[i]);
+							$(".modal-body h4").append(objNE.engineerName+"<hr/>");	
+						}
 					});
 				}
 				if (newPro!="[]") {
 					$(".gritter-title").append(String3+"<br/>");
 					$("#newPro").click(function(){
 						$(".modal-header h3").html("New Projects!");
-						$(".modal-body h4").html("<table class='table table-hover' style='border-style:hidden;'>"
-											+"@foreach ($newProjectNoti as $project)"
-											+"<tr class='gradeX'>"
-											+"<td>{{$project->idProject}}</td>"
-											+"<td>{{$project->projectName}}</td>"
-											+"<td>{{$project->dateOfBegin}}</td>"
-											+"</tr>"
-											+"@endforeach"
-											+"</table>");
+						$(".modal-body").html("<table class='table table-hover' rules='group'></table>");
+						for (var i = 0; i < np.length; i++){
+							var objNP = JSON.parse(np[i]);				
+							$(".modal-body table").append("<tr class='gradeX'>"
+														+"<td><h4>"+objNP.idProject+"</h4></td>"
+														+"<td><h4>"+objNP.projectName+"</h4></td>"
+														+"<td><h4>"+objNP.dateOfBegin+"</h4></td>"
+													+"</tr>");
+							
+						}
 					});
 				}
 				if (newTeam!="[]") {
 					$(".gritter-title").append(String4+"<br/>");
 					$("#newTeam").click(function(){
 						$(".modal-header h3").html("New Teams!");
-						$(".modal-body h4").html("<table class='table table-hover' style='border-style:hidden;'>"
-											+"@foreach ($newTeamNoti as $team)"
-											+"<tr class='gradeX'>"
-											+"<td>{{$team->idTeam}}</td>"
-											+"<td>{{$team->teamName}}</td>"
-											+"<td>{{$team->status}}</td>"
-											+"</tr>"
-											+"@endforeach"
-											+"</table>");
+						$(".modal-body").html("<table class='table table-hover' rules='group'></table>");
+						for (var i = 0; i < nt.length; i++){
+							var objNT = JSON.parse(nt[i]);				
+							$(".modal-body table").append("<tr class='gradeX'>"
+														+"<td><h4>"+objNT.idTeam+"</h4></td>"
+														+"<td><h4>"+objNT.teamName+"</h4></td>"
+														+"<td><h4>"+objNT.status+"</h4></td>"
+														+"</tr>");	
+						}
 					});
 				}
 			// }
@@ -98,5 +88,13 @@ $(document).ready(function(){
 		ne = ne.split(";");
 		return ne;
 	}
-	function getNewPro(newPro){}
-	function getNewTeam(newTeam){}
+	function getNewPro(newPro){
+		var np = newPro.replace(/&quot;/g,'"').replace(/},/g,'};').replace("[","").replace("]","");
+		np = np.split(";");
+		return np;
+	}
+	function getNewTeam(newTeam){
+		var nt = newTeam.replace(/&quot;/g,'"').replace(/},/g,'};').replace("[","").replace("]","");
+		nt = nt.split(";");
+		return nt;
+	}
