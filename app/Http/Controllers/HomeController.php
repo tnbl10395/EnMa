@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SendMail;
+use App\Mail\SendBirthdayMail;
 use Illuminate\Http\Request;
 use App\Engineer;
 use App\Team;
@@ -23,6 +23,8 @@ class HomeController extends Controller
      *
      * @return void
      */
+    public $engineer;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -115,27 +117,35 @@ class HomeController extends Controller
     public function birthdayNotification($_engineer)
     {
 
-        $_birthday = $_engineer->selectRaw('engineerName')
+        $_birthday = $_engineer->selectRaw('engineerName')->where('status', 1)
             ->whereDay('birthday', Carbon::NOW()->day)
             ->whereMonth('birthday', Carbon::NOW()->month)
             ->get();
 
-            //config(['mail.driver' => 'smtp', 'mail.host' => 'smtp.gmail.com', 'mail.port' => 587, 'mail.username' => 'agent.enclave@gmail.com', 'mail.password' => 'enclave12345', 'mail.encryption' => 'tls']);
+
+        //config(['mail.driver' => 'smtp', 'mail.host' => 'smtp.gmail.com', 'mail.port' => 587, 'mail.username' => 'agent.enclave@gmail.com', 'mail.password' => 'enclave12345', 'mail.encryption' => 'tls']);
 
 
-            $datas_email_db = DB::table('Engineer')->select('Email')->where('status',1)->where('birthday_mail',0)
-                ->whereDay('birthday', Carbon::NOW()->day)
-                ->whereMonth('birthday', Carbon::NOW()->month)->get();
-            $data_email = [];
-            foreach ($datas_email_db as $data_email_db) array_push($data_email, $data_email_db->Email);
+        $datas_email_db = DB::table('Engineer')->select('Email')->where('status', 1)->where('birthday_mail', 0)
+            ->whereDay('birthday', Carbon::NOW()->day)
+            ->whereMonth('birthday', Carbon::NOW()->month)->get();
+        $data_email = [];
+        foreach ($datas_email_db as $data_email_db) array_push($data_email, $data_email_db->Email);
 
+//            $_engineer1 = $_engineer
+//                ->whereDay('birthday', Carbon::NOW()->day)
+//                ->whereMonth('birthday', Carbon::NOW()->month)
+//                ->get();
 
-            $mailable = new SendMail();
-            Mail::to($data_email)->send($mailable);
-            DB::table('Engineer')->update(['birthday_mail'=>0]);
-            DB::table('Engineer')->where('status',1)
-                ->whereDay('birthday', Carbon::NOW()->day)
-                ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail'=>1]);
+        if ($data_email) {
+
+        $mailable = new SendBirthdayMail($_engineer);
+        Mail::to($data_email)->send($mailable);
+        DB::table('Engineer')->update(['birthday_mail' => 0]);
+        DB::table('Engineer')->where('status', 1)
+            ->whereDay('birthday', Carbon::NOW()->day)
+            ->whereMonth('birthday', Carbon::NOW()->month)->update(['birthday_mail' => 1]);
+    }
 
             return $_birthday;
     }
