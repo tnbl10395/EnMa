@@ -7,6 +7,8 @@ use App\Project;
 use App\Team;
 use App\Engineer;
 use App\Technical;
+use App\lib\getStatusProject;
+use App\lib\changeIDProject;
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
@@ -19,7 +21,7 @@ class ProjectController extends Controller
     }
 
     public function IndexPro(){
-
+        $controller = new changeIDProject();
     	  $Project = Project::all();  
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
@@ -30,7 +32,7 @@ class ProjectController extends Controller
                                                       'totalEngineer' => $_totalEngineer,
                                                       'totalTeam' => $_totalTeam,
                                                       'totalProject' => $_totalProject,
-                                                 
+                                                      'controllerPro'=> $controller, 
                                                      ]);
 
     }
@@ -62,7 +64,7 @@ class ProjectController extends Controller
             //]);
         $pro = new Project;
         // dd($request->all());
-        $pro -> idProject = $request -> idProject;
+        // $pro -> idProject = $request -> idProject;
         $pro -> projectName = $request -> projectName;
         $pro -> status = $request -> status;
         $pro -> techSkill = $request -> TechSkill;
@@ -122,9 +124,11 @@ class ProjectController extends Controller
     }
     public function DetailPro($_id) 
     {
+       $controller = new getStatusProject();
        $getDetail = DB::table('Project')->select('idProject','projectName','status','techSkill','dateOfBegin','dateOfEnd','customer_code','idTeam')->where('idProject',$_id)->get();
 
-      return view("project.FormDetailPro")->with("getDetail",$getDetail);
+      return view("project.FormDetailPro")->with(["getDetail" => $getDetail,
+                                                  "controller" => $controller]);
         
     }
     public function DelPro(Request $request, $id){
@@ -148,5 +152,5 @@ class ProjectController extends Controller
       $_team = new Team();
       $_totalTeam = $_team->count();
       return $_totalTeam;
-    }
+    } 
 }

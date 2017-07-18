@@ -91,7 +91,6 @@
                   <th>Id Team</th>
                   <th>Edit</th>
                   <th>Delete</th>
-                  <th>Detail</th>
                 </tr>
               </thead>
               <tbody>
@@ -102,8 +101,8 @@
                 <tr class="gradeX {{$pr->idProject}}">
                  <!--  <td><a href="DetailProject/{{$pr -> idProject}}">{{$pr -> idProject}}</a></td> -->
 
-                  <td><a href="#myDetailProject" id="detail" data-value="{{$pr -> idProject}}" data-toggle="modal">{{$pr -> idProject}}</a></td>
-                  <td>{{$pr -> projectName}}</td>
+                  <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$controllerPro->idName($pr -> idProject)}}</a></td>
+                  <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$pr -> projectName}}</a></td>
 
                   <!-- switch case for status- -->
 
@@ -126,10 +125,10 @@
                   <td>{{$pr -> customer_code}}</td> 
                   <td>{{$pr -> idTeam}}</td>  
                   <td style="text-align: center;"> <a href="../EditProject/{{ $pr -> idProject}}" ><i class="icon-edit"></i></a></td>
-                  <td style="text-align: center;"> <a href="#myAlertPro" data-toggle="modal" onclick="IdToModalPro('{{$pr->idProject}}')" ><i class="icon-remove" style="margin-left: 40px;" ></i></a></td>
+                  <td style="text-align: center;"> <a href="#myAlertPro" data-toggle="modal" onclick="IdToModalPro('{{$pr->idProject}}')"><i class="icon-remove"></i></a></td>
 
 
-                  <td style="text-align: center;"><button type="button" class="btn btn-info btn-lg view-detail-project" data-toggle="modal" data-value="{{$pr -> idProject}}">Detail</button></td>
+               <!--    <td style="text-align: center;"><button type="button" class="btn btn-info btn-lg view-detail-project" data-toggle="modal" data-value="{{$pr -> idProject}}">Detail</button></td> -->
 
                 </tr>
                 @endforeach

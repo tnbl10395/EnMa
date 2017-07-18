@@ -19,7 +19,7 @@
       <div class="control-group">
         <label class="control-label">Status :</label>
         <div class="controls">
-          <p id= "status">{{$getDetail[0]->status}}</p>
+          <p id= "status">{{$controller->getStatus($getDetail[0]->status)}}</p>
         </div>
       </div>
       <div class="control-group">
