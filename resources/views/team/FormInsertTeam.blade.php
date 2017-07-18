@@ -18,10 +18,10 @@
                             <form action="/AddTeamController" method="post" class="form-horizontal">
                                 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                                 <div class="control-group">
-                                    <label class="control-label">ID :</label>
+                              <!--       <label class="control-label">ID :</label>
                                     <div class="controls">
                                         <input type="text" class="span11" placeholder="ID" name="idTeam" required="" />
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label">Team Name :</label>

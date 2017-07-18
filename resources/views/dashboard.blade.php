@@ -34,7 +34,7 @@
 								  <tbody>
 							    @foreach ($listEngineer as $Engieer)
 							    <tr class="gradeX">
-							      <td><a href="">{{ $controller->idName($Engieer->idEngineer) }}</a></td>
+							      <td><a href="">{{ $controllerEngi->idName($Engieer->idEngineer) }}</a></td>
 							      <td>{{ $Engieer->engineerName }}</td>
 							      <td>{{ $Engieer->Email }}</td>
 							      <td>{{ $Engieer->Phone }}</td>
@@ -163,7 +163,7 @@
 	              <ul>
 	              	@foreach($newProject as $_pro)
 	                <li class="clearfix">
-	                  <div class="txt"><a href="/EditProject/{{ $_pro->idProject }}" title=""> {{ $_pro->projectName }} </a><span class="date badge badge-important">New</span> </div>
+	                  <div class="txt"><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$_pro->idProject}}')"> {{ $_pro->projectName }} </a><span class="date badge badge-important">New</span> </div>
 	                </li>
 	                @endforeach
 	              </ul>
@@ -172,10 +172,32 @@
 	        </div>
 	     </div>   
         <!-- end-new project <--></-->
-		
+<!-- Modal -->
+  <div class="modal fade" id="myDetailProject" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Detail Project</h4>
+        </div>
+        <div class="modal-body">
+          
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+<!-- ================= -->		
 	</div>
 	</div>
-  <div id="myModal" class="modal hide">
+  <div id="myModal" class="modal fade">
         <div class="modal-header">
             <button data-dismiss="modal" class="close" type="button">×</button>
             <h3></h3>

@@ -57,6 +57,7 @@ $(document).ready(function(){
             type : "get",
             dataType:"text",
             success : function (result){
+              console.log(result);
                 if(result==1) {
                     //console.log(result);
                     $("."+id+"").remove();
@@ -77,54 +78,56 @@ $(document).ready(function(){
     });
 
     // ===== show detail project
-  $('.view-detail-project').click(function(){
-        idProjectShow = $(this).attr('data-value');
-        console.log(idProjectShow);
+  // $('.view-detail-project').click(function(){
+  //       idProjectShow = $(this).attr('data-value');
+  //       console.log(idProjectShow);
 
-        $.ajax({
+  //       $.ajax({
             
-            url : "/DetailProject/"+idProjectShow,
-            dataType : "json",
-            success:function(d){
+  //           url : "/DetailProject/"+idProjectShow,
+  //           dataType : "json",
+  //           success:function(d){
 
-                //DETA1 = d['0'].idProject;
-                // DETA2 = d['0'].projectName;
-                DETA3 = d['0'].status;
-                 if( DETA3 == '0'){
-                  DETA33 = " New";
-                 }
-                 if( DETA3 == '1'){
-                  DETA33 = "Assigned";
-                 }
-                 if( DETA3 == '2'){
-                  DETA33 = "Feedback";
-                 }
-                  if( DETA3 == '3'){
-                  DETA33 = "In progress";
-                 }
-                 else if( DETA3 == '4'){
-                  DETA33 = "Resolved";
-                 }
+  //               //DETA1 = d['0'].idProject;
+  //               // DETA2 = d['0'].projectName;
+  //               DETA3 = d['0'].status;
+  //                if( DETA3 == '0'){
+  //                 DETA33 = " New";
+  //                }
+  //                if( DETA3 == '1'){
+  //                 DETA33 = "Assigned";
+  //                }
+  //                if( DETA3 == '2'){
+  //                 DETA33 = "Feedback";
+  //                }
+  //                 if( DETA3 == '3'){
+  //                 DETA33 = "In progress";
+  //                }
+  //                else if( DETA3 == '4'){
+  //                 DETA33 = "Resolved";
+  //                }
          
-               $('#myDetailProject').modal();
+  //              $('#myDetailProject').modal();
 
-               //$('#trrr').html(DETA1);
+  //              //$('#trrr').html(DETA1);
 
-                $('#trrr').html(d['0'].idProject);
+  //               $('#trrr').html(d['0'].idProject);
 
-               $('#name').html(d['0'].projectName);
-               $('#status').html(DETA33);
-               $('#tech').html(d['0'].techSkill);
-               $('#begin').html(d['0'].dateOfBegin);
-               $('#end').html(d['0'].dateOfEnd);
-               $('#customer').html(d['0'].customer_code);
-               $('#idtm').html(d['0'].idTeam);
-             // alert(DETA1); 
+  //              $('#name').html(d['0'].projectName);
+  //              $('#status').html(DETA33);
+  //              $('#tech').html(d['0'].techSkill);
+  //              $('#begin').html(d['0'].dateOfBegin);
+  //              $('#end').html(d['0'].dateOfEnd);
+  //              $('#customer').html(d['0'].customer_code);
+  //              $('#idtm').html(d['0'].idTeam);
+  //            // alert(DETA1); 
                
-            }
+  //           }
  
-        })
-    });
+  //       })
+  //   });
+
+   
 
     $('#myAlertEngi div.modal-footer a:eq(0)').click(function(){
         id=$(this).attr('title');
@@ -225,18 +228,11 @@ function IdToModal(id,selector){//must be a string
     //console.log(selector);
 }
 
-function IdToModalPro(id,selector){//must be a string
+function IdToModalPro(id){//must be a string
     
-    html = $('#myAlertPro div.modal-body a:eq(0)').attr("title", id);
+    html = $('#myAlertPro div.modal-footer a:eq(0)').attr("title", id);
 
 }
-
-// ==========for detail project
-// function getDetailPro_1(id){//must be a string
-    
-//     html = $('#myDetailProject div.modal-body');
-
-// }
 
 
 function IdToModalEngi(id){//must be a string
@@ -248,3 +244,12 @@ function IdToModalEngi(id){//must be a string
 //   var popup = document.getElementById("popuptext");
 //   popup.classList.toggle("show");
 // }
+function showDetailProject(id){
+  $.ajax({
+    url : "/DetailProject/"+id,
+    dataType: "text",
+    success: function(result){
+      $(".modal-body").html(result);
+    }
+  });
+}

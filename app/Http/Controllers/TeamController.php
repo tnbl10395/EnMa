@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Team;
 use App\Project;
 use App\Engineer;
+use App\lib\changeIDTeam;
 use Illuminate\Support\Facades\DB;
 
 class TeamController extends Controller
@@ -16,6 +17,7 @@ class TeamController extends Controller
     }
 
     public function IndexTm(){
+        $controller = new changeIDTeam();
         $datas = DB::table('Team')->get();
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
@@ -23,7 +25,8 @@ class TeamController extends Controller
         return view('team.IndexTeamManager',['data'=>$datas,
                                              'totalEngineer' => $_totalEngineer,
                                              'totalTeam' => $_totalTeam,
-                                             'totalProject' => $_totalProject,]);
+                                             'totalProject' => $_totalProject,
+                                             'controllerTeam' => $controller]);
     }
     public function AddTm(){
         $_totalTeam = $this->totalTeam();
@@ -38,7 +41,7 @@ class TeamController extends Controller
     public function AddTeam(Request $request){
         $datas = $request->all();
         $team = new Team;
-        $team -> idTeam = $datas['idTeam'];
+        // $team -> idTeam = $datas['idTeam'];
         $team -> teamName = $datas['teamName'];
 //        $team -> techSkill = $datas['techSkill'];
         $team -> techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);

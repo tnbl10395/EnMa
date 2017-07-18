@@ -41,6 +41,7 @@ class HomeController extends Controller
         $_engineer = new Engineer();
         $_team = new Team();
         $_project = new Project();
+
         $_changeIDName = new changeIDName();
 
         $_totalTeam = $this->totalTeam($_team);
@@ -68,7 +69,7 @@ class HomeController extends Controller
             'listEngineer' => $_listEngineer,
             'topEngineer' => $_topEngineer,
             'newProject' => $_newProject,
-            'controller' => $_changeIDName,
+            'controllerEngi' => $_changeIDName,
             'birthday' => $_birthday,
             'newEngineerNoti' => $_newEngineerNoti,
             'newProjectNoti' => $_newProjectNoti,

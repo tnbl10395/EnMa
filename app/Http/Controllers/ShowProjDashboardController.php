@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\lib\changeIDProject;
+use App\lib\getStatusProject;
 
 class ShowProjDashboardController extends Controller
 {
@@ -13,7 +15,12 @@ class ShowProjDashboardController extends Controller
     }
 	public function ShowProject(){
 		$_project = new Project();
+		$_controller = new changeIDProject();
+		$_controllerStt = new getStatusProject();
 		$_list = $_project->get();
-		return view('table.totalProjects')->with('list',$_list);
+		return view('table.totalProjects')->with(['list' => $_list,
+												  'controller' => $_controller,
+												  'controllerStt' => $_controllerStt]);
+		
 	}
 }

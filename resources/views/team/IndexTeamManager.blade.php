@@ -66,7 +66,7 @@
                                 <tbody>
                                 @foreach($data as $data)
                                 <tr class="gradeX {{$data->idTeam}}">
-                                    <td>{{$data->idTeam}}</td>
+                                    <td>{{$controllerTeam->idName($data->idTeam)}}</td>
                                     <td>{{$data->teamName}}</td>
                                     <td>{{$data->techSkill}}</td>
                                     <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
