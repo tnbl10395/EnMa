@@ -55,8 +55,10 @@ return [
     |
     */
 
+
     'from' => ['address' => 'agent.enclave@gmail.com', 'name' => 'Enclave Administrator'],
     //'from' => ['address' => 'example@example.com', 'name' => 'App Name'],
+
 
     /*
     |--------------------------------------------------------------------------
