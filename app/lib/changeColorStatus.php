@@ -10,6 +10,7 @@
 			$string = NULL;
 			switch ($status) {
 				case '0':
+				case 0:
 					$string = "label label-important";
 					break;
 				case '1':

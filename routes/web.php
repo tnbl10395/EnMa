@@ -59,6 +59,7 @@ Route::get('/totalEngineer', 'ShowEngiDashboardController@ShowEngineer');
 Route::get('/totalTeam', 'ShowTeamDashboardController@ShowTeam');
 Route::get('/totalProject', 'ShowProjDashboardController@ShowProject');
 Route::get('/tableTopEngineer', 'ShowTopEngineerController@ShowTopEngineer');
+Route::get('/availableEngineer','ShowAvailableEngineerController@ShowAvailableEngineer');
 
 
 Route::get('TeamManagement','TeamController@IndexTm');

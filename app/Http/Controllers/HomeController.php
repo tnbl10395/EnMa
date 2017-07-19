@@ -48,7 +48,8 @@ class HomeController extends Controller
         $_totalProject = $this->totalProject($_project);
         $_totalEngineer = $this->totalEngineer($_engineer);
 
-        $_listEngineer = $this->listEngineer($_engineer);
+        // $_listEngineer = $this->listEngineer($_engineer);
+        // $_staticEngineer = $this->staticEngineer($_engineer);
         $_topEngineer = $this->topEngineer($_engineer);
 
         $_newProject = $this->newProject($_project);
@@ -66,7 +67,8 @@ class HomeController extends Controller
             'totalEngineer' => $_totalEngineer,
             'totalTeam' => $_totalTeam,
             'totalProject' => $_totalProject,
-            'listEngineer' => $_listEngineer,
+            // 'listEngineer' => $_listEngineer,
+            // 'listEngineer' => $_staticEngineer,
             'topEngineer' => $_topEngineer,
             'newProject' => $_newProject,
             'controllerEngi' => $_changeIDName,
@@ -88,10 +90,10 @@ class HomeController extends Controller
                                 ->get();
       return $_topEngineer;
     }
-    public function statisticEngineer($_engineer){
-      // $_statisticEngineer = $_engineer->
-      //return $_statisticEngineer;
-    }
+    // public function staticEngineer($_engineer){
+    //   $_staticEngineer = $_engineer->where("busy","0")->get();
+    //   return view("table.availableEngineer")->with(["$listEngineer"=>$_staticEngineer]);
+    // }
 
     public function newProject($_project){
       $_newProject = $_project->selectRaw('idProject, projectName')
