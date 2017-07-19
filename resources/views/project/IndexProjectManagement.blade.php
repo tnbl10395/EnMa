@@ -91,7 +91,6 @@
                   <th>Id Team</th>
                   <th>Edit</th>
                   <th>Delete</th>
-                  <th>Detail</th>
                 </tr>
               </thead>
               <tbody>
@@ -102,8 +101,8 @@
                 <tr class="gradeX {{$pr->idProject}}">
                  <!--  <td><a href="DetailProject/{{$pr -> idProject}}">{{$pr -> idProject}}</a></td> -->
 
-                  <td>{{$pr -> idProject}}</td>
-                  <td>{{$pr -> projectName}}</td>
+                  <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$controllerPro->idName($pr -> idProject)}}</a></td>
+                  <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$pr -> projectName}}</a></td>
 
                   <!-- switch case for status- -->
 
@@ -126,10 +125,10 @@
                   <td>{{$pr -> customer_code}}</td> 
                   <td>{{$pr -> idTeam}}</td>  
                   <td style="text-align: center;"> <a href="../EditProject/{{ $pr -> idProject}}" ><i class="icon-edit"></i></a></td>
-                  <td style="text-align: center;"> <a href="#myAlertPro" data-toggle="modal" onclick="IdToModalPro('{{$pr->idProject}}')" ><i class="icon-remove" style="margin-left: 40px;" ></i></a></td>
+                  <td style="text-align: center;"> <a href="#myAlertPro" data-toggle="modal" onclick="IdToModalPro('{{$pr->idProject}}')"><i class="icon-remove"></i></a></td>
 
 
-                  <td style="text-align: center;"><button type="button" class="btn btn-info btn-lg view-detail-project" data-toggle="modal" data-value="{{$pr -> idProject}}">Detail</button></td>
+               <!--    <td style="text-align: center;"><button type="button" class="btn btn-info btn-lg view-detail-project" data-toggle="modal" data-value="{{$pr -> idProject}}">Detail</button></td> -->
 
                 </tr>
                 @endforeach
@@ -155,71 +154,6 @@
         </div>
         <div class="modal-body">
           
-         
-          <form action="" method="" class="form-horizontal" enctype="multipart/form-data">
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-         
-              <div class="control-group">
-
-                <label class="control-label">Project ID:</label>
-
-                <div class="controls">
-                     <p id = "trrr"></p>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Project Name :</label>
-                <div class="controls">
-                  <p id ="name"></p>
-                </div>
-              </div>
-             
-              <div class="control-group">
-                <label class="control-label">Status :</label>
-                <div class="controls">
-                  <p id= "status"></p>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Technical Skill :</label>
-                <div class="controls">
-                  <p id="tech"></p>
-                </div>
-              </div>
-
-              <div class="control-group">
-
-                <label class="control-label">Date Of Begin :</label>
-
-                <div class="controls">
-                  <p id="begin"></p>
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label class="control-label">Date Of End</label>
-                <div class="controls">
-                  <p id="end"></p>
-                </div>
-              </div>
-              <div class="control-group">
-
-                <label class="control-label">Customer :</label>
-
-                <div class="controls">
-                  <p id="customer"></p>
-                </div>
-              </div>
-    
-              <div class="control-group">
-
-                <label class="control-label">Id Team :</label>
-                <div class="controls">
-                  <p id="idtm"></p>
-                </div>
-              </div>
-            </form>
-
 
         </div>
         <div class="modal-footer">

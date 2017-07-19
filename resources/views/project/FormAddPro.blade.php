@@ -21,11 +21,11 @@
        
             <div class="control-group">
 
-              <label class="control-label">Project ID:</label>
+<!--               <label class="control-label">Project ID:</label>
 
               <div class="controls">
                 <input type="text" class="span11" placeholder="idProject" name="idProject" required="" />
-              </div>
+              </div> -->
             </div>
             <div class="control-group">
               <label class="control-label">Project Name :</label>
