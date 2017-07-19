@@ -21,6 +21,10 @@ class TeamEngiController extends Controller
 //        print_r($request->all());
         $res = $request->all();
         $listEngineer = $res['listEngi'];
+        $listNameEngineer = $res['listNameEngi'];
+        $listEmailEngineer = $res['listEmailEngi'];
+        $teamName = $res['nameTeam'];
+        $projectName = $res['nameProject'];
         $idProject = ($res['idProject']!='0')?$res['idProject']:"";//not be null(idProject in DB is not null)
         $idTeam = $res['idTeam'];
         $dataToInsert=[];

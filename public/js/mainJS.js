@@ -171,9 +171,11 @@ $(document).ready(function(){
     });
 
     $('#modaladdTeam div.modal-footer a:eq(0)').click(function(){//click to add mem to team
-        var engiToAdd = [];
+        var engiToAdd = [],engiNameToAdd=[],engiEmailToAdd=[];
         $('.table-engi-available input[type="checkbox"]:checked').each(function(){
             engiToAdd.push($(this).attr('value'));
+            engiNameToAdd.push($(this).attr('data-name'));
+            engiEmailToAdd.push($(this).attr('data-email'));
         });
         //console.log(engiToAdd);
         $.ajax({
@@ -184,7 +186,11 @@ $(document).ready(function(){
                 _token:$('meta[name="_token"]').attr('content'),//tokens in 1 page are same,use of post method
                 idTeam: $('[name="idTeam"]').val(),
                 idProject:$('#project_name input, #project_name label').attr('data-val'),
-                listEngi: engiToAdd
+                listEngi: engiToAdd,
+                listNameEngi: engiNameToAdd,
+                listEmailEngi: engiEmailToAdd,
+                nameTeam: $('[name="teamName"]').val(),
+                nameProject: $('#project_name input, #project_name label').attr('value')
             },
             success:function(result){
                 //console.log(result);

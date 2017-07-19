@@ -40,15 +40,16 @@
                                     <label class="control-label">Status :</label>
                                     <?php $sts =$team->status; ?>
                                     <div class="controls">
-                                        @if($sts=="New")
-                                            <span class="label label-success">{{$sts}}</span>
-                                        @elseif($sts=="Assigned")
-                                            <span class="label label-warning">{{$sts}}</span>
-                                        @elseif($sts=="In progress")
-                                            <span class="label label-info">{{$sts}}</span>
-                                        @elseif($sts=="Resolved")
-                                            <span class="label label-success">{{$sts}}</span>
-                                        @endif
+                                        {{--@if($sts=="New")--}}
+                                            {{--<span class="label label-success">{{$sts}}</span>--}}
+                                        {{--@elseif($sts=="Assigned")--}}
+                                            {{--<span class="label label-warning">{{$sts}}</span>--}}
+                                        {{--@elseif($sts=="In progress")--}}
+                                            {{--<span class="label label-info">{{$sts}}</span>--}}
+                                        {{--@elseif($sts=="Resolved")--}}
+                                            {{--<span class="label label-success">{{$sts}}</span>--}}
+                                        {{--@endif--}}
+                                        <span class="{{$controllerColor->changeColor($sts)}}">{{$sts}}</span>
                                     </div>
                                 </div>
 
@@ -58,7 +59,7 @@
                                         @if($hasProject==true)
                                             <input type="text" class="span11" disabled data-val="{{$projects[0]->idProject}}" value="{{$projects[0]->projectName}}"/>
                                         @else
-                                            <label for="" data-val="0">{{$projects}}</label>
+                                            <label for="" data-val="0" value="0">{{$projects}}</label>
                                         {{--<select name="project_choice" id="project_choice">--}}
                                             {{--<option></option>--}}
                                             {{--<option>Project A</option>--}}
@@ -152,7 +153,9 @@
                 <div class="span12">
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                            @if($hasProject==true)
                             <button class="btn btn-info add-member" style="margin: 3px 0px 0px 3px;">Add Member</button>
+                            @endif
                         </div>
                         <div class="widget-content nopadding">
                             <table class="table table-bordered table-striped data-table">
