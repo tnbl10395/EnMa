@@ -32,10 +32,11 @@ class TeamController extends Controller
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
-        $_listProject = DB::table('Project')->select('projectName')->get();//get list project Name
+        $_listProject = DB::table('Project')->select('idProject','projectName')->where('idTeam','')->get();//get list project Name with no team
+        $_techSkill = DB::table('Technical')->select('Technical')->get();
         return view('team.FormInsertTeam')->with(['totalEngineer' => $_totalEngineer,
                                                   'totalTeam' => $_totalTeam,
-                                                  'totalProject' => $_totalProject,])->with(['projects'=>$_listProject]);
+                                                  'totalProject' => $_totalProject,])->with(['projects'=>$_listProject,'listTech'=>$_techSkill]);
     }
 
     public function AddTeam(Request $request){
@@ -45,6 +46,12 @@ class TeamController extends Controller
         $team -> teamName = $datas['teamName'];
 //        $team -> techSkill = $datas['techSkill'];
         $team -> techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);
+        $team -> status = "New";//Assigned, In progress , Resolved
+//        $project_select = $datas['project_choice'];
+//        if(!empty($project_select)){
+//            $project=DB::table("Project")->where('idProject',$project_select);
+//            $project->update(['idTeam'=>$datas['idTeam']]);
+//        }
         $team->save();
         //return $this->IndexTm();
         return redirect('TeamManagement')->with('notify','Add Successfully a new Team!');
@@ -55,13 +62,25 @@ class TeamController extends Controller
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
         $team = DB::table('Team')->where('idTeam',$id)->first();
-        $_listProject = DB::table('Project')->select('projectName')->get();//get list project Name
+
+        $_current_project=DB::table('Project')->select('idProject','projectName')->where('idTeam',$id)->get();
+
+        $_hasProject=false;$_listProject = "No project";
+        if(count($_current_project)){//means 1 team has 1 project
+            $_listProject = $_current_project;//name project has been received
+            $_hasProject=true;
+        }
+//        else
+//        $_listProject = DB::table('Project')->select('idProject','projectName')->where('idTeam','')->get();//get list project Name with no team
+
+//            dd(($_listProject));
+        $_techSkill = DB::table('Technical')->select('Technical')->get();
         $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role')->
-                        join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->get();
+                        join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->whereNull('expire')->get();
             //SELECT History.idEngineer, Engineer.engineerName , History.role from History INNER JOIN Engineer on History.idEngineer=Engineer.idEngineer where History.`idTeam` = 'T01'
         return view('team.FormEditTeam')->with(['totalEngineer' => $_totalEngineer,
                                                   'totalTeam' => $_totalTeam,
-                                                  'totalProject' => $_totalProject,'team' =>$team,'member'=>$teamMember])->with(['projects'=>$_listProject]);
+                                                  'totalProject' => $_totalProject,'team' =>$team,'member'=>$teamMember])->with(['projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
     }
 
     public function EditTeam(Request $request,$id){
@@ -69,6 +88,14 @@ class TeamController extends Controller
 //        dd($datas);
 //        $_team = DB::table('Team')->where('idTeam',$id)->first();
         $team = DB::table('Team')->where('idTeam',$id);
+
+//        $project_select = $datas['project_choice'];
+//        if(!empty($project_select)){
+//            $project=DB::table("Project")->where('idProject',$project_select);
+////            $project->update(['idTeam'=>$datas['idTeam']]);
+//            $project->update(['idTeam'=>$id]);
+//        }
+
         $techSkill = (count($datas['techSkill'])<=1)?$datas['techSkill'][0]:implode(" - ",$datas['techSkill']);
         $team->update(['teamName'=>$datas['teamName'],'techSkill'=>$techSkill]);
 //        return redirect("EditTeam/$id");
@@ -80,6 +107,21 @@ class TeamController extends Controller
 //        return redirect('TeamManagement');//because using ajax
          $result =  DB::table('Team')->where('idTeam',$id)->delete();
           return $result;
+    }
+
+    public function showDetailTeam(Request $request){
+        $id = $request->all()['idTeam'];
+        $team = DB::table('Team')->where('idTeam',$id)->first();
+        $_current_project=DB::table('Project')->select('idProject','projectName')->where('idTeam',$id)->get();
+        $_hasProject=false;$_listProject = "No project";
+        if(count($_current_project)){
+            $_listProject = $_current_project;
+            $_hasProject=true;
+        }
+        $_techSkill = DB::table('Technical')->select('Technical')->get();
+        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role')->
+        join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->whereNull('expire')->get();
+        return view('team.showDetailTeam')->with(['team' =>$team,'member'=>$teamMember,'projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
     }
     public function totalEngineer(){
       $_engineer = new Engineer();
