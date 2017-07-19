@@ -35,7 +35,7 @@ class SendBirthdayMail extends Mailable
      */
     public function build()
     {
-        $this->from("agent.enclave@gmail.com")->view('email.birthday');
+        $this->from("agent.enclave@gmail.com")->view('email.birthday')->subject('[Enclave] Happy Birthday!');
 
 
     }

@@ -28,6 +28,6 @@ class InformUser extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->from("agent.enclave@gmail.com")->view('email.inform')->subject('[Enclave] Assign Project');
     }
 }
