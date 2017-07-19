@@ -8,9 +8,10 @@ use App\Project;
 use App\Engineer;
 use App\lib\changeIDTeam;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
-{
+{   protected $redirectTo = '/';
     public function __construct()
     {
         $this->middleware('auth');
