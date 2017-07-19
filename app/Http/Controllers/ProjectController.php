@@ -7,10 +7,12 @@ use App\Project;
 use App\Team;
 use App\Engineer;
 use App\Technical;
+
 use App\lib\changeColorStatus;
 use App\lib\getStatusProject;
 use App\lib\changeIDProject;
 use App\lib\changeIDTeam;
+
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
@@ -25,6 +27,7 @@ class ProjectController extends Controller
     public function IndexPro(){
         $controllerIDPro = new changeIDProject();
         $controllerIDTeam = new changeIDTeam();
+        $controllerColor = new changeColorStatus();
     	  $Project = Project::all();  
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
@@ -36,7 +39,8 @@ class ProjectController extends Controller
                                                       'totalTeam' => $_totalTeam,
                                                       'totalProject' => $_totalProject,
                                                       'controllerIDPro' => $controllerIDPro,
-                                                      'controllerIDTeam' => $controllerIDTeam 
+                                                      'controllerIDTeam' => $controllerIDTeam,
+                                                      'controllerColor' => $controllerColor 
                                                      ]);
 
     }
@@ -129,6 +133,7 @@ class ProjectController extends Controller
     }
     public function DetailPro($_id) 
     {
+
        $controllerColor = new changeColorStatus();
        $controller = new getStatusProject();
        $controllerID = new changeIDProject();
@@ -138,6 +143,7 @@ class ProjectController extends Controller
                                                   "controller" => $controller,
                                                   "controllerID" => $controllerID,
                                                   "controllerColor" => $controllerColor]);
+
         
     }
     public function DelPro(Request $request, $id){

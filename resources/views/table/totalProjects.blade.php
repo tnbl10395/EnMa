@@ -1,4 +1,5 @@
 <script  src="js/matrix.tables.js"></script>
+
 <div class="span12">
 	<div class="widget-box">
 		 <div class="widget-content nopadding">
@@ -19,6 +20,7 @@
 				    <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$listPro->idProject}}')">{{ $controller->idName($listPro->idProject) }}</a></td>
 				    <td>{{ $listPro->projectName }}</td>
 				    <td class="status"><span id="lb-config" class="{{ $controllerColor->changeColor($listPro->status) }}">{{ $controllerStt->getStatus($listPro->status) }}</span></td>
+
 				    <td>{{ $listPro->techSkill }}</td>
 				    <td>{{ $listPro->dateOfBegin }}</td>
 				    <td>{{ $listPro->dateOfEnd }}</td>
@@ -51,17 +53,5 @@
     </div>
   </div>
 
-  <!-- <script type="text/javascript">
 
-	var text = $(".status span").map(function(){
-		return $(this).text();
-	});
-	// alert(text.length);
-	for (var i=0; i<text.length;i++){
-		if(text[i]=="New"){
-			$('.status span').toggleClass('label label label-important');
-		}else if(text[i]=="Assigned"){
-			$('.status[ span').toggleClass('label label label-infor');
-		}
-	}
-</script> -->
+

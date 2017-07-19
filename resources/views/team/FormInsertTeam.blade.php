@@ -29,49 +29,59 @@
                                         <input type="text" class="span11" placeholder="Team Name" name="teamName" required="" />
                                     </div>
                                 </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="project_choice">Name of Initial Project :</label>
-                                    <div class="controls">
-                                        <select name="project_choice" id="project_choice">
-                                            <option value="" selected></option>
-                                            @if(!empty($projects))
-                                                @foreach($projects as $project)
-                                                    <option value="{{$project->projectName}}">{{$project->projectName}}</option>
-                                                @endforeach
-                                            @endif    
+                                {{--<div class="control-group">--}}
+                                    {{--<label class="control-label" for="project_choice">Name of Initial Project :</label>--}}
+                                    {{--<div class="controls">--}}
+                                        {{--<select name="project_choice" id="project_choice">--}}
+                                            {{--<option value="" selected></option>--}}
+                                            {{--@if(!empty($projects))--}}
+                                                {{--@foreach($projects as $project)--}}
+                                                    {{--<option value="{{$project->idProject}}">{{$project->projectName}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--@endif    --}}
                                             {{--<option>Project A</option>--}}
 
-                                        </select>
+                                        {{--</select>--}}
 
-                                    </div>
-                                </div>
+                                    {{--</div>--}}
+                                {{--</div>--}}
                                 <div class="control-group">
                                     <label class="control-label">Technical Skill :</label>
                                     <div class="controls">
-                                        <ul style="list-style-type: none; float: left; margin-left: -5px;">
-                                            {{--<li><label><input type="radio" name="techSkill" value="PHP"/>PHP</label></li> --}}{{--must be have label tag--}}
+                                        {{--<ul style="list-style-type: none; float: left; margin-left: -5px;">--}}
+                                            {{--<li><label><input type="radio" name="techSkill" value="PHP"/>PHP</label></li> --}}{{----}}{{--must be have label tag--}}
                                             {{--<li><label><input type="radio" name="techSkill" value="Java"/>Java</label></li>--}}
                                             {{--<li><label><input type="radio" name="techSkill" value=".Net"/>.Net</label></li>--}}
-                                            <li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>
-                                            <li><input type="checkbox" name="techSkill[]" value="JAVA"> Java</li>
-                                            <li><input type="checkbox" name="techSkill[]" value=".Net"> .Net</li>
-                                        </ul>
-                                        <ul style="list-style-type: none; float: left;">
+                                            {{--<li><input type="checkbox" name="techSkill[]" value="PHP"> PHP</li>--}}
+                                        {{--</ul>--}}
+                                        {{--<ul style="list-style-type: none; float: left;">--}}
                                             {{--<li><label><input type="radio" name="techSkill" value="Ruby"/>Ruby</label></li>--}}
                                             {{--<li><label><input type="radio" name="techSkill" value="Android"/>Android</label></li>--}}
                                             {{--<li><label><input type="radio" name="techSkill" value="IOS"/>IOS</label></li>--}}
-                                            <li><input type="checkbox" name="techSkill[]" value="Ruby"> Ruby</li>
-                                            <li><input type="checkbox" name="techSkill[]" value="Android"> Android</li>
-                                            <li><input type="checkbox" name="techSkill[]" value="IOS"> IOS</li>
-                                        </ul>
-                                        <ul style="list-style-type: none; float: left;">
+                                        {{--</ul>--}}
+                                        {{--<ul style="list-style-type: none; float: left;">--}}
                                             {{--<li><label><input type="radio" name="techSkill" value="HTML"/>HTML</label></li>--}}
                                             {{--<li><label><input type="radio" name="techSkill" value="CSS"/>CSS</label></li>--}}
                                             {{--<li><label><input type="radio" name="techSkill" value="JS"/>JS</label></li>--}}
-                                            <li><input type="checkbox" name="techSkill[]" value="HTML"> HTML</li>
-                                            <li><input type="checkbox" name="techSkill[]" value="CSS"> CSS</li>
-                                            <li><input type="checkbox" name="techSkill[]" value="JS"> JS</li>
+                                        {{--</ul>--}}
+                                        <?php
+                                            $count = count($listTech);
+                                            $_ceil=ceil($count/3);
+                                        ?>
+                                        @for($i=0;$i<3;$i++)
+                                            @if($i==0)
+                                                <ul style="list-style-type: none; float: left; margin-left: -5px;">
+                                            @else
+                                                <ul style="list-style-type: none; float: left;">
+                                            @endif
+                                            @for($j=0;$j<$_ceil;$j++)
+                                                        @if($i*3+$j>=$count)
+                                                            @break
+                                                        @endif
+                                                <li><input type="checkbox" name="techSkill[]" value="{{$listTech[$i*3+$j]->Technical}}"/>{{$listTech[$i*3+$j]->Technical}}</li>
+                                            @endfor
                                         </ul>
+                                        @endfor
                                     </div>
                                 </div>
                                 <div class="form-actions">

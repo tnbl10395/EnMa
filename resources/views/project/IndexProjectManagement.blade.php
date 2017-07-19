@@ -102,12 +102,13 @@
                  <!--  <td><a href="DetailProject/{{$pr -> idProject}}">{{$pr -> idProject}}</a></td> -->
 
                   <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$controllerIDPro->idName($pr -> idProject)}}</a></td>
+
                   <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$pr -> projectName}}</a></td>
 
                   <!-- switch case for status- -->
 
                   <td>
-
+                      <span id="lb-config" class="{{$controllerColor->changeColor($pr->status)}}">
                       <?php
                       switch( $pr -> status ) {
                           case '0': echo 'New'; break;
@@ -117,6 +118,7 @@
                           case '4':   echo 'Resolve'; break;
                       }
                       ?>
+                      </span>
                   </td>
 
                   <td>{{$pr -> techSkill}}</td>
