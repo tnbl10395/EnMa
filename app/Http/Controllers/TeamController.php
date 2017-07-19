@@ -7,6 +7,7 @@ use App\Team;
 use App\Project;
 use App\Engineer;
 use App\lib\changeIDTeam;
+use App\lib\changeColorStatus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,6 +63,7 @@ class TeamController extends Controller
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+        $controllerColor = new changeColorStatus();
         $team = DB::table('Team')->where('idTeam',$id)->first();
 
         $_current_project=DB::table('Project')->select('idProject','projectName')->where('idTeam',$id)->get();
@@ -80,8 +82,10 @@ class TeamController extends Controller
                         join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->whereNull('expire')->get();
             //SELECT History.idEngineer, Engineer.engineerName , History.role from History INNER JOIN Engineer on History.idEngineer=Engineer.idEngineer where History.`idTeam` = 'T01'
         return view('team.FormEditTeam')->with(['totalEngineer' => $_totalEngineer,
-                                                  'totalTeam' => $_totalTeam,
-                                                  'totalProject' => $_totalProject,'team' =>$team,'member'=>$teamMember])->with(['projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
+                                                'totalTeam' => $_totalTeam,
+                                                'totalProject' => $_totalProject,
+                                                'controllerColor' => $controllerColor,
+                                                'team' =>$team,'member'=>$teamMember])->with(['projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
     }
 
     public function EditTeam(Request $request,$id){

@@ -30,6 +30,22 @@ class EngineerController extends Controller
                                             'totalProject' => $_totalProject,
                                             'controller' => $_changeIDName]);
     }
+    
+// public function DetailEn(){
+//       $_totalTeam = $this->totalTeam();
+//         $_totalProject = $this->totalProject();
+//         $_totalEngineer = $this->totalEngineer();
+//       return view('engineer.DetailEngi')->with(['totalEngineer' => $_totalEngineer,
+//                                             'totalTeam' => $_totalTeam,
+//                                             'totalProject' => $_totalProject,]);
+//     }
+ public function DetailEn($id){
+        $list = DB::table('Engineer')->where('idEngineer',$id)->first();
+      return view('engineer.DetailEngi')->with(['listEngi' => $list,
+                                            ]);
+  
+      }
+
     public function AddEm(){
     	$_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
@@ -153,7 +169,7 @@ class EngineerController extends Controller
         $photo->move('upload',$namePhoto);
         $engineer->avatar=$namePhoto; 
 
-    }else $namePhoto="";
+    }
 
         $engineer->engineerName="$name";
         $engineer->Address="$address";
@@ -165,6 +181,22 @@ class EngineerController extends Controller
         $engineer->dateJoin=$newdatein;
         $engineer->outOfdate=$newdateout;
         $engineer->birthday=$newbirth;
+
+      $en = DB::table('Engineer')->where('Email',$email)->first();
+          
+        if (is_null($en)) {
+            $engineer->save();
+            return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
+        } else {
+        return redirect('AddEngineer')->with('notify', 'Email has existed. Please check again');;  
+
+} 
+      // if($en === null){
+      //   echo "da ton tai";
+      //  // $engineer->save();
+      // } else echo"ok";
+    // return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
+
         $engineer->birthday_mail=0;
         $engineer->status=1;
         $engineer->busy=0;
@@ -173,6 +205,7 @@ class EngineerController extends Controller
        $engineer->save();
 
     return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
+
 
     }
 
@@ -190,8 +223,8 @@ public function EditEngineer(Request $request,$id){
       $email= $request->input('email');
       $dateout= $request->input('dateout');
       $datein = $request->input('datejoin'); 
-  
-
+      $sta = $request->input('status');
+      
            //Handle Experience
              $ex="";
        switch ($exp) {
@@ -277,7 +310,7 @@ public function EditEngineer(Request $request,$id){
 
 
    
-        $engineer->update(['engineerName'=>$name,'Address'=>$address,'Phone'=>$phone,'Email'=>$email,'Experience'=>$ex,'dateJoin'=>$datein,'outOfdate'=>$dateout,'TechSkill'=>$tech,'avatar'=>$Editname,'birthday'=>$birth]);
+        $engineer->update(['engineerName'=>$name,'Address'=>$address,'Phone'=>$phone,'Email'=>$email,'Experience'=>$ex,'dateJoin'=>$datein,'outOfdate'=>$dateout,'TechSkill'=>$tech,'status'=>$sta,'avatar'=>$Editname,'birthday'=>$birth]);
 
         return redirect("EngineerManagement")->with('notify','Update Successfully the engineer!');
 
