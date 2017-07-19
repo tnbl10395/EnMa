@@ -54,6 +54,7 @@ Route::get('/EditProject','ProjectController@EditPro');
 Route::get('/EditProject/{idProject}','ProjectController@EditPro');
 Route::post('/EditProject/{idProject}','ProjectController@postEditPro');
 Route::get('DelProject/{id}','ProjectController@DelPro');
+Route::get('DetailProject/{id}','ProjectController@DetailPro');
 
 
 Route::get('/totalEngineer', 'ShowEngiDashboardController@ShowEngineer');
@@ -70,6 +71,11 @@ Route::get('EditTeam/{id}','TeamController@EditTm');
 Route::post('EditTeam/{id}','TeamController@EditTeam');
 //Route::post('EditTeamController','TeamController@EditTeam');
 Route::get('DelTeam/{id}','TeamController@DelTm');
+Route::get('Team/ListAvailable','TeamEngiController@showEngineerAvailable');
+Route::post('Team/AddEngineer','TeamEngiController@addEngineerToTeam');
+Route::get('Team/CurrentEngineer/{id}','TeamEngiController@showCurrentEngineer');
+Route::get('Team/RemoveEngineer','TeamEngiController@removeEngineerFromTeam');
+Route::get('Team/ShowDetail','TeamController@showDetailTeam');
 
 Route::get('/checkDB', function ()
 {

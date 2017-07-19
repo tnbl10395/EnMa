@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,10 +55,10 @@ return [
     |
     */
 
-    'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
-    ],
+
+    'from' => ['address' => 'agent.enclave@gmail.com', 'name' => 'Enclave Administrator'],
+    //'from' => ['address' => 'example@example.com', 'name' => 'App Name'],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'agent.enclave@gmail.com',
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => 'enclave12345',
 
     /*
     |--------------------------------------------------------------------------

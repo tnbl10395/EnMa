@@ -21,11 +21,11 @@
        
             <div class="control-group">
 
-              <label class="control-label">Project ID:</label>
+<!--               <label class="control-label">Project ID:</label>
 
               <div class="controls">
                 <input type="text" class="span11" placeholder="idProject" name="idProject" required="" />
-              </div>
+              </div> -->
             </div>
             <div class="control-group">
               <label class="control-label">Project Name :</label>
@@ -50,7 +50,7 @@
               <label class="control-label">Technical Skill :</label>
               <div class="controls">
 
-                <select name= "techSkill" value="techSkill">
+                <!-- <select name= "techSkill" value="techSkill">
                   <option value="PHP">PHP</option>
                   <option value="JAVA">JAVA</option>
                   <option value=".NET">.NET</option>
@@ -60,6 +60,18 @@
                   <option value="C#">C#</option>
                   <option value="C++">C++</option>
                   <option value="Assembly">Assembly</option>
+                </select> -->
+
+                <select name= "TechSkill">
+
+                  @if($Techni->count() > 0)
+                  @foreach($Techni as $Tech)
+                   <option value="{{ $Tech->Technical }}"> {{ $Tech -> Technical }} </option>
+                  @endForeach
+                  @else
+                   No Record Found
+                    @endif   
+                  
                 </select>
          
               </div>
@@ -72,14 +84,14 @@
               <label class="control-label">Date Of Begin :</label>
 
               <div class="controls">
-                <input type="text"  data-date-format="yyyy-mm-dd" placeholder ="2017-02-01" class="datepicker span11" name="dateOfBegin">
+                <input type="text"  data-date-format="yyyy-mm-dd" placeholder ="2017-02-01" class="datepicker span11" name="dateOfBegin" required>
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd)</span> </div>
             </div>
 
             <div class="control-group">
               <label class="control-label">Date Of End</label>
               <div class="controls">
-                <input type="text"  data-date-format="yyyy-mm-dd" placeholder="2017-02-01" class="datepicker span11" name="dateOfEnd">
+                <input type="text"  data-date-format="yyyy-mm-dd" placeholder="2017-02-01" class="datepicker span11" name="dateOfEnd" required>
                 <span class="help-block">Date with Formate of  (yyyy-mm-dd</span> </div>
             </div>
             <div class="control-group">
@@ -90,11 +102,32 @@
                 <input type="text" class="span11" placeholder="customer_code" name="customer_code" required="" />
               </div>
             </div>
+              <!-- {{$getIdTeam}} -->
+            <div class="control-group">
+
+              <label class="control-label">Id Team :</label>
+
+              <div class="controls">
+                <select name= "idTeam" value="idTeam">
+
+                  @if($getIdTeam->count() > 0)
+                  @foreach($getIdTeam as $getId)
+                   <option value="{{$getId->idTeam}}">{{$getId->teamName}}</option>
+                  @endForeach
+                  @else
+                   No Record Found
+                    @endif   
+                  
+                </select>
+
+              </div>
+            </div>
             <div class="form-actions">
               <button type="submit" class="btn-success">Submit</button>
               <button type="reset" class="btn-warning">Reset</button>
             </div>
           </form>
+
         </div>
       </div>
 </div></div>

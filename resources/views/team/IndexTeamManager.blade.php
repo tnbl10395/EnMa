@@ -65,9 +65,11 @@
                                 </thead>
                                 <tbody>
                                 @foreach($data as $data)
+
                                 <tr class="gradeX {{$data->idTeam}}">
-                                    <td>{{$data->idTeam}}</td>
+                                    <td>{{$controllerTeam->idName($data->idTeam)}}</td>
                                     <td>{{$data->teamName}}</td>
+
                                     <td>{{$data->techSkill}}</td>
                                     <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}
@@ -108,5 +110,14 @@
             <p>Are you sure that you want to delete this team?</p>
         </div>
         <div class="modal-footer"> <a data-dismiss="modal" class="btn btn-primary" href="#">Confirm</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+    </div>
+    <div id="showDetail_Team" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>INFO TEAM</h3>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">OK</a> </div>
     </div>
 @stop

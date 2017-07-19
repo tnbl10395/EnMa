@@ -160,3 +160,7 @@
 #one{
   cursor: pointer;
 }
+#lb-config{
+  width: 90%;
+  text-align: center;
+}

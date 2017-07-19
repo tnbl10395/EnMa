@@ -1,6 +1,7 @@
 @extends('template.menubar')
 
 @section('content')
+
 	<div id="content">
 		<div id="content-header">		
 		      <div id="breadcrumb"> <a href="#" title="Go to Home" class="current"><i class="icon-home"></i> Home</a></div>
@@ -33,7 +34,7 @@
 								  <tbody>
 							    @foreach ($listEngineer as $Engieer)
 							    <tr class="gradeX">
-							      <td><a href="">{{ $controller->idName($Engieer->idEngineer) }}</a></td>
+							      <td><a href="">{{ $controllerEngi->idName($Engieer->idEngineer) }}</a></td>
 							      <td>{{ $Engieer->engineerName }}</td>
 							      <td>{{ $Engieer->Email }}</td>
 							      <td>{{ $Engieer->Phone }}</td>
@@ -51,9 +52,26 @@
 		            </div>
 		            <div class="span2">
 		             	<ul class="btGroup">
-		             	 	<li><button onclick="load_TotalEngineer()" id="btTotal" class="btn-success"><i class="icon-user"></i><strong>{{ $totalEngineer }}</strong><br>Total Engineers</button></li>
-	             	 	 	<li><button onclick="load_TotalTeam()" id="btTotal" class="btn-success"><i class="icon-group"></i><strong>{{ $totalTeam }}</strong><br>Total Teams</button></li>
-             	 	 	 	<li><button onclick="load_TotalProject()" id="btTotal" class="btn-success"	><i class="icon-book"></i><strong>{{ $totalProject }}</strong><br>Total Projects</button></li>
+		             	 	<li>
+ 		 	            	 	<button onclick="load_TotalEngineer()" id="btTotal" class="btn-success">
+ 		 	            	 		<i class="icon-user"></i>
+ 		 	            	 		<strong>
+ 		 	            	 			{{ $totalEngineer }}										
+ 		 	            	 		</strong>
+ 		 	            	 	<br>Total Engineers</button>
+		             	 	</li>
+	             	 	 	<li>
+	             	 	 		<button onclick="load_TotalTeam()" id="btTotal" class="btn-success">
+	             	 	 			<i class="icon-group"></i>
+	             	 	 			<strong>{{ $totalTeam }}</strong>
+	             	 	 		<br>Total Teams</button>
+	             	 	 	</li>
+             	 	 	 	<li>
+             	 	 	 		<button onclick="load_TotalProject()" id="btTotal" class="btn-success"	>
+             	 	 	 			<i class="icon-book"></i>
+             	 	 	 			<strong>{{ $totalProject }}</strong>
+             	 	 	 		<br>Total Projects</button>
+         	 	 	 		</li>
 		             	</ul> 
 		            </div>
 		          </div>
@@ -145,7 +163,7 @@
 	              <ul>
 	              	@foreach($newProject as $_pro)
 	                <li class="clearfix">
-	                  <div class="txt"><a href="/EditProject/{{ $_pro->idProject }}" title=""> {{ $_pro->projectName }} </a><span class="date badge badge-important">New</span> </div>
+	                  <div class="txt"><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$_pro->idProject}}')"> {{ $_pro->projectName }} </a><span class="date badge badge-important">New</span> </div>
 	                </li>
 	                @endforeach
 	              </ul>
@@ -153,26 +171,50 @@
 	          </div>
 	        </div>
 	     </div>   
-        <!-- end-new project -->
-		
-	</div>
-	</div>
-  <div id="myModal" class="modal hide">
+        <!-- end-new project <--></-->
+<!-- Modal -->
+  <div class="modal fade" id="myDetailProject" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
         <div class="modal-header">
-            <button data-dismiss="modal" class="close" type="button">×</button>
-            <h3>Happy birthday!</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Detail Project</h4>
         </div>
         <div class="modal-body">
-        	@foreach ($birthday as $engineer)
-            <p>{{$engineer->engineerName}}</p>
-            <br/>
-            @endforeach
+          
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+<!-- ================= -->		
+	</div>
+	</div>
+  <div id="myModal" class="modal fade">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3></h3>
+        </div>
+        <div class="modal-body">
         </div>
   </div>
-	@if(isset($birthday[0])!=NULL)
+	@if((isset($birthday[0])!=NULL)||(isset($newEngineerNoti[0])!=NULL)||(isset($newProjectNoti[0])!=NULL)||(isset($newTeamNoti[0])!=NULL)))
 		<link rel="stylesheet" href="{{asset('css/jquery.gritter.css')}}"/>  
 	    <script src="{{asset('js/jquery.peity.min.js')}}"></script>
 	    <script src="{{asset('js/jquery.gritter.min.js')}}"></script>
-	    <script src="{{asset('js/matrix.interface.js')}}"></script>
-	@endif	
+		<script type="text/javascript">
+			birthday = "{{ $birthday }}";console.log(birthday);
+			newEngi = "{{ $newEngineerNoti }}";console.log(newEngi);
+			newPro = "{{ $newProjectNoti }}";console.log(newPro);
+			newTeam = "{{ $newTeamNoti }}";console.log(newTeam);
+		</script>
+		<script src='{{asset("js/matrix.interface.js")}}'></script> 
+	@endif
 @stop

@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 use App\Project;
 use App\Team;
 use App\Engineer;
+use App\Technical;
+
+use App\lib\changeColorStatus;
+use App\lib\getStatusProject;
+use App\lib\changeIDProject;
+use App\lib\changeIDTeam;
+
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
@@ -18,25 +25,40 @@ class ProjectController extends Controller
     }
 
     public function IndexPro(){
-
+        $controllerIDPro = new changeIDProject();
+        $controllerIDTeam = new changeIDTeam();
+        $controllerColor = new changeColorStatus();
     	  $Project = Project::all();  
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+        //$getDetail =  DB::table('Project')->where('idProject',$idProject)->get();
+        // dd($_id);       
         return view('project.IndexProjectManagement',['Project' => $Project, 
                                                       'totalEngineer' => $_totalEngineer,
                                                       'totalTeam' => $_totalTeam,
-                                                      'totalProject' => $_totalProject,]);
+                                                      'totalProject' => $_totalProject,
+                                                      'controllerIDPro' => $controllerIDPro,
+                                                      'controllerIDTeam' => $controllerIDTeam,
+                                                      'controllerColor' => $controllerColor 
+                                                     ]);
 
     }
     public function AddPro(){
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+        $getIdTeam = DB::table('Team')->select('idTeam','teamName')->where('status','=','New')->get();
+
+        //echo $getIdTeam;
+
+        $Techni = Technical::all();
+
     	return view('project.FormAddPro')->with(['totalEngineer' => $_totalEngineer,
                                                  'totalTeam' => $_totalTeam,
-                                                 'totalProject' => $_totalProject,]);
-    }
+                                                 'totalProject' => $_totalProject,]) -> with(['getIdTeam' => $getIdTeam,
+                                                 'Techni' => $Techni]);
+    } 
     public function postAddPro(Request $request)
     {
        // $this -> validate($request,
@@ -49,35 +71,40 @@ class ProjectController extends Controller
                 // 'idProject.max' => 'toi da la 50 ki tu',
             //]);
         $pro = new Project;
-        $pro -> idProject = $request -> idProject;
+        // dd($request->all());
+        // $pro -> idProject = $request -> idProject;
         $pro -> projectName = $request -> projectName;
         $pro -> status = $request -> status;
-        $pro -> techSkill = $request -> techSkill;
+        $pro -> techSkill = $request -> TechSkill;
         $pro -> dateOfBegin = $request -> dateOfBegin;
         $pro -> dateOfEnd = $request -> dateOfEnd;
         $pro -> customer_code = $request -> customer_code;
+        $pro -> idTeam = $request -> idTeam;
         $pro -> save();
- 
-        return redirect ('/ProjectManagement')-> with ('thbao','Add Successfully a new project!');
+
+
+  $updateIDTeam = DB::table('Team')->where('idTeam','=',$pro -> idTeam)->update(['status'=>'Assigned']);
+  
+       return redirect ('/ProjectManagement')-> with ('thbao','Add Successfully a new project!');
     }
 
     public function EditPro($idProject){
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
-       // $oneProject = DB::table('Project')->where('idProject', '=', $idProject)->get();
+        $_controllerIDPro = new changeIDProject();
+        $_controllerIDTeam = new changeIDTeam();
+        $Techni = Technical::all();
+        $getIdTeam = DB::table('Team')->select('idTeam','teamName')->where('status','=','New')->get();
 
-       // echo $oneProject;
 
-
-        //return view ('/project.FormEditPro',['Project' => $oneProject]);
-        // return view ('/project.FormAddPro');
-
-        //->action('ProjectController@EditPro');
         return view('project.FormEditPro', ['oneProject'=>$idProject,
                                             'totalEngineer' => $_totalEngineer,
                                             'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject,]);
+                                            'totalProject' => $_totalProject,
+                                            'controllerIDPro' => $_controllerIDPro,
+                                            'controllerIDTeam' => $_controllerIDTeam])
+                                     -> with(['getIdTeam' => $getIdTeam,'Techni'=>$Techni]); 
 
 
     }
@@ -88,34 +115,35 @@ class ProjectController extends Controller
             // $list = DB::table('Project')->where('idProject', '=', $idProject)->get();
             // $list -> update($request->all());
             $project = new Project();
+            $idTeam = $request->input('idTeam');
             $list = $project->where('idProject',$idProject)
                             ->update(['projectName' => $request->input('projectName'),
                                       'status' => $request->input('status'), 
                                       'techSkill' => $request->input('techSkill'), 
                                       'dateOfBegin' => $request->input('dateOfBegin'),
                                       'dateOfEnd' => $request->input('dateOfEnd'),
-                                      'customer_code' => $request->input('customer_code')]);
-                           
-         
-            // return view('project.FormEditPro',['oneProject',$idProject]);
-            // return redirect('/ProjectManagement');
+                                      'customer_code' => $request->input('customer_code'),
+                                      'idTeam' => $request -> input ('idTeam')]);
 
-                                // $list = DB::table('users')
-                                // ->where('id', 1)
-                                // ->update(array('votes' => 1))
-                                // echo $idProject;
-                                   //      $list -> idProject = $request -> idProject;
-                                   //      $list -> idProject = $idProject;
-                                   //      $list -> projectName = $request -> projectName;
-                                   //      $list -> status = $request -> status;
-                                   //      $list -> techSkill = $request -> techSkill;
-                                   //      $list -> dateOfBegin = $request -> dateOfBegin;
-                                   //      $list -> dateOfEnd = $request -> dateOfEnd;
-                                   //      $list -> customer_code = $request -> customer_code;
-
-                                   //      $list -> save();
+             $updateIDTeam = DB::table('Team')->where('idTeam','=',$request->input('idTeam'))->update(['status'=>'Assigned']);
+   
 
        return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update successfully the project!');
+        
+    }
+    public function DetailPro($_id) 
+    {
+
+       $controllerColor = new changeColorStatus();
+       $controller = new getStatusProject();
+       $controllerID = new changeIDProject();
+       $getDetail = DB::table('Project')->select('idProject','projectName','status','techSkill','dateOfBegin','dateOfEnd','customer_code','idTeam')->where('idProject',$_id)->get();
+
+      return view("project.FormDetailPro")->with(["getDetail" => $getDetail,
+                                                  "controller" => $controller,
+                                                  "controllerID" => $controllerID,
+                                                  "controllerColor" => $controllerColor]);
+
         
     }
     public function DelPro(Request $request, $id){
@@ -139,5 +167,5 @@ class ProjectController extends Controller
       $_team = new Team();
       $_totalTeam = $_team->count();
       return $_totalTeam;
-    }
+    } 
 }

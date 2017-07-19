@@ -181,6 +181,7 @@ class EngineerController extends Controller
         $engineer->dateJoin=$newdatein;
         $engineer->outOfdate=$newdateout;
         $engineer->birthday=$newbirth;
+
       $en = DB::table('Engineer')->where('Email',$email)->first();
           
         if (is_null($en)) {
@@ -195,6 +196,16 @@ class EngineerController extends Controller
       //  // $engineer->save();
       // } else echo"ok";
     // return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
+
+        $engineer->birthday_mail=0;
+        $engineer->status=1;
+        $engineer->busy=0;
+       
+      echo $tech;
+       $engineer->save();
+
+    return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
+
 
     }
 

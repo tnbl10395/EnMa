@@ -13,7 +13,7 @@
 				<tbody>
 					@foreach ($list as $list)
 				    <tr class="gradeX">
-				        <td>{{ $list->idTeam }}</td>
+				        <td>{{ $controller->idName($list->idTeam) }}</td>
 				        <td>{{ $list->teamName }}</td>
 				        <td>{{ $list->techSkill }}</td>
 				    </tr>

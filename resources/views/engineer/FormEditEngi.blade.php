@@ -46,7 +46,7 @@
                             <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" value="{{$list->engineerName}}" />
                           </div>
                           <div class="controls">
-                            <input type="text" data-date-format="yyyy-mm-dd" placeholder="Date of Birth" name="birthday" class="datepicker span11" value="{{$list->birthday}}"> 
+                            <input type="text" data-date-format="yyyy-mm-dd" placeholder="Date of Birth" name="birthday" class="datepicker span11" value="{{$list->birthday}}" required>
                           </div>
                           <div class="controls">
                             <select class="span11" name="experience" id="experience">
@@ -115,7 +115,9 @@
                <div class="control-group">
                   <label class="control-label">Date Of Join</label>
                   <div class="controls">
-                    <input type="text" placeholder="Date Of Join" data-date-format="yyyy-mm-dd" name="datejoin" class="datepicker span11" value="{{$list->dateJoin}}">
+
+                    <input type="text" placeholder="Date Of Join" data-date-format="yyyy-mm-dd" name="datejoin" class="datepicker span11" value="{{$list->dateJoin}}" required="">
+
                   </div>
                 </div>
                 <div class="control-group" style="margin-bottom: 10px;">
@@ -141,21 +143,21 @@
           <div id="control" class="control-group">
             <label id="label" class="control-label">Address :</label>
             <div class="controls">
-              <input id="input" type="text" name="address" class="span11" placeholder="Address" value="{{$list->Address}}" />
+              <input id="input" type="text" name="address" class="span11" placeholder="Address" value="{{$list->Address}}" required/>
             </div>
           </div>
 
           <div  id="control" class="control-group">
             <label id="label" class="control-label">Phone :</label>
             <div class="controls">
-              <input id="input" type="text" name="phone" class="span11" placeholder="Phone" value="{{$list->Phone}}" />
+              <input id="input" type="text" name="phone" class="span11" placeholder="Phone" value="{{$list->Phone}}" required/>
             </div>
           </div>
 
           <div id="control" class="control-group">
             <label id="label"  class="control-label">Email :</label>
             <div class="controls">
-              <input id="input" type="text" name="email" class="span11" placeholder="Email" value="{{$list->Email}}" />
+              <input id="input" type="email" name="email" class="span11" placeholder="Email" value="{{$list->Email}}" required/>
             </div>
           </div>
           
