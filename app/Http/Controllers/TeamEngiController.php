@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InformUser;
 use Illuminate\Http\Request;
 use App\Team;
 use App\Project;
@@ -31,6 +32,7 @@ class TeamEngiController extends Controller
         foreach($listEngineer as $engineer)
             array_push($dataToInsert,['idEngineer'=>$engineer,'idProject'=>$idProject,
                 'idTeam'=>$idTeam,'role'=>'coder','DateOfJoining'=>Carbon::today()]);
+
 //        print_r($dataToInsert);
         DB::table('Engineer')->whereIn('idEngineer',$listEngineer)->update(['busy'=>1]);
         DB::table('History')->insert($dataToInsert);
@@ -38,6 +40,9 @@ class TeamEngiController extends Controller
 //        DB::table('History')->where('idHistory',30)->update(['expire'=>DB::raw('current_date')]);//ok
 
 
+        $list_mail = DB::table('Engineer')->select('Email')->whereIn('idEngineer',$listEngineer);
+        $mailable = new InformUser($dataToInsert);
+        Mail::to($list_mail)->send($mailable);
 
 
 
