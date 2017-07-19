@@ -6,7 +6,7 @@
         <label class="control-label">Project ID:</label>
 
         <div class="controls">
-             <p id = "trrr">{{$getDetail[0]->idProject}}</p>
+             <p id = "trrr">{{$controllerID->idName($getDetail[0]->idProject)}}</p>
         </div>
       </div>
       <div class="control-group">
@@ -19,7 +19,7 @@
       <div class="control-group">
         <label class="control-label">Status :</label>
         <div class="controls">
-          <p id= "status">{{$controller->getStatus($getDetail[0]->status)}}</p>
+          <p id= "status"><span class="{{$controllerColor->changeColor($getDetail[0]->status)}}">{{$controller->getStatus($getDetail[0]->status)}}</span></p>
         </div>
       </div>
       <div class="control-group">

@@ -101,7 +101,7 @@
                 <tr class="gradeX {{$pr->idProject}}">
                  <!--  <td><a href="DetailProject/{{$pr -> idProject}}">{{$pr -> idProject}}</a></td> -->
 
-                  <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$controllerPro->idName($pr -> idProject)}}</a></td>
+                  <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$controllerIDPro->idName($pr -> idProject)}}</a></td>
                   <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$pr -> idProject}}')" id="detail">{{$pr -> projectName}}</a></td>
 
                   <!-- switch case for status- -->
@@ -123,7 +123,11 @@
                   <td>{{$pr -> dateOfBegin}}</td>
                   <td>{{$pr -> dateOfEnd}}</td>
                   <td>{{$pr -> customer_code}}</td> 
-                  <td>{{$pr -> idTeam}}</td>  
+                  <td>
+                  @if ($pr->idTeam!=NULL)
+                  {{$controllerIDTeam->idName($pr -> idTeam)}}
+                  @endif
+                  </td>  
                   <td style="text-align: center;"> <a href="../EditProject/{{ $pr -> idProject}}" ><i class="icon-edit"></i></a></td>
                   <td style="text-align: center;"> <a href="#myAlertPro" data-toggle="modal" onclick="IdToModalPro('{{$pr->idProject}}')"><i class="icon-remove"></i></a></td>
 
