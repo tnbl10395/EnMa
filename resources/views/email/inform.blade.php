@@ -22,10 +22,10 @@
                         <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
                             <tr>
                                 <td width="360" align="left" valign="middle" style="font-family:Arial, Helvetica, sans-serif; color:#4e4e4e; font-size:13px; padding-right:10px;">
-                                    <div style="font-size:24px;">Lorem ipsum Dollar tempor venenatis eros. Aliquam sed velit vitae nibh pulvinar iaculis.<br>
+                                    <div style="font-size:24px;">You are assigned to a new Project!<br>
                                         <br>
                                     </div>
-                                    lorem eu luctus cursus, sapien justo auctor ligula, id bibendum lorem leo quis leo. Suspendisse sit amet aliquam orci. Aliquam erat volutpat. Aliquam erat volutpat. Nunc ac justo enim. Morbi eleifend feugiat turpis non placerat. Etiam </td>
+                                    {{$project[0]->projectName}}</td>
                                 <td align="right" valign="middle"><table width="210" border="0" cellspacing="0" cellpadding="0">
 
                                     </table></td>
@@ -34,20 +34,20 @@
                         <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
 
                             <tr>
-                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Lorem ipsum Dollar tempor venenatis eros. <br>
+                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Technical <br>
                                         <br>
                                     </div>
-                                    <div style="font-size:13px;">Lorem ipsum dolor sit amet, consectetur tempor venenatis eros. Aliquam sed velit vitae nibh pulvinar iaculis. Aenean hendrerit, lorem eu luctus cursus, sapien justo auctor ligula, id bibendum lorem leo quis leo. Suspendisse sit amet aliquam orci. Aliquam erat volutpat. Aliquam erat volutpat. Nunc ac justo enim. Morbi eleifend feugiat turpis non placerat. Etiam sed tellus ac lectus lacinia molestie nec eu nisl. Pellentesque mattis luctus ultrices. Suspendisse pretium feugiat ipsum nec dapibus. Aenean bibendum vestibulum scelerisque. </div></td>
+                                    <div style="font-size:13px;"> {{$project[0]->techSkill}}</div></td>
                             </tr>
 
                         </table>
                         <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
 
                             <tr>
-                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Lorem ipsum Dollar tempor venenatis eros. <br>
+                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Customer code <br>
                                         <br>
                                     </div>
-                                    <div style="font-size:13px;">Lorem ipsum dolor sit amet, consectetur tempor venenatis eros. Aliquam sed velit vitae nibh pulvinar iaculis. Aenean hendrerit, lorem eu luctus cursus, sapien justo auctor ligula, id bibendum lorem leo quis leo. Suspendisse sit amet aliquam orci. Aliquam erat volutpat. Aliquam erat volutpat. Nunc ac justo enim. Morbi eleifend feugiat turpis non placerat. Etiam sed tellus ac lectus lacinia molestie nec eu nisl. Pellentesque mattis luctus ultrices. Suspendisse pretium feugiat ipsum nec dapibus. Aenean bibendum vestibulum scelerisque. </div></td>
+                                    <div style="font-size:13px;"> {{$project[0]->customer_code}}</div></td>
                             </tr>
 
                         </table>
@@ -55,8 +55,8 @@
 
                             <tr>
                                 <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;">
-                                    <div style="font-size:20px;">Lorem ipsum Dollar tempor venenatis eros. Aliquam sed velit vitae nibh pulvinar iaculis.</div>
-                                    <div style="font-size:13px;">lorem eu luctus cursus, sapien justo auctor ligula, id bibendum lorem leo quis leo. Suspendisse sit amet aliquam orci. Aliquam erat volutpat. Aliquam erat volutpat. Nunc ac justo enim. Morbi eleifend feugiat turpis non placerat. Etiam sed tellus ac lectus lacinia molestie nec eu nisl. </div>
+                                    <div style="font-size:20px;">Team name: {{$team[0]->teamName}}</div>
+                                    <div style="font-size:13px;">Your colleague: {{$engineer[0]->engineerName}} </div>
                                 </td>
                             </tr>
 
