@@ -65,9 +65,11 @@
                                 </thead>
                                 <tbody>
                                 @foreach($data as $data)
-                                <tr class="gradeX {{$data->idTeam}}" data-val="{{$data->idTeam}}">
-                                    <td><a href="javascript:void(0)">{{$data->idTeam}}</a></td>
-                                    <td><a href="javascript:void(0)">{{$data->teamName}}</a></td>
+
+                                <tr class="gradeX {{$data->idTeam}}">
+                                    <td>{{$controllerTeam->idName($data->idTeam)}}</td>
+                                    <td>{{$data->teamName}}</td>
+
                                     <td>{{$data->techSkill}}</td>
                                     <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}

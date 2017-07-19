@@ -44,7 +44,7 @@ $decoded = json_decode($listPro, true);
             <div class="control-group">
               <label class="control-label">Project ID :</label>
               <div class="controls">
-                <input type="text" class="span11" placeholder="idProject" name="idProject" value= "{{ $decoded[0]['idProject'] }}" disabled="disabled" />
+                <input type="text" class="span11" placeholder="idProject" name="idProject" value= "{{ $controllerIDPro->idName($decoded[0]['idProject']) }}" disabled="disabled" />
               </div>
             </div> 
             <div class="control-group">
@@ -147,7 +147,7 @@ $decoded = json_decode($listPro, true);
                   @elseif ($decoded[0]['idTeam'] != NULL)
 
 
-                  <input type="text" class="span11" name= "idTeam" disabled="disabled" value= "{{ $decoded[0]['idTeam'] }}" />
+                  <input type="text" class="span11" name= "idTeam" readonly="readonly" value= "{{$controllerIDTeam->idName($decoded[0]['idTeam']) }}" />
 
                   
                   @endif   

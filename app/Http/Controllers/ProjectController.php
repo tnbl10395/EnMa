@@ -7,8 +7,12 @@ use App\Project;
 use App\Team;
 use App\Engineer;
 use App\Technical;
+
+use App\lib\changeColorStatus;
 use App\lib\getStatusProject;
 use App\lib\changeIDProject;
+use App\lib\changeIDTeam;
+
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
@@ -21,7 +25,9 @@ class ProjectController extends Controller
     }
 
     public function IndexPro(){
-        $controller = new changeIDProject();
+        $controllerIDPro = new changeIDProject();
+        $controllerIDTeam = new changeIDTeam();
+        $controllerColor = new changeColorStatus();
     	  $Project = Project::all();  
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
@@ -32,7 +38,9 @@ class ProjectController extends Controller
                                                       'totalEngineer' => $_totalEngineer,
                                                       'totalTeam' => $_totalTeam,
                                                       'totalProject' => $_totalProject,
-                                                      'controllerPro'=> $controller, 
+                                                      'controllerIDPro' => $controllerIDPro,
+                                                      'controllerIDTeam' => $controllerIDTeam,
+                                                      'controllerColor' => $controllerColor 
                                                      ]);
 
     }
@@ -84,10 +92,8 @@ class ProjectController extends Controller
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
-        
-       // $getIdTeam = Team::all();
-
-
+        $_controllerIDPro = new changeIDProject();
+        $_controllerIDTeam = new changeIDTeam();
         $Techni = Technical::all();
         $getIdTeam = DB::table('Team')->select('idTeam','teamName')->where('status','=','New')->get();
 
@@ -95,7 +101,9 @@ class ProjectController extends Controller
         return view('project.FormEditPro', ['oneProject'=>$idProject,
                                             'totalEngineer' => $_totalEngineer,
                                             'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject,])
+                                            'totalProject' => $_totalProject,
+                                            'controllerIDPro' => $_controllerIDPro,
+                                            'controllerIDTeam' => $_controllerIDTeam])
                                      -> with(['getIdTeam' => $getIdTeam,'Techni'=>$Techni]); 
 
 
@@ -107,6 +115,7 @@ class ProjectController extends Controller
             // $list = DB::table('Project')->where('idProject', '=', $idProject)->get();
             // $list -> update($request->all());
             $project = new Project();
+            $idTeam = $request->input('idTeam');
             $list = $project->where('idProject',$idProject)
                             ->update(['projectName' => $request->input('projectName'),
                                       'status' => $request->input('status'), 
@@ -124,11 +133,17 @@ class ProjectController extends Controller
     }
     public function DetailPro($_id) 
     {
+
+       $controllerColor = new changeColorStatus();
        $controller = new getStatusProject();
+       $controllerID = new changeIDProject();
        $getDetail = DB::table('Project')->select('idProject','projectName','status','techSkill','dateOfBegin','dateOfEnd','customer_code','idTeam')->where('idProject',$_id)->get();
 
       return view("project.FormDetailPro")->with(["getDetail" => $getDetail,
-                                                  "controller" => $controller]);
+                                                  "controller" => $controller,
+                                                  "controllerID" => $controllerID,
+                                                  "controllerColor" => $controllerColor]);
+
         
     }
     public function DelPro(Request $request, $id){

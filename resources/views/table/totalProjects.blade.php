@@ -19,7 +19,8 @@
 				 <tr class="gradeX">
 				    <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$listPro->idProject}}')">{{ $controller->idName($listPro->idProject) }}</a></td>
 				    <td>{{ $listPro->projectName }}</td>
-				    <td><button id="btStatus">{{ $controllerStt->getStatus($listPro->status) }}</button></td>
+				    <td class="status"><span id="lb-config" class="{{ $controllerColor->changeColor($listPro->status) }}">{{ $controllerStt->getStatus($listPro->status) }}</span></td>
+
 				    <td>{{ $listPro->techSkill }}</td>
 				    <td>{{ $listPro->dateOfBegin }}</td>
 				    <td>{{ $listPro->dateOfEnd }}</td>
@@ -51,14 +52,6 @@
       
     </div>
   </div>
-<script type="text/javascript">
-	var status = "{{$list[0]}}";
-	$(this).ready(function(){
-		if(status == "0"){
-			$("#btStatus").addClass("btn-primary");
-		}
-	});
-	
 
 
-</script>
+

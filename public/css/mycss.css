@@ -160,6 +160,7 @@
 #one{
   cursor: pointer;
 }
-.btn-config{
-  
+#lb-config{
+  width: 90%;
+  text-align: center;
 }
