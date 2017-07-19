@@ -64,7 +64,7 @@
                             <td>{{$engineer->idEngineer}}</td>
                             <td>{{$engineer->engineerName}}</td>
                             <td>{{$engineer->Email}}</td>
-                            <td style="text-align: center"><input type="checkbox" name="engi" value="{{$engineer->idEngineer}}"></td>
+                            <td style="text-align: center"><input type="checkbox" name="engi" value="{{$engineer->idEngineer}}" data-name="{{$engineer->engineerName}}" data-email="{{$engineer->Email}}"></td>
                         </tr>
                     @endforeach
                     </tbody>
