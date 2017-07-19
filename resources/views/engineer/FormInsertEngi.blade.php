@@ -7,6 +7,13 @@
   <h1>Insert Engineer</h1>
 </div>
 <div class="container-fluid">
+@if(session('notify'))
+      <div class="alert alert-danger alert-block"> <a class="close" data-dismiss="alert" href="#">×</a>
+
+        <h4 class="alert-heading">Warning!</h4>
+        {{session('notify')}}
+      </div>
+      @endif
   <hr>
   <div class="row-fluid">
     <form action="/AddEngineerController" method="POST" class="form-horizontal" enctype='multipart/form-data'>

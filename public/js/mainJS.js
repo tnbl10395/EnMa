@@ -184,3 +184,14 @@ function IdToModalEngi(id){//must be a string
     html = $('#myAlertEngi div.modal-footer a:eq(0)').attr("title", id);
 
 }
+function showDetailEngi(id){
+  $.ajax({
+    url: "/DetailEngineer/"+id,
+    dataType: "text",
+    type: "GET",
+    success: function(result){
+      $(".modal-body").html(result);
+    }
+  });
+
+}
