@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="{{asset('css/mycss.css')}}" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
- {{--<script src="{{asset('js/jquery-1.12.4.js')}}"></script>--}}
-    <script src="{{asset('js/jquery.min.js')}}"></script>  
+ <script src="{{asset('js/jquery-1.12.4.js')}}"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/jquery.ui.custom.js')}}"></script>
     <script src="{{asset('js/matrix.tables.js')}}" sycn></script>
     <script src="{{asset('js/jquery.dataTables.min.js')}}" sycn></script> 

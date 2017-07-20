@@ -25,7 +25,7 @@
                                     <div style="font-size:24px;">You are assigned to a new Project!<br>
                                         <br>
                                     </div>
-                                    {{$project[0]->projectName}}</td>
+                                    <h2>Name: {{$project[0]->projectName}}</h2></td>
                                 <td align="right" valign="middle"><table width="210" border="0" cellspacing="0" cellpadding="0">
 
                                     </table></td>
@@ -34,29 +34,55 @@
                         <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
 
                             <tr>
-                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Technical <br>
-                                        <br>
+                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Main Technical: {{$project[0]->techSkill}} <br>
+
                                     </div>
-                                    <div style="font-size:13px;"> {{$project[0]->techSkill}}</div></td>
+
                             </tr>
 
                         </table>
                         <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
 
                             <tr>
-                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Customer code <br>
-                                        <br>
+                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Customer code: {{$project[0]->customer_code}} <br>
+
                                     </div>
-                                    <div style="font-size:13px;"> {{$project[0]->customer_code}}</div></td>
+
                             </tr>
 
                         </table>
                         <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
 
                             <tr>
-                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;">
-                                    <div style="font-size:20px;">Team name: {{$team[0]->teamName}}</div>
-                                    <div style="font-size:13px;">Your colleague: {{$engineer[0]->engineerName}} </div>
+                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Date Of Begin: {{$project[0]->dateOfBegin}} <br>
+
+                                    </div>
+
+                            </tr>
+
+                        </table>
+                        <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
+
+                            <tr>
+                                <td align="left" valign="middle" bgcolor="#1ba5db" style="padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;"><div style="font-size:20px;">Team name: {{$team}} <br>
+
+                                    </div>
+
+                            </tr>
+
+                        </table>
+                        <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:15px;">
+
+                            <tr>
+                                <td align="left" valign="middle" bgcolor="#1ba5db" style="font-size:20px;padding:0px 20px 0px 20px; font-family:Arial, Helvetica, sans-serif; background-color:#1ba5db; color:#ffffff;">Your colleague: <br>
+                                    @foreach ($engineer as $name)
+
+
+                                    <div style="font-size:15px;">{{$name}} </div>
+
+
+
+                                    @endforeach
                                 </td>
                             </tr>
 
