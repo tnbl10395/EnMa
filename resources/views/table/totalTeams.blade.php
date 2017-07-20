@@ -19,7 +19,9 @@
 				        <td><a href="#showDetail_Team" data-toggle="modal" >{{ $controller->idName($list->idTeam) }}</a></td>
 				        <td>{{ $list->teamName }}</td>
 				        <td>{{ $list->techSkill }}</td>
+
 				        <td><span id="lb-config" class="{{$controllerColor->changeColor($list->status)}}">{{ $list->status }}</span></td>
+
 				    </tr>
 				    @endforeach
 				</tbody>

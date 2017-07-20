@@ -22,7 +22,6 @@
 					$string = "label";
 					break;
 				case '3':
-
 				case 'In progress':
 					$string = "label label-warning";
 					break;
