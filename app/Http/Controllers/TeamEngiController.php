@@ -40,9 +40,9 @@ class TeamEngiController extends Controller
 //        DB::table('History')->where('idHistory',30)->update(['expire'=>DB::raw('current_date')]);//ok
 
 
-        $list_mail = DB::table('Engineer')->select('Email')->whereIn('idEngineer',$listEngineer);
-        $mailable = new InformUser($dataToInsert);
-        Mail::to($list_mail)->send($mailable);
+//        $list_mail = DB::table('Engineer')->select('Email')->whereIn('idEngineer',$listEngineer);
+//        $mailable = new InformUser($dataToInsert);
+//        Mail::to($list_mail)->send($mailable);
 
 
 
