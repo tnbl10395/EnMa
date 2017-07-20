@@ -194,7 +194,7 @@ $(document).ready(function(){
                 nameProject: $('#project_name input, #project_name label').attr('value')
             },
             success:function(result){
-                //console.log(result);
+                console.log(result);
                 $.ajax({
                     url: "/Team/CurrentEngineer/"+$('[name="idTeam"]').val(),
                     type: "get",
