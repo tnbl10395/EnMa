@@ -15,10 +15,15 @@ class InformUser extends Mailable
      * Create a new message instance.
      *
      * @return void
+     *
      */
-    public function __construct()
+    public  $team, $project, $engineer;
+
+    public function __construct($data)
     {
-        //
+        $this->team = DB::table('Team')->select('teamName')->whereIn('idTeam',$data);
+        $this->project = DB::table('Project')->select('projectName','techSkill','customer_code')->whereIn('idProject',$data);
+        $this->engineer = DB::table('Engineer')->select('engineerName')->whereIn('idEngineer',$data);
     }
 
     /**

@@ -17,20 +17,16 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-	    @foreach ($listEngineer as $Engieer)
+	    @foreach ($listEngineer as $Engineer)
 	    <tr class="gradeX">
-	      <td><a href="">{{ $controllerIDEngi->idName($Engieer->idEngineer) }}</a></td>
-	      <td>{{ $Engieer->engineerName }}</td>
-	      <td>{{ $Engieer->Email }}</td>
+	      <td><a href="">{{ $controllerIDEngi->idName($Engineer->idEngineer) }}</a></td>
+	      <td>{{ $Engineer->engineerName }}</td>
+	      <td>{{ $Engineer->Email }}</td>
 	      <td>
-	      	@if ($Engineer->busy==0)
-	      	<span class="{{$controllerColor->changeColor($Engineer->busy)}}">
-				Activite
-	      	</span>
-	      	@endif
+			<span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($Engineer->busy)}}">Available</span> 
 	      </td>
-	      <td>{{ $Engieer->TechSkill }}</td>
-	      <td>{{ $Engieer->Experience }}</td>
+	      <td>{{ $Engineer->TechSkill }}</td>
+	      <td>{{ $Engineer->Experience }}</td>
 	    </tr>
 	    @endforeach
 		  </tbody>

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{asset('css/mycss.css')}}" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-
+ <script src="{{asset('js/jquery-1.12.4.js')}}"></script>
     <script src="{{asset('js/jquery.min.js')}}"></script>  
     <script src="{{asset('js/jquery.ui.custom.js')}}"></script>
     <script src="{{asset('js/matrix.tables.js')}}" sycn></script>
@@ -31,13 +31,12 @@
     <script src="{{asset('js/select2.min.js')}}"></script>
     <script src="{{asset('js/matrix.js')}}"></script>
     <!-- <script src="js/matrix.form_common.js"></script> -->
-    
     <script src="{{asset('js/bootstrap-colorpicker.js')}}"></script>
     <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('js/jquery.toggle.buttons.js')}}"></script> 
     <script src="{{asset('js/masked.js')}}"></script>
     <script src="{{asset('js/wysihtml5-0.3.0.js')}}"></script>
-
+   
   
 
     <script>

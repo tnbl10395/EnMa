@@ -80,6 +80,30 @@
                             </select>
                       
                           </div>
+                           <div class="controls">
+                            <select class="span11" name="status" id="status">
+                              <option value="1">In Company</option>
+                              <option value="0">Left</option>
+                              
+                            <script>
+                              var exp = "{{$list->status}}";  
+                              var val; 
+                              switch (exp){
+                                case "1": val = 1;
+                                break;
+                                case "0": val = 0;
+                                break;
+                                default:
+                                break;
+                              }
+                              $(document).ready(function(){
+                                $("#status").val(val);
+                              });
+
+                            </script>
+                            </select>
+                      
+                          </div>
                         </div>
                     </div>
 
