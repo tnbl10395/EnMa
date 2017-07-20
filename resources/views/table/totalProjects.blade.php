@@ -8,12 +8,12 @@
 				<hr/>
 				<thead>
 				  <tr>
-				    <th>idProject</th>
-				    <th>projectName</th>
-				    <th>status</th>
+				    <th>ID</th>
+				    <th>Project Name</th>
+				    <th>Status</th>
 				    <th>Technical Skill</th>
-				    <th>dateOfBegin</th>
-				    <th>dateOfEnd</th>
+				    <th>Date Of Begin</th>
+				    <th>Date Of End</th>
 				  </tr>
 				</thead>
 				<tbody>

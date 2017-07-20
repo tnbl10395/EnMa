@@ -18,7 +18,7 @@
 		  <tbody>
   		    @foreach ($list as $list)
 		    <tr class="gradeX">
-		      <td><a href="#">{{ $controller->idName($list->idEngineer) }}</a></td>
+		      <td><a href="#product_view" data-toggle="modal" onclick="showDetailEngi('{{$list->idEngineer}}')">{{ $controller->idName($list->idEngineer) }}</a></td>
 		      <td>{{ $list->engineerName }}</td>
 		      <td>{{ $list->Email }}</td>
 		      <td>
@@ -37,3 +37,18 @@
 	</div>   
 	</div> 
 </div> 
+<div class="modal fade product_view" id="product_view">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+        <h3 class="modal-title">Engineer Detail</h3>
+      </div>
+      <div class="modal-body">
+        
+
+
+      </div>
+    </div>
+  </div>
+</div>
