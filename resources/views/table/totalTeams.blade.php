@@ -16,10 +16,12 @@
 				<tbody>
 					@foreach ($list as $list)
 				    <tr class="gradeX">
-				        <td>{{ $controller->idName($list->idTeam) }}</td>
+				        <td><a href="#showDetail_Team" data-toggle="modal" >{{ $controller->idName($list->idTeam) }}</a></td>
 				        <td>{{ $list->teamName }}</td>
 				        <td>{{ $list->techSkill }}</td>
-				        <td>{{ $list->status }}</td>
+
+				        <td><span id="lb-config" class="{{$controllerColor->changeColor($list->status)}}">{{ $list->status }}</span></td>
+
 				    </tr>
 				    @endforeach
 				</tbody>
@@ -27,3 +29,12 @@
 		</div>
 	</div> 
 </div> 
+    <div id="showDetail_Team" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>INFO TEAM</h3>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">OK</a> </div>
+    </div>

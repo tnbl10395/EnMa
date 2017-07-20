@@ -84,11 +84,11 @@
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Address</th>
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Technical Skills</th>
-                    <th>experience</th>
+                    <th>Experience</th>
+                    <th>Status</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
@@ -98,11 +98,17 @@
                   <tr class="gradeX {{$list->idEngineer}} bodyparts">
                     <td><a data-toggle="modal" onclick="showDetailEngi('{{$list->idEngineer}}')" class="hello" href="#product_view">{{ $controller->idName($list->idEngineer) }}</a></td>
                     <td>{{ $list->engineerName }}</td>
-                    <td>{{ $list->Address }}</td>
                     <td>{{ $list->Phone }}</td>
                     <td>{{ $list->Email }}</td>
                     <td>{{ $list->TechSkill }}</td>
                     <td>{{ $list->Experience }}</td>
+                    <td>
+                      @if ($list->busy==0)
+                        <span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Available</span>
+                      @else
+                        <span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Activite</span>
+                      @endif
+                    </td>
                     <td> <a href="EditEngineer/{{$list->idEngineer}}" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
 
                     <td> <a href="#myAlertEngi" data-toggle="modal" onclick="IdToModalEngi('{{$list->idEngineer}}')"><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
@@ -147,10 +153,10 @@
 
 
       </div>
-</div>
+    </div>
+  </div>
 </div>
 
-</div>
 </div>
 
 <!--  -->

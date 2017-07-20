@@ -66,6 +66,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($data as $data)
+
                                 <tr class="gradeX {{$data->idTeam}}" data-val="{{$data->idTeam}}">
                                     <td><a href="javascript:void(0)">{{$controllerTeam->idName($data->idTeam)}}</a></td>
                                     <td><a href="javascript:void(0)">{{$data->teamName}}</a></td>
