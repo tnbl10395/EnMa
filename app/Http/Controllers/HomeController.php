@@ -8,6 +8,8 @@ use App\Engineer;
 use App\Team;
 use App\Project;
 use App\lib\changeIDName;
+use App\lib\changeIDProject;
+use App\lib\changeIDTeam;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -43,12 +45,15 @@ class HomeController extends Controller
         $_project = new Project();
 
         $_changeIDName = new changeIDName();
+        $_changeIDPro = new changeIDProject();
+        $_changeIDTeam = new changeIDTeam();
 
         $_totalTeam = $this->totalTeam($_team);
         $_totalProject = $this->totalProject($_project);
         $_totalEngineer = $this->totalEngineer($_engineer);
 
-        $_listEngineer = $this->listEngineer($_engineer);
+        // $_listEngineer = $this->listEngineer($_engineer);
+        // $_staticEngineer = $this->staticEngineer($_engineer);
         $_topEngineer = $this->topEngineer($_engineer);
 
         $_newProject = $this->newProject($_project);
@@ -66,10 +71,13 @@ class HomeController extends Controller
             'totalEngineer' => $_totalEngineer,
             'totalTeam' => $_totalTeam,
             'totalProject' => $_totalProject,
-            'listEngineer' => $_listEngineer,
+            // 'listEngineer' => $_listEngineer,
+            // 'listEngineer' => $_staticEngineer,
             'topEngineer' => $_topEngineer,
             'newProject' => $_newProject,
             'controllerEngi' => $_changeIDName,
+            'controllerPro' => $_changeIDPro,
+            'controllerTeam' => $_changeIDTeam,
             'birthday' => $_birthday,
             'newEngineerNoti' => $_newEngineerNoti,
             'newProjectNoti' => $_newProjectNoti,
@@ -88,10 +96,10 @@ class HomeController extends Controller
                                 ->get();
       return $_topEngineer;
     }
-    public function statisticEngineer($_engineer){
-      // $_statisticEngineer = $_engineer->
-      //return $_statisticEngineer;
-    }
+    // public function staticEngineer($_engineer){
+    //   $_staticEngineer = $_engineer->where("busy","0")->get();
+    //   return view("table.availableEngineer")->with(["$listEngineer"=>$_staticEngineer]);
+    // }
 
     public function newProject($_project){
       $_newProject = $_project->selectRaw('idProject, projectName')
@@ -103,7 +111,7 @@ class HomeController extends Controller
 
 
     public function newProjectNotification($_project){
-      $_newProjectNoti = $_project->selectRaw('idProject,projectName,dateOfBegin')
+      $_newProjectNoti = $_project->selectRaw('idProject,projectName,dateOfBegin,dateOfEnd')
                                   ->whereRaw("DATEDIFF(NOW(),dateOfBegin) < 3")
                                   ->get();
       return $_newProjectNoti;
@@ -118,7 +126,7 @@ class HomeController extends Controller
 
 
     public function newTeamNotification($_team){
-      $_newTeamNoti = $_team->selectRaw('idTeam,teamName,status')
+      $_newTeamNoti = $_team->selectRaw('idTeam,teamName,techSkill,status')
                             ->whereRaw("DATEDIFF(NOW(),Timestamp) < 3")
                             ->get();
       return $_newTeamNoti;

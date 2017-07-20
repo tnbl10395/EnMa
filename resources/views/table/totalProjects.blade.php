@@ -4,6 +4,8 @@
 	<div class="widget-box">
 		 <div class="widget-content nopadding">
 		 	<table class="table table-bordered data-table">
+			 	<h4 style="margin-left: 20px;">Total Projects</h4>	
+				<hr/>
 				<thead>
 				  <tr>
 				    <th>idProject</th>

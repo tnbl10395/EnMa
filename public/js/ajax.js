@@ -36,3 +36,21 @@ function load_TableTopEngineer(id){
 		}
 	});
 }
+function load_AvailableEngineer(){
+	$.ajax({
+		url : "/availableEngineer",
+		type: "GET",
+		success: function(html){
+			$('#changetable').html(html);
+		}
+	});
+}
+$(document).ready(function(){
+	$.ajax({
+		url : "/availableEngineer",
+		type: "GET",
+		success: function(html){
+			$('#changetable').html(html);
+		}
+	});
+});
