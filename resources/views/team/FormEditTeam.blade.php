@@ -174,7 +174,7 @@
                                     <td>{{$member->idEngineer}}</td>
                                     <td>{{$member->engineerName}}</td>
                                     <td>{{$member->role}}</td>
-                                    <td style="text-align: center"> <a href="/EditEngineer" ><i class="icon-edit"></i></a></td>
+                                    <td style="text-align: center"> <a href="/EditEngineer/{{$member->idEngineer}}" ><i class="icon-edit"></i></a></td>
                                     <td style="text-align: center"> <a href="javascript:void(0)" ><i class="icon-remove"></i></a></td>
                                 </tr>
                                 @endforeach
@@ -195,7 +195,7 @@
         <div class="modal-body">
 
         </div>
-        <div class="modal-footer"> <a style="display: none;" data-dismiss="modal" class="btn btn-primary" href="#">Add</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+        <div class="modal-footer"> <a data-dismiss="modal" class="btn btn-primary" href="#">Add</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
     </div>
 
 

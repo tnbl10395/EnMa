@@ -9,6 +9,7 @@
             "sDom": '<""l>t<"F"fp>'
         });
         $('.add-member').on('click',function(){
+            $('#modaladdTeam div.modal-footer a:eq(0)').hide();//default is hide
             $.ajax({
                 url : "/Team/ListAvailable",
                 type : "get",
@@ -45,7 +46,7 @@
                         <td>{{$member->idEngineer}}</td>
                         <td>{{$member->engineerName}}</td>
                         <td>{{$member->role}}</td>
-                        <td style="text-align: center"> <a href="/EditEngineer" ><i class="icon-edit"></i></a></td>
+                        <td style="text-align: center"> <a href="/EditEngineer/{{$member->idEngineer}}" ><i class="icon-edit"></i></a></td>
                         <td style="text-align: center"> <a href="javascript:void(0)" ><i class="icon-remove"></i></a></td>
                     </tr>
                 @endforeach

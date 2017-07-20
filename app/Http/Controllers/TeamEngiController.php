@@ -36,17 +36,20 @@ class TeamEngiController extends Controller
 
         $mailable = new InformUser($teamName, $listNameEngineer, $idProject);
        Mail::to($listEmailEngineer)->send($mailable);
-        if(count(Mail::failures()) <= 0){
+        if(count(Mail::failures()) <= 0) {
 ////        print_r($dataToInsert);
-             DB::table('Engineer')->whereIn('idEngineer',$listidEngineer)->update(['busy'=>1]);
+            DB::table('Engineer')->whereIn('idEngineer', $listidEngineer)->update(['busy' => 1]);
             DB::table('History')->insert($dataToInsert);
 //        DB::table('History')->where('idHistory',30)->update(['expire'=>Carbon::today()]);
 //        DB::table('History')->where('idHistory',30)->update(['expire'=>DB::raw('current_date')]);//ok
 
+
+//        $list_mail = DB::table('Engineer')->select('Email')->whereIn('idEngineer',$listEngineer);
+//        $mailable = new InformUser($dataToInsert);
+//        Mail::to($list_mail)->send($mailable);
+
+
         }
-//        $list_mail = DB::table('Engineer')->select('Email')->whereIn('idEngineer',$listidEngineer);
-
-
     }
 
     public function removeEngineerFromTeam(Request $request){

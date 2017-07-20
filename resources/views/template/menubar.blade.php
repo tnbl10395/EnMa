@@ -30,8 +30,9 @@
     <script src="{{asset('js/jquery.uniform.js')}}"></script>
     <script src="{{asset('js/select2.min.js')}}"></script>
     <script src="{{asset('js/matrix.js')}}"></script>
+
     <script src="{{asset('js/matrix.form_common.js')}}"></script>
-   {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
+
     <script src="{{asset('js/bootstrap-colorpicker.js')}}"></script>
     <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('js/jquery.toggle.buttons.js')}}"></script> 
@@ -66,9 +67,9 @@
 
 
                     <li class="divider"></li>
-                    <li><a href="/password/reset"><i class="icon-check"></i> Change password</a></li>
+                    <li><a href="/password/reset"><i class="icon-key"></i> Change password</a></li>
                     <li class="divider"></li>
-                    <li><a href="/logout"><i class="icon-key"></i> Log Out</a></li>
+                    <li><a href="/logout"><i class=" icon-signout"></i> Log Out</a></li>
                     @endif
                 </ul>
             </li>
@@ -96,7 +97,7 @@
     <li class=""> <a href="/EngineerManagement"><i class="icon icon-user"></i> <span>Engineers</span> <span class="label label-important">{{ $totalEngineer }}</span></a>
     </li>
     
-    <li><a href="/logout"><i class="icon icon-fullscreen"></i> <span>Log out</span></a></li>
+    <li><a href="/logout"><i class="icon icon-signout"></i> <span>Log out</span></a></li>
 
 <!--     <li class="content"> <span>Monthly Bandwidth Transfer</span>
       <div class="progress progress-mini progress-danger active progress-striped">

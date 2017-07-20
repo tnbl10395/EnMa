@@ -158,6 +158,7 @@ $(document).ready(function(){
     });
 
     $('.add-member').on('click',function(){//click to show Engineer will be added in team
+        $('#modaladdTeam div.modal-footer a:eq(0)').hide();//default is hide
         $.ajax({
             url : "/Team/ListAvailable",
             type : "get",

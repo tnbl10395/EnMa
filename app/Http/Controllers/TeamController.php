@@ -24,11 +24,13 @@ class TeamController extends Controller
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+        $controllerColor = new changeColorStatus();
         return view('team.IndexTeamManager',['data'=>$datas,
                                              'totalEngineer' => $_totalEngineer,
                                              'totalTeam' => $_totalTeam,
                                              'totalProject' => $_totalProject,
-                                             'controllerTeam' => $controller]);
+                                             'controllerTeam' => $controller,
+                                             'controllerColor' => $controllerColor]);
     }
     public function AddTm(){
         $_totalTeam = $this->totalTeam();
@@ -64,6 +66,7 @@ class TeamController extends Controller
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
         $controllerColor = new changeColorStatus();
+        $controller = new changeIDTeam();//change id 1 to T001
         $team = DB::table('Team')->where('idTeam',$id)->first();
 
         $_current_project=DB::table('Project')->select('idProject','projectName')->where('idTeam',$id)->get();
@@ -85,6 +88,7 @@ class TeamController extends Controller
                                                 'totalTeam' => $_totalTeam,
                                                 'totalProject' => $_totalProject,
                                                 'controllerColor' => $controllerColor,
+                                                'controllerTeam' => $controller,
                                                 'team' =>$team,'member'=>$teamMember])->with(['projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
     }
 
