@@ -150,7 +150,7 @@
           <div  id="control" class="control-group">
             <label id="label" class="control-label">Phone :</label>
             <div class="controls">
-              <input id="input" type="text" name="phone" class="span11" placeholder="Phone" value="{{$list->Phone}}" required/>
+              <input id="input" type="number" name="phone" class="span11" placeholder="Phone" value="{{$list->Phone}}" required/>
             </div>
           </div>
 
