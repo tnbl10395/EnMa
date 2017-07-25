@@ -4,7 +4,7 @@
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="ProjectManagement" class="tip-bottom">Project Management</a> <a href="#" class="current">Insert Project</a> </div>
-  <h1>Insert Project</h1>
+  <h1>Add Project</h1>
 </div>
 <div class="container-fluid">
   <hr>
@@ -30,7 +30,7 @@
             <div class="control-group">
               <label class="control-label">Project Name :</label>
               <div class="controls">
-                <input type="text" class="span11" placeholder="projectName" name="projectName" required="" />
+                <input type="text" class="span11" placeholder="projectName" name="projectName" required pattern="[a-zA-Z ]+" required="" />
               </div>
             </div>
            

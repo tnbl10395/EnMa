@@ -4,7 +4,7 @@
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="tip-bottom">Engineer Management</a> <a href="#" class="current">Insert Engineer</a> </div>
-  <h1>Insert Engineer</h1>
+  <h1>Add Engineer</h1>
 </div>
 <div class="container-fluid">
 @if(session('notify'))
@@ -47,7 +47,7 @@
    
                           </div>
                           <div class="controls">
-                            <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" />
+                            <input type="text" name="fullname" class="span11" placeholder="Full Name"  required pattern="[a-zA-Z ]+" required/>
                           </div>
                           <div class="controls">
                             <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" placeholder="Date of Birth" name="birthday" class="datepicker span11" required>

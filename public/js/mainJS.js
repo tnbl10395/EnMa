@@ -372,6 +372,7 @@ function showDetailProject(id){
     }
   });
 
+//LOGOUT
 
 }
 
