@@ -42,17 +42,14 @@ return [
         'mysql' => [
             'driver' => 'mysql',
 
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'software_engineering_management'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
-
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '8000'),
-            'database' => env('DB_DATABASE', 'Software Engineer Management'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', 'leesin'),
+            'host'      => env('DB_HOST', 'us-cdbr-iron-east-03.cleardb.net'),
+            'database'  => env('DB_DATABASE', 'heroku_9a335b2fddea025'),
+            'username'  => env('DB_USERNAME', 'b972cc2cd81da4'),
+            'password'  => env('DB_PASSWORD', 'f0d2911a'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
 
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',
