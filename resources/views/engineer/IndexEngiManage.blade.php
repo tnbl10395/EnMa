@@ -97,7 +97,7 @@
                   @foreach ($list as $list)
                   <tr class="gradeX {{$list->idEngineer}} bodyparts">
                     <td><a data-toggle="modal" onclick="showDetailEngi('{{$list->idEngineer}}')" class="hello" href="#product_view">{{ $controller->idName($list->idEngineer) }}</a></td>
-                    <td>{{ $list->engineerName }}</td>
+                    <td><a data-toggle="modal" onclick="showDetailEngi('{{$list->idEngineer}}')" class="hello" href="#product_view">{{ $list->engineerName }}</a></td>
                     <td>{{ $list->Phone }}</td>
                     <td>{{ $list->Email }}</td>
                     <td>{{ $list->TechSkill }}</td>
