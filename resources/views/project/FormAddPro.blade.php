@@ -30,7 +30,7 @@
             <div class="control-group">
               <label class="control-label">Project Name :</label>
               <div class="controls">
-                <input type="text" class="span11" placeholder="projectName" name="projectName" required pattern="[a-zA-Z ]+" required="" />
+                <input type="text" class="span11" placeholder="projectName" name="projectName" required pattern="[a-zA-Z0-9 ]+" required="" />
               </div>
             </div>
            
