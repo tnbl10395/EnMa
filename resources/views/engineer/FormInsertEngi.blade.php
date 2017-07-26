@@ -4,7 +4,7 @@
 <div id="content">
 <div id="content-header">
   <div id="breadcrumb"> <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="/EngineerManagement" class="tip-bottom">Engineer Management</a> <a href="#" class="current">Insert Engineer</a> </div>
-  <h1>Insert Engineer</h1>
+  <h1>Add Engineer</h1>
 </div>
 <div class="container-fluid">
 @if(session('notify'))
@@ -47,7 +47,7 @@
    
                           </div>
                           <div class="controls">
-                            <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" />
+                            <input type="text" name="fullname" class="span11" placeholder="Full Name"  required pattern="[a-zA-Z ]+" required/>
                           </div>
                           <div class="controls">
                             <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" placeholder="Date of Birth" name="birthday" class="datepicker span11" required>
@@ -75,12 +75,7 @@
                     <input type="text" placeholder="Date Of Join" data-date-format="dd-mm-yyyy" value="01-02-2017" name="datejoin" class="datepicker span11" required>
                   </div>
                 </div>
-                <div class="control-group" style="margin-bottom: 10px;">
-                  <label class="control-label">Date Of Out</label>
-                  <div class="controls">
-                    <input type="text" placeholder="Date Of Out" data-date-format="dd-mm-yyyy" value="01-02-2017" name="dateout" class="datepicker span11">
-                  </div>
-                 </div>
+
               </div>
             </div> 
         </div>
@@ -105,7 +100,7 @@
           <div  id="control" class="control-group">
             <label id="label" class="control-label">Phone :</label>
             <div class="controls">
-              <input id="input" type="text" name="phone" class="span11" placeholder="Phone" required/>
+              <input id="input" type="number" name="phone" class="span11" placeholder="Phone" required/>
             </div>
           </div>
 
