@@ -19,7 +19,7 @@
   		    @foreach ($list as $list)
 		    <tr class="gradeX">
 		      <td><a href="#product_view" data-toggle="modal" onclick="showDetailEngi('{{$list->idEngineer}}')">{{ $controller->idName($list->idEngineer) }}</a></td>
-		      <td>{{ $list->engineerName }}</td>
+		      <td><a href="#product_view" data-toggle="modal" onclick="showDetailEngi('{{$list->idEngineer}}')">{{ $list->engineerName }}</a></td>
 		      <td>{{ $list->Email }}</td>
 		      <td>
 		      	@if ($list->busy==0)
