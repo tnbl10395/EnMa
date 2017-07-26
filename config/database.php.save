@@ -44,13 +44,13 @@ return [
 
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'software_engineering_management'),
+            'database' => env('DB_DATABASE', 'Software_Engineer_Management'),
             'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
-
+            'password' => env('DB_PASSWORD', 'leesin'),
+Software_Engineer_Management
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '8000'),
-            'database' => env('DB_DATABASE', 'Software Engineer Management'),
+            'database' => env('DB_DATABASE', 'Software_Engineer_Management'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', 'leesin'),
 
