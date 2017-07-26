@@ -13,7 +13,7 @@
 		      <th>Email</th>
 		      <th>Status</th>
 		      <th>Technical Skill</th>
-		      <th>Experience</th>
+		      <th>Time Not Joining</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -22,13 +22,13 @@
 
 	      <td><a href="#product_view" data-toggle="modal" onclick="showDetailEngi('{{$Engineer->idEngineer}}')">{{ $controllerIDEngi->idName($Engineer->idEngineer) }}</a></td>
 
-	      <td>{{ $Engineer->engineerName }}</td>
+	      <td><a href="#product_view" data-toggle="modal" onclick="showDetailEngi('{{$Engineer->idEngineer}}')">{{ $Engineer->engineerName }}</a></td>
 	      <td>{{ $Engineer->Email }}</td>
 	      <td>
 			<span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($Engineer->busy)}}">Available</span> 
 	      </td>
 	      <td>{{ $Engineer->TechSkill }}</td>
-	      <td>{{ $Engineer->Experience }}</td>
+	      <td>{{ $getTime->date($Engineer->timeNotJoining,$Engineer->DateOfJoining) }}</td>
 	    </tr>
 	    @endforeach
 		  </tbody>

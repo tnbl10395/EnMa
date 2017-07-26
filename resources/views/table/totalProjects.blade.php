@@ -20,7 +20,7 @@
 				@foreach ($list as $listPro)	
 				 <tr class="gradeX">
 				    <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$listPro->idProject}}')">{{ $controller->idName($listPro->idProject) }}</a></td>
-				    <td>{{ $listPro->projectName }}</td>
+				    <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$listPro->idProject}}')">{{ $listPro->projectName }}</a></td>
 				    <td class="status"><span id="lb-config" class="{{ $controllerColor->changeColor($listPro->status) }}">{{ $controllerStt->getStatus($listPro->status) }}</span></td>
 
 				    <td>{{ $listPro->techSkill }}</td>
