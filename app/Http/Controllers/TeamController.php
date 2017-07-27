@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Team;
 use App\Project;
 use App\Engineer;
+use App\Http\Controllers\TeamEngiController;
 use App\lib\changeIDTeam;
 use App\lib\changeColorStatus;
 use Illuminate\Support\Facades\DB;
@@ -81,15 +82,18 @@ class TeamController extends Controller
 
 //            dd(($_listProject));
         $_techSkill = DB::table('Technical')->select('Technical')->get();
-        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role')->
+        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role','History.DateOfJoining')->
                         join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->whereNull('expire')->get();
             //SELECT History.idEngineer, Engineer.engineerName , History.role from History INNER JOIN Engineer on History.idEngineer=Engineer.idEngineer where History.`idTeam` = 'T01'
+        $oldMember = (new TeamEngiController)->listOldEngineer($id);//show old member(not in Team now):result table
+        $teamEngiCrl = new TeamEngiController;
         return view('team.FormEditTeam')->with(['totalEngineer' => $_totalEngineer,
                                                 'totalTeam' => $_totalTeam,
                                                 'totalProject' => $_totalProject,
                                                 'controllerColor' => $controllerColor,
                                                 'controllerTeam' => $controller,
-                                                'team' =>$team,'member'=>$teamMember])->with(['projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
+                                                'team' =>$team,'member'=>$teamMember,'oldMember'=>$oldMember,'teamEngi'=>$teamEngiCrl])
+                                                ->with(['projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
     }
 
     public function EditTeam(Request $request,$id){

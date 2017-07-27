@@ -66,7 +66,6 @@
                                 </thead>
                                 <tbody>
                                 @foreach($data as $data)
-
                                 <tr class="gradeX {{$data->idTeam}}" data-val="{{$data->idTeam}}">
                                     <td><a href="javascript:void(0)">{{$controllerTeam->idName($data->idTeam)}}</a></td>
                                     <td><a href="javascript:void(0)">{{$data->teamName}}</a></td>
@@ -120,5 +119,15 @@
         <div class="modal-body">
         </div>
         <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">OK</a> </div>
+    </div>
+    <div id="modalengiInfo" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Info Engineer</h3>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer"><a data-dismiss="modal" class="btn" href="#">Close</a> </div>
     </div>
 @stop
