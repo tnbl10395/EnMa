@@ -147,7 +147,9 @@ $decoded = json_decode($listPro, true);
                   @elseif ($decoded[0]['idTeam'] != NULL)
 
 
-                  <input type="text" class="span11" name= "idTeam" readonly="readonly" value= "{{$controllerIDTeam->idName($decoded[0]['idTeam']) }}" />
+                  <!-- <input type="text" class="span11" name= "idTeam" readonly="readonly" value= "{{$controllerIDTeam->idName($decoded[0]['idTeam']) }}" /> -->
+                        
+                        <input type="text" class="span11" name= "idTeam" readonly="readonly" value= "{{$controllerIDTeam->idName($decoded[0]['idTeam']) }}" />
 
                   
                   @endif   
