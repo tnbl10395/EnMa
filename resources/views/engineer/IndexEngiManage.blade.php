@@ -44,6 +44,7 @@
         {{session('notify')}}
       </div>
       @endif
+<!--       <script src="{{asset('js/filter-datatable.js')}}"></script> -->
       <div id="alert_del_engineer"></div>
       <hr>
       <div style="width: 150px; float: left; margin-bottom: 5px;">
@@ -59,7 +60,7 @@
       </div> 
       <div style="width: 150px;float: left; margin-bottom: 5px;">
         <label for="">Technical Skill</label>
-        <select name="">
+        <select name="" id="technical">
           <option value="">All</option>
           <option value="">PHP</option>
           <option value="">Java</option>
