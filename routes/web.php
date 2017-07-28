@@ -35,6 +35,7 @@ Route::get('login', function(){
 Route::get('/EngineerManagement','EngineerController@IndexEm');
 Route::get('/AddEngineer','EngineerController@AddEm');
 Route::get('/DetailEngineer','EngineerController@DetailEn');
+Route::get('/Filter/{id}','EngineerController@Filtertable');
 Route::post('/AddEngineerController',array('uses' =>'EngineerController@AddEngineer'));
 Route::get('/DetailEngineer/{id}','EngineerController@DetailEn');
 
