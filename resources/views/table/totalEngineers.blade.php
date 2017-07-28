@@ -25,7 +25,7 @@
 		      	@if ($list->busy==0)
 		    		<span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Available</span>
 		    	@else
-		    		<span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Activite</span>
+		    		<span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Active</span>
 		    	@endif
 		      </td>
 		      <td>{{ $list->TechSkill }}</td>
