@@ -392,7 +392,7 @@ function showDetailEngi(id){
 // }
 function showDetailProject(id){
   $.ajax({
-    url : "/DetailEngineerailProject/"+id,
+    url : "/DetailProject/"+id,
     dataType: "text",
 
     success: function(result){
