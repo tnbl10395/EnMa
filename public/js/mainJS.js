@@ -194,13 +194,13 @@ $(document).ready(function(){
                 nameProject: $('#project_name input, #project_name label').attr('value')
             },
             beforeSend:function(){
-                //$('#showStatus .modal-body').html('<i class="fa fa-refresh fa-spin"></i> Mails are being send......');
+                $('#showStatus .modal-body').html('<i class="fa fa-refresh fa-spin"></i> Mails are being send......');
                 $('#modaladdTeam').modal("hide");
                 $('#showStatus').modal();
             },
             success:function(result){
                 //console.log(result);
-                $('#showStatus .modal-body').html("Add engineer Successfully!!");
+                $('#showStatus .modal-body').html("<label class='label label-success'>Success!</label> Add engineer Successfully!!");
                 //$('#showStatus').modal("hide");
                 setTimeout(function(){ $('#showStatus').modal("hide"); }, 1000);
 
