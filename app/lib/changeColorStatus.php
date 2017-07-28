@@ -12,9 +12,10 @@
 				case '0':
 				case 'New':
 					$string = "label label-important";
-					break;
+					break;	
 				case '1':
 				case 'Assigned':
+
 					$string = "label label-info";
 					break;
 				case '2':
@@ -27,12 +28,27 @@
 				case '4':
 				case 'Resolved':
 					$string = "label label-success";
-					break;																			
+					break;
 				default:
 					# code...
 					break;
 			}
 			return $string;
-		}		
+		}	
+		function changeColorStatusEngi($busy){
+			$string = NULL;
+			switch ($busy) {
+				case 0 :
+					$string = "label label-non-activity";
+					break;																
+				case 1 :
+					$string = "label label-activity";
+					break;			
+				default:
+					# code...
+					break;
+			}
+			return $string;
+		}	
 	}
  ?>

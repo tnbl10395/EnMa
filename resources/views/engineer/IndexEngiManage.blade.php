@@ -26,6 +26,9 @@
         {{session('notify')}}
       </div>
       @endif
+
+<!--       <script src="{{asset('js/filter-datatable.js')}}"></script> -->
+
       <div id="alert_del_engineer"></div>
       <hr>
       <div style="width: 150px; float: left; margin-bottom: 5px;">
@@ -41,6 +44,7 @@
       </div> 
       <div style="width: 150px;float: left; margin-bottom: 5px;">
         <label for="">Technical Skill</label>
+
         <select name="experience" id="filtertec" onchange="jsFunction(this.value);">
           <option value="10">All</option>
           <option value="11">PHP</option>
@@ -49,6 +53,7 @@
           <option value="14">.Net</option>
           <option value="15">Ruby</option>
           <option value="16">Android</option>              
+
         </select>         
       </div>
     
@@ -69,11 +74,11 @@
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Address</th>
-                    <th>Email</th>
                     <th>Phone</th>
+                    <th>Email</th>
                     <th>Technical Skills</th>
-                    <th>experience</th>
+                    <th>Experience</th>
+                    <th>Status</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
@@ -83,11 +88,19 @@
                   <tr class="gradeX {{$list->idEngineer}} bodyparts">
                     <td><a data-toggle="modal" onclick="showDetailEngi('{{$list->idEngineer}}')" class="hello" href="#product_view">{{ $controller->idName($list->idEngineer) }}</a></td>
                     <td><a data-toggle="modal" onclick="showDetailEngi('{{$list->idEngineer}}')" class="hello" href="#product_view">{{ $list->engineerName }}</a></td>
-                    <td>{{ $list->Address }}</td>
+
+
                     <td>{{ $list->Phone }}</td>
                     <td>{{ $list->Email }}</td>
                     <td>{{ $list->TechSkill }}</td>
                     <td>{{ $list->Experience }}</td>
+                    <td>
+                      @if ($list->busy==0)
+                        <span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Available</span>
+                      @else
+                        <span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Active</span>
+                      @endif
+                    </td>
                     <td> <a href="EditEngineer/{{$list->idEngineer}}" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
 
                     <td> <a href="#myAlertEngi" data-toggle="modal" onclick="IdToModalEngi('{{$list->idEngineer}}')"><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
@@ -136,8 +149,15 @@
 
 
       </div>
+
+
+    </div>
+  </div>
 </div>
+
 </div>
-</div>
+
+
+
 <!--  -->
 @stop

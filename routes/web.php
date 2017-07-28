@@ -62,6 +62,7 @@ Route::get('/totalEngineer', 'ShowEngiDashboardController@ShowEngineer');
 Route::get('/totalTeam', 'ShowTeamDashboardController@ShowTeam');
 Route::get('/totalProject', 'ShowProjDashboardController@ShowProject');
 Route::get('/tableTopEngineer', 'ShowTopEngineerController@ShowTopEngineer');
+Route::get('/availableEngineer','ShowAvailableEngineerController@ShowAvailableEngineer');
 
 
 Route::get('TeamManagement','TeamController@IndexTm');
@@ -77,6 +78,8 @@ Route::post('Team/AddEngineer','TeamEngiController@addEngineerToTeam');
 Route::get('Team/CurrentEngineer/{id}','TeamEngiController@showCurrentEngineer');
 Route::get('Team/RemoveEngineer','TeamEngiController@removeEngineerFromTeam');
 Route::get('Team/ShowDetail','TeamController@showDetailTeam');
+Route::get('Team/ChangeRole','TeamEngiController@changeRole');
+Route::get('Team/OldEngineer/{id}','TeamEngiController@showOldEngineer');
 
 Route::get('/checkDB', function ()
 {

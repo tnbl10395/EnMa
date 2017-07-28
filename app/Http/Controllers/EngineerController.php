@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Project;
 use App\Team;
 use App\Engineer;
+use App\lib\changeColorStatus;
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
@@ -18,9 +19,10 @@ class EngineerController extends Controller
     $this->middleware('auth');
   }
     
-    public function IndexEM(Request $request){
 
-        
+    public function IndexEM(){ 
+        $_changeIDName = new changeIDName();
+        $_changeColor = new changeColorStatus();
         $_list = Engineer::all();
         $_changeIDName = new changeIDName();
         $_totalTeam = $this->totalTeam();
@@ -30,7 +32,8 @@ class EngineerController extends Controller
 								           	                'totalEngineer' => $_totalEngineer,
                                             'totalTeam' => $_totalTeam,
                                             'totalProject' => $_totalProject,
-                                            'controller' => $_changeIDName]);
+                                            'controller' => $_changeIDName,
+                                            'controllerColor' => $_changeColor]);
     }
      public function Filtertable($id){
            

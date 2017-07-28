@@ -35,7 +35,7 @@
                     {{--<option value="">Android</option>--}}
                 {{--</select>--}}
             {{--</div>--}}
-            <div style="width: 150px;float: left; margin-bottom: 5px;">
+            <!-- <div style="width: 150px;float: left; margin-bottom: 5px;">
                 <label for="">Technical Skill</label>
                 <select name="">
                     <option value="">PHP</option>
@@ -45,7 +45,7 @@
                     <option value="">Ruby</option>
                     <option value="">Android</option>
                 </select>
-            </div>
+            </div> -->
             <div class="row-fluid">
                 <div class="span12">
                     <div class="widget-box">
@@ -58,6 +58,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Team name</th>
+                                    <th>Status</th>
                                     <th>Technical Skill</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -68,6 +69,7 @@
                                 <tr class="gradeX {{$data->idTeam}}" data-val="{{$data->idTeam}}">
                                     <td><a href="javascript:void(0)">{{$controllerTeam->idName($data->idTeam)}}</a></td>
                                     <td><a href="javascript:void(0)">{{$data->teamName}}</a></td>
+                                    <td><span id="lb-config" class="{{$controllerColor->changeColor($data->status)}}">{{$data->status}}</span></td>
                                     <td>{{$data->techSkill}}</td>
                                     <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}
@@ -117,5 +119,15 @@
         <div class="modal-body">
         </div>
         <div class="modal-footer"> <a data-dismiss="modal" class="btn" href="#">OK</a> </div>
+    </div>
+    <div id="modalengiInfo" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Info Engineer</h3>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer"><a data-dismiss="modal" class="btn" href="#">Close</a> </div>
     </div>
 @stop

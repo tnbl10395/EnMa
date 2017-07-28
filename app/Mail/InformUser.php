@@ -6,6 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\DB;
+
 
 class InformUser extends Mailable
 {
@@ -15,10 +17,16 @@ class InformUser extends Mailable
      * Create a new message instance.
      *
      * @return void
+     *
      */
-    public function __construct()
+    public  $team, $project, $engineer;
+
+    public function __construct($teamName, $listNameEngineer, $idProject)
     {
-        //
+        $this->team = $teamName;
+        $this->engineer = $listNameEngineer;
+
+        $this->project=DB::table('Project')->select('projectName','techSkill', 'dateOfBegin','customer_code')->where('idProject',$idProject)->get();
     }
 
     /**

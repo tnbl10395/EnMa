@@ -9,46 +9,13 @@
 			<!-- information -->
 			  <div class="container-fluid">
 		      <div class="widget-box" style="margin-left: -5px;">
-		        <div class="widget-title bg_lg"><span class="icon"><i class="icon-signal"></i></span>
+		        <div class="widget-title bg_lg" onclick="load_AvailableEngineer()" style="cursor: pointer;"><span class="icon"><i class="icon-signal"></i></span>
 		          <h5>Information</h5>
 		        </div>
 		        <div class="widget-content" >
 		          <div class="row-fluid">
-		            <div class="span10" id="changetable"  >
-		     			<!-- content_table -->
-
-		     			 <div class="span12">
-							<div class="widget-box">
-							 <div class="widget-content nopadding">
-								<table class="table table-bordered data-table">
-								  <thead>
-								    <tr>
-								      <th>ID</th>
-								      <th>Name</th>
-								      <th>Email</th>
-								      <th>Phone</th>
-								      <th>Technical Skill</th>
-								      <th>Experience</th>
-								    </tr>
-								  </thead>
-								  <tbody>
-							    @foreach ($listEngineer as $Engieer)
-							    <tr class="gradeX">
-							      <td><a href="">{{ $controllerEngi->idName($Engieer->idEngineer) }}</a></td>
-							      <td>{{ $Engieer->engineerName }}</td>
-							      <td>{{ $Engieer->Email }}</td>
-							      <td>{{ $Engieer->Phone }}</td>
-							      <td>{{ $Engieer->TechSkill }}</td>
-							      <td>{{ $Engieer->Experience }}</td>
-							    </tr>
-							    @endforeach
-								  </tbody>
-								</table>
-							</div>   
-							</div> 
-						</div> 
-	 
-	  			
+		            <div class="span10" id="changetable" onload="load_AvailableEngineer()" >
+		     			<!-- content_table -->			
 		            </div>
 		            <div class="span2">
 		             	<ul class="btGroup">
@@ -72,6 +39,12 @@
              	 	 	 			<strong>{{ $totalProject }}</strong>
              	 	 	 		<br>Total Projects</button>
          	 	 	 		</li>
+<!--              	 	 	 	<li>
+             	 	 	 		<button onclick="load_AvailableEngineer()" id="btTotal" class="btn-success"	>
+             	 	 	 			<i class="fa-user-circle-o "></i>
+             	 	 	 			<strong>{{ $totalProject }}</strong>
+             	 	 	 		<br>Available Engineers</button>
+         	 	 	 		</li> -->
 		             	</ul> 
 		            </div>
 		          </div>
