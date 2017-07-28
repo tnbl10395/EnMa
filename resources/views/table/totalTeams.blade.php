@@ -16,8 +16,8 @@
 				<tbody>
 					@foreach ($list as $list)
 				    <tr class="gradeX">
-				        <td><a onclick="showDetailTeam('{{$list->idTeam}}')">{{ $controller->idName($list->idTeam) }}</a></td>
-				        <td>{{ $list->teamName }}</td>
+				        <td><a onclick="showDetailTeam('{{$list->idTeam}}')" href="javascript:void(0)">{{ $controller->idName($list->idTeam) }}</a></td>
+				        <td><a onclick="showDetailTeam('{{$list->idTeam}}')" href="javascript:void(0)">{{ $list->teamName }}</a></td>
 				        <td>{{ $list->techSkill }}</td>
 
 				        <td><span id="lb-config" class="{{$controllerColor->changeColor($list->status)}}">{{ $list->status }}</span></td>

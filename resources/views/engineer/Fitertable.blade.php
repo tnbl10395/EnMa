@@ -1,4 +1,4 @@
- <!-- <script  src="js/matrix.tables.js" sycn></script> -->
+ <script  src="js/matrix.tables.js" sycn></script>
         <div class="span12">
           <div class="widget-box">
             <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>

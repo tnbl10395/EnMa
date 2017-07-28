@@ -27,7 +27,9 @@
       </div>
       @endif
 
+
 <!--       <script src="{{asset('js/filter-datatable.js')}}"></script> -->
+
 
       <div id="alert_del_engineer"></div>
       <hr>
@@ -45,6 +47,7 @@
       <div style="width: 150px;float: left; margin-bottom: 5px;">
         <label for="">Technical Skill</label>
 
+
         <select name="experience" id="filtertec" onchange="jsFunction(this.value);">
           <option value="10">All</option>
           <option value="11">PHP</option>
@@ -53,6 +56,7 @@
           <option value="14">.Net</option>
           <option value="15">Ruby</option>
           <option value="16">Android</option>              
+
 
         </select>         
       </div>
