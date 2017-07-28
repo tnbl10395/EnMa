@@ -446,6 +446,7 @@ function infoEngiInTeam(id){
             $("#modalengiInfo").modal();
         }
     });
+
 }
 function jsFunction(id)
   
