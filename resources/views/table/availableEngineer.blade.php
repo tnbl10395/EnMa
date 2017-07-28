@@ -10,7 +10,7 @@
 		    <tr>
 		      <th>ID</th>
 		      <th>Name</th>
-		      <th>Email</th>
+		      <!-- <th>Email</th> -->
 		      <th>Status</th>
 		      <th>Technical Skill</th>
 		      <th>Time Not Joining</th>
@@ -23,7 +23,9 @@
 	      <td><a href="#product_view" data-toggle="modal" onclick="showDetailEngi('{{$Engineer->idEngineer}}')">{{ $controllerIDEngi->idName($Engineer->idEngineer) }}</a></td>
 
 	      <td><a href="#product_view" data-toggle="modal" onclick="showDetailEngi('{{$Engineer->idEngineer}}')">{{ $Engineer->engineerName }}</a></td>
-	      <td>{{ $Engineer->Email }}</td>
+
+	      <!-- <td>{{ $Engineer->Email }}</td> -->
+
 	      <td>
 			<span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($Engineer->busy)}}">Available</span> 
 	      </td>

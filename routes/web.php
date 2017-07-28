@@ -35,6 +35,7 @@ Route::get('login', function(){
 Route::get('/EngineerManagement','EngineerController@IndexEm');
 Route::get('/AddEngineer','EngineerController@AddEm');
 Route::get('/DetailEngineer','EngineerController@DetailEn');
+Route::get('/Filter/{id}','EngineerController@Filtertable');
 Route::post('/AddEngineerController',array('uses' =>'EngineerController@AddEngineer'));
 Route::get('/DetailEngineer/{id}','EngineerController@DetailEn');
 
@@ -77,6 +78,8 @@ Route::post('Team/AddEngineer','TeamEngiController@addEngineerToTeam');
 Route::get('Team/CurrentEngineer/{id}','TeamEngiController@showCurrentEngineer');
 Route::get('Team/RemoveEngineer','TeamEngiController@removeEngineerFromTeam');
 Route::get('Team/ShowDetail','TeamController@showDetailTeam');
+Route::get('Team/ChangeRole','TeamEngiController@changeRole');
+Route::get('Team/OldEngineer/{id}','TeamEngiController@showOldEngineer');
 
 Route::get('/checkDB', function ()
 {

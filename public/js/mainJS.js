@@ -193,16 +193,34 @@ $(document).ready(function(){
                 nameTeam: $('[name="teamName"]').val(),
                 nameProject: $('#project_name input, #project_name label').attr('value')
             },
+            beforeSend:function(){
+                $('#showStatus .modal-body').html('<i class="fa fa-refresh fa-spin"></i> Mails are being send......');
+                $('#modaladdTeam').modal("hide");
+                $('#showStatus').modal();
+            },
             success:function(result){
-                console.log(result);
-                $.ajax({
+                //console.log(result);
+                $('#showStatus .modal-body').html("<label class='label label-success'>Success!</label> Add engineer Successfully!!");
+                //$('#showStatus').modal("hide");
+                setTimeout(function(){ $('#showStatus').modal("hide"); }, 1000);
+
+                $.ajax({//change data current engis
                     url: "/Team/CurrentEngineer/"+$('[name="idTeam"]').val(),
                     type: "get",
                     dataType: "text",
                     success:function(res){
                         //console.log(res);
                         $('#current-member').html(res);
-                        $('.count_member').html($('.count-member').html());
+                        $('.count_member').html($('.count-member').html());//change num engi
+                    }
+                });
+                $.ajax({//change data old engis
+                    url: "/Team/OldEngineer/"+$('[name="idTeam"]').val(),
+                    type: "get",
+                    dataType: "text",
+                    success:function(res){
+                        console.log(res);
+                        $('#oldmember').html(res);
                     }
                 });
             }
@@ -232,6 +250,16 @@ $(document).ready(function(){
                             $('.count_member').html($('.count-member').html());
                         }
                     });
+
+                    $.ajax({//change data old engis
+                        url: "/Team/OldEngineer/"+$('[name="idTeam"]').val(),
+                        type: "get",
+                        dataType: "text",
+                        success:function(res){
+                            console.log(res);
+                           $('#oldmember').html(res);
+                        }
+                    });
             },
             error: function (data) {
                 //something went wrong with the request
@@ -240,7 +268,7 @@ $(document).ready(function(){
         });
     });
 
-    $('#modaladdTeam .modal-body').on('click','td input[name="engi"]',function(){//delegate event, innerHTML change
+    $('#modaladdTeam .modal-body').on('click','td input[name="engi"]',function(){//delegate event, innerHTML change,add btn show or no
         showAddButton = $("#modaladdTeam .modal-body td input[name='engi']").is(":checked");//select don't need delegate
         if(showAddButton) $('#modaladdTeam div.modal-footer a:eq(0)').show();
         else $('#modaladdTeam div.modal-footer a:eq(0)').hide();
@@ -364,7 +392,7 @@ function showDetailEngi(id){
 // }
 function showDetailProject(id){
   $.ajax({
-    url : "/DetailProject/"+id,
+    url : "/DetailEngineerailProject/"+id,
     dataType: "text",
 
     success: function(result){
@@ -374,5 +402,67 @@ function showDetailProject(id){
 
 //LOGOUT
 
+//LOGOUT
+
 }
 
+function showDetailTeam(id){
+    $.ajax({
+        url: "/Team/ShowDetail",
+        type: "get",
+        dataType: "text",
+        data:{
+            idTeam:id
+        },
+        success:function(res){
+            $('#showDetail_Team .modal-body').html(res);
+            $('#showDetail_Team').modal();
+        }
+    });
+}
+
+function changeRole(id,value){
+    $.ajax({
+        url: "/Team/ChangeRole",
+        type: "get",
+        dataType: "text",
+        data:{
+            idEngineer:id,
+            value:value
+        },
+        success:function(res){
+            console.log(res);
+        }
+    });
+}
+
+function infoEngiInTeam(id){
+    $.ajax({
+        url: "/DetailEngineer/"+id,
+        dataType: "text",
+        type: "GET",
+        success: function(result){
+            $("#modalengiInfo .modal-body").html(result);
+            $("#modalengiInfo").modal();
+        }
+    });
+}
+function jsFunction(id)
+  
+{ 
+   var tech = $('#filtertec').val(); 
+   
+   var exp = $('#filterex').val();
+      id = tech+'.'+exp; 
+      $.ajax({
+    url : "/Filter/"+id,
+    data: {"exp": exp, "tech": tech},
+    dataType : 'text',
+    type: 'GET',
+    success: function(html){
+
+      $("#filterable").html(html);
+    }
+     });
+   
+   }
