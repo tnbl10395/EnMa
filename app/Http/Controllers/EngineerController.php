@@ -19,10 +19,12 @@ class EngineerController extends Controller
     $this->middleware('auth');
   }
     
+
     public function IndexEM(){ 
         $_changeIDName = new changeIDName();
         $_changeColor = new changeColorStatus();
         $_list = Engineer::all();
+        $_changeIDName = new changeIDName();
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
@@ -33,7 +35,88 @@ class EngineerController extends Controller
                                             'controller' => $_changeIDName,
                                             'controllerColor' => $_changeColor]);
     }
-    
+     public function Filtertable($id){
+           
+             $ex="";
+             $tec="";
+            $tech = substr($id, 0 ,-2);
+            $exp= substr($id, 3,1);
+           
+          $list = new Engineer();  
+         switch ($tech) {
+              case '11':
+              $tec="PHP";
+               # code...
+               break;
+           case '12':
+              $tec="JAVA";
+               # code...
+               break;
+          case '13':
+              $tec="C++";
+               # code...
+               break;   
+                       
+          case '14':
+              $tec=".Net";
+               # code...
+               break;   
+           case '15':
+              $tec="Ruby";
+               # code...
+               break;               
+          case '16':
+              $tec="Android";
+               # code...
+               break;               
+           
+           default:
+             # code...
+             break;
+         }
+
+       switch ($exp) {
+           case '1':
+              $ex="No experience";
+               
+               break;
+           case '2':
+              $ex="1 year";
+                            break;
+           case '3':
+              $ex="More 2 years";
+                            break;  
+           case '4':
+              $ex="More 5 years";
+               
+               break;
+           case '5':
+              $ex="More 10 years";
+               # code...
+               break;
+        
+           default:
+               # code...
+               break;
+     }
+      echo $ex;
+      echo $tec;
+     $list = DB::table('Engineer')->where('TechSkill','like','%'.$tec.'%')->where('Experience','like','%'.$ex.'%')->get();
+
+        // if($ex==null){
+        
+        // $list = DB::table('Engineer')->where('TechSkill','like','%'.$tec.'%')->where('Experience','like','%'.$ex.'%')->get();
+        //   }
+        //   else {
+        //     $list = DB::table('Engineer')->where('Experience','like','%'.$ex.'%')->get();
+        //   }
+        $_changeIDName = new changeIDName();  
+
+      return view('engineer.Fitertable')->with(['list' => $list,
+                                                 'controller' => $_changeIDName
+                                            ]);
+  
+      }
 // public function DetailEn(){
 //       $_totalTeam = $this->totalTeam();
 //         $_totalProject = $this->totalProject();
