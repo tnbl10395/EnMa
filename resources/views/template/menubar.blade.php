@@ -33,9 +33,7 @@
     <script src="{{asset('js/select2.min.js')}}"></script>
     <script src="{{asset('js/matrix.js')}}"></script>
 
-
     {{--<script src="{{asset('js/matrix.form_common.js')}}"></script>--}}
-
     <script src="{{asset('js/bootstrap-colorpicker.js')}}"></script>
     <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('js/jquery.toggle.buttons.js')}}"></script> 
