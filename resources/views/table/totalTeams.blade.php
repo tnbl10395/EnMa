@@ -16,7 +16,7 @@
 				<tbody>
 					@foreach ($list as $list)
 				    <tr class="gradeX">
-				        <td><a href="#showDetail_Team" data-toggle="modal" >{{ $controller->idName($list->idTeam) }}</a></td>
+				        <td><a onclick="showDetailTeam('{{$list->idTeam}}')">{{ $controller->idName($list->idTeam) }}</a></td>
 				        <td>{{ $list->teamName }}</td>
 				        <td>{{ $list->techSkill }}</td>
 
