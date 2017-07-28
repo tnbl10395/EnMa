@@ -77,6 +77,8 @@ Route::post('Team/AddEngineer','TeamEngiController@addEngineerToTeam');
 Route::get('Team/CurrentEngineer/{id}','TeamEngiController@showCurrentEngineer');
 Route::get('Team/RemoveEngineer','TeamEngiController@removeEngineerFromTeam');
 Route::get('Team/ShowDetail','TeamController@showDetailTeam');
+Route::get('Team/ChangeRole','TeamEngiController@changeRole');
+Route::get('Team/OldEngineer/{id}','TeamEngiController@showOldEngineer');
 
 Route::get('/checkDB', function ()
 {
