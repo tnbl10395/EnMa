@@ -63,7 +63,7 @@ class TeamController extends Controller
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
         $controllerColor = new changeColorStatus();
-        $team = DB::table('Team')->where('idTeam',$id)->first();
+        $team = DeB::table('Team')->where('idTeam',$id)->first();
 
         $_current_project=DB::table('Project')->select('idProject','projectName')->where('idTeam',$id)->get();
 

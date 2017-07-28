@@ -363,7 +363,7 @@ function showDetailEngi(id){
 // }
 function showDetailProject(id){
   $.ajax({
-    url : "/DetailProject/"+id,
+    url : "/DetailEngineerailProject/"+id,
     dataType: "text",
 
     success: function(result){
@@ -373,4 +373,22 @@ function showDetailProject(id){
 
 
 }
+function jsFunction(id)
+  
+{ 
+   var tech = $('#filtertec').val(); 
+   
+   var exp = $('#filterex').val();
+      id = tech+'.'+exp; 
+      $.ajax({
+    url : "/Filter/"+id,
+    data: {"exp": exp, "tech": tech},
+    dataType : 'text',
+    type: 'GET',
+    success: function(html){
 
+      $("#filterable").html(html);
+    }
+     });
+   
+   }
