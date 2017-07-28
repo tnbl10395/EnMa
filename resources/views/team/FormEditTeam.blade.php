@@ -26,7 +26,7 @@
                                 <div class="control-group">
                                     <label class="control-label">Team Name :</label>
                                     <div class="controls">
-                                        <input type="text" class="span11" placeholder="Team Name" name="teamName" value="{{$team->teamName}}"/>
+                                        <input type="text" class="span11" placeholder="Team Name" name="teamName" value="{{$team->teamName}}" pattern="[A-Za-z 0-9]+" title="Only alphabet, number & space"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -164,6 +164,8 @@
                                     <th>ID</th>
                                     <th>Member name</th>
                                     <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Date Of Joining</th>
                                     <th>View detail</th>
                                     <th>Delete</th>
                                 </tr>
@@ -173,8 +175,15 @@
                                 <tr class="gradeX">
                                     <td>{{$member->idEngineer}}</td>
                                     <td>{{$member->engineerName}}</td>
-                                    <td>{{$member->role}}</td>
-                                    <td style="text-align: center"> <a href="/EditEngineer/{{$member->idEngineer}}" ><i class="icon-edit"></i></a></td>
+                                    <td>
+                                        {{--{{$member->role}}--}}
+                                        <select style="width: 86px" onchange="changeRole('{{$member->idEngineer}}',this.value)">
+                                            {{$teamEngi->showOptionRole($member->role)}}
+                                        </select>
+                                    </td>
+                                    <td><span class="label label-success">In Team</span></td>
+                                    <td>{{$member->DateOfJoining}}</td>
+                                    <td style="text-align: center"> <a onclick="infoEngiInTeam({{$member->idEngineer}})" ><i class="icon-edit"></i></a></td>
                                     <td style="text-align: center"> <a href="javascript:void(0)" ><i class="icon-remove"></i></a></td>
                                 </tr>
                                 @endforeach
@@ -183,6 +192,44 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row-fluid" id="oldmember">
+                @if(count($oldMember)>0)
+                <div class="span12">
+                    <div class="widget-box">
+                        <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                            <label class="label label-info">OLD MEMBER</label>
+                        </div>
+                        <div class="widget-content nopadding">
+                            <table class="table table-bordered table-striped table-engi-old">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Member name</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Date left</th>
+                                    <th>View detail</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($oldMember as $member)
+                                    <tr class="gradeX">
+                                        <td>{{$member->idEngineer}}</td>
+                                        <td>{{$member->engineerName}}</td>
+                                        <td>{{$member->role}}</td>
+                                        <td><span class="label label-important">has left Team</span></td>
+                                        <td>{{$member->expire}}</td>
+                                        <td style="text-align: center"> <a onclick="infoEngiInTeam({{$member->idEngineer}})" ><i class="icon-edit"></i></a></td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            @endif
             </div>
         </div>
     </div>
@@ -195,8 +242,49 @@
         <div class="modal-body">
 
         </div>
-        <div class="modal-footer"> <a data-dismiss="modal" class="btn btn-primary" href="#">Add</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>
+        {{--<div class="modal-footer"> <a data-dismiss="modal" class="btn btn-primary" href="#">Add</a> <a data-dismiss="modal" class="btn" href="#">Cancel</a> </div>--}}
+        <div class="modal-footer"> <a class="btn btn-primary" href="#">Add</a> <a data-dismiss="modal" class="btn" href="javascript:void(0)">Cancel</a> </div>
     </div>
 
+    <div id="modalengiInfo" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Info Engineer</h3>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer"><a data-dismiss="modal" class="btn" href="#">Close</a> </div>
+    </div>
+
+    <div id="showStatus" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Status</h3>
+        </div>
+        <div class="modal-body">
+            <i class="fa fa-refresh fa-spin"></i> Mails are being send......
+        </div>
+        <div class="modal-footer"><a data-dismiss="modal" class="btn" href="#">Close</a> </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(".table-engi-old").DataTable({
+                "bJQueryUI": true,//reUI style for entries field
+                "sPaginationType": "full_numbers",//show number in pagination
+                "sDom": '<""l>t<"F"fp>'//restyle,pos for pagination
+            });
+            $('select').select2();
+        });
+        $(function(){
+            $('form').submit(function(e){
+                if(!$('[name="techSkill[]"]').is(":checked")){
+                    e.preventDefault();
+                    alert("Check at least one technical skill!!");
+                }
+            });
+        });
+    </script>
 
 @stop

@@ -65,7 +65,7 @@
                             <td>{{$member->idEngineer}}</td>
                             <td>{{$member->engineerName}}</td>
                             <td>{{$member->role}}</td>
-                            <td style="text-align: center"> <a href="/EditEngineer" ><i class="icon-edit"></i></a></td>
+                            <td style="text-align: center"> <a onclick="infoEngiInTeam({{$member->idEngineer}})" ><i class="icon-edit"></i></a></td>
                         </tr>
                     @endforeach
                     </tbody>

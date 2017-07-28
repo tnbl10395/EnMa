@@ -65,8 +65,35 @@ class TeamEngiController extends Controller
     }
 
     public function showCurrentEngineer($id){
-        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role')->
+        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role','History.DateOfJoining')->
         join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->whereNull('expire')->get();
-        return view('team.listEngiCurrent')->with(['member'=>$teamMember]);
+        return view('team.listEngiCurrent')->with(['member'=>$teamMember,'teamEngi'=>$this]);
+    }
+
+    public function listOldEngineer($id){
+        return DB::select( DB::raw("SELECT History.idEngineer,Engineer.engineerName,idTeam,role,DateOfJoining,MAX(expire) as expire FROM History
+              INNER JOIN Engineer on History.idEngineer=Engineer.idEngineer WHERE expire is not Null and idTeam = '$id'
+              AND History.idEngineer NOT IN (SELECT idEngineer FROM History WHERE expire IS NULL) GROUP BY idEngineer"));
+        //condition:if 1 member in/out with 2 times up->choice bigger;if member in team->remove result in oldMember;get name
+    }
+
+    public function showOldEngineer($id){
+        return view('team.listEngiOld')->with(['oldMember'=>$this->listOldEngineer($id)]);
+    }
+
+    public function changeRole(Request $request){
+//        dd($request->all());
+        $res = $request->all();echo "aa";
+        DB::table('History')->where('idEngineer',$res['idEngineer'])->whereNull('expire')->update(['role'=>$res['value']]);
+    }
+
+    public static function showOptionRole($rol){
+        $roles = ['coder','manager','tester'];
+
+        foreach($roles as $role){
+            if($role==$rol)
+                echo "<option value='$role' selected>$role</option>";
+            else echo "<option value='$role'>$role</option>";
+        }
     }
 }

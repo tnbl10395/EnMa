@@ -43,7 +43,7 @@
                         <!--     <input type="text" name="id" class="span11" placeholder="ID" required="" /> -->
                           </div>
                           <div class="controls">
-                            <input type="text" name="fullname" class="span11" placeholder="Full Name" required="" value="{{$list->engineerName}}" />
+                            <input type="text" name="fullname" class="span11" placeholder="Full Name" required pattern="[a-zA-Z ]+" value="{{$list->engineerName}}" />
                           </div>
                           <div class="controls">
                             <input type="text" data-date-format="yyyy-mm-dd" placeholder="Date of Birth" name="birthday" class="datepicker span11" value="{{$list->birthday}}" required>
@@ -150,7 +150,7 @@
           <div  id="control" class="control-group">
             <label id="label" class="control-label">Phone :</label>
             <div class="controls">
-              <input id="input" type="text" name="phone" class="span11" placeholder="Phone" value="{{$list->Phone}}" required/>
+              <input id="input" type="number" name="phone" class="span11" placeholder="Phone" value="{{$list->Phone}}" required/>
             </div>
           </div>
 

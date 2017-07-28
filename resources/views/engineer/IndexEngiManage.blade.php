@@ -106,7 +106,7 @@
                       @if ($list->busy==0)
                         <span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Available</span>
                       @else
-                        <span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Activite</span>
+                        <span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Active</span>
                       @endif
                     </td>
                     <td> <a href="EditEngineer/{{$list->idEngineer}}" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>

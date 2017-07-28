@@ -92,6 +92,9 @@ class ProjectController extends Controller
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+
+        $getIN = DB::table('Project')->select('idTeam')->where('idProject',$idProject)->get();
+
         $_controllerIDPro = new changeIDProject();
         $_controllerIDTeam = new changeIDTeam();
         $Techni = Technical::all();
@@ -116,7 +119,13 @@ class ProjectController extends Controller
             // $list -> update($request->all());
             $project = new Project();
             $idTeam = $request->input('idTeam');
-            $list = $project->where('idProject',$idProject)
+
+            $getIN = DB::table('Project')->select('idTeam')->where('idProject',$idProject)->get();
+            // echo $getIN;
+            // dd($getIN);
+            if ($getIN[0]->idTeam==NULL){
+
+                  $list = $project->where('idProject',$idProject)
                             ->update(['projectName' => $request->input('projectName'),
                                       'status' => $request->input('status'), 
                                       'techSkill' => $request->input('techSkill'), 
@@ -125,10 +134,29 @@ class ProjectController extends Controller
                                       'customer_code' => $request->input('customer_code'),
                                       'idTeam' => $request -> input ('idTeam')]);
 
-             $updateIDTeam = DB::table('Team')->where('idTeam','=',$request->input('idTeam'))->update(['status'=>'Assigned']);
+                   $updateIDTeam = DB::table('Team')->where('idTeam','=',$request->input('idTeam'))->update(['status'=>'Assigned']);
    
 
-       return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update successfully the project!');
+                  return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update successfully the project!');
+     
+            }
+            else{
+                $list = $project->where('idProject',$idProject)
+                            ->update(['projectName' => $request->input('projectName'),
+                                      'status' => $request->input('status'), 
+                                      'techSkill' => $request->input('techSkill'), 
+                                      'dateOfBegin' => $request->input('dateOfBegin'),
+                                      'dateOfEnd' => $request->input('dateOfEnd'),
+                                      'customer_code' => $request->input('customer_code'),
+                                      ]);
+
+                   $updateIDTeam = DB::table('Team')->where('idTeam','=',$request->input('idTeam'))->update(['status'=>'Assigned']);
+   
+
+                  return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update successfully the project!');
+
+            }
+            
         
     }
     public function DetailPro($_id) 
