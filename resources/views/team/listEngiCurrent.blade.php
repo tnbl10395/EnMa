@@ -9,6 +9,7 @@
             "sDom": '<""l>t<"F"fp>'
         });
         $('.add-member').on('click',function(){
+            $('#modaladdTeam div.modal-footer a:eq(0)').hide();//default is hide
             $.ajax({
                 url : "/Team/ListAvailable",
                 type : "get",
@@ -35,6 +36,8 @@
                     <th>ID</th>
                     <th>Member name</th>
                     <th>Role</th>
+                    <th>Status</th>
+                    <th>Date Of Joining</th>
                     <th>View detail</th>
                     <th>Delete</th>
                 </tr>
@@ -44,8 +47,15 @@
                     <tr class="gradeX">
                         <td>{{$member->idEngineer}}</td>
                         <td>{{$member->engineerName}}</td>
-                        <td>{{$member->role}}</td>
-                        <td style="text-align: center"> <a href="/EditEngineer" ><i class="icon-edit"></i></a></td>
+                        <td>
+                            {{--{{$member->role}}--}}
+                            <select style="width: 86px" onchange="changeRole('{{$member->idEngineer}}',this.value)">
+                                {{$teamEngi->showOptionRole($member->role)}}
+                            </select>
+                        </td>
+                        <td><span class="label label-success">In Team</span></td>
+                        <td>{{$member->DateOfJoining}}</td>
+                        <td style="text-align: center"> <a onclick="infoEngiInTeam({{$member->idEngineer}})" ><i class="icon-edit"></i></a></td>
                         <td style="text-align: center"> <a href="javascript:void(0)" ><i class="icon-remove"></i></a></td>
                     </tr>
                 @endforeach

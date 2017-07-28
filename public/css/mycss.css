@@ -164,3 +164,15 @@
   width: 90%;
   text-align: center;
 }
+.label-activity{
+  background-color: #5200cc;
+  color: #fff;
+}
+.label-non-activity{
+  background-color: #00b3b3;
+  color: #fff;
+}
+.label-new-engineer{
+  background-color: #6666ff;
+  color: #fff;
+}

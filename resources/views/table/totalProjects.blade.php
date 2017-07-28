@@ -4,21 +4,23 @@
 	<div class="widget-box">
 		 <div class="widget-content nopadding">
 		 	<table class="table table-bordered data-table">
+			 	<h4 style="margin-left: 20px;">Total Projects</h4>	
+				<hr/>
 				<thead>
 				  <tr>
-				    <th>idProject</th>
-				    <th>projectName</th>
-				    <th>status</th>
+				    <th>ID</th>
+				    <th>Project Name</th>
+				    <th>Status</th>
 				    <th>Technical Skill</th>
-				    <th>dateOfBegin</th>
-				    <th>dateOfEnd</th>
+				    <th>Date Of Begin</th>
+				    <th>Date Of End</th>
 				  </tr>
 				</thead>
 				<tbody>
 				@foreach ($list as $listPro)	
 				 <tr class="gradeX">
 				    <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$listPro->idProject}}')">{{ $controller->idName($listPro->idProject) }}</a></td>
-				    <td>{{ $listPro->projectName }}</td>
+				    <td><a href="#myDetailProject" data-toggle="modal" onclick="showDetailProject('{{$listPro->idProject}}')">{{ $listPro->projectName }}</a></td>
 				    <td class="status"><span id="lb-config" class="{{ $controllerColor->changeColor($listPro->status) }}">{{ $controllerStt->getStatus($listPro->status) }}</span></td>
 
 				    <td>{{ $listPro->techSkill }}</td>

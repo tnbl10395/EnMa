@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use App\Team;
 use App\Project;
 use App\Engineer;
+use App\Http\Controllers\TeamEngiController;
 use App\lib\changeIDTeam;
+use App\lib\changeColorStatus;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
-{
+{   protected $redirectTo = '/';
     public function __construct()
     {
         $this->middleware('auth');
@@ -22,11 +25,13 @@ class TeamController extends Controller
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+        $controllerColor = new changeColorStatus();
         return view('team.IndexTeamManager',['data'=>$datas,
                                              'totalEngineer' => $_totalEngineer,
                                              'totalTeam' => $_totalTeam,
                                              'totalProject' => $_totalProject,
-                                             'controllerTeam' => $controller]);
+                                             'controllerTeam' => $controller,
+                                             'controllerColor' => $controllerColor]);
     }
     public function AddTm(){
         $_totalTeam = $this->totalTeam();
@@ -61,6 +66,8 @@ class TeamController extends Controller
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
+        $controllerColor = new changeColorStatus();
+        $controller = new changeIDTeam();//change id 1 to T001
         $team = DB::table('Team')->where('idTeam',$id)->first();
 
         $_current_project=DB::table('Project')->select('idProject','projectName')->where('idTeam',$id)->get();
@@ -75,12 +82,18 @@ class TeamController extends Controller
 
 //            dd(($_listProject));
         $_techSkill = DB::table('Technical')->select('Technical')->get();
-        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role')->
+        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role','History.DateOfJoining')->
                         join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->whereNull('expire')->get();
             //SELECT History.idEngineer, Engineer.engineerName , History.role from History INNER JOIN Engineer on History.idEngineer=Engineer.idEngineer where History.`idTeam` = 'T01'
+        $oldMember = (new TeamEngiController)->listOldEngineer($id);//show old member(not in Team now):result table
+        $teamEngiCrl = new TeamEngiController;
         return view('team.FormEditTeam')->with(['totalEngineer' => $_totalEngineer,
-                                                  'totalTeam' => $_totalTeam,
-                                                  'totalProject' => $_totalProject,'team' =>$team,'member'=>$teamMember])->with(['projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
+                                                'totalTeam' => $_totalTeam,
+                                                'totalProject' => $_totalProject,
+                                                'controllerColor' => $controllerColor,
+                                                'controllerTeam' => $controller,
+                                                'team' =>$team,'member'=>$teamMember,'oldMember'=>$oldMember,'teamEngi'=>$teamEngiCrl])
+                                                ->with(['projects'=>$_listProject,'hasProject'=>$_hasProject,'listTech'=>$_techSkill]);
     }
 
     public function EditTeam(Request $request,$id){
