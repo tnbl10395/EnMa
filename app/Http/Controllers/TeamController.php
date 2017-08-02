@@ -16,7 +16,7 @@ class TeamController extends Controller
 {   protected $redirectTo = '/';
     public function __construct()
     {
-        $this->middleware('auth');abort(500);
+        $this->middleware('auth');
     }
 
     public function IndexTm(){

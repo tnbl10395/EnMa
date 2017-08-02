@@ -21,7 +21,7 @@ class ProjectController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');abort(500);
+        $this->middleware('auth');
     }
 
     public function IndexPro(){
