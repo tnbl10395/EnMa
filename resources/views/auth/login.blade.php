@@ -38,7 +38,7 @@
             <div class="controls">
                 <div class="main_input_box">
                     <span class="add-on bg_ly"><i class="icon-lock"></i></span>
-                    <input type="password" name="password" placeholder="Password"/>
+                    <input type="password" name="password" placeholder="Password" required/>
 
                 </div>
             </div>
