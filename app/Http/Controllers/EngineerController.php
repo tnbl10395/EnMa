@@ -17,7 +17,7 @@ class EngineerController extends Controller
   public function __construct()
   {
     $this->middleware('auth');
-    abort(404);
+      abort(500);
   }
     
 
