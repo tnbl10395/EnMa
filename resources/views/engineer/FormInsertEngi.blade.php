@@ -47,7 +47,7 @@
    
                           </div>
                           <div class="controls">
-                            <input type="text" name="fullname" class="span11" placeholder="Full Name"  required pattern="[a-zA-Z ]+" required/>
+                            <input type="text" name="fullname" class="span11" placeholder="Full Name"  required pattern="[a-zA-Z.() ]+" required/>
                           </div>
                           <div class="controls">
                             <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" placeholder="Date of Birth" name="birthday" class="datepicker span11" required>
