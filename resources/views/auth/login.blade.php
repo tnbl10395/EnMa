@@ -44,7 +44,7 @@
             </div>
         </div>
         {!! csrf_field() !!}
-        <div>
+        <div class="form-actions">
             <span class="pull-left"><a href="/password/reset" class="flip-link btn btn-info"
                                        id="to-recover">Forgot password?</a></span>
             <span class="pull-right"><button type="submit" class="btn btn-success"> Login</button></span>
