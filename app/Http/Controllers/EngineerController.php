@@ -11,16 +11,19 @@ use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
 use App\lib\changeIDName;
+use App\UserNormal;
+use Illuminate\Support\Facades\Session;
 
 class EngineerController extends Controller
-{	
-  public function __construct()
-  {
-    $this->middleware('auth');
-  }
-    
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-    public function IndexEM(){ 
+
+    public function IndexEM()
+    {
         $_changeIDName = new changeIDName();
         $_changeColor = new changeColorStatus();
         $_list = Engineer::all();
@@ -29,94 +32,96 @@ class EngineerController extends Controller
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
         return view('engineer.IndexEngiManage')->with(['list' => $_list,
-								           	                'totalEngineer' => $_totalEngineer,
-                                            'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject,
-                                            'controller' => $_changeIDName,
-                                            'controllerColor' => $_changeColor]);
+            'totalEngineer' => $_totalEngineer,
+            'totalTeam' => $_totalTeam,
+            'totalProject' => $_totalProject,
+            'controller' => $_changeIDName,
+            'controllerColor' => $_changeColor]);
     }
-     public function Filtertable($id){
-           
-             $ex="";
-             $tec="";
-            $tech = substr($id, 0 ,-2);
-            $exp= substr($id, 3,1);
-           
-          $list = new Engineer();  
-         switch ($tech) {
-              case '11':
-              $tec="PHP";
-               # code...
-               break;
-           case '12':
-              $tec="JAVA";
-               # code...
-               break;
-          case '13':
-              $tec="C++";
-               # code...
-               break;   
-                       
-          case '14':
-              $tec=".Net";
-               # code...
-               break;   
-           case '15':
-              $tec="Ruby";
-               # code...
-               break;               
-          case '16':
-              $tec="Android";
-               # code...
-               break;               
-           
-           default:
-             # code...
-             break;
-         }
 
-       switch ($exp) {
-           case '1':
-              $ex="No experience";
-               
-               break;
-           case '2':
-              $ex="1 year";
-                            break;
-           case '3':
-              $ex="More 2 years";
-                            break;  
-           case '4':
-              $ex="More 5 years";
-               
-               break;
-           case '5':
-              $ex="More 10 years";
-               # code...
-               break;
-        
-           default:
-               # code...
-               break;
-     }
-      echo $ex;
-      echo $tec;
-     $list = DB::table('Engineer')->where('TechSkill','like','%'.$tec.'%')->where('Experience','like','%'.$ex.'%')->get();
+    public function Filtertable($id)
+    {
+
+        $ex = "";
+        $tec = "";
+        $tech = substr($id, 0, -2);
+        $exp = substr($id, 3, 1);
+
+        $list = new Engineer();
+        switch ($tech) {
+            case '11':
+                $tec = "PHP";
+                # code...
+                break;
+            case '12':
+                $tec = "JAVA";
+                # code...
+                break;
+            case '13':
+                $tec = "C++";
+                # code...
+                break;
+
+            case '14':
+                $tec = ".Net";
+                # code...
+                break;
+            case '15':
+                $tec = "Ruby";
+                # code...
+                break;
+            case '16':
+                $tec = "Android";
+                # code...
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
+        switch ($exp) {
+            case '1':
+                $ex = "No experience";
+
+                break;
+            case '2':
+                $ex = "1 year";
+                break;
+            case '3':
+                $ex = "More 2 years";
+                break;
+            case '4':
+                $ex = "More 5 years";
+
+                break;
+            case '5':
+                $ex = "More 10 years";
+                # code...
+                break;
+
+            default:
+                # code...
+                break;
+        }
+        echo $ex;
+        echo $tec;
+        $list = DB::table('Engineer')->where('TechSkill', 'like', '%' . $tec . '%')->where('Experience', 'like', '%' . $ex . '%')->get();
 
         // if($ex==null){
-        
+
         // $list = DB::table('Engineer')->where('TechSkill','like','%'.$tec.'%')->where('Experience','like','%'.$ex.'%')->get();
         //   }
         //   else {
         //     $list = DB::table('Engineer')->where('Experience','like','%'.$ex.'%')->get();
         //   }
-        $_changeIDName = new changeIDName();  
+        $_changeIDName = new changeIDName();
 
-      return view('engineer.Fitertable')->with(['list' => $list,
-                                                 'controller' => $_changeIDName
-                                            ]);
-  
-      }
+        return view('engineer.Fitertable')->with(['list' => $list,
+            'controller' => $_changeIDName
+        ]);
+
+    }
 // public function DetailEn(){
 //       $_totalTeam = $this->totalTeam();
 //         $_totalProject = $this->totalProject();
@@ -125,20 +130,26 @@ class EngineerController extends Controller
 //                                             'totalTeam' => $_totalTeam,
 //                                             'totalProject' => $_totalProject,]);
 //     }
- public function DetailEn($id){
-        $list = DB::table('Engineer')->where('idEngineer',$id)->first();
-      return view('engineer.DetailEngi')->with(['listEngi' => $list,
-                                            ]);
-  
-      }
+    public function DetailEn($id)
+    {
+        $list = DB::table('Engineer')->where('idEngineer', $id)->first();
+        return view('engineer.DetailEngi')->with(['listEngi' => $list,
+        ]);
 
-    public function AddEm(){
-    	$_totalTeam = $this->totalTeam();
-        $_totalProject = $this->totalProject();
-        $_totalEngineer = $this->totalEngineer();
-    	return view('engineer.FormInsertEngi')->with(['totalEngineer' => $_totalEngineer,
-                                            'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject,]);
+    }
+
+    public function AddEm()
+    {
+        if (Session::get('isAdmin') == 'admin') {
+            $_totalTeam = $this->totalTeam();
+            $_totalProject = $this->totalProject();
+            $_totalEngineer = $this->totalEngineer();
+            return view('engineer.FormInsertEngi')->with(['totalEngineer' => $_totalEngineer,
+                'totalTeam' => $_totalTeam,
+                'totalProject' => $_totalProject,]);
+        } else {
+            return view('errors.500');
+        }
     }
     // public function EditEm(){
     // 	$_totalTeam = $this->totalTeam();
@@ -148,16 +159,21 @@ class EngineerController extends Controller
     //                                         'totalTeam' => $_totalTeam,
     //                                         'totalProject' => $_totalProject,]);
     // }
-    public function EditEm($id){
-      $_totalTeam = $this->totalTeam();
+    public function EditEm($id)
+    {
+        if (Session::get('isAdmin') == 'admin') {
+        $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
-        $list = DB::table('Engineer')->where('idEngineer',$id)->first();
-      return view('engineer.FormEditEngi')->with(['totalEngineer' => $_totalEngineer,
-                                            'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject,'list'=>$list]);
-  
-      }
+        $list = DB::table('Engineer')->where('idEngineer', $id)->first();
+        return view('engineer.FormEditEngi')->with(['totalEngineer' => $_totalEngineer,
+            'totalTeam' => $_totalTeam,
+            'totalProject' => $_totalProject, 'list' => $list]);
+
+    }else{
+        return view('errors.500');
+}
+}
 
 
      public function AddEngineer(Request $request){
@@ -248,7 +264,7 @@ class EngineerController extends Controller
         $newdatein = date("Y-m-d", strtotime($datein));
  // Save data to DataBase                
         $engineer = new Engineer();  
-
+        $usernormal = new UserNormal();
         $photo  = $request->photo;
         if ($request->hasFile('photo')) {
         $namePhoto = $photo->getClientOriginalName();
@@ -256,7 +272,11 @@ class EngineerController extends Controller
         $engineer->avatar=$namePhoto; 
 
     }
+        $idEngineer = DB::table('Engineer')->orderBy('idEngineer', 'desc')->first();
+        $idEngineer_ar = [];
 
+        $idEngineer+=1;
+        $engineer->idEngineer=$idEngineer;
         $engineer->engineerName="$name";
         $engineer->Address="$address";
         $engineer->Phone="$phone";
@@ -268,10 +288,15 @@ class EngineerController extends Controller
         $engineer->outOfdate=$newdateout;
         $engineer->birthday=$newbirth;
 
+        $usernormal->id="EN" + $idEngineer;
+        $usernormal->password="123456";
+        $usernormal->isAdmin=0;
+
       $en = DB::table('Engineer')->where('Email',$email)->first();
           
         if (is_null($en)) {
             $engineer->save();
+            $usernormal->save();
             return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
         } else {
         return redirect('AddEngineer')->with('notify', 'Email has existed. Please check again');;  
@@ -289,15 +314,15 @@ class EngineerController extends Controller
        
       echo $tech;
        $engineer->save();
-
+       $usernormal->save();
     return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
 
 
     }
 
 public function DelEng(Request $request, $id){
-         $result =  DB::table('Engineer')->where('idEngineer',$id)->delete();
-          return $result;
+            if (Session::get('isAdmin') == 'admin') {$result =  DB::table('Engineer')->where('idEngineer',$id)->delete();
+          return $result;}
     }
 
 public function EditEngineer(Request $request,$id){

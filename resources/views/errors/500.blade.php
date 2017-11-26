@@ -33,7 +33,7 @@
             <div class="error_ex">
               <h1>500</h1>
               <h3>Something is wrong here. Method not allowed!</h3>
-              <p>Access to this page is forbidden</p>
+              <p>Access to this page is denied.</p>
               <a class="btn btn-warning btn-big"  href="{{route('dashboard')}}">Back to Home</a> </div>
           </div>
         </div>

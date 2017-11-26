@@ -36,7 +36,7 @@
       <div style="width: 150px; float: left; margin-bottom: 5px;">
         <label for="">Experience</label>
         <select name="experience" id="filterex" onchange="jsFunction(this.value);">
-          <option value="0">All</a></option>
+          <option value="0">All</option>
           <option value="1">No experience</option>
           <option value="2">1 year</option>
           <option value="3">More 2 years</option>
@@ -66,7 +66,7 @@
         <div class="span12">
           <div class="widget-box">
             <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-              <button onclick="transferAddEngineer()" class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>
+              @if(Session::get('isAdmin')=='admin')<button onclick="transferAddEngineer()" class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Engineer</button>@endif
 
             </div>
             <div class="widget-content nopadding">
@@ -83,8 +83,10 @@
                     <th>Technical Skills</th>
                     <th>Experience</th>
                     <th>Status</th>
+                    @if(Session::get('isAdmin')=='admin')
                     <th>Edit</th>
                     <th>Delete</th>
+                      @endif
                   </tr>
                 </thead>
                 <tbody>
@@ -105,10 +107,10 @@
                         <span id="lb-config" class="{{$controllerColor->changeColorStatusEngi($list->busy)}}">Active</span>
                       @endif
                     </td>
-                    <td> <a href="EditEngineer/{{$list->idEngineer}}" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
+                    @if(Session::get('isAdmin')=='admin') <td> <a href="EditEngineer/{{$list->idEngineer}}" ><i class="icon-edit" style="margin-left: 10px;"></i></a></td>
 
                     <td> <a href="#myAlertEngi" data-toggle="modal" onclick="IdToModalEngi('{{$list->idEngineer}}')"><i class="icon-remove" style="margin-left: 15px;"></i></a></td>
-
+@endif
                   </tr> 
                   @endforeach
                 </tbody>

@@ -50,7 +50,7 @@
                 <div class="span12">
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                            <a href="/AddTeam"><button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Team</button></a>
+                            @if(Session::get('isAdmin')=='admin') <a href="/AddTeam"><button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Team</button></a>@endif
                         </div>
                         <div class="widget-content nopadding">
                             <table class="table table-bordered table-striped data-table">
@@ -60,8 +60,10 @@
                                     <th>Team name</th>
                                     <th>Status</th>
                                     <th>Technical Skill</th>
+                                    @if(Session::get('isAdmin')=='admin')
                                     <th>Edit</th>
                                     <th>Delete</th>
+                                        @endif
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -71,11 +73,12 @@
                                     <td><a href="javascript:void(0)">{{$data->teamName}}</a></td>
                                     <td><span id="lb-config" class="{{$controllerColor->changeColor($data->status)}}">{{$data->status}}</span></td>
                                     <td>{{$data->techSkill}}</td>
-                                    <td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
+                                    @if(Session::get('isAdmin')=='admin')<td style="text-align: center;"> <a href="/EditTeam/{{$data->idTeam}}" ><i class="icon-edit"></i></a></td>
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="/DelTeam/{{$data}}" ><i class="icon-remove"></i></a></td>--}}
                                     {{--<td style="text-align: center;"> <a onclick="showDialog()" href="#" ><i class="icon-remove"></i></a></td>--}}
                                     {{--<td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" class="btn btn-warning"><i class="icon-remove"></i></a></td>--}}
                                     <td style="text-align: center;"> <a href="#myAlert" data-toggle="modal" onclick="IdToModal('{{$data->idTeam}}',this)"><i class="icon-remove"></i></a></td>
+                                @endif
                                 </tr>
                                 @endforeach
                                 </tbody>

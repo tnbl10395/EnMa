@@ -12,7 +12,7 @@ use App\lib\changeColorStatus;
 use App\lib\getStatusProject;
 use App\lib\changeIDProject;
 use App\lib\changeIDTeam;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Software_Engineer_Management;
 use App\json;
@@ -24,93 +24,106 @@ class ProjectController extends Controller
         $this->middleware('auth');
     }
 
-    public function IndexPro(){
+    public function IndexPro()
+    {
         $controllerIDPro = new changeIDProject();
         $controllerIDTeam = new changeIDTeam();
         $controllerColor = new changeColorStatus();
-    	  $Project = Project::all();  
+        $Project = Project::all();
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
         //$getDetail =  DB::table('Project')->where('idProject',$idProject)->get();
         // dd($_id);       
-        return view('project.IndexProjectManagement',['Project' => $Project, 
-                                                      'totalEngineer' => $_totalEngineer,
-                                                      'totalTeam' => $_totalTeam,
-                                                      'totalProject' => $_totalProject,
-                                                      'controllerIDPro' => $controllerIDPro,
-                                                      'controllerIDTeam' => $controllerIDTeam,
-                                                      'controllerColor' => $controllerColor 
-                                                     ]);
+        return view('project.IndexProjectManagement', ['Project' => $Project,
+            'totalEngineer' => $_totalEngineer,
+            'totalTeam' => $_totalTeam,
+            'totalProject' => $_totalProject,
+            'controllerIDPro' => $controllerIDPro,
+            'controllerIDTeam' => $controllerIDTeam,
+            'controllerColor' => $controllerColor
+        ]);
 
     }
-    public function AddPro(){
-        $_totalTeam = $this->totalTeam();
-        $_totalProject = $this->totalProject();
-        $_totalEngineer = $this->totalEngineer();
-        $getIdTeam = DB::table('Team')->select('idTeam','teamName')->where('status','=','New')->get();
 
-        //echo $getIdTeam;
+    public function AddPro()
+    {
+        if (Session::get('isAdmin') == 'admin') {
+            $_totalTeam = $this->totalTeam();
+            $_totalProject = $this->totalProject();
+            $_totalEngineer = $this->totalEngineer();
+            $getIdTeam = DB::table('Team')->select('idTeam', 'teamName')->where('status', '=', 'New')->get();
 
-        $Techni = Technical::all();
+            //echo $getIdTeam;
 
-    	return view('project.FormAddPro')->with(['totalEngineer' => $_totalEngineer,
-                                                 'totalTeam' => $_totalTeam,
-                                                 'totalProject' => $_totalProject,]) -> with(['getIdTeam' => $getIdTeam,
-                                                 'Techni' => $Techni]);
-    } 
+            $Techni = Technical::all();
+
+            return view('project.FormAddPro')->with(['totalEngineer' => $_totalEngineer,
+                'totalTeam' => $_totalTeam,
+                'totalProject' => $_totalProject,])->with(['getIdTeam' => $getIdTeam,
+                'Techni' => $Techni]);
+        } else {
+            return view('errors.500');
+        }
+    }
+
     public function postAddPro(Request $request)
     {
-       // $this -> validate($request,
-         //   [
-                // 'idProject' => 'required|min:2|max:50'
-           // ],
-           // [
-                // 'idProject.required' => 'id khong duoc de trong',
-                // 'idProject.min' => 'toi thieu la 2',
-                // 'idProject.max' => 'toi da la 50 ki tu',
-            //]);
+        // $this -> validate($request,
+        //   [
+        // 'idProject' => 'required|min:2|max:50'
+        // ],
+        // [
+        // 'idProject.required' => 'id khong duoc de trong',
+        // 'idProject.min' => 'toi thieu la 2',
+        // 'idProject.max' => 'toi da la 50 ki tu',
+        //]);
         $pro = new Project;
         // dd($request->all());
         // $pro -> idProject = $request -> idProject;
-        $pro -> projectName = $request -> projectName;
-        $pro -> status = $request -> status;
-        $pro -> techSkill = $request -> TechSkill;
-        $pro -> dateOfBegin = $request -> dateOfBegin;
-        $pro -> dateOfEnd = $request -> dateOfEnd;
-        $pro -> customer_code = $request -> customer_code;
-        $pro -> idTeam = $request -> idTeam;
-        $pro -> save();
+        $pro->projectName = $request->projectName;
+        $pro->status = $request->status;
+        $pro->techSkill = $request->TechSkill;
+        $pro->dateOfBegin = $request->dateOfBegin;
+        $pro->dateOfEnd = $request->dateOfEnd;
+        $pro->customer_code = $request->customer_code;
+        $pro->idTeam = $request->idTeam;
+        $pro->save();
 
 
-  $updateIDTeam = DB::table('Team')->where('idTeam','=',$pro -> idTeam)->update(['status'=>'Assigned']);
-  
-       return redirect ('/ProjectManagement')-> with ('thbao','Add Successfully a new project!');
+        $updateIDTeam = DB::table('Team')->where('idTeam', '=', $pro->idTeam)->update(['status' => 'Assigned']);
+
+        return redirect('/ProjectManagement')->with('thbao', 'Add Successfully a new project!');
     }
 
-    public function EditPro($idProject){
+    public function EditPro($idProject)
+    {   if (Session::get('isAdmin') == 'admin') {
         $_totalTeam = $this->totalTeam();
         $_totalProject = $this->totalProject();
         $_totalEngineer = $this->totalEngineer();
 
-        $getIN = DB::table('Project')->select('idTeam')->where('idProject',$idProject)->get();
+        $getIN = DB::table('Project')->select('idTeam')->where('idProject', $idProject)->get();
 
         $_controllerIDPro = new changeIDProject();
         $_controllerIDTeam = new changeIDTeam();
         $Techni = Technical::all();
-        $getIdTeam = DB::table('Team')->select('idTeam','teamName')->where('status','=','New')->get();
+        $getIdTeam = DB::table('Team')->select('idTeam', 'teamName')->where('status', '=', 'New')->get();
 
 
-        return view('project.FormEditPro', ['oneProject'=>$idProject,
-                                            'totalEngineer' => $_totalEngineer,
-                                            'totalTeam' => $_totalTeam,
-                                            'totalProject' => $_totalProject,
-                                            'controllerIDPro' => $_controllerIDPro,
-                                            'controllerIDTeam' => $_controllerIDTeam])
-                                     -> with(['getIdTeam' => $getIdTeam,'Techni'=>$Techni]); 
+        return view('project.FormEditPro', ['oneProject' => $idProject,
+            'totalEngineer' => $_totalEngineer,
+            'totalTeam' => $_totalTeam,
+            'totalProject' => $_totalProject,
+            'controllerIDPro' => $_controllerIDPro,
+            'controllerIDTeam' => $_controllerIDTeam])
+            ->with(['getIdTeam' => $getIdTeam, 'Techni' => $Techni]);
 
 
-    }
+    }else
+{
+return view('errors.500');
+}
+}
     public function postEditPro(Request $request, $idProject){
         //$listPro = Project::find($idProject);
 
@@ -175,9 +188,9 @@ class ProjectController extends Controller
         
     }
     public function DelPro(Request $request, $id){
-
+        if (Session::get('isAdmin') == 'admin') {
        $result =  DB::table('Project')->where('idProject',$id)->delete();
-        return $result;
+        return $result;}
     }
     public function totalEngineer(){
       $_engineer = new Engineer();

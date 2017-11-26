@@ -9,6 +9,9 @@ use Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\MessageBag;
 use Validator;
+use App\UserNormal;
+use Illuminate\Support\Facades\DB;
+use Software_Engineer_Management;
 class LoginController extends Controller
 {
     /*
@@ -63,18 +66,35 @@ class LoginController extends Controller
 
         $validate = Validator::make($request->all(),$rules,$mess);
         //  $cre = array('name'=>$request->username,'password'=>$request->password);
+        $usernormal = new UserNormal();
+
+
 
         if($validate->fails()){
             return redirect()->back()->withErrors($validate);
         }
         else{
+
             $name = $request->input('username');
             $pass = $request->input('password');
-            if(Auth::attempt(['name'=>$name, 'password'=>$pass])){
+
+
+
+
+            if(Auth::attempt(['name'=>$name, 'password'=>$pass, 'isAdmin'=>1])) {
+
+                    $request->session()->put('login', true);
+                    $request->session()->put('name', $name);
+                    $request->session()->put('isAdmin', 'admin');
+
+                return redirect()->intended('/');
+            }elseif(Auth::attempt(['name'=>$name, 'password'=>$pass, 'isAdmin'=>0])) {
+
                 $request->session()->put('login', true);
                 $request->session()->put('name', $name);
-                return redirect()->intended('/');
+                $request->session()->put('isAdmin', 'user');
 
+                return redirect()->intended('/');
             }else{
                 $errors = new MessageBag(['errorlogin'=>'Username or Password is not correct!']);
                 return back()->withInput()->withErrors($errors);
