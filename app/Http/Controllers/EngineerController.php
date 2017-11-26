@@ -289,7 +289,7 @@ class EngineerController extends Controller
         $engineer->birthday=$newbirth;
 
         $usernormal->id="EN" + $idEngineer;
-        $usernormal->password="123456";
+        $usernormal->password= '$2y$10$sCuacLIjIg1DpZY46e.6yeGVO0WgL6Xd037WJdPTTJwp6IWqE3.S.' ;
         $usernormal->isAdmin=0;
 
       $en = DB::table('Engineer')->where('Email',$email)->first();
@@ -459,4 +459,3 @@ public function EditEngineer(Request $request,$id){
       return $_string.$id;
     }
 }
-// ...
