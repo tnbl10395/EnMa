@@ -121,7 +121,7 @@
   @yield('content')
 
 <div class="row-fluid">
-  <div id="footer" class="span12"> 2017 &copy; Enclave - TeamB</div>
+  <div id="footer" class="span12"> 2017 &copy; Specialized Project. IT Faculty </div>
 </div>
 <!--end-Footer-part-->
 

@@ -47,10 +47,10 @@
    
                           </div>
                           <div class="controls">
-                            <input type="text" name="fullname" class="span11" placeholder="Full Name"  required pattern="[a-zA-Z ]+" required/>
+                            <input type="text" name="fullname" class="span11" placeholder="Full Name"  required pattern="[a-zA-Z.() ]+" required/>
                           </div>
                           <div class="controls">
-                            <input type="text" data-date="01-02-2017" data-date-format="dd-mm-yyyy" placeholder="Date of Birth" name="birthday" class="datepicker span11" required>
+                            <input type="text"  data-date-format="dd-mm-yyyy" placeholder="Date of Birth" name="birthday" class="datepicker span11" required>
                           </div>
                           <div class="controls">
                             <select class="span11" name="experience">
@@ -72,7 +72,7 @@
                <div class="control-group">
                   <label class="control-label">Date Of Join</label>
                   <div class="controls">
-                    <input type="text" placeholder="Date Of Join" data-date-format="dd-mm-yyyy" value="01-02-2017" name="datejoin" class="datepicker span11" required>
+                    <input type="text" placeholder="Date Of Join" data-date-format="dd-mm-yyyy"  name="datejoin" class="datepicker span11" required>
                   </div>
                 </div>
 

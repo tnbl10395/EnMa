@@ -73,7 +73,7 @@
       <div class="span12">
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <a href="../AddProject"><button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Project</button></a>
+              @if(Session::get('isAdmin')=='admin') <a href="../AddProject"><button class="btn btn-info" style="margin: 3px 0px 0px 3px;">Add Project</button></a>@endif
             
           </div>
 
@@ -89,8 +89,9 @@
                   <th>Date Of End</th>
                   <th>Customer</th>
                   <th>Id Team</th>
+                    @if(Session::get('isAdmin')=='admin')
                   <th>Edit</th>
-                  <th>Delete</th>
+                  <th>Delete</th>@endif
                 </tr>
               </thead>
               <tbody>
@@ -129,10 +130,10 @@
                   @if ($pr->idTeam!=NULL)
                   {{$controllerIDTeam->idName($pr -> idTeam)}}
                   @endif
-                  </td>  
-                  <td style="text-align: center;"> <a href="../EditProject/{{ $pr -> idProject}}" ><i class="icon-edit"></i></a></td>
+                  </td>
+                     @if(Session::get('isAdmin')=='admin')<td style="text-align: center;"> <a href="../EditProject/{{ $pr -> idProject}}" ><i class="icon-edit"></i></a></td>
                   <td style="text-align: center;"> <a href="#myAlertPro" data-toggle="modal" onclick="IdToModalPro('{{$pr->idProject}}')"><i class="icon-remove"></i></a></td>
-
+                    @endif
 
                <!--    <td style="text-align: center;"><button type="button" class="btn btn-info btn-lg view-detail-project" data-toggle="modal" data-value="{{$pr -> idProject}}">Detail</button></td> -->
 

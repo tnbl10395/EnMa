@@ -4909,6 +4909,7 @@ Stack trace:
 #50 D:\PHP-Lar\enma\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #51 D:\PHP-Lar\enma\server.php(21): require_once('D:\\PHP-Lar\\enma...')
 #52 {main}  
+<<<<<<< HEAD
 [2017-11-27 00:46:53] local.ERROR: ErrorException: Undefined index: idTeam in D:\PHP-Lar\enma\app\Http\Controllers\TeamController.php:138
 Stack trace:
 #0 D:\PHP-Lar\enma\app\Http\Controllers\TeamController.php(138): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined index...', 'D:\\PHP-Lar\\enma...', 138, Array)
@@ -5238,4 +5239,3 @@ Stack trace:
 #49 D:\PHP-Lar\enma\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #50 D:\PHP-Lar\enma\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #51 D:\PHP-Lar\enma\server.php(21): require_once('D:\\PHP-Lar\\enma...')
-#52 {main}  
