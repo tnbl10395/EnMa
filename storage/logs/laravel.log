@@ -4909,3 +4909,13 @@ Stack trace:
 #50 D:\PHP-Lar\enma\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #51 D:\PHP-Lar\enma\server.php(21): require_once('D:\\PHP-Lar\\enma...')
 #52 {main}  
+[2017-11-27 10:42:38] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "servwe" is not defined.
+
+Did you mean this?
+    serve in D:\PHP-Lar\enma\vendor\symfony\console\Application.php:579
+Stack trace:
+#0 D:\PHP-Lar\enma\vendor\symfony\console\Application.php(204): Symfony\Component\Console\Application->find('servwe')
+#1 D:\PHP-Lar\enma\vendor\symfony\console\Application.php(130): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 D:\PHP-Lar\enma\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\PHP-Lar\enma\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
