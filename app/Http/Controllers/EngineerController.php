@@ -15,11 +15,15 @@ use App\UserNormal;
 use Illuminate\Support\Facades\Session;
 
 class EngineerController extends Controller
-{
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
+{	
+  public function __construct()
+  {
+    $this->middleware('auth');
+
+  }
+    
+
 
 
     public function IndexEM()
@@ -38,6 +42,7 @@ class EngineerController extends Controller
             'controller' => $_changeIDName,
             'controllerColor' => $_changeColor]);
     }
+
 
     public function Filtertable($id)
     {
@@ -107,6 +112,34 @@ class EngineerController extends Controller
         echo $ex;
         echo $tec;
         $list = DB::table('Engineer')->where('TechSkill', 'like', '%' . $tec . '%')->where('Experience', 'like', '%' . $ex . '%')->get();
+
+       switch ($exp) {
+           case '1':
+              $ex="No experience";
+               
+               break;
+           case '2':
+              $ex="1 year";
+                            break;
+           case '3':
+              $ex="More 2 years";
+                            break;  
+           case '4':
+              $ex="More 5 years";
+               
+               break;
+           case '5':
+              $ex="More 10 years";
+               # code...
+               break;
+        
+           default:
+               # code...
+               break;
+     }
+
+     $list = DB::table('Engineer')->where('TechSkill','like','%'.$tec.'%')->where('Experience','like','%'.$ex.'%')->get();
+
 
         // if($ex==null){
 
@@ -186,7 +219,7 @@ class EngineerController extends Controller
          $email= $request->input('email');
          $dateout= $request->input('dateout');
          $datein = $request->input('datein'); 
-       
+
   // Hadle multi Checkboxes Technical skill       
          $tech="";
 
@@ -288,9 +321,14 @@ class EngineerController extends Controller
         $engineer->outOfdate=$newdateout;
         $engineer->birthday=$newbirth;
 
+
         $usernormal->id="EN" + $idEngineer;
         $usernormal->password="123456";
         $usernormal->isAdmin=0;
+
+         $engineer->birthday_mail=0;
+         $engineer->status=1;
+         $engineer->busy=0;
 
       $en = DB::table('Engineer')->where('Email',$email)->first();
           
@@ -308,9 +346,7 @@ class EngineerController extends Controller
       // } else echo"ok";
     // return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
 
-        $engineer->birthday_mail=0;
-        $engineer->status=1;
-        $engineer->busy=0;
+
        
       echo $tech;
        $engineer->save();
@@ -459,4 +495,3 @@ public function EditEngineer(Request $request,$id){
       return $_string.$id;
     }
 }
-// ...

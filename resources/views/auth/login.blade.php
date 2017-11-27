@@ -27,7 +27,7 @@
             <div class="controls">
                 <div class="main_input_box">
                     <span class="add-on bg_lg"><i class="icon-user"> </i></span>
-                    <input type="text" name="username" placeholder="Username"/>
+                    <input type="text" name="username" placeholder="Username" required autofocus/>
 
                 </div>
             </div>
@@ -38,14 +38,14 @@
             <div class="controls">
                 <div class="main_input_box">
                     <span class="add-on bg_ly"><i class="icon-lock"></i></span>
-                    <input type="password" name="password" placeholder="Password"/>
+                    <input type="password" name="password" placeholder="Password" required/>
 
                 </div>
             </div>
         </div>
         {!! csrf_field() !!}
         <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-info"
+            <span class="pull-left"><a href="/password/reset" class="flip-link btn btn-info"
                                        id="to-recover">Forgot password?</a></span>
             <span class="pull-right"><button type="submit" class="btn btn-success"> Login</button></span>
         </div>

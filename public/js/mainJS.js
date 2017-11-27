@@ -392,7 +392,7 @@ function showDetailEngi(id){
 // }
 function showDetailProject(id){
   $.ajax({
-    url : "/DetailEngineerailProject/"+id,
+    url : "/DetailProject/"+id,
     dataType: "text",
 
     success: function(result){
@@ -400,6 +400,7 @@ function showDetailProject(id){
     }
   });
 
+//LOGOUT
 
 //LOGOUT
 
@@ -445,6 +446,7 @@ function infoEngiInTeam(id){
             $("#modalengiInfo").modal();
         }
     });
+
 }
 function jsFunction(id)
   
