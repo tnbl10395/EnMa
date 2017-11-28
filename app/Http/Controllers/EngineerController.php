@@ -305,7 +305,7 @@ class EngineerController extends Controller
         $engineer->avatar=$namePhoto; 
 
     }
-        $idEngineer = DB::table('Engineer')->orderBy('idEngineer', 'desc')->first();
+
        // $idEngineer_ar = [];
         //$idEngineer->idEngineer+=1;
 
@@ -323,10 +323,7 @@ class EngineerController extends Controller
         $engineer->birthday=$newbirth;
 
 
-        $usernormal->name="EN" . $idEngineer->idEngineer+=1;
-        $usernormal->password= '$2y$10$sCuacLIjIg1DpZY46e.6yeGVO0WgL6Xd037WJdPTTJwp6IWqE3.S.' ;
-        $usernormal->isAdmin=0;
-        $usernormal->email=$email;
+
 
          $engineer->birthday_mail=0;
          $engineer->status=1;
@@ -336,6 +333,12 @@ class EngineerController extends Controller
           
         if (is_null($en)) {
             $engineer->save();
+
+            $idEngineer = DB::table('Engineer')->orderBy('idEngineer', 'desc')->first();
+            $usernormal->name="EN" . $idEngineer->idEngineer;
+            $usernormal->password= '$2y$10$tJ.3pZyNZ7oW09MBB3sOhucDVQ33K1BqMEBpSbwxnQqg2BiQABjku' ;
+            $usernormal->isAdmin=0;
+            $usernormal->email=$email;
             $usernormal->save();
             return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
         } else {
@@ -359,8 +362,11 @@ class EngineerController extends Controller
     }
 
 public function DelEng(Request $request, $id){
-            if (Session::get('isAdmin') == 'admin') {$result =  DB::table('Engineer')->where('idEngineer',$id)->delete();
-          return $result;}
+            if (Session::get('isAdmin') == 'admin') {
+                $result =  DB::table('Engineer')->where('idEngineer',$id)->delete();
+                DB::table('users')->where('name',$id)->delete();
+                return $result;
+            }
     }
 
 public function EditEngineer(Request $request,$id){
@@ -455,13 +461,18 @@ public function EditEngineer(Request $request,$id){
     
       }
       //Update database    
-     $engineer = DB::table('Engineer')->where('idEngineer',$id);
+        $engineer = DB::table('Engineer')->where('idEngineer',$id);
 
 
    
         $engineer->update(['engineerName'=>$name,'Address'=>$address,'Phone'=>$phone,'Email'=>$email,'Experience'=>$ex,'dateJoin'=>$datein,'outOfdate'=>$dateout,'TechSkill'=>$tech,'status'=>$sta,'avatar'=>$Editname,'birthday'=>$birth]);
 
-        return redirect("EngineerManagement")->with('notify','Update Successfully the engineer!');
+        //$usernormal = new UserNormal();
+        $usernormal = DB::table('users')->where('name','EN'.$id);
+
+        $usernormal->update(['Email'=>$email]);
+
+    return redirect("EngineerManagement")->with('notify','Update Successfully the engineer!');
 
     }
 
