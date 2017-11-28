@@ -306,14 +306,15 @@ class EngineerController extends Controller
 
     }
         $idEngineer = DB::table('Engineer')->orderBy('idEngineer', 'desc')->first();
-        $idEngineer_ar = [];
+       // $idEngineer_ar = [];
+        //$idEngineer->idEngineer+=1;
 
-        $idEngineer+=1;
-        $engineer->idEngineer=$idEngineer;
+
+        //$engineer->idEngineer=$idEngineer;
         $engineer->engineerName="$name";
         $engineer->Address="$address";
         $engineer->Phone="$phone";
-        $engineer->Email="$email";
+        $engineer->Email=$email;
         $engineer->TechSkill="2";
         $engineer->Experience="$ex";
         $engineer->TechSkill=$tech;
@@ -322,9 +323,10 @@ class EngineerController extends Controller
         $engineer->birthday=$newbirth;
 
 
-        $usernormal->id="EN" + $idEngineer;
-        $usernormal->password="123456";
+        $usernormal->name="EN" . $idEngineer->idEngineer+=1;
+        $usernormal->password= '$2y$10$sCuacLIjIg1DpZY46e.6yeGVO0WgL6Xd037WJdPTTJwp6IWqE3.S.' ;
         $usernormal->isAdmin=0;
+        $usernormal->email=$email;
 
          $engineer->birthday_mail=0;
          $engineer->status=1;
@@ -348,10 +350,10 @@ class EngineerController extends Controller
 
 
        
-      echo $tech;
-       $engineer->save();
-       $usernormal->save();
-    return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
+//      echo $tech;
+//       $engineer->save();
+//       $usernormal->save();
+//    return redirect('EngineerManagement')->with('notify','Add Successfully a new engineer');
 
 
     }
