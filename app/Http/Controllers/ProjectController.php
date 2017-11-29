@@ -125,38 +125,28 @@ return view('errors.500');
 }
 }
     public function postEditPro(Request $request, $idProject){
-        //$listPro = Project::find($idProject);
-
-
-            // $list = DB::table('Project')->where('idProject', '=', $idProject)->get();
-            // $list -> update($request->all());
             $project = new Project();
             $idTeam = $request->input('idTeam');
-
             $getIN = DB::table('Project')->select('idTeam')->where('idProject',$idProject)->get();
-            // echo $getIN;
-            // dd($getIN);
             if ($getIN[0]->idTeam==NULL){
-
                   $list = $project->where('idProject',$idProject)
                             ->update(['projectName' => $request->input('projectName'),
-                                      'status' => $request->input('status'), 
+//                                      'status' => $request->input('status'),
+                                      'status' => 1,
                                       'techSkill' => $request->input('techSkill'), 
                                       'dateOfBegin' => $request->input('dateOfBegin'),
                                       'dateOfEnd' => $request->input('dateOfEnd'),
                                       'customer_code' => $request->input('customer_code'),
                                       'idTeam' => $request -> input ('idTeam')]);
-
                    $updateIDTeam = DB::table('Team')->where('idTeam','=',$request->input('idTeam'))->update(['status'=>'Assigned']);
-   
-
                   return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update successfully the project!');
      
             }
             else{
                 $list = $project->where('idProject',$idProject)
                             ->update(['projectName' => $request->input('projectName'),
-                                      'status' => $request->input('status'), 
+//                                      'status' => $request->input('status'),
+                                      'status' => 1,
                                       'techSkill' => $request->input('techSkill'), 
                                       'dateOfBegin' => $request->input('dateOfBegin'),
                                       'dateOfEnd' => $request->input('dateOfEnd'),
@@ -164,13 +154,9 @@ return view('errors.500');
                                       ]);
 
                    $updateIDTeam = DB::table('Team')->where('idTeam','=',$request->input('idTeam'))->update(['status'=>'Assigned']);
-   
-
                   return redirect ('/ProjectManagement')-> with ('thbaoEdit','Update successfully the project!');
 
             }
-            
-        
     }
     public function DetailPro($_id) 
     {
