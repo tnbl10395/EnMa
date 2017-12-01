@@ -53,10 +53,20 @@
                                 {{$teamEngi->showOptionRole($member->role)}}
                             </select>
                         </td>
-                        <td><span class="label label-success">In Team</span></td>
+                        <td>
+                            @if($member->busy == 0)
+                                <span class="label label-info">Waiting</span>
+                            @else
+                                <span class="label label-success">In Team</span>
+                            @endif
+                        </td>
                         <td>{{$member->DateOfJoining}}</td>
                         <td style="text-align: center"> <a onclick="infoEngiInTeam({{$member->idEngineer}})" ><i class="icon-edit"></i></a></td>
-                        <td style="text-align: center"> <a href="javascript:void(0)" ><i class="icon-remove"></i></a></td>
+                        <td style="text-align: center"> 
+                            @if($member->DateOfJoining != null)
+                            <a href="javascript:void(0)" ><i class="icon-remove"></i></a>
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

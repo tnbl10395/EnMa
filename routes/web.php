@@ -85,6 +85,8 @@ Route::get('Team/ShowDetail','TeamController@showDetailTeam');
 Route::get('Team/ChangeRole','TeamEngiController@changeRole');
 Route::get('Team/OldEngineer/{id}','TeamEngiController@showOldEngineer');
 
+Route::post('acceptMail/{id}','TeamEngiController@acceptEmail');
+
 Route::get('/checkDB', function ()
 {
     dd(DB::connection()->getDatabaseName());

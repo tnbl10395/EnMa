@@ -19,13 +19,14 @@ class InformUser extends Mailable
      * @return void
      *
      */
-    public  $team, $project, $engineer;
+    public  $team, $project, $engineer, $idEngineer, $idHistory;
 
-    public function __construct($teamName, $listNameEngineer, $idProject)
+    public function __construct($teamName, $listNameEngineer, $idProject, $idHistory, $idEngineer)
     {
         $this->team = $teamName;
         $this->engineer = $listNameEngineer;
-
+        $this->idEngineer = $idEngineer;
+        $this->idHistory = $idHistory;
         $this->project=DB::table('Project')->select('projectName','techSkill', 'dateOfBegin','customer_code')->where('idProject',$idProject)->get();
     }
 
@@ -36,6 +37,6 @@ class InformUser extends Mailable
      */
     public function build()
     {
-        return $this->from("agent.enclave@gmail.com")->view('email.inform')->subject('[Enclave] Assign Project');
+        return $this->from("agent.enclave@gmail.com")->view('email.inform')->subject('[Company] Assign Project');
     }
 }
