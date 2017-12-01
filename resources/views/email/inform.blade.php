@@ -4,33 +4,6 @@
     <title>Accept Team</title>
 </head>
 <body>
-<style type="text/css">
-#title{
-    font-weight: bold;
-    color: #4CAF50;
-    text-align: center;
-}
-.project{
-    color: #4F4F4F;
-}
-.button{
-    width: 80px;
-    height: 35px;
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    /*padding: 15px 32px;*/
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-}
-.button:hover{
-    background-color: #989898;
-    color: black;
-}
-</style>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td align="center" valign="top" bgcolor="#ababab" style="background-color:#ababab;"><br>
@@ -49,7 +22,7 @@
                         <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
                             <tr>
                                 <td style="font-family:Arial, Helvetica, sans-serif;">
-                                    <h1 id="title">You are assigned to a new Project!</h1>
+                                    <h1 id="title" style="font-weight: bold;color: #4CAF50;text-align: center;">You are assigned to a new Project!</h1>
                                     <hr>
                                     <h2 class="project" style="color: black;">Name: {{$project[0]->projectName}}</h2>
                                 </td>
@@ -74,14 +47,22 @@
                         <hr>
                         <table width="570" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:5px;">
                             <tr>
-                                <td>
-                                    <h2 style="color:black;" class="project">Would you like to join this project?</h3>      
-                                </td>
+                                <!-- <td> -->
+                                    <h2 style="color:black; margin-left: 10px;" class="project">Would you like to join this project?</h3>      
+                                <!-- </td> -->
                             </tr>
                             <tr>
                                 <td align="center">
-                                    <button class="button" onclick="window.location.href=''">Yes</button>
-                                    <button class="button" onclick="window.location.href=''">No</button>
+                                    <form method="post" action="{{asset('/acceptMail/'.$idEngineer)}}">
+                                        <input type="hidden" name="idHistory" value="{{$idHistory}}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="submit" name="accept" value="Yes"> 
+                                    </form>
+                                    <form method="post" action="{{asset('/acceptMail/'.$idEngineer)}}">
+                                        <input type="hidden" name="idHistory" value="{{$idHistory}}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="submit" name="accept" value="No"> 
+                                    </form>
                                 </td>
                             </tr>
                         </table>

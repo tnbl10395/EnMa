@@ -32,14 +32,20 @@ class TeamEngiController extends Controller
         $dataToInsert=[];
         foreach($listidEngineer as $engineer)
             array_push($dataToInsert,['idEngineer'=>$engineer,'idProject'=>$idProject,
-                'idTeam'=>$idTeam,'role'=>'coder','DateOfJoining'=>Carbon::today()]);
-
-        $mailable = new InformUser($teamName, $listNameEngineer, $idProject);
-       Mail::to($listEmailEngineer)->send($mailable);
-        if(count(Mail::failures()) <= 0) {
+                'idTeam'=>$idTeam,'role'=>'coder']);
+        DB::table('History')->insert($dataToInsert);
+        $idHistory = DB::table('History')->select('idHistory')->orderBy('idHistory','desc')->first();
+        // $mailable = new InformUser($teamName, $listNameEngineer, $idProject, $idHistory);
+        foreach($listidEngineer as $idEngineer){
+            $email = DB::table('Engineer')->where('idEngineer', $idEngineer)->select('email')->first();
+            $mailable = new InformUser($teamName, $listNameEngineer, $idProject, $idHistory->idHistory, $idEngineer);
+            Mail::to($email->email)->send($mailable);            
+        }
+        // Mail::to($listEmailEngineer)->send($mailable);
+        // if(count(Mail::failures()) <= 0) {
 ////        print_r($dataToInsert);
-            DB::table('Engineer')->whereIn('idEngineer', $listidEngineer)->update(['busy' => 1]);
-            DB::table('History')->insert($dataToInsert);
+            // DB::table('Engineer')->whereIn('idEngineer', $listidEngineer)->update(['busy' => 1]);
+            // DB::table('History')->insert($dataToInsert);
 //        DB::table('History')->where('idHistory',30)->update(['expire'=>Carbon::today()]);
 //        DB::table('History')->where('idHistory',30)->update(['expire'=>DB::raw('current_date')]);//ok
 
@@ -49,12 +55,11 @@ class TeamEngiController extends Controller
 //        Mail::to($list_mail)->send($mailable);
 
 
-        }
+        // }
     }
 
     public function removeEngineerFromTeam(Request $request){
         $res = $request->all();
-
         $result = DB::table("History")->where('idEngineer',$res['idEngineer'])->where('idTeam',$res['idTeam'])
             ->update(['expire'=>Carbon::today()]);
         if(!$result) return 0;
@@ -65,7 +70,7 @@ class TeamEngiController extends Controller
     }
 
     public function showCurrentEngineer($id){
-        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role','History.DateOfJoining')->
+        $teamMember = DB::table('History')->select('History.idEngineer','Engineer.engineerName','History.role','History.DateOfJoining','Engineer.busy')->
         join('Engineer','History.idEngineer','=','Engineer.idEngineer')->where('idTeam',$id)->whereNull('expire')->get();
         return view('team.listEngiCurrent')->with(['member'=>$teamMember,'teamEngi'=>$this]);
     }
@@ -95,5 +100,15 @@ class TeamEngiController extends Controller
                 echo "<option value='$role' selected>$role</option>";
             else echo "<option value='$role'>$role</option>";
         }
+    }
+
+    public function acceptEmail(Request $request, $id){
+        if($request->accept == 'Yes'){
+            DB::table('Engineer')->where('idEngineer', $id)->update(['busy' => 1]);
+            DB::table('History')->where('idHistory', $request->idHistory)->update(['DateOfJoining'=>Carbon::today()]);            
+        }else if($request->accept == 'No'){
+            DB::table('History')->where('idHistory',$request->idHistory)->delete();
+        }
+
     }
 }
